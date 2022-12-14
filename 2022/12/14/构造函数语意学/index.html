@@ -4,9 +4,12 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="关于对象, Huang Shichang&#39;s Blog">
-    <meta name="description" content="1、C++在布局以及存取时间上的主要负担是有virtual引起的，这其中包括1、virtual function机制 ：用以支持一个有效率的“执行期绑定的”
-2、virtual base class：用以实现“多次出现在继承体系中的base">
+    <meta name="keywords" content="Huang Shichang&#39;s Blog">
+    <meta name="description" content="0、通常很多C++程序员存在两种误解：
+没有定义默认构造函数的类都会被编译器生成一个默认构造函数。
+编译器生成的默认构造函数会明确初始化类中每一个数据成员。
+
+在读《深度探索C++对象模型》之前，我一直停留在上述二种误解上，所幸的是Lipp">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +21,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>关于对象 | Huang Shichang&#39;s Blog</title>
+    <title>Huang Shichang&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -335,12 +338,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">关于对象</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -362,13 +365,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E6%B7%B1%E5%BA%A6%E6%8E%A2%E7%B4%A2C-%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/">
-                                <span class="chip bg-color">深度探索C++对象模型</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -380,7 +379,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-12-09
+                    2022-12-14
                 </div>
                 
 
@@ -401,23 +400,56 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1、C-在布局以及存取时间上的主要负担是有virtual引起的，这其中包括"><a href="#1、C-在布局以及存取时间上的主要负担是有virtual引起的，这其中包括" class="headerlink" title="1、C++在布局以及存取时间上的主要负担是有virtual引起的，这其中包括"></a>1、C++在布局以及存取时间上的主要负担是有virtual引起的，这其中包括</h4><p>1、virtual function机制 ：用以支持一个有效率的“执行期绑定的”</p>
-<p>2、virtual base class：用以实现“多次出现在继承体系中的base class，有一个单一而被共享的实例”</p>
-<h4 id="2、C-有三种方式支持多态"><a href="#2、C-有三种方式支持多态" class="headerlink" title="2、C++有三种方式支持多态"></a>2、C++有三种方式支持多态</h4><p>1、经由一组隐式的转化操作，比如将派生类指针转化为指向其基类的指针  shape *ps &#x3D;new circle();</p>
-<p>2、经由virtual  function机制  ps-&gt;rotate()</p>
-<p>3、经由dynamic_cast 和typeid运算符</p>
-<p>if(circle *pc &#x3D; dynamic_cast&lt;circle *&gt; (ps))</p>
-<h4 id="3、一个类的对象的内存大小包括："><a href="#3、一个类的对象的内存大小包括：" class="headerlink" title="3、一个类的对象的内存大小包括："></a>3、一个类的对象的内存大小包括：</h4><ul>
-<li><p>所有非静态数据成员的大小。</p>
-</li>
-<li><p>由内存对齐而填补的内存大小。</p>
-</li>
-<li><p>为了支持virtual有内部产生的额外负担。</p>
-<p>如下类：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ZooAnimal</span> &#123;  </span><br><span class="line"><span class="keyword">public</span>:  </span><br><span class="line">    <span class="built_in">ZooAnimal</span>();  </span><br><span class="line">    <span class="keyword">virtual</span> ~<span class="built_in">ZooAnimal</span>();  </span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">rotate</span><span class="params">()</span></span>;  </span><br><span class="line"><span class="keyword">protected</span>:  </span><br><span class="line">    <span class="type">int</span> loc;  </span><br><span class="line">    String name;  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+                <h3 id="0、通常很多C-程序员存在两种误解："><a href="#0、通常很多C-程序员存在两种误解：" class="headerlink" title="0、通常很多C++程序员存在两种误解："></a>0、通常很多C++程序员存在两种误解：</h3><ul>
+<li>没有定义默认构造函数的类都会被编译器生成一个默认构造函数。</li>
+<li>编译器生成的默认构造函数会明确初始化类中每一个数据成员。</li>
 </ul>
-<p>在32位计算机上所占内存为16字节：int四字节，String8字节（一个表示长度的整形，一个指向字符串的指针），以及一个指向虚函数表的指针vptr。对于继承类则为基类的内存大小加上本身数据成员的大小。</p>
-<h4 id="4、C-类包含两种数据成员：静态数据成员和非静态数据成员；同时包含成员函数，静态函数和虚函数三种成员函数"><a href="#4、C-类包含两种数据成员：静态数据成员和非静态数据成员；同时包含成员函数，静态函数和虚函数三种成员函数" class="headerlink" title="4、C++类包含两种数据成员：静态数据成员和非静态数据成员；同时包含成员函数，静态函数和虚函数三种成员函数"></a>4、C++类包含两种数据成员：静态数据成员和非静态数据成员；同时包含成员函数，静态函数和虚函数三种成员函数</h4>
+<p>在读《深度探索C++对象模型》之前，我一直停留在上述二种误解上，所幸的是<br>Lippman为我破除了藩篱。下面的部分我将随《深度探索C++对象模型》对C++默<br>认构造函数一探究竟。</p>
+<p>C++标准规定：如果类的设计者并未为类定义任何构造函数，那么会有一个默认<br>构造函数被暗中生成，而这个暗中生成的默认构造函数通常是不做什么事的(无<br>用的)，下面四种情况除外。</p>
+<p>换句话说，有以下四种情况编译器必须为未声明构造函数的类生成一个会做点事<br>的默认构造函数。我们会看到这些默认构造函数仅“忠于编译器”，而可能不会按<br>照程序员的意愿程效命。</p>
+<h3 id="1-包含有带默认构造函数的对象成员的类"><a href="#1-包含有带默认构造函数的对象成员的类" class="headerlink" title="1.包含有带默认构造函数的对象成员的类"></a>1.包含有带默认构造函数的对象成员的类</h3><p>若一个类X没有定义任何构造函数，但却包含一个或以上定义有默认构造函数的<br>对象成员，此时编译器会为X合成默认构造函数，该默认函数会调用对象成员的<br>默认构造函数为之初始化。如果对象的成员没有定义默认构造函数，那么编译器<br>合成的默认构造函数将不会为之提供初始化。例如类A包含两个数据成员对象，<br>分别为：<code>string str</code>和<code>char *Cstr</code>，那么编译器生成的默认构造函数将只提<br>供对string类型成员的初始化，而不会提供对char*类型的初始化。</p>
+<p>假如类X的设计者为X定义了默认的构造函数来完成对str的初始化，形如：<br><code>A::A()&#123;Cstr=”hello”&#125;;</code>因为默认构造函数已经定义，编译器将不能再生成一<br>个默认构造函数。但是编译器将会扩充程序员定义的默认构造函数——在最前面插<br>入对初始化str的代码。若有多个定义有默认构造函数的成员对象，那么这些成员<br>对象的默认构造函数的调用将依据声明顺序排列。</p>
+<h3 id="2-继承自带有默认构造函数的基类的类"><a href="#2-继承自带有默认构造函数的基类的类" class="headerlink" title="2.继承自带有默认构造函数的基类的类"></a>2.继承自带有默认构造函数的基类的类</h3><p>如果一个没有定义任何构造函数的类派生自带有默认构造函数的基类，那么编译<br>器为它定义的默认构造函数，将按照声明顺序为之依次调用其基类的默认构造函<br>数。若该类没有定义默认构造函数而定义了多个其他构造函数，那么编译器扩充<br>它的所有构造函数——加入必要的基类默认构造函数。另外，编译器会将基类的默<br>认构造函数代码加在对象成员的默认构造函数代码之前。</p>
+<h3 id="3-带有虚函数的类"><a href="#3-带有虚函数的类" class="headerlink" title="3.带有虚函数的类"></a>3.带有虚函数的类</h3><p>带有虚函数的类，与其它类不太一样，因为它多了一个vptr，而vptr的设置是由<br>编译器完成的，因此编译器会为类的每个构造函数添加代码来完成对vptr的初始<br>化。</p>
+<h3 id="4-带有一个虚基类的类"><a href="#4-带有一个虚基类的类" class="headerlink" title="4.带有一个虚基类的类"></a>4.带有一个虚基类的类</h3><p>在这种情况下，编译器要将虚基类在类中的位置准备妥当，提供支持虚基类的机<br>制。也就是说要在所有构造函数中加入实现前述功能的的代码。没有构造函数将<br>合成以完成上述工作。</p>
+<p>总结：简单来讲编译器会为构造函数做的一点事就是调用其基类或成员对象的默<br>认构造函数，以及初始化vprt以及准备虚基类的位置。</p>
+<p>总的来说，编译器将对构造函数动这些手脚：</p>
+<ul>
+<li>如果类虚继承自基类，编译器将在所有构造函数中插入准备虚基类位置的代<br>码和提供支持虚基类机制的代码。</li>
+<li>如果类声明有虚函数，那么编译器将为之生成虚函数表以存储虚函数地址，<br>并将虚函数指针（vptr）的初始化代码插入到类的所有构造函数中。</li>
+<li>如果类的父类有默认构造函数，编译将会对所有的默认构造函数插入调用其<br>父类必要的默认构造函数。必要是指设计者没有显示初始化其父类，调用顺<br>序，依照其继承时声明顺序。</li>
+<li>如果类包含带有默认构造函数的对象成员，那么编译器将会为所有的构造函<br>数插入对这些对象成员的默认构造函数进行必要的调用代码，所谓必要是指<br>类设计者设计的构造函数没有对对象成员进行显式初始化。成员对象默认构<br>造函数的调用顺序，依照其声明顺序。</li>
+<li>若类没有定义任何构造函数，编译器会为其合成默认构造函数，再执行上述<br>四点。</li>
+</ul>
+<p>【2011&#x2F;12&#x2F;21 补】需要说明的是，从概念来上来讲，每一个没有定义构造函数<br>的类都会由编译器来合成一个默认构造函数，以使得可以定义一个该类的对象，<br>但是默认构造函数是否真的会被合成，将视是否有需要而定。C++ standard 将<br>合成的默认构造函数分为 trivial 和 notrivial 两种，前文所述的四种情况对<br>应于notrivial默认构造函数，其它情况都属于trivial。对于一个trivial默认<br>构造函数，编译器的态度是，既然它全无用处，干脆就不合成它。在这儿要厘清<br>的是概念与实现的差别，概念上追求缜密完善，在实现上则追求效率，可以不要<br>的东西就不要。</p>
+<h3 id="5、命名返回值优化"><a href="#5、命名返回值优化" class="headerlink" title="5、命名返回值优化"></a>5、命名返回值优化</h3><p>对于一个如<code>foo()</code>这样的函数，它的每一个返回分支都返回相同的对象，编译器有可能对其做Named return Value优化（下文都简称NRV优化），方法是以引用的方式传入一个参数<code>result</code>取代返回对象。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">X <span class="title">foo</span><span class="params">()</span> <span class="comment">//原型</span></span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    X xx; </span><br><span class="line">    <span class="keyword">if</span>(...) </span><br><span class="line">        returnxx; </span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">        returnxx; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>优化后的<code>foo()</code>以<code>result</code>取代<code>xx</code>：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span>  <span class="title">foo</span><span class="params">(X &amp;result)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    result.X::<span class="built_in">X</span>();</span><br><span class="line">    <span class="keyword">if</span>(...)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//直接处理result</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//直接处理result</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对比优化前与优化后的代码可以看出，对于一句类似于<code>X a = foo()</code>这样的代<br>码，NRV优化后的代码相较于原代码节省了一个临时对象的空间（省略了xx）,同<br>时减少了两次函数调用（减少xx对象的默认构造函数和析构函数，以及一次拷贝<br>构造函数的调用，增加了一次对a的默认构造函数的调用）。</p>
+<p>注：Lippman在《深度探索C++》书中指出NRV的开启与关闭取决于是否有显式定义一个拷贝构造函数，我实在想不出有什么理由必须要有显示拷贝构造函数才能开启NRV优化，于是在vs2010中进行了测试，测试结果表明，在release版本中，不论是否定义了一个显式拷贝构造函数，NRV都会开启。由此可见vs2010并不以是否有一个显式拷贝构造函数来决定NRV优化的开启与否。但同时，立足于这一点，可以得出Lippman所说的以是否有一个显式定义的拷贝构造函数来决定是否开启NRV优化，应该指的是他自己领导实现的cfront编译器，而非泛指所有编译器。那么cfront又为什么要以是否定义有显示的拷贝构造函数来决定是否开启NRV优化呢？我猜测，他大概这样以为，当显式定义有拷贝构造函数的时候一般代表着要进行深拷贝，也就是说此时的拷贝构造函数将费时较长，在这样的情况下NRV优化才会有明显的效果。反之，不开启NRV优化也不是什么大的效率损失。</p>
+<p>另外，有一点要注意的是，NRV优化，有可能带来程序员并不想要的结果，最明显的一个就是——当你的类依赖于构造函数或拷贝构造函数，甚至析构函数的调用次数的时候，想想那会发生什么。由此可见、Lippman的cfront对NRV优化抱有更谨慎的态度，而MS显然是更大胆。</p>
+<h3 id="6、成员初始化队列（Member-Initialization-List）"><a href="#6、成员初始化队列（Member-Initialization-List）" class="headerlink" title="6、成员初始化队列（Member Initialization List）"></a>6、成员初始化队列（Member Initialization List）</h3><p>对于初始化队列，我相信厘清一个概念是非常重要的：在构造函数中对于对象<br>成员的初始化发生在初始化队列中——或者我们可以把初始化队列直接看做是对<br>成员的定义，而构造函数体中进行的则是赋值操作。所以不难理解有四种情况<br>必须用到初始化列表：</p>
+<ul>
+<li>有const成员</li>
+<li>有引用类型成员</li>
+<li>成员对象没有默认构造函数</li>
+<li>基类对象没有默认构造函数</li>
+</ul>
+<p>前两者因为要求定义时初始化，所以必须明确的在初始化队列中给它们提供初<br>值。后两者因为不提供默认构造函数，所有必须显示的调用它们的带参构造函<br>数来定义即初始化它们。</p>
+<p>显而易见的是当类中含有对象成员或者继承自基类的时候，在初始化队列中初<br>始化成员对象和基类子对象会在效率上得到提升——省去了一些赋值操作嘛。</p>
+<p>最后，一个关于初始化队列众所周知的陷阱，初始化队列的顺序，请参考《C++<br>primer》或者《深度探索C++对象模型》。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">X</span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">int</span> j;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">X</span>(<span class="type">int</span> val):<span class="built_in">j</span>(val),<span class="built_in">i</span>(j) &#123;&#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段程序是要将j的初始值设置为val，再将i设置为j，但是由于声明顺序的原因，initialzation list中的 i(j) 其实要比 j(val) 更早执行的，所以这是会导致一定的错误出现。</p>
+<p>下面是回一个比较喜欢的解决方式：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">X</span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">int</span> j;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">X</span>(<span class="type">int</span> val):<span class="built_in">j</span>(val) &#123;</span><br><span class="line">        i = j;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>initialzation list的执行先于 用户自定义的函数体，因此这样写就有效解决了上述问题。</p>
+<p>总的来说：编辑器会对initialzation list一一处理并可能重新排列，以反映出members的声明顺序，它会安插一些代码到 constructor 体内，并置于任何 explicit user code之前。</p>
+
                 
             </div>
             <hr/>
@@ -443,7 +475,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://autinc.github.io/2022/12/09/%E5%85%B3%E4%BA%8E%E5%AF%B9%E8%B1%A1/">http://autinc.github.io/2022/12/09/%E5%85%B3%E4%BA%8E%E5%AF%B9%E8%B1%A1/</a>
+                    <a href="http://autinc.github.io/2022/12/14/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E8%AF%AD%E6%84%8F%E5%AD%A6/">http://autinc.github.io/2022/12/14/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E8%AF%AD%E6%84%8F%E5%AD%A6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -480,11 +512,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E6%B7%B1%E5%BA%A6%E6%8E%A2%E7%B4%A2C-%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/">
-                                    <span class="chip bg-color">深度探索C++对象模型</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -561,9 +589,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/12/14/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E8%AF%AD%E6%84%8F%E5%AD%A6/">
                     <div class="card-image">
@@ -581,9 +610,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-12-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -592,6 +621,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -602,13 +632,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/12/07/hello-world/">
+                <a href="/2022/12/09/%E5%85%B3%E4%BA%8E%E5%AF%B9%E8%B1%A1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="关于对象">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">关于对象</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -619,7 +649,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-09
                             </span>
                         <span class="publish-author">
                             
@@ -628,6 +658,14 @@
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E6%8E%A2%E7%B4%A2C-%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">深度探索C++对象模型</span>
+                    </a>
+                    
                 </div>
                 
             </div>
