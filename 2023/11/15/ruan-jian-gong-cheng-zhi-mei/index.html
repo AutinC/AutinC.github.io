@@ -1,0 +1,2698 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="软件工程之美, Huang Shichang&#39;s Blog">
+    <meta name="description" content="怎样学好软件工程软件工程知识架构全景图
+质量焦点：聚焦于质量，构建和维护高质量的软件。可以说，聚焦于质量就是软件工程的基石。
+过程：在软件项目的生命周期内，也就是软件从诞生到结束这期间，在开发与构建系统时要遵循的步骤。
+方法：在整个过程中，">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>软件工程之美 | Huang Shichang&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.0.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.jpeg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Huang Shichang&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.jpeg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Huang Shichang&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/AutinC/AutinC.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/AutinC/AutinC.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">软件工程之美</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B9%8B%E7%BE%8E-%E6%9E%81%E5%AE%A2/">
+                                <span class="chip bg-color">软件工程之美-极客</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-11-15
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    25.4k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="怎样学好软件工程"><a href="#怎样学好软件工程" class="headerlink" title="怎样学好软件工程"></a><strong>怎样学好软件工程</strong></h2><h3 id="软件工程知识架构全景图"><a href="#软件工程知识架构全景图" class="headerlink" title="软件工程知识架构全景图"></a>软件工程知识架构全景图</h3><p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/5b3yy6642bace3928782e978de576fdc.jpg"></p>
+<p><strong>质量焦点：聚焦于质量，构建和维护高质量的软件</strong>。可以说，聚焦于质量就是软件工程的基石。</p>
+<p><strong>过程：</strong>在软件项目的生命周期内，也就是软件从诞生到结束这期间，在开发与构建系统时要遵循的步骤。</p>
+<p><strong>方法：</strong>在整个过程中，如何构建系统的方法学。比如说，如何分析用户需求；如何对产品进行测试验收；如何进行系统架构设计等。</p>
+<p><strong>工具：</strong>通过工具，可以把一些手动的工作自动化，比如自动化测试工具，自动构建部署工具；通过工具，可以帮助把一些流程规范起来，比如 Bug 跟踪、源代码管理；还可以通过工具，帮助提高编码效率，比如各种编辑器 IDE、各种高级语言。</p>
+<p><strong>软件工程 = 工具 + 方法 + 过程。</strong></p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/9926b79ecc91a4e664933c587f630199.jpg"></p>
+<h3 id="如何学习软件工程"><a href="#如何学习软件工程" class="headerlink" title="如何学习软件工程"></a>如何学习软件工程</h3><ol>
+<li><p><strong>用器</strong></p>
+<p>比如，原型设计工具可以帮助你确定需求，持续集成工具可以帮助你简化测试和部署的流程。对工具的学习是最为简单的，也是最基础的。</p>
+</li>
+<li><p><strong>学术</strong></p>
+<p>学会方法，就能应用方法去完成一个任务，例如用需求分析的方法，去搞清楚用户想要什么，用 Scrum 去组织项目开发过程。</p>
+</li>
+<li><p><strong>悟道</strong></p>
+<p>软件工程知识的核心思想和本质规律。就像敏捷开发，本身并不是一种方法，而是一套价值观和原则，领悟了这个道，就可以成为在处理项目过程中各种问题决策的依据。</p>
+</li>
+<li><p><strong>传道</strong></p>
+<p>能把复杂的知识通过浅显易懂的方式传授给别人，那就说明对知识的领悟已经到了更高的境界。</p>
+</li>
+</ol>
+<h2 id="把每件事都当作一个项目来推进"><a href="#把每件事都当作一个项目来推进" class="headerlink" title="把每件事都当作一个项目来推进"></a><strong>把每件事都当作一个项目来推进</strong></h2><h3 id="什么是工程方法"><a href="#什么是工程方法" class="headerlink" title="什么是工程方法"></a>什么是工程方法</h3><p><strong>有目的、有计划、有步骤地解决问题的方法就是工程方法。</strong></p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/c45b734291f8a36d4c3d7ed87e384e4e.jpg"></p>
+<h4 id="站在整体而非局部去看问题"><a href="#站在整体而非局部去看问题" class="headerlink" title="站在整体而非局部去看问题"></a>站在整体而非局部去看问题</h4><p>用工程方法去处理事情，有两点好处：</p>
+<ol>
+<li><strong>有一个被有效论证过的方法论指导你，可以帮助你提高成功概率，也可以提高效率。</strong></li>
+<li><strong>当你用工程方法去思考的时候，你会更多的站在整体而非局部去思考，更有大局观。</strong></li>
+</ol>
+<p><strong>问题的核心并不在于是不是用工程方法，而是有没有把这件事当作一个项目，是不是能看到这件事的全貌，而不是只看到局部。</strong></p>
+<h2 id="瀑布模型"><a href="#瀑布模型" class="headerlink" title="瀑布模型"></a><strong>瀑布模型</strong></h2><h3 id="瀑布模型的概念"><a href="#瀑布模型的概念" class="headerlink" title="瀑布模型的概念"></a>瀑布模型的概念</h3><p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/043ec1b87258d3b414b4fa2c5572f20f.jpg"></p>
+<p>在 1970 年，Winston Royce 博士借鉴了其他工程领域的思想，比如建筑工程，提出了瀑布开发模型，指出软件开发应有完整之周期，并将软件开发过程分成了若干阶段。<strong>也是从那时开始，有了“软件生命周期”(Software Life Cycle,SLC) 的概念。</strong></p>
+<h3 id="瀑布模型的优缺点"><a href="#瀑布模型的优缺点" class="headerlink" title="瀑布模型的优缺点"></a>瀑布模型的优缺点</h3><p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/881b21fa452df38da1604f5a6b55d65c.jpg"></p>
+<h2 id="其他开发模型"><a href="#其他开发模型" class="headerlink" title="其他开发模型"></a>其他开发模型</h2><h3 id="快速开发快速改"><a href="#快速开发快速改" class="headerlink" title="快速开发快速改"></a>快速开发快速改</h3><p><strong>快速原型模型，就是为了要解决客户的需求不明确和需求多变的问题。</strong></p>
+<p>先迅速建造一个可以运行的软件原型，然后收集用户反馈，再反复修改确认，使开发出的软件能真正反映用户需求，这种开发模型就叫快速原型模型，也叫原型模型。</p>
+<p>重点是反映软件核心功能和交互，功能可以是不完整的，可靠性和性能要求不高，<strong>以牺牲质量为代价</strong>，但开发速度可以很快。</p>
+<h3 id="大瀑布拆小瀑布"><a href="#大瀑布拆小瀑布" class="headerlink" title="大瀑布拆小瀑布"></a>大瀑布拆小瀑布</h3><p><strong>瀑布模型的很多问题，根源都是周期太长</strong>。如果能将周期变短，那么很多问题就迎刃而解了。</p>
+<p>基于这种思路，产生了很多开发模型，比较典型的主要是：<strong>增量模型</strong> 和 <strong>迭代模型</strong>。</p>
+<ul>
+<li><p><strong>增量模型——按模块分批次交付</strong></p>
+<p>增量模型是把待开发的软件系统模块化，然后在每个小模块的开发过程中，应用一个小瀑布模型，对这个模块进行需求分析、设计、编码和测试。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/20d7896e4a52e8043defff6eedb9869b.jpg"></p>
+<p><strong>如果系统不能模块化，那么将很难采用增量模型的模式来开发。</strong></p>
+<p>增量模型主要适用于：<strong>需求比较清楚，能模块化的软件系统，并且可以按模块分批次交付。</strong></p>
+</li>
+<li><p><strong>迭代模型——每次迭代都有一个可用的版本</strong></p>
+<p>迭代模型每次只设计和实现产品的一部分，然后逐步完成更多功能。每次设计和实现一个阶段叫做一个迭代。</p>
+<p>在一个迭代中都会包括需求分析、设计、实现和测试，类似于一个小瀑布模型。<strong>迭代结束时要完成一个可以运行的交付版本。迭代模型最难的部分，在于规划每次迭代的内容和要达到的目标。</strong></p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/9abe6230baeb7a92a95b65dd7c383d10.jpg"></p>
+</li>
+</ul>
+<p><strong>增量模型是按照功能模块来拆分；而迭代模型则是按照时间来拆分，看单位时间内能完成多少功能。</strong></p>
+<p>用盖房子来理解，增量模型则是先盖厨房，再是卧室，这样一个个模块来完成。而迭代模型则是先盖一个简单的茅草房，有简易的土灶和土床，然后再升级成小木屋，有更好的灶和更好的卧室，这样一步步迭代成最终的房子。</p>
+<h3 id="怎么选择合适的模型"><a href="#怎么选择合适的模型" class="headerlink" title="怎么选择合适的模型"></a>怎么选择合适的模型</h3><p><strong>场景一：外包项目，需要阶段验收</strong></p>
+<p><strong>V 模型，本质上还是瀑布模型，但更重视对每个阶段验收测试的过程模型。</strong></p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/c015252d6ae984b667499ee5b8c76ab1.jpg" alt="V 模型"></p>
+<p><strong>场景二：项目风险高，随时可能会中断</strong></p>
+<p><strong>螺旋模型，在每次交付的时候，要同时做一个风险评估，如果风险过大就不继续后续开发了，及时止损。</strong></p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/5c1f2444754f3ce5ce68e0a790da2bcc.png"></p>
+<p><strong>场景三：山寨一款软件产品，希望能快速上线发布</strong></p>
+<p>项目需求是明确的，不会有什么变化，这时候就可以选择增量模型，划分好模块，先实现核心模块，发布可运行版本，再增量发布其他模块。多模块可以同步开发。</p>
+<p><strong>场景四：客户需求不明确</strong></p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/b0091341a7fa31cd26d8a02e7d63e2fc.png"></p>
+<p><strong>场景五：产品已经上线，但是需要持续更新维护</strong></p>
+<p>在这种情况下，<strong>迭代模型</strong>是比较合适的。固定时间周期，在固定的周期内选择适合的需求开发任务和 Bug 修复任务去完成，按时发布。</p>
+<p>另外还可以尝试<strong>敏捷开发</strong>，也是基于迭代的开发模型，它也强调快速交付，每次交付系统的部分功能，来保证客户满意度。在敏捷开发中，系统交付的周期称之为冲刺（Sprint）。</p>
+<h2 id="敏捷开发"><a href="#敏捷开发" class="headerlink" title="敏捷开发"></a>敏捷开发</h2><h3 id="什么是敏捷开发"><a href="#什么是敏捷开发" class="headerlink" title="什么是敏捷开发"></a>什么是敏捷开发</h3><p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/d5f757c6b60a51dfe3dab3bde8a736ea.png" alt="敏捷宣言"></p>
+<p><strong>敏捷不是一种方法论，也不是一种软件开发的具体方法，更不是一个框架或过程，而是一套价值观和原则。</strong></p>
+<h3 id="敏捷开发解决什么问题"><a href="#敏捷开发解决什么问题" class="headerlink" title="敏捷开发解决什么问题"></a>敏捷开发解决什么问题</h3><p>敏捷开发就是想解决瀑布模型这样的重型软件开发方法存在的问题，用一种<strong>轻量的、敏捷的</strong>方法来改善甚至是替代它。</p>
+<p><strong>瀑布模型的典型问题就是周期长、发布烦、变更难，敏捷开发就是快速迭代、持续集成、拥抱变化。</strong></p>
+<h3 id="敏捷开发和瀑布模型的差异"><a href="#敏捷开发和瀑布模型的差异" class="headerlink" title="敏捷开发和瀑布模型的差异"></a>敏捷开发和瀑布模型的差异</h3><p><strong>需求分析阶段：</strong></p>
+<ul>
+<li>瀑布模型：要有严谨的需求分析，产生详尽的需求分析文档</li>
+<li>敏捷开发：一个个小的用户故事，通常是写在卡片上的一句话，在 Sprint 的开发中，再去确认需求的细节</li>
+</ul>
+<p><strong>架构设计阶段：</strong></p>
+<ul>
+<li>瀑布模型：在需求分析完了以后，就需要根据需求做架构设计</li>
+<li>敏捷开发：不是基于完整的用户需求开发，每个 Sprint 只做一部分需求，是一种渐进式的架构设计</li>
+</ul>
+<p><strong>项目质量：</strong></p>
+<ul>
+<li>瀑布模型：在编码完成后，会有专门的阶段进行测试，以保证质量</li>
+<li>敏捷开发：开发功能的同时，要编写单元测试和集成测试代码，用自动化的方式辅助完成测试</li>
+</ul>
+<p><strong>发布部署：</strong></p>
+<ul>
+<li>瀑布模型：在编码结束后，在测试阶段定期部署测试环境，测试验收通过后，发布部署到生产环境</li>
+<li>敏捷开发：整个过程都是全自动化的，每次完成一个任务，提交代码后都可以触发一次构建部署操作，脚本会拿最新的代码做一次全新的构建，然后运行所有的单元测试和集成测试代码，测试通过后部署到测试环境</li>
+</ul>
+<h3 id="敏捷开发适应场景"><a href="#敏捷开发适应场景" class="headerlink" title="敏捷开发适应场景"></a>敏捷开发适应场景</h3><ul>
+<li>团队要小，人数超过一定规模就要分拆；</li>
+<li>团队成员之间要紧密协作，客户也要自始至终深度配合；</li>
+<li>领导们的支持。敏捷需要扁平化的组织结构，更少的控制，更多的发挥项目组成员的主动性；</li>
+<li>写代码时要有一定比例的自动化测试代码，要花时间搭建好源码管理和持续集成环境。</li>
+</ul>
+<h2 id="敏捷方法案例"><a href="#敏捷方法案例" class="headerlink" title="敏捷方法案例"></a>敏捷方法案例</h2><h3 id="基于Ticket的开发流程"><a href="#基于Ticket的开发流程" class="headerlink" title="基于Ticket的开发流程"></a>基于Ticket的开发流程</h3><p>看板：把白板分成几个栏，每一栏为一类，分别写着“To Do（待选取）”、“In Progress（进行中）”、“Done（完成）”等，再把工作任务变成一个个五颜六色的即时贴，根据状态贴在不同的栏下面。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/33752b50f5363233581263e882e19aa9.jpg" alt="看板开发流程"></p>
+<p>慢慢的物理的看板变成了电子看板，通过各种项目管理软件来管理跟踪这些任务，即时贴也变成了 Ticket（也有叫 Issue 的）：</p>
+<ul>
+<li>报一个 Bug，提交一个 Ticket ；</li>
+<li>提一条需求，提交一个 Ticket ；</li>
+<li>要重构一下代码，提交一个 Ticket 。</li>
+</ul>
+<p>大家每天上班第一件事就是打开看板，看看当前 Sprint 还有哪些 Ticket 没有完成，哪些已经完成，哪些正在进行中，非常直观。作为项目成员来说，做完手头的事情也不用去问项目经理该干什么事情了，直接从 To Do 栏选一条 Ticket 做就是了；对于项目经理，看看 To Do 栏还有多少没有被选取，就知道还剩多少 Ticket 没完成，看看 In Progress 栏就知道哪些 Ticket 正在进行中。</p>
+<h3 id="基于-Git-和-CI-的开发流程"><a href="#基于-Git-和-CI-的开发流程" class="headerlink" title="基于 Git 和 CI 的开发流程"></a>基于 Git 和 CI 的开发流程</h3><p><strong>Git</strong> 本来只是源代码管理工具，但是其强大的分支管理和灵活的权限控制，结合一定的开发流程，可以帮助很好的控制代码质量。</p>
+<ul>
+<li><p>假设现在 master 的代码是稳定的，那么怎么保证新加入的代码也稳定呢？</p>
+<p>答案就是<strong>代码审查（Code Review）和自动化测试</strong>。如果代码有严格的审查，并且所有自动化测试代码都能测试通过，那么可以认为代码质量是可靠的。当然前提是自动化测试代码要有一定的覆盖比率。</p>
+</li>
+<li><p>如何在合并到 master 之前把代码审查和自动化测试做好呢？</p>
+<p>每次要往 master 添加内容，不是直接提交代码到 master，而是先基于当前稳定的 master，克隆一个 branch（分支）出来，基于 branch 去开发，开发完成后提交一个 PR（Pull Request，合并请求）。</p>
+</li>
+</ul>
+<p><strong>CI （持续集成）</strong>可以想象成一个机器人，每次提交一个 PR（严格来说是 Commit）到源代码服务器，这个机器人马上就知道了。它会创建一个干净的运行环境，把提交的代码下载下来，再下载安装所有依赖项，然后运行所有测试代码，运行完后，测试结果直观的反馈在 PR 上，绿色表示通过，红色表示不通过。</p>
+<p>当一个 PR 代码审查通过，以及 CI 通过了所有自动化测试，就可以合并到 master 了。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/be26482df2715220b0dc2f90f034bd12.jpg"></p>
+<h3 id="敏捷开发方法的基本开发流程"><a href="#敏捷开发方法的基本开发流程" class="headerlink" title="敏捷开发方法的基本开发流程"></a>敏捷开发方法的基本开发流程</h3><ul>
+<li>把要开发的 Ticket 从“To Do”栏移动到“In Progress”栏；</li>
+<li>从主干（master）创建一个分支（branch），基于分支去开发功能或修复 Bug；</li>
+<li>编写实现代码和测试代码（单元测试和集成测试），是不是测试驱动不重要，看个人偏好或团队要求；</li>
+<li>持续提交代码更新到分支，直到完成；</li>
+<li>创建 PR（Pull Request，合并请求），邀请其他人帮忙 Review 代码，根据 Review 的结果，可能还需要更新几次；</li>
+<li>CI 在每一次提交代码到代码库后都会自动运行，运行后主要做这些工作：<ul>
+<li>检查代码格式是不是符合规范；</li>
+<li>运行单元测试代码；</li>
+<li>运行集成测试。</li>
+</ul>
+</li>
+<li>最终这些检查都完成后，CI 会把执行结果显示在 PR 上。通常绿色表示通过，红色表示失败；</li>
+<li>PR 能合并需要满足两个条件：CI 变绿 + 代码 Review 通过；</li>
+<li>PR 合并后，CI 会自动构建 Docker Image，将 Image 部署到开发环境；</li>
+<li>将相应的 Ticket 从看板上的“In Progress”栏移动到“Done”栏。</li>
+</ul>
+<h3 id="部署上线流程"><a href="#部署上线流程" class="headerlink" title="部署上线流程"></a>部署上线流程</h3><p>以前是运维人员按照文档部署，现在已经变成 <strong>DevOps 写自动化部署工具</strong>，然后开发人员自己去部署生产环境。</p>
+<ul>
+<li>首先，部署的不再是程序代码，而是 Docker 的 Image，每次代码合并后 CI 都会自动生成新的 Image，测试也是基于 Image 测试。</li>
+<li>部署生产环境之前，先在内部的测试环境充分测试。</li>
+<li>部署生产环境前，需要审批确认，有 Ticket 跟踪。</li>
+<li>部署时，先部署一部分，监测正常后再全量部署。</li>
+<li>整个过程都有监控报警，出现问题及时回滚。</li>
+</ul>
+<h2 id="软件质量与时间成本"><a href="#软件质量与时间成本" class="headerlink" title="软件质量与时间成本"></a><strong>软件质量与时间成本</strong></h2><h3 id="软件项目管理金三角"><a href="#软件项目管理金三角" class="headerlink" title="软件项目管理金三角"></a>软件项目管理金三角</h3><p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/7fa5c8351b4590a2bc8a482955c133f7.jpg"></p>
+<p>软件质量（产品的质量，客户的满意度）与范围（需要实现多少功能）、时间（多久可以完成）、成本（花多少钱）四个要素之间的平衡。</p>
+<p><strong>项目的质量是高于一切的。</strong>因此把“质量”放在三角形中间，然后在时间、成本、范围这三条边之间寻求平衡。</p>
+<h3 id="瀑布模型和敏捷开发如何平衡时间成本范围的关系"><a href="#瀑布模型和敏捷开发如何平衡时间成本范围的关系" class="headerlink" title="瀑布模型和敏捷开发如何平衡时间成本范围的关系"></a>瀑布模型和敏捷开发如何平衡时间成本范围的关系</h3><p><strong>瀑布模型的范围是固定的，其他两条边时间和成本是变量。</strong></p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/27e916733d013fa85b2964a2b1051ea0.jpg"></p>
+<p><strong>在敏捷开发中，时间和成本两条边是固定，就只有范围这条边是变量。</strong></p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/1yy45e28893d0b4652e780d47f0a2873.jpg"></p>
+<h3 id="如何平衡好软件质量与时间成本范围的关系"><a href="#如何平衡好软件质量与时间成本范围的关系" class="headerlink" title="如何平衡好软件质量与时间成本范围的关系"></a>如何平衡好软件质量与时间成本范围的关系</h3><p><strong>最多选择两样，然后在另一边或者另两条边去寻找平衡。</strong></p>
+<p>从时间、成本和范围这三条边中找出来固定的一条或者两条边，再去调整另一条边。</p>
+<ul>
+<li>淘宝网站第一个版本，直接买一个网站，再雇一堆牛人，所以淘宝网站仅用一个月上线。</li>
+<li>极限编程中，一个Sprint 要做的内容是确定的，相当于成本和范围这两条边都固定了，时间这条边就成为变量了。要么通过加班延长工作时间，要么通过提升效率、减少浪费帮助我们提升时间利用率。</li>
+<li>MVP（minimum viable product，最小化的可行性产品）模式，快速推出产品，并要求成本不用太高，那就意味着时间和成本这两条边是固定的，剩下范围这个变量。所以最简单有效的办法就是砍掉一些重要性不那么高的功能需求，只保留最核心的需求。</li>
+</ul>
+<h2 id="可行性分析"><a href="#可行性分析" class="headerlink" title="可行性分析"></a><strong>可行性分析</strong></h2><blockquote>
+<p>“可行性研究主要从哪几个方面进行？”</p>
+</blockquote>
+<blockquote>
+<p>对于软件项目的可行性研究，主要从以下几个方面入手：</p>
+<p>经济可行性：从成本和收益角度分析，看投入产出比。不仅要分析短期利益，还要分析长期利益，看是不是值得做。</p>
+<p>技术可行性：软件项目最终是需要人通过技术来实现的，所以要分析技术上是不是可行，如果有技术上解决不了的问题又能否规避。</p>
+<p>社会可行性：社会可行性涉及法律、道德、社会影响等社会因素。比如，触犯国家法律的事情肯定不能做；产品如若不符合道德标准，可能带来较大的社会负面影响，那么也要慎重考虑。</p>
+</blockquote>
+<h3 id="为什么软件项目很少做可行性研究"><a href="#为什么软件项目很少做可行性研究" class="headerlink" title="为什么软件项目很少做可行性研究"></a>为什么软件项目很少做可行性研究</h3><p>可行性研究是基于问题和解决方案来分析的，先立项才能慢慢搞明白需求是什么，然后才能有解决方案；而只有搞明白需求是什么，以及解决方案是什么，才能去做可行性研究。</p>
+<p>而软件项目很抽象，在立项之前对于问题的描述（需求）和解决方案（技术方案）通常都是模糊不清的，只有随着项目的推进，才能逐步搞清楚需求。</p>
+<p>可能项目需求最开始是模糊不清的，还不具备可行性研究的条件，那么等到项目有了一定的进展，需求逐步明确后，要继续对可行性做研究。</p>
+<p><strong>如果发现方案不具备可行性，也应及时调整方案或停止项目以止损。</strong></p>
+<h3 id="如何做好可行性研究"><a href="#如何做好可行性研究" class="headerlink" title="如何做好可行性研究"></a>如何做好可行性研究</h3><p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/ffcf64bafc95994c75db0b26e91179e9.png" alt="经济可行性"></p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/8ff84a8cd3c2ac358d7b64d51296425d.png" alt="技术可行性"></p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/c6c533c98fad3ba2f9b4dfa4691b5c75.png" alt="社会可行性"></p>
+<h2 id="管理一个软件项目"><a href="#管理一个软件项目" class="headerlink" title="管理一个软件项目"></a>管理一个软件项目</h2><h3 id="怎样管好软件项目中的人"><a href="#怎样管好软件项目中的人" class="headerlink" title="怎样管好软件项目中的人"></a>怎样管好软件项目中的人</h3><p>软件项目管理的一个维度是管人。项目管理中的人，主要涉及两类：客户和项目成员。</p>
+<ol>
+<li><p><strong>管理好客户的预期</strong></p>
+<p>想要满足客户预期，通常来说，就是你能在项目的质量、范围、时间和成本上达到要求。</p>
+<ul>
+<li>质量达标：交付产品是高质量的，满足客户需求的。</li>
+<li>完整交付：按照约定的功能范围交付最终产品。</li>
+<li>按时交付：项目按照客户认可的进度完成。</li>
+<li>预算之内：在预算内完成项目。</li>
+</ul>
+</li>
+<li><p><strong>用流程和规范让项目成员一起紧密协作</strong></p>
+<p><strong>好的项目管理，不需要直接去管人，而是管理好流程规范；项目成员不需要按照项目经理的指令做事，而是遵循流程规范。</strong></p>
+</li>
+</ol>
+<h3 id="怎样管好软件项目中的事"><a href="#怎样管好软件项目中的事" class="headerlink" title="怎样管好软件项目中的事"></a>怎样管好软件项目中的事</h3><ol>
+<li><p><strong>选择适合项目的开发模式</strong></p>
+<p>首先就是要根据项目特点选取合适的开发模式，是敏捷开发还是瀑布模型或者瀑布模型的衍生模型？是一步到位还是逐步迭代？开发模式选好了后，还需要配套的流程规范，以及合适的工具，以保障开发模式的执行。</p>
+</li>
+<li><p><strong>制定好项目计划</strong></p>
+<p>选择好开发模式后，紧接着就是要做好项目计划，有了项目计划，才能有计划有目的地去推动项目进展，出现问题也能及时发现、及时调整。</p>
+</li>
+<li><p><strong>对计划进行跟踪和控制，同时做好风险管理</strong></p>
+<p>实际执行难免会和计划有些出入，所以还需要对计划进行跟踪和控制。当项目的推进过程中，如果计划有出入时，需要分析原因，对计划做出调整。</p>
+</li>
+</ol>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/36e001d1d632d027f3ada5080c70dc5e.jpg"></p>
+<h2 id="项目计划"><a href="#项目计划" class="headerlink" title="项目计划"></a>项目计划</h2><h3 id="如何制定计划"><a href="#如何制定计划" class="headerlink" title="如何制定计划"></a>如何制定计划</h3><p>三个基本步骤：</p>
+<ul>
+<li>第一步：任务分解；</li>
+<li>第二步：估算时间；</li>
+<li>第三步：排任务路径。</li>
+</ul>
+<p><strong>1.任务分解</strong></p>
+<p><strong>工作分解结构（Work Breakdown Structure, WBS)：</strong></p>
+<p><strong>就是把要做的事情，按照一个树形结构去组织，逐级分解，分割成小而具体的可交付结果，直到不能再拆分为止。</strong></p>
+<p>在制定计划时，除了要拆分任务，还需要反复思考各种可能存在的问题。</p>
+<p><strong>2.估算时间</strong></p>
+<p>任务分解完之后，就需要对每一个任务估算时间。</p>
+<p>要想估算准确，需要从两个方面入手：</p>
+<ul>
+<li>任务拆分的越细致，想的越清楚，就能估算的越准确。</li>
+<li>要让负责这个任务的人员参与估算。</li>
+</ul>
+<p><strong>3.排路径</strong></p>
+<p>项目中有些任务是可以并行做的，而有些任务之间则是有依赖关系的。</p>
+<p><strong>排路径就是要根据任务之间的关系，资源的占用情况，排出合适的顺序。</strong></p>
+<h3 id="设置里程碑"><a href="#设置里程碑" class="headerlink" title="设置里程碑"></a>设置里程碑</h3><p>里程碑的设置，并没有特别的规则，可以是项目生命周期的特定主要时间，也可以是一些关键的时间点。	</p>
+<p>在项目的推进过程中，根据里程碑完成的情况，你就可以很直观地知道项目的进展如何。如果发现不能如期完成里程碑，就需要进行适当的调整了，例如加班，或者砍掉一些功能需求。</p>
+<h3 id="计划需要跟踪和调整"><a href="#计划需要跟踪和调整" class="headerlink" title="计划需要跟踪和调整"></a>计划需要跟踪和调整</h3><p>项目的跟踪是很必要的，可以了解计划的执行情况，了解成员的工作情况，是否能按时完成，需要什么样的帮助。</p>
+<p>敏捷开发的两个实践：</p>
+<p><strong>1.每日站立会议</strong></p>
+<p>​	在每天的站立会议上，每个项目成员都需要说一下自己昨天做了什么，明天计划做什么，有没有什么阻碍。通过这种方式，可以非常好的了解每个人的任务进展情况，同时对于成员遇到的困难，其他人也可以及时给予支持。</p>
+<p><strong>2.看板</strong></p>
+<p>​	通过看板，可以非常直观的看到每个人在干什么，进展如何。</p>
+<h2 id="流程和规范"><a href="#流程和规范" class="headerlink" title="流程和规范"></a><strong>流程和规范</strong></h2><h3 id="为什么要有流程规范"><a href="#为什么要有流程规范" class="headerlink" title="为什么要有流程规范"></a>为什么要有流程规范</h3><p><strong>1.提升团队效率：</strong></p>
+<p>​	从个体来看，因为流程规范的存在，确实可能存在效率降低的情况，但从团队的角度来看，好的流程规范反而是提升效率的。</p>
+<p><strong>2.将好的实践标准化流程化，经验共享：</strong></p>
+<p>​	早些年的软件项目，就是个人英雄主义盛行的时代，项目的成败极其依赖于个别厉害的项目经理或者技术高手，而这种牛人，总是稀缺的存在。据此形成一套套的代码规范，其他水平一般的程序员，按照代码规范，也能写出不错的代码。</p>
+<p><strong>3.借助流程规范，让项目管理从人治到“法治”</strong></p>
+<p><strong>好的项目管理，不需要直接管人管事，而是管理好计划和流程规范；项目成员不需要按照项目经理的指令做事，而是遵循计划和流程规范。</strong></p>
+<p><em><strong>流程规范，看起来是约束，实际上用的好的话，不仅可以提高团队效率，还可以将好的实践标准化流程化，让大家可以共享经验，还可以有效的管理项目。</strong></em></p>
+<h3 id="如何制定好流程规范"><a href="#如何制定好流程规范" class="headerlink" title="如何制定好流程规范"></a>如何制定好流程规范</h3><p><strong>制定流程规范的四个步骤：</strong></p>
+<p><strong>1. 明确要解决的问题</strong></p>
+<p>要制定一个流程规范，第一步就是明确是要解决什么样的问题。项目中很多问题，都可以思考是不是能通过流程解决。</p>
+<p><strong>2. 提出解决方案</strong></p>
+<p>提出解决方案，制定开发流程时，可以参考借鉴软件工程中公认的好的实践：</p>
+<ul>
+<li><strong>敏捷开发的流程：</strong>看板、站立会议、持续集成。</li>
+<li><strong>代码规范：</strong>例如说前端的有 Airbnb 的代码规范 <a target="_blank" rel="noopener" href="https://github.com/airbnb/javascript">Airbnb JavaScript Style Guide</a>，Java 的有 <a target="_blank" rel="noopener" href="http://google.github.io/styleguide/javaguide.html">Google Java Style Guide </a>，.Net 的有<a target="_blank" rel="noopener" href="http://docs.microsoft.com/en-us/dotnet/standard/index">.NET Guide</a>，等等。</li>
+<li><strong>源代码管理流程：</strong>现在的源代码主流是 git，而基于 Git 的代码管理已经有很多成熟的流程规范可以参考。例如阮一峰老师写过的<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2015/08/git-use-process.html">Git 使用规范流程</a>，<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2015/12/git-workflow.html">Git 工作流程</a>和<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2012/07/git.html">Git 分支管理策略</a>，或者 Github 官方出品的<a target="_blank" rel="noopener" href="https://guides.github.com/introduction/flow/index.html">Understanding the GitHub flow</a>，Gitlab 官方推荐的<a target="_blank" rel="noopener" href="https://docs.gitlab.com/ee/topics/gitlab_flow.html#introduction-to-gitlab-flow">Introduction to GitLab Flow</a>。</li>
+<li><strong>部署流程：</strong>现在主流的部署流程为<strong>持续部署</strong>，每次代码合并到主分支都可以触发一次自动部署，这样一有问题，就能马上知道发生在哪个环节。</li>
+</ul>
+<p><strong>3. 达成共识，推广执行</strong></p>
+<p><strong>4. 持续优化，不断改进</strong></p>
+<p><strong>将流程规范工具化：</strong></p>
+<ol>
+<li>以前代码规范的执行，主要靠反复的教育宣传和代码审查中一个个去检查；现在，借助 VSCode 这种强大的 IDE，以及 ESLint 这种代码检查工具，可以方便的检测出不符合规范的代码，甚至于可以直接格式化成满足代码规范的格式。</li>
+<li>保证代码质量的问题，早些年必须依赖测试人员大量手工的测试，而现在借助 CI（Continuous Integration，持续集成）、自动化测试和 Git，可以保证代码必须在通过测试以后，才会合并到主分支，从而很好的保证了代码的质量。</li>
+</ol>
+<h2 id="项目管理工具"><a href="#项目管理工具" class="headerlink" title="项目管理工具"></a><strong>项目管理工具</strong></h2><p>一切管理问题，都应思考能否通过工具或技术解决，如果当前工具或技术无法解决，暂时由流程规范代替，同时不停止寻找工具和技术。</p>
+<h3 id="项目管理工具软件发展史"><a href="#项目管理工具软件发展史" class="headerlink" title="项目管理工具软件发展史"></a>项目管理工具软件发展史</h3><ol>
+<li><p>最初的项目管理软件：项目计划工具</p>
+<p>早些年软件项目的开发以瀑布模型为主，瀑布模型的这种按阶段划分的开发模式，和 WBS （工作分解结构）这种将任务层层分解的理念不谋而合，<strong>MS Project</strong> 这种软件可以非常好的将所有任务分解、制订计划，按照计划跟踪执行。但其不方便跟踪任务进度，进度不直观。</p>
+</li>
+<li><p>基于 Ticket 的任务跟踪系统</p>
+<p>一个 Ticket应该包含：</p>
+<ul>
+<li>标题：摘要性的描述 Ticket 内容；</li>
+<li>类型：属于什么类型的 Ticket：Bug、需求、任务；</li>
+<li>内容：Ticket 的详细内容，例如，如果是 Bug 的话，除了要写清楚 Bug 内容，还需要重现步骤。如果是需求的话，要有需求的描述，可能还需要额外的文档链接辅助说明；</li>
+<li>创建人：谁创建的这条 Ticket；</li>
+<li>优先级：这个 Ticket 的优先级高还是低；</li>
+<li>状态：Ticket 的状态，例如：未开始、处理中、已解决、重新打开、关闭等；</li>
+<li>指派给谁：这个 Ticket 被指派给谁了，谁来负责；</li>
+<li>历史记录：整个 Ticket 改变的历史信息，用以跟踪；</li>
+</ul>
+</li>
+<li><p>基于看板的可视化任务管理</p>
+</li>
+</ol>
+<h3 id="有哪些项目管理软件"><a href="#有哪些项目管理软件" class="headerlink" title="有哪些项目管理软件"></a>有哪些项目管理软件</h3><p>项目计划工具，功能最好、最全的应该是微软的<a target="_blank" rel="noopener" href="http://products.office.com/zh-CN/project/">MS Project</a>，但遗憾的是只能运行在 Window 上，不支持 Mac 平台。如果要在 Mac 上使用项目计划工具，可选的有<a target="_blank" rel="noopener" href="http://www.omnigroup.com/omniplan">OmniPlan</a>和<a target="_blank" rel="noopener" href="http://www.projectwizards.net/en">Merlin Project</a>。</p>
+<p>基于 Ticket 的任务跟踪系统，最有名的应该是<a target="_blank" rel="noopener" href="http://www.atlassian.com/">Atlassian</a>公司出品的<a target="_blank" rel="noopener" href="https://www.atlassian.com/software/jira">Jira</a>软件，功能全面，体验很好。同类产品也很多，微软的<a target="_blank" rel="noopener" href="http://visualstudio.microsoft.com/zh-hans/tfs/?rr=https://shimo.im/docs/5A0wCnmLwn0nCjE9">Azure DevOps</a> （以前叫 TFS, Team Foundation Server），和微软系的产品如 Visual Studio、Azure 可以很好的整合。</p>
+<p>代码托管平台GitHub本身也集成了一套 Issue 跟踪管理系统，虽然没有 Jira 那么强大，但是对于普通项目来说，足够用了。尤其是对于开源项目，完全可以基于 GitHub 的 Issue 进行日常的项目管理。</p>
+<p>国内同类的软件有：</p>
+<ul>
+<li>禅道：为数不多提供开源版本可以自己搭建的；</li>
+<li>Worktile：集成了即时消息软件；</li>
+<li>TAPD：腾讯出品，可以和腾讯的服务很好整合，例如企业微信和腾讯云；</li>
+<li>云效：阿里巴巴出品，可以和阿里的服务很好整合，例如阿里云和钉钉；</li>
+<li>DevCloud：华为出品，和华为云有很好的整合。</li>
+</ul>
+<h2 id="风险管理"><a href="#风险管理" class="headerlink" title="风险管理"></a><strong>风险管理</strong></h2><h3 id="什么是风险管理"><a href="#什么是风险管理" class="headerlink" title="什么是风险管理"></a>什么是风险管理</h3><p><strong>风险 = 损失 x 发生概率</strong></p>
+<p>风险管理就是指在项目进行过程中，识别可能的风险，对风险进行评估，并加以监控，从而减少风险对项目的负面影响。</p>
+<h3 id="如何做好风险管理"><a href="#如何做好风险管理" class="headerlink" title="如何做好风险管理"></a>如何做好风险管理</h3><ol>
+<li><p><strong>培养风险意识</strong></p>
+<p>项目中的任务，不能盲目乐观，都思考一下它最坏的结果是什么，如果最坏的结果不能接受，就说明要有个 B 计划，考虑风险管理了。</p>
+</li>
+<li><p><strong>管理风险</strong></p>
+<ul>
+<li><p><strong>风险识别，识别可能的风险</strong></p>
+<p><strong>检查表法</strong>：把常见风险收集整理起来，分类列成清单，按照清单去检查对照。</p>
+<p>软件项目的风险主要分成以下几类：</p>
+<ul>
+<li>项目风险：项目预算、进度、用户和需求等方面的问题；</li>
+<li>人员风险：人员离职、人手不足等问题；</li>
+<li>技术风险：采用的技术所可能带来的风险；</li>
+<li>商业风险：与市场、产品策略等有关的商业风险。</li>
+</ul>
+</li>
+<li><p><strong>风险量化，对风险进行评估量化</strong></p>
+<p>对于概率大，后果严重的风险，需要高优先级重点考虑；对于概率不高但后果严重的问题也要考虑，不过优先级略低；对于概率高但后果不严重的风险事件，可以优先级很低或者不考虑；对于概率低后果不严重的，则可以不予考虑。</p>
+</li>
+<li><p><strong>应对计划，对风险制定应对策略</strong></p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/1f0834c11f675e1846779134746903d5.jpg"></p>
+<ul>
+<li><p><strong>回避风险——更改导致风险的方案</strong></p>
+<p>对可能发生的风险，放弃或者修改导致风险的方案。这样就从根源上消除了风险，简单而彻底。不一定适合所有情况，例如拼多多“无门槛券”的风险，就无法采用这种方案。</p>
+</li>
+<li><p><strong>转移风险——将损失转嫁出去</strong></p>
+<p>举例来说，如果团队对于服务器管理不是很在行，有可能会遇到服务器宕机或数据库丢失数据等风险，就可以考虑购买云服务，这样云服务商会帮你解决服务器宕机或数据库丢失的问题，而且万一宕机或丢数据了他们也会承担一定的责任。</p>
+</li>
+<li><p><strong>缓解风险——降低风险发生概率或减少可能造成的损失</strong></p>
+<p>在风险发生前采取一定措施，降低风险发生的概率，或者减少风险可能造成的损失。</p>
+</li>
+<li><p><strong>接受风险——明知山有虎偏向虎山行</strong></p>
+<p>有一些风险本身很难避免，或者去应对这个风险的成本超过风险发生后造成的损失，那么就没必要应对，直接选择承担风险后果就好了。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>风险监控，对风险进行监控预警</strong></p>
+<p>如果风险可以监控，可以预知风险即将发生，或者可以在风险发生后，第一时间知道，那么就可以马上对风险进行干预，避免变成更大的问题。</p>
+<p>要做好监控，第一要能对监控的内容量化，第二要设置阈值，第三就是要有后续的报警和处理机制。</p>
+<p>很多公司都已经建立了自己的监控系统，将关键数值量化，并设置阈值，超过阈值后自动触发报警机制。</p>
+<p>一个简单的例子就是服务器宕机了，监控系统发现机器没响应了，自动通过邮件、短信、电话等方式通知正在值班的人员。</p>
+</li>
+</ul>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/11b6e81fd2baffcb0c025bb56c71e130.jpg"></p>
+</li>
+</ol>
+<h2 id="项目文档"><a href="#项目文档" class="headerlink" title="项目文档"></a><strong>项目文档</strong></h2><h3 id="为什么要写文档"><a href="#为什么要写文档" class="headerlink" title="为什么要写文档"></a>为什么要写文档</h3><ul>
+<li><p><strong>帮助写文档的人理清楚思路</strong></p>
+<p><strong>先写文档，就会抛开代码细节，去站在全局思考。</strong>写的时候，各个模块之间的依赖关系、各种可能的安全隐患、各种可能需要其他人配合的地方，就都冒出来了，必须要去查资料，去找人讨论，反复缜密的思考后最终写出来。</p>
+</li>
+<li><p><strong>便于未来的维护和交接</strong></p>
+<p>如果需要长期维护，就需要一定的文档，把设计、操作流程、环境配置等内容记录下来。</p>
+</li>
+<li><p><strong>便于团队更好的协作沟通</strong></p>
+</li>
+</ul>
+<h3 id="如何写好文档"><a href="#如何写好文档" class="headerlink" title="如何写好文档"></a>如何写好文档</h3><ol>
+<li><p><strong>从模仿开始</strong></p>
+</li>
+<li><p><strong>从小文档开始</strong></p>
+</li>
+<li><p><strong>从粗到细，迭代更新</strong></p>
+</li>
+<li><p><strong>基本的画图的技巧</strong></p>
+<ul>
+<li><p>线框图</p>
+<p>用简单的方框代替功能、模块、服务等，再用箭头表示关系或者数据流向。主要是要理清楚有哪些模块，以及模块之间的关系是什么；用方框配上文字表示模块，方框之间的连线和箭头表示关系。</p>
+</li>
+</ul>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/1789cf7139c74de3a5667d50dd8406fb.png" alt="Twitter缓存方案"></p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/d11279dd5d943264f190c22578b21e4e.png" alt="Netflix的账单系统架构图"></p>
+<ul>
+<li><p>流程图</p>
+<p>表示各种不同条件下的逻辑路径。重点是要理清楚逻辑关系，各个关键节点在不同条件下的走向。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/c310f2fdef032b99c659deac5857d2fa.jpeg" alt="重置密码流程图"></p>
+</li>
+<li><p>时序图</p>
+<p>表示不同对象之间发送消息的时间顺序，尤其在涉及网络通信的文档中特别常用。画好时序图，关键是要列清楚所有涉及的对象或者服务，以及消息发送的先后顺序。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/0234da35f3bc080864a99d5ea755e25f.png"></p>
+</li>
+<li><p>各种格式截图</p>
+<p>把软件的 UI、交互设计的效果、数据趋势图、数据统计图等直接截图，必要的话配上一些箭头、文字，也可以很好的说明清楚问题。尤其是产品设计文档，经常用到。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a><strong>需求分析</strong></h2><h3 id="什么是需求"><a href="#什么是需求" class="headerlink" title="什么是需求"></a>什么是需求</h3><p>用户需求是由用户提出来的，期望满足自身一定需要的要求；</p>
+<p>产品需求就是在分析提炼用户真实需求后，提出的符合产品定位的解决方案。</p>
+<h3 id="需求分析是要分析什么"><a href="#需求分析是要分析什么" class="headerlink" title="需求分析是要分析什么"></a>需求分析是要分析什么</h3><ol>
+<li><p><strong>挖掘真实需求</strong></p>
+<p>要分析用户的真实需求，可以从三个角度入手：</p>
+<ol>
+<li>目标用户：用户不同，诉求也不一样；</li>
+<li>使用场景：使用场景不一样，解决方案也会有所不同；</li>
+<li>想要解决的问题：用户背后想要解决的问题是什么。</li>
+</ol>
+</li>
+<li><p><strong>提出解决方案</strong></p>
+<p>知道了目标用户，其使用场景和想要解决的问题，就可以结合产品定位，提出相应的解决方案。</p>
+</li>
+<li><p><strong>筛选和验证方案</strong></p>
+<p>在传统瀑布模型中，选定方案后，会写成产品设计文档，走相应的评审流程，评审完成后再进行设计、开发和测试，测试完成后会让客户再进行验收。而敏捷开发，在整个开发过程中，每个迭代或者关键的里程碑，也一样需要客户进行验收。</p>
+</li>
+</ol>
+<h3 id="怎样做需求分析"><a href="#怎样做需求分析" class="headerlink" title="怎样做需求分析"></a>怎样做需求分析</h3><p>整个过程是迭代进行的，如下所示：</p>
+<ul>
+<li>收集需求：对用户需求进行收集整理；</li>
+<li>分析需求：对需求进行分析，挖掘用户真实需求；</li>
+<li>需求评估：筛选过滤掉不可行的需求；</li>
+<li>需求设计：针对用户需求提出解决方案，设计成产品方案；</li>
+<li>验证需求：验证方案是否可行。</li>
+</ul>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/b4f5e9676ed215c1d80da73a15281776.jpg"></p>
+<h2 id="原型设计"><a href="#原型设计" class="headerlink" title="原型设计"></a><strong>原型设计</strong></h2><h3 id="发展历史"><a href="#发展历史" class="headerlink" title="发展历史"></a>发展历史</h3><p>快速原型模型就是，<strong>第一阶段确认界面布局和内容，第二阶段确认交互，第三阶段实现。</strong></p>
+<ul>
+<li><p>低保真原型设计</p>
+<p>用线框图来代替第一阶段。线框图画起来简单，纸和笔就可以，展示效果不错，通过线框图可以直观地看到界面上有什么，布局是什么样的。</p>
+<p>缺点也很明显，就是看起来不够真实，不方便反映界面之间的关系，另外也不能反映界面交互。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/6a121d4c74a1daffdf8d39833ef24bde.png"></p>
+</li>
+<li><p>中等保真原型设计</p>
+<p> Axure 这样专业的原型设计软件产生，不仅可以反映界面上的布局和内容，还可以展示网站整体结构和交互，可以达到前面快速原型开发前两个阶段同等效果。</p>
+<p>不能做到 100% 真实，因为它在界面的真实度、色彩上要比最终产品差一些，所以也被称之为中等保真原型。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/00f3aa9d97f1ab7171653bcb4bcc9419.png"></p>
+</li>
+<li><p>高保真原型设计</p>
+<p>高保真原型的学习成本和制作成本都要高于低保真原型，所以变更成本更高，而且也很容易导致产品经理花大量时间在细节的调整上，影响整体的进度。所以通常高保真都会和低保真原型设计配合使用，先用低保真原型快速确认清楚需求，再用高保真原型确认最终的交互和 UI 设计。</p>
+</li>
+</ul>
+<h3 id="怎么做好原型设计"><a href="#怎么做好原型设计" class="headerlink" title="怎么做好原型设计"></a>怎么做好原型设计</h3><ol>
+<li><p><strong>分析</strong></p>
+<p>要对用户的需求有个初步的了解，分析清楚原型设计的目标是什么。</p>
+</li>
+<li><p><strong>设计</strong></p>
+<ul>
+<li><p>画产品的信息结构图</p>
+<p>想清楚产品有哪些功能模块，模块之间的关系如何，哪些模块是公共的，哪些模块是面向不同用户显示不同内容的。</p>
+</li>
+<li><p>画产品使用流程图</p>
+<p><strong>用流程图把这些界面之间跳转的逻辑梳理清楚</strong>。不仅要考虑正常使用的流程，同时也要考虑清楚异常的情况。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>实施</strong></p>
+<p><strong>要优先考虑满足产品需求，然后是让界面好看好用</strong></p>
+</li>
+<li><p><strong>验证</strong></p>
+<p>产品经理自己反复验证几遍，如果发现有流程上走不通或者使用不方便的地方先自己调整。调整好了交给其他人去体验，让他们提出反馈意见。</p>
+</li>
+</ol>
+<h3 id="如何选择合适的原型设计工具"><a href="#如何选择合适的原型设计工具" class="headerlink" title="如何选择合适的原型设计工具"></a>如何选择合适的原型设计工具</h3><p><strong>Axure RP</strong>：Axure RP 曾一度是原型设计工具的代名词，历史悠久功能强大，可以制作网站、桌面软件、移动 App 的原型。 缺点是专业度较高，价格高。</p>
+<p><strong>墨刀</strong>：墨刀 是一款优秀的国产原型设计工具，可以制作网站、桌面软件、移动 App 的原型。上手相对容易，价钱也较 Axure 便宜很多。</p>
+<p><strong>Adobe XD</strong>：Adobe XD 是 Adebe 出的一款设计兼原型设计工具，可以制作出高保真原型，对于设计师尤其容易上手。</p>
+<p><strong>ProtoPie</strong>：ProtoPie 是一款高保真原型设计工具，不需要编程基础，可以做出逼真强大的交互效果。</p>
+<p><strong>Framer X</strong>：Framer X是一款高保真的原型设计工具，功能很强大，但是需要一定的编程基础，尤其适合程序员使用。</p>
+<h2 id="需求变更"><a href="#需求变更" class="headerlink" title="需求变更"></a><strong>需求变更</strong></h2><h3 id="如何解决需求变更"><a href="#如何解决需求变更" class="headerlink" title="如何解决需求变更"></a>如何解决需求变更</h3><ul>
+<li><strong>提升需求确定性，把需求分析做好，减少需求变更；</strong></li>
+<li><strong>提高需求变更的成本，让客户或者产品经理不能太容易就变更需求，这样就可以达到减少需求变更的目的。</strong></li>
+<li><strong>降低响应需求变更的成本，可以方便快捷地响应需求变更。</strong></li>
+</ul>
+<h2 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a><strong>架构设计</strong></h2><h3 id="为什么软件项目需要架构设计"><a href="#为什么软件项目需要架构设计" class="headerlink" title="为什么软件项目需要架构设计"></a>为什么软件项目需要架构设计</h3><p>复杂的软件项目，通常有两个特点：<strong>需求不确定和技术复杂</strong>。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/9e7f7a98e8909ac6646c19a3ac632fc6.jpg"></p>
+<ol>
+<li><p><strong>架构设计可以降低满足需求和需求变化的开发成本</strong></p>
+<p>架构设计通过对系统抽象和分解，把复杂系统拆分成若干简单的子系统。</p>
+<p>比如淘宝这样复杂的网站，最终拆分成一个个小的微服务后，单个微服务开发的难度，其实和个人博客网站的难度已经差不太多了，普通程序员都可以完成，降低了人力成本。</p>
+</li>
+<li><p><strong>架构设计可以帮助组织人员一起高效协作</strong></p>
+<p>通过对系统抽象，再拆分，可以把复杂的系统分拆。分拆后，开发人员可以各自独立完成功能模块，最后通过约定好的接口协议集成。</p>
+<p>比如前后端分拆后，有的开发人员就负责前端 UI 相关的开发，有的开发人员就负责后端服务的开发。根据团队规模还可以进一步细分，比如说前端可以有的程序员负责 iOS，有的程序员负责网站，这样最终各个开发小组规模都不大，既能有效协作，又能各自保证战斗力。</p>
+</li>
+<li><p><strong>架构设计可以帮助组织好各种技术</strong></p>
+<p>架构设计可以用合适的编程语言和协议，把框架、技术组件、数据库等技术或者工具有效的组织起来，一起实现需求目标。</p>
+<p>比如经典的分层架构，UI 层通过选择合适的前端框架，例如 React/Vue 实现复杂的界面逻辑，服务层利用 Web 框架提供稳定的网络服务，数据访问层通过数据库接口读写数据库，数据库则负责记录数据结果。</p>
+</li>
+<li><p><strong>架构设计可以保障服务稳定运行</strong></p>
+<p>比如说分布式的架构，可以把高访问量分摊到不同的服务器，这样即使流量很大，分流到单台服务器的压力并不大；还有像<a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/57715">异地多活</a>这样的架构方案可以保证即使一个机房宕机，还可以继续提供服务。</p>
+</li>
+</ol>
+<h3 id="什么是架构设计"><a href="#什么是架构设计" class="headerlink" title="什么是架构设计"></a>什么是架构设计</h3><p>架构设计的目标：<strong>用最小的人力成本来满足需求的开发和响应需求的变化，用最小的运行成本来保障软件的运行。</strong></p>
+<p><strong>组织人员和技术把系统和团队拆分，并安排好切分后的排列关系，让拆分后的部分能通过约定好的协议相互通信，共同实现最终的结果。</strong></p>
+<h3 id="如何做好架构设计"><a href="#如何做好架构设计" class="headerlink" title="如何做好架构设计"></a>如何做好架构设计</h3><p>假设现在要设计第一版本极客时间服务端的架构，只有专栏课程一个核心功能，目标用户访问量是日 PV 上万，峰值每秒 10 个左右访问，对稳定性要求高。</p>
+<ol>
+<li><p><strong>分析需求</strong></p>
+<p>一个常用的分析方法就是分析用例，也就是了解主要用户角色和其使用的场景。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/af6b79d303f126d9e2f547b1a604ef22.png"></p>
+</li>
+<li><p><strong>选择相似的成熟的架构设计方案</strong></p>
+<p>在了解清楚需求后，就可以从业界成熟的架构设计模式中选取一个或几个。</p>
+<p>本例是一个典型的网站架构，可以基于传统的分层架构来实现。分层架构按照<strong>水平方向</strong>将系统拆分成几个层，每层都有清晰的角色和分工，不需要关心其他层的细节。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/eb230b721a36aaed80afbfd7641abf88.png"></p>
+</li>
+<li><p><strong>自顶向下层层细化</strong></p>
+<ul>
+<li><p>部署架构</p>
+<p>基于云服务设计部署架构，选购云数据库和文件存储，选购虚拟机作为网站服务器。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/35e9e957e0b6a304704bb15ec2b00696.png"></p>
+<p>稳定性还不够高，万一数据库挂了或者网站服务器挂了，都可能会让服务中断一段时间。</p>
+<p>可以增加一台异地网站服务器和一个异地云数据库实例作为备份，这样一旦网站宕机或者数据库有问题，可以切换到备机，马上恢复访问。所以调整后架构如下：</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/35f3abd053654cd23896c7259d5258c0.png"></p>
+</li>
+<li><p>分层和分模块</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/410b864fd8d6cc34cb20eef07e46acd6.png"></p>
+</li>
+<li><p>API 设计、数据库设计、模块的设计</p>
+</li>
+</ul>
+</li>
+<li><p><strong>验证和优化架构设计方案</strong></p>
+<p>需要去验证方案是不是满足设计的目标，能否满足需求和未来需求的变化，能否保障软件有效地运行。</p>
+</li>
+</ol>
+<h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a><strong>技术选型</strong></h2><h3 id="考虑因素"><a href="#考虑因素" class="headerlink" title="考虑因素"></a>考虑因素</h3><ul>
+<li>受制于时间、范围和成本的约束</li>
+<li>要分析可行性和风险</li>
+<li>要考虑利益相关人</li>
+<li>避免项目决策中常见的坑<ul>
+<li>把听到的观点当事实</li>
+<li>先入为主，有了结论再找证据</li>
+</ul>
+</li>
+</ul>
+<h3 id="如何做好技术选型"><a href="#如何做好技术选型" class="headerlink" title="如何做好技术选型"></a>如何做好技术选型</h3><p>可以分成：<strong>问题定义、调研、验证、决策</strong>这几个阶段。</p>
+<ol>
+<li><p>问题定义</p>
+<p>很多时候为了解决问题引入一个新技术，然而真的需要吗？也许我们可以基于现有技术方案进行优化，根本就不需要引入一个新的技术或新的框架。</p>
+</li>
+<li><p>调研</p>
+<p>看有哪些技术选型可以满足目标，包括开源的方案和商业的方案：</p>
+<ul>
+<li>满足技术选型目标吗？</li>
+<li>满足范围、时间和成本的约束吗？</li>
+<li>是不是可行？</li>
+<li>有什么样的风险？风险是不是可控？</li>
+<li>优缺点是什么？</li>
+</ul>
+</li>
+<li><p>验证</p>
+<p>过一个小型的快速原型项目，用候选的技术方案快速做一个原型出来，做的过程中才能知道，你选择的技术选型是不是真的能满足技术选型的目标。</p>
+</li>
+<li><p>决策</p>
+<p>在调研和验证完成后，就可以召集所有利益相关人一起，就选择的方案有一个调研结果评审的会议，让大家提出自己的意见，做出最终的决策。</p>
+</li>
+</ol>
+<h2 id="开发效率"><a href="#开发效率" class="headerlink" title="开发效率"></a>开发效率</h2><h3 id="如何提高开发效率"><a href="#如何提高开发效率" class="headerlink" title="如何提高开发效率"></a>如何提高开发效率</h3><ul>
+<li><p>积极主动，行动起来改变自己</p>
+<ul>
+<li><p>想想再回应</p>
+<p>每个人对于外界的刺激都会做出反应，本能的或者习惯性的，就像我前面举的例子，遇到事情会本能的觉得都是外部原因。如果一直这样，那就会进入恶性循环，变得更加消极麻木。但如果在回应之前，给自己一点时间想想，站在积极的方面理性思考一下，就可以去控制你的本能反应。</p>
+</li>
+<li><p>减少关注圈，扩大影响圈</p>
+<p><strong>不要总盯着自己无法改变的部分，你需要要多花时间精力在影响圈上。接受不能改变的，改变能改变的，尽量扩大可改变项的范围。</strong></p>
+</li>
+</ul>
+</li>
+<li><p>以终为始，想清楚再开工</p>
+<p><strong>目标、原则和计划。</strong></p>
+<ul>
+<li><p>经常停下来想想目标</p>
+</li>
+<li><p>制定原则</p>
+<p>可以给自己定一些原则，比如：“先运行再优化 (Make it Work Make It Right Make It Fast)”，“不复制粘贴代码 (Don’t repeat yourself)”，“每个 Pull Request 要尽可能小”</p>
+</li>
+<li><p>公开自己的计划</p>
+</li>
+</ul>
+</li>
+<li><p>要事第一，把时间用在刀刃上</p>
+<ul>
+<li><strong>重要紧急的事情马上处理</strong>：生产环境出故障了，测试环境部署失败了</li>
+<li><strong>重要不紧急的要事，要花最多的时间在上面</strong>：对代码重构、写自动化测试代码、确认清楚需求文档</li>
+<li><strong>紧急不重要的事凑一起集中做</strong>：微信的消息通知，无关紧要的会议，请教一个不算很急的技术问题</li>
+<li><strong>不重要不紧急的事情能不做就不做</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="持续交付"><a href="#持续交付" class="headerlink" title="持续交付"></a><strong>持续交付</strong></h2><h3 id="集成、部署和交付的发展史"><a href="#集成、部署和交付的发展史" class="headerlink" title="集成、部署和交付的发展史"></a>集成、部署和交付的发展史</h3><ul>
+<li><p><strong>集成的发展</strong></p>
+<p>在多人软件项目开发的时候，每个人都会负责一部分功能模块的开发，集成指的就是每个人把自己开发的分支代码，合并到主干上，以便测试打包。</p>
+<ul>
+<li><p><strong>集成的原始阶段</strong></p>
+<p>早在瀑布开发的年代，在开发阶段，一般是不集成的。大家各自开发，等到开发阶段差不多快结束了，再一起提交代码到源代码管理工具，让代码集成在一起，再编译、部署发布到测试环境。由于长时间都是在各自的开发环境运行，每次集成都是很痛苦的过程，会遇到各种问题，比如说编译无法通过、hard code 了开发环境地址、类库版本不一致、API 格式不一致等，通常要持续几天甚至几周才能逐步有一个相对稳定的版本。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/9ba564d561097d452d8ea46b6e4c5ec6.png"></p>
+</li>
+<li><p><strong>持续集成</strong></p>
+<p>持续集成的做法，就是每次有代码合并入主干之前，都进行集成，持续的集成。<strong>代码集成到主干之前，必须通过自动化测试，只要有一个测试用例失败，就不能集成。</strong></p>
+<p>优点：</p>
+<ul>
+<li>配合自动化测试，这样可以保证主干的代码是稳定的；</li>
+<li>频繁集成可以让开发人员总能从主干及时获得最新的代码，不至于像类库、API 不一致等问题到最后测试的阶段才暴露出来。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>部署和交付的发展</strong></p>
+<p>部署指的是将代码发布到各种环境，比如部署测试环境以供测试。</p>
+<p>交付则指的是软件产品在测试验收通过后，具备发布到生产环境交付给客户使用的条件。</p>
+<ul>
+<li><p><strong>部署和交付的原始阶段</strong></p>
+<p>早些年，部署是一件很麻烦的事情。需要手动获取最新源代码、编译、再需要针对环境修改很多配置。</p>
+<p>随着分工的进一步细化，逐步发展成有专门的运维岗位，由运维人员负责部署。而开发人员上线前要写专门的部署文档和检查表，运维人员按照部署文档和检查表一步步部署生产环境。</p>
+</li>
+<li><p><strong>从手动部署到脚本自动化部署</strong></p>
+<p>早期的自动化部署解决方案是每日构建（Daily Build），简单来说，就是大家在每天晚上下班后，每日构建程序自动从源代码管理器下载最新代码，编译、部署程序到测试环境。这样第二天测试人员就可以拿到最新的程序，对前一天修复的 Bug 进行测试。</p>
+</li>
+<li><p><strong>从脚本部署到持续交付</strong></p>
+<p>持续交付，就是在持续集成的基础上，再进一步，在功能合并到主干后，不仅会进行自动化测试，还会打包，并部署到测试环境中。</p>
+<p>持续交付本质上也是把部署和交付这件让人痛苦的事情，更加频繁地去做，从而让部署和发布变得不但不痛苦，反而越来越简单。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/a2e354c88a3bf0df871174980ef3a900.png"></p>
+</li>
+<li><p><strong>从持续交付到持续部署</strong></p>
+<p>持续交付，对于生产环境的部署，依然需要有手动确认的环节。而持续部署，和持续交付唯一的不同，就是手动确认的环节都没有了，每次代码从分支合并到主干，在自动化测试通过后，会<strong>直接自动部署生产环境，不需要人工确认</strong>。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="持续交付的优势"><a href="#持续交付的优势" class="headerlink" title="持续交付的优势"></a>持续交付的优势</h3><ul>
+<li><strong>尽快暴露问题</strong>：自动化测试，可以保证很多问题在合并到分支之前就能被发现；每次合并后就部署到测试环境，也能让测试人员尽早介入，及时发现问题。</li>
+<li><strong>极大提升效率</strong>：持续交付让开发过程中从代码合并，一直到最终部署，都实现了自动化，能极大程度上提高效率。</li>
+<li><strong>提升质量</strong>：每次合并之前都需要通过自动化测试，因此错误会少很多。</li>
+<li><strong>降低项目成本</strong>：在最初搭建持续交付环境的时候，是要投入一定成本的，但是从长远看，开发效率提升了，代码质量提高了，反而是对降低项目的整体成本有帮助的。</li>
+</ul>
+<h3 id="如何搭建持续交付环境"><a href="#如何搭建持续交付环境" class="headerlink" title="如何搭建持续交付环境"></a>如何搭建持续交付环境</h3><ol>
+<li><p><strong>准备工作</strong></p>
+<ul>
+<li>持续集成相对要求简单：<ul>
+<li>需要有<strong>源代码管理工具</strong>，比如说 git、svn，因为持续集成工具需要从统一的源代码仓库获取代码；</li>
+<li>需要写<strong>自动化测试代码</strong>，因为持续集成有一个很重要的条件，就是自动测试必须通过。</li>
+</ul>
+</li>
+<li>持续交付相对比持续集成要求更高：<ul>
+<li>对代码构建的过程可以<strong>反复进行</strong>，并且每次构建的结果是一致的、稳定的；</li>
+<li>所有<strong>环境的配置都存在于源代码管理工具</strong>中，不仅仅是代码；</li>
+<li>需要<strong>自动创建针对于不同环境</strong>的发布包；</li>
+<li>所有环境的部署发布步骤都必须是<strong>自动化</strong>的。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>选择合适的持续集成工具</strong></p>
+<p>主要的持续集成工具：</p>
+<ul>
+<li><p>Jenkins</p>
+<p>Jenkins应该是目前最好的开源持续集成工具，可以自己搭建，插件非常丰富，可以满足绝大部分项目的需要。相对使用难度要高一些，需要花一点时间学习。</p>
+</li>
+<li><p>Go CD</p>
+<p>Go CD是 ThoughtWorks 公司出品的持续集成工具，可以免费使用。</p>
+</li>
+<li><p>Travis CI</p>
+<p>Travis CI是一个老牌的托管的商业 CI 系统，和 Github 集成的非常好，尤其是开源项目，可以免费使用。</p>
+</li>
+<li><p>GitLab CI</p>
+<p>GitLab CI是 Gitlab 推出的持续集成工具，可以自己搭建也可以使用它的在线托管，价钱便宜。</p>
+</li>
+<li><p>Azure Pipelines</p>
+<p>Azure Pipelines是微软的持续集成平台，可以自己搭建也可以使用它的在线托管，和微软的开发语言和服务集成很好。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>根据选择的工具实施</strong></p>
+</li>
+</ol>
+<h2 id="软件工程师的核心竞争力"><a href="#软件工程师的核心竞争力" class="headerlink" title="软件工程师的核心竞争力"></a><strong>软件工程师的核心竞争力</strong></h2><h3 id="如何提升学习能力"><a href="#如何提升学习能力" class="headerlink" title="如何提升学习能力"></a>如何提升学习能力</h3><ol>
+<li><p><strong>首先需要在一个技术领域深耕</strong></p>
+<p><strong>只有一个领域的知识你真正吃透，才能有效地共享到其他领域，构成一个知识领域的森林。</strong>要在某一个领域的技术达到一定深度，通常需要三年以上的时间。当熬过这个阶段，在一个技术领域取得了一定成就，不仅会收获知识树，还能收获技术上的自信，有信心在其他技术领域也同样取得成就。</p>
+</li>
+<li><p><strong>然后往相近的领域逐步横向拓展</strong></p>
+<p>当在一个技术领域达到一定深度后，可以开始横向扩展。最好是往相近的领域扩展，因为这样之前的知识有很多是可以共享的，容易快速取得成绩。</p>
+</li>
+</ol>
+<h3 id="如何提高解决问题的能力"><a href="#如何提高解决问题的能力" class="headerlink" title="如何提高解决问题的能力"></a>如何提高解决问题的能力</h3><ol>
+<li><p>明确问题</p>
+<p>透过现象看本质，去明确问题背后是不是还有其他问题。不能光看到功能需求，还需要看到安全上的需求；网络异常的问题，不能光想着应用程序错误，还要看看网络是不是有问题。</p>
+</li>
+<li><p>拆分和定位问题</p>
+<p>一个复杂的问题，只有经过拆分，才好找到本质的问题。</p>
+</li>
+<li><p>提出解决方案并总结</p>
+<p>总结要做的就是两点：</p>
+<ul>
+<li>下次有这种问题怎么解决，是不是可以做的更好？</li>
+<li>这种问题是不是可以预防？如果可以，应该怎么做？</li>
+</ul>
+</li>
+</ol>
+<h3 id="如何提升影响力"><a href="#如何提升影响力" class="headerlink" title="如何提升影响力"></a>如何提升影响力</h3><ul>
+<li><p><strong>在某个领域做出了足够牛的成绩</strong></p>
+</li>
+<li><p><strong>做事情超出预期</strong></p>
+</li>
+<li><p><strong>帮助其他人就是在帮助自己</strong></p>
+</li>
+<li><p><strong>分享就是学习和打造影响力</strong></p>
+</li>
+</ul>
+<h2 id="自动化测试"><a href="#自动化测试" class="headerlink" title="自动化测试"></a><strong>自动化测试</strong></h2><h3 id="自动化测试的重要性"><a href="#自动化测试的重要性" class="headerlink" title="自动化测试的重要性"></a>自动化测试的重要性</h3><p><strong>人工测试：</strong></p>
+<p>根据需求写成测试用例，设计好输入值和期望的输出，然后按照测试用例一个个操作，输入一些内容，做一些操作，观察是不是和期望的结果一致，一致就通过，不一致就不通过。</p>
+<p><strong>自动化测试：</strong></p>
+<p>就是把这些操作，用程序脚本来完成的，本质上还是要输入和操作，要检查输出是不是和期望值一致。自动化测试有一个人工测试没有的优势，那就是<strong>可以直接绕过界面，对程序内部的类、函数进行直接测试。</strong></p>
+<h3 id="自动化测试的类型"><a href="#自动化测试的类型" class="headerlink" title="自动化测试的类型"></a>自动化测试的类型</h3><p><strong>单元测试、集成测试、UI 测试、端到端测试、契约测试、组件测试。</strong></p>
+<p>Google 将自动化测试分成了三大类：小型测试、中型测试和大型测试。</p>
+<p>假设有一个网站，是基于三层架构（如下图所示），业务逻辑层的类叫 UserService 类，数据访问层的类叫 UserDA，以用户注册的功能来说明几种测试的区别 。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/9b9fbf93cf03fa33b381ee144a26a92b.png"></p>
+<ul>
+<li><p><strong>小型测试</strong></p>
+<p>小型测试是为了<strong>验证一个代码单元的功能</strong>，例如针对一个函数或者一个类的测试。<strong>单元测试</strong>就是一个典型的小型测试。</p>
+<p>小型测试的运行，<strong>不需要依赖外部</strong>。如果有外部服务（比如文件操作、网络服务、数据库等），必须<strong>使用一个模拟的外部服务</strong>。比如上面例子中我们就使用了 FakeUserDA 这个模拟的数据库访问类，实际上它不会访问真实的数据库。这样可以保证小型测试在很短时间内就可以完成。</p>
+</li>
+<li><p><strong>中型测试</strong></p>
+<p>中型测试是<strong>验证两个或多个模块应用之间的交互</strong>，通常也叫<strong>集成测试</strong>。</p>
+<p>对于中型测试，<strong>可以使用外部服务</strong>（比如文件操作、网络服务、数据库等），可以模拟也可以使用真实的服务。如果说要对用户注册的功能写集成测试，那么就会同时测试业务逻辑层的 UserService 类和数据访问层的 UserDA 类。</p>
+</li>
+<li><p><strong>大型测试</strong></p>
+<p>大型测试会<strong>验证系统的一个或者所有子系统</strong>，从前端一直到后端数据存储。大型测试也叫<strong>系统测试</strong>或者<strong>端对端测试</strong>。</p>
+<p>对于大型测试，通常会<strong>直接使用外部服务</strong>（比如文件操作、网络服务、数据库等），而不会去模拟。比如上面这个例子，就是直接访问测试环境的地址，通过测试库提供的 API 操作浏览器界面，输入测试的用户名密码，点击注册按钮，最后检查输出的结果是不是符合预期。</p>
+</li>
+</ul>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/a72fcd3b3f358e4512fa5694ad526dbd.png" alt="Google测试类型划分"></p>
+<ul>
+<li>小型测试：没有外部服务的依赖，都是要模拟的；</li>
+<li>中型测试：所有的测试几乎都不需要依赖其他服务器的资源，如果有涉及其他机器的服务，则本地模拟，这样本机就可以完成测试；</li>
+<li>大型测试：几乎不模拟，直接访问相关的外部服务。</li>
+</ul>
+<p><strong>越是小型测试，执行速度越快，越是大型测试，执行速度越慢。</strong></p>
+<h3 id="怎么写好自动化测试代码"><a href="#怎么写好自动化测试代码" class="headerlink" title="怎么写好自动化测试代码"></a>怎么写好自动化测试代码</h3><p><strong>四步：准备、执行、断言和清理。</strong></p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/02aa850792c8fbb3c6bc626b9c944161.png" alt="小型测试-测试用户注册功能"></p>
+<ol>
+<li>准备：创建实例，创建模拟对象</li>
+<li>执行：执行要测试的方法，传入要测试的参数</li>
+<li>断言：检查结果对不对，如果不对测试会失败</li>
+<li>清理：对数据进行清理，不影响下一次测试</li>
+</ol>
+<p><strong>完整的自动化测试用例需要包含：</strong></p>
+<ul>
+<li><strong>验证功能是不是正确</strong>：例如说输入正确的用户名和密码，要能正常注册账号；</li>
+<li><strong>覆盖边界条件</strong>： 比如说如果用户名或密码为空，应该不允许注册成功；</li>
+<li><strong>异常和错误处理</strong>：比如说使用一个已经用过的用户名，应该提示用户名被使用。</li>
+</ul>
+<h3 id="如何为项目做好自动化测试"><a href="#如何为项目做好自动化测试" class="headerlink" title="如何为项目做好自动化测试"></a>如何为项目做好自动化测试</h3><ol>
+<li><p>选择好自动化测试框架</p>
+<p>例如 Web 前端</p>
+<ul>
+<li>Jest： Facebook 的前端测试框架；</li>
+<li>Mocha：历史悠久的一个 JS 测试框架；</li>
+<li>Nighwatch: 一个 API 很简单，但是功能很强大，可以直接操作浏览器的自动测试框架。</li>
+</ul>
+</li>
+<li><p>在持续集成环境上跑自动化测试</p>
+<p>自动测试配合持续集成的一个标准流程：</p>
+<ul>
+<li>在提交代码前，先<strong>本地跑一遍单元测试</strong>，这个过程很快，失败了需要继续修改；</li>
+<li>单元测试成功后就可以<strong>提交到源代码管理中心</strong>，提交后<strong>持续集成服务会自动运行完整的自动化测试</strong>，不仅包括小型测试，还有中型测试；</li>
+<li>通过所有的测试后，就可以<strong>合并到主分支</strong>，如果失败，需要本地修改后再次提交，直到通过所有的测试为止。</li>
+</ul>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/7bbc58d82864974ff2f9ec31347fa538.png"></p>
+</li>
+<li><p>新项目和老项目采用不同策略</p>
+<p>新项目，可以在一开始就保持一定的自动化测试代码的覆盖率，甚可以采用测试驱动（TDD）的开发模式，也就是<strong>先写测试代码，再写实现代码，保证测试通过，最后对代码进行重构。</strong></p>
+<p>老项目，短期内要让自动化测试代码有覆盖是有难度的，可以<strong>先把主要的功能场景的中型测试写起来</strong>，这样可以保证这些主要功能不会轻易出问题。</p>
+<p>在维护的过程中：</p>
+<ul>
+<li>增加新功能的时候，同步对新功能增加自动化测试代码；</li>
+<li>修复 Bug 的时候，针对 Bug 补写自动化测试代码。</li>
+</ul>
+</li>
+</ol>
+<h2 id="源代码管理工具"><a href="#源代码管理工具" class="headerlink" title="源代码管理工具"></a><strong>源代码管理工具</strong></h2><h3 id="发展简史"><a href="#发展简史" class="headerlink" title="发展简史"></a>发展简史</h3><p>源代码管理工具也叫版本控制系统，是<strong>保存文件多个版本</strong>的一种机制。每一次有人提交了修改，这个修改历史都会被版本控制系统记录下来。每一次对内容的修改，都会形成一个当前项目完整内容的快照。</p>
+<ul>
+<li><p>没有源代码管理工具的时代</p>
+<p>问题：</p>
+<ul>
+<li>很难知道做了哪些修改，可能需要挨个目录去查看文件修改时间；</li>
+<li>对版本命名是一个很麻烦的事情，每次备份都得有一个名字；</li>
+<li>很难知道两次备份之间，做了哪些修改。</li>
+</ul>
+</li>
+<li><p>本地版本管理</p>
+<p>最早的版本控制系统是 <strong>SCCS（Source Code Control System）</strong>，诞生于 1972 年，它实现了<strong>对单个文件保留多个版本</strong>，这就意味着你可以看到每一个文件的修改历史了。</p>
+<p>后来又有了 <strong>RCS （Revision Control System）</strong>，它具有更好的文件比较算法，通过<strong>登录同一台中央大型机，可以实现每个人签出自己的拷贝</strong>。</p>
+<p>但这个阶段<strong>只能本机使用</strong>，而且<strong>一次只能修改一个文件</strong>，无法满足好多人协作的问题。</p>
+</li>
+<li><p>集中式版本管理</p>
+<p><strong>CVS（Concurrent Versions System）</strong>是第一个采用集中式的服务器来进行版本库的管理工作，所有文件和版本历史都放在服务端，每个用户通过客户端获取最新的代码，可以多个人编辑一个文件，并且能提交到服务器合并在一起。</p>
+<p><strong>SVN（Subversion）</strong>则对 CVS 进行了很多优化，比如支持文件改名、移动、全局版本号等，这些优化很大部分程度上解决了 CVS 存在的一些缺陷，所以在 2000 年后逐步取代了 CVS 成为主流的源代码管理工具。</p>
+<p>这类集中式源代码管理工具，<strong>过于依赖服务器</strong>，如果服务器出问题或者连不上，就没法用了，如果服务器损坏，所有的版本<strong>历史也会丢失</strong>。</p>
+</li>
+<li><p>分布式版本管理</p>
+<p>分布式版本控制系统的<strong>整个代码库的副本都可以存储在用户的本地系统上</strong>，这样文件和版本控制操作变得非常容易，离线也可以操作，如果主存储库关闭或者删除，可以很容易从本地存储库恢复。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/603379637ba76d67ddcc21f1d515b202.png"></p>
+</li>
+</ul>
+<h3 id="如何选择合适的源代码管理系统"><a href="#如何选择合适的源代码管理系统" class="headerlink" title="如何选择合适的源代码管理系统"></a>如何选择合适的源代码管理系统</h3><ul>
+<li><p>自己搭建源代码管理系统</p>
+<ul>
+<li>Git</li>
+</ul>
+<p>Git 本身是开源免费的，所以每个人都可以搭建自己的 Git Server。《 服务器上的 Git - 在服务器上搭建 Git 》《搭建自己的 Git 服务器》</p>
+<ul>
+<li>GitLab</li>
+</ul>
+<p>Git 自带的 Server 默认是没有 Web 界面进行管理的，只能用命令行操作交互，这在操作上有很多不便利性，尤其是不方便做代码审查，所以可以安装GitLab 的社区版本，开源免费的，有 Web 操作界面，可以像 GitHub 一样提交 Pull Request，并且和 CI （持续集成）系统例如 GitLab CI、Jenkins 都有很好的集成。《在自己的服务器上部署 GitLab 社区版》《GitLab 的安装及使用教程》。</p>
+<ul>
+<li>Gerrit</li>
+</ul>
+<p>Gerrit是由 Google 开发的，用于管理 Google Android 项目源代码的一个系统。它支持 Git 和代码评审。《Gerrit 代码审核服务器搭建全过程》</p>
+</li>
+<li><p><strong>网上的代码托管平台</strong></p>
+<ul>
+<li>GitHub</li>
+</ul>
+<p>GitHub的 Web UI 非常强，尤其是代码浏览和审查，在网站上就可以提交 Pull Request 和进行代码审查。不过 <strong>GitHub 不提供 CI 服务</strong>，需要和第三方 CI 服务集成。</p>
+<ul>
+<li>GitLab</li>
+</ul>
+<p>GitLab的网上托管服务很多地方和 GitHub 都很类似，但是价格更便宜。例如免费用户可以支持无限的私有项目，也<strong>内置了 CI 的支持</strong>。</p>
+<ul>
+<li>Coding</li>
+</ul>
+<p>Coding是国内一个不错的代码托管平台，5 人以下的私有库免费，内置了 CI 支持，同时还有项目管理工具支持。</p>
+<p>其他的服务还有像：码云、阿里云 Code、百度效率云、腾讯 Git 代码托管、华为云 CodeHub。</p>
+</li>
+</ul>
+<h3 id="如何用好源代码管理工具"><a href="#如何用好源代码管理工具" class="headerlink" title="如何用好源代码管理工具"></a>如何用好源代码管理工具</h3><ul>
+<li><p>要频繁的提交</p>
+<p>频繁提交，意味着每次提交的代码变更是比较少的，便于 Code Review，同时如果出现问题，也可以迅速定位或者直接回滚。也让团队成员可以及时同步最新代码，不至于在最后合并时，产生有大量的合并冲突。</p>
+</li>
+<li><p>每次提交后要跑自动化测试</p>
+<p>每次提交，必须要运行自动化测试代码，如果测试不通过就不能合并，要对问题进行甄别和修复，确保提交的代码质量是没问题的。</p>
+</li>
+<li><p>提交的代码要有人审查</p>
+<p>通过代码审查，可以发现代码中潜在的问题。通过代码审查，也可以加强团队的技术交流，让水平高的开发人员 Review，可以帮助提升整体代码水平；Review 高水平的代码也是一种非常有效的学习方法。</p>
+</li>
+</ul>
+<h3 id="该选择什么样的开发流程"><a href="#该选择什么样的开发流程" class="headerlink" title="该选择什么样的开发流程"></a>该选择什么样的开发流程</h3><p>现在基于源代码管理有三种主要的开发流程：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://nvie.com/posts/a-successful-git-branching-model/">Git flow</a></li>
+<li><a target="_blank" rel="noopener" href="https://guides.github.com/introduction/flow/">GitHub flow</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.gitlab.com/ee/topics/gitlab_flow.html#introduction-to-gitlab-flow">GitLab flow</a></li>
+</ul>
+<p><strong>GitHub 开发流程</strong></p>
+<ul>
+<li><p>GitHub 开发流程的关键在于两点：</p>
+<ul>
+<li>有一个稳定的分支，例如 master；</li>
+<li>每次创建新功能或者修复 Bug，必须创建一个分支。最后通过代码审查和自动化测试后，才能合并回稳定分支。</li>
+</ul>
+</li>
+<li><p>具体流程：</p>
+</li>
+</ul>
+<ol>
+<li><p><strong>创建一个分支</strong></p>
+<p>master 分支是要一直保持稳定的，不能直接在 master 上开发。无论是要开发一个新功能还是修复一个 Bug，第一件事永远是从 master 创建一个分支出来。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/ce1be843617e669e47f5bd6f2c2b801a.png"></p>
+</li>
+<li><p><strong>提交更新</strong></p>
+<p>基于分支开始工作，可以按照前面建议的原则，频繁的提交更新。每次提交的时候，要加上说明性的信息，如果开发过程中发现错误，还可以随时回滚之前的更改。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/6f54abdcfa102a13eda2bd5329e08707.png"></p>
+</li>
+<li><p><strong>创建一个 Pull Request</strong></p>
+<p>创建 PR 时，通常要附上描述性的信息，关联上相应的 Ticket 连接，让其他人知道这个 PR 要完成什么任务。创建好 PR 后，其他人就可以直观的看到你所有的修改。PR 的主要目的就是为了方便大家做代码审查。当你的 PR 提交后，团队的其他人就可以对 PR 中的代码修改进行评论。比如说代码风格不符合规范、缺少单元测试、或者很好没有问题。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/1a665275ab20b3fd3a7711db357271d6.png"></p>
+</li>
+<li><p><strong>讨论和代码审查</strong></p>
+<p>根据代码审查的结果，你可能要做一些修改，那么只要继续提交更新到这个分支就可以了，提交更新后，<strong>PR 就会自动更新</strong>，其他人可以基于你的更新进一步的讨论和审查，直到通过代码审查。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/9c324020e64e963c5d47b4b51ea1fb97.png"></p>
+</li>
+<li><p><strong>部署测试</strong></p>
+<p>在合并前，还需要把分支的修改进行测试。理论上来说，需要将修改的内容部署到测试环境测试，但这样效率太低了，所以通常的做法是借<strong>助持续集成工具，在每次提交代码后，就运行自动化测试代码</strong>，自动化测试代码全部通过后，就可以认为质量是可靠的。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/13236779ae4780cf55ccb3d3cda5065f.png"></p>
+</li>
+<li><p><strong>合并</strong></p>
+<p>当你的代码通过了代码审查和自动化测试，就可以将代码合并到 master 分支了。合并后，之前的分支就可以删除，但之前所有的提交记录在 master 都可以看到，所以完全不用担心丢失历史版本记录。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/0da9251ea9b5a791a8b4ff536fee3035.png"></p>
+</li>
+</ol>
+<ul>
+<li><p>常见问题：</p>
+<ul>
+<li><p><strong>怎么发布版本？</strong></p>
+<p>要发布版本的话，从 master 上创建一个 Tag，例如 v1.0，然后将 Tag v1.0 上的内容部署到生产环境。</p>
+</li>
+<li><p><strong>怎么给线上版本打补丁？</strong></p>
+<p>如果线上发布的版本（例如 v1.0）发现 Bug，需要修复，那么基于之前的 Tag 创建一个分支（例如 hotfix-v1.0-xxx）出去，在分支上修复，然后提交 PR，代码审查和自动化测试通过后，从分支上创建一个新的 Tag （例如 v1.0.1），将新的 Tag 发布部署到生产环境，最后再把修改合并回 master。</p>
+</li>
+<li><p><strong>如果经常需要打补丁，有没有比 Tag 更好的办法？</strong></p>
+<p>每次发布后，可以创建一个发布版本的分支，例如 release-v1.0，每次打补丁，都直接从发布分支 release-v1.0 而不是 master 创建新的分支（例如 hotfix-release-v1.0-xxx），修复后提交 PR，代码审查和自动化测试通过后，合并回分支 release-v1.0，然后基于 release-v1.0 分支发布补丁。最后将合并的 PR，借助 git 的 cherry-pick 命令再同步合并回 master。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="测试工具"><a href="#测试工具" class="headerlink" title="测试工具"></a><strong>测试工具</strong></h2><h3 id="Bug-跟踪工具"><a href="#Bug-跟踪工具" class="headerlink" title="Bug 跟踪工具"></a>Bug 跟踪工具</h3><p>通过 QQ 等方式报告的 Bug，都是文字配合图片等信息，很难检索和分类，<strong>而 Bug 跟踪工具，采用结构化的数据来定义 Bug，每一个 Bug 都有一些关键的信息可以对 Bug 进行分类和检索。</strong></p>
+<p>在 Bug 跟踪工具使用中，一个基本的 Bug 信息包括：</p>
+<ul>
+<li>标题；</li>
+<li>描述（包括期望结果、实际结果和重现步骤等关键信息）；</li>
+<li>优先级；</li>
+<li>指派人；</li>
+<li>状态（New、Open、 Rejected、Fixed 等）；</li>
+</ul>
+<p>对于开发人员来说，可以直观的看到自己有哪些 Bug 需要处理，Bug 的描述信息也可以帮助重现 Bug、快速定位到 Bug 的原因；</p>
+<p>对于项目经理或者测试人员来说，可以直观的看到哪些 Bug 还没解决，及时了解项目进展。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/4f56bf4d43b652ab2b92318775a850dd.png" alt="Bug的状态流转"></p>
+<p><strong>注意事项：</strong></p>
+<ul>
+<li>所有的 Bug 都应该通过 Bug 跟踪系统管理和跟踪，不应该再通过 QQ/ 微信 / 邮件的方式跟踪 Bug；</li>
+<li>不能把多条 Bug 合并成一条，一个 Bug 创建一个独立的 Ticket；</li>
+<li>描述清楚如何重现 Bug 非常重要；</li>
+<li>不要把 Bug 跟踪系统当成讨论板用。</li>
+</ul>
+<p><strong>常用工具：</strong></p>
+<ul>
+<li><p><strong>Bugzilla</strong></p>
+<p>Bugzilla 是由 Mazilla 公司提供的一款开源免费的 bug 跟踪系统。这是一款历史很悠久的产品。</p>
+</li>
+<li><p><strong>MantisBT</strong></p>
+<p>MantisBT 是一个简单但功能强大的开源 bug 跟踪系统，可以通过各种插件来扩展其功能。</p>
+</li>
+<li><p><strong>Redmine</strong></p>
+<p>Redmine 是一款开源的综合性的项目管理工具，不仅可以用于 Bug 跟踪，还可以用来跟踪项目进度。</p>
+</li>
+</ul>
+<h3 id="自动化测试工具"><a href="#自动化测试工具" class="headerlink" title="自动化测试工具"></a>自动化测试工具</h3><ul>
+<li><p><strong>Selenium</strong></p>
+<p>Selenium 是一个 Web 端的自动化测试工具，直接运行在浏览器中，用来模拟用户操作。类似的还有WebDriverIO 和 Nightwatch.js ，支持 Javascript，API 更简单更方便。</p>
+</li>
+<li><p><strong>Appium</strong></p>
+<p>Appium 是一个开源、跨平台的自动化测试工具，用于测试移动原生应用，支持 iOS, Android 系统。</p>
+</li>
+<li><p><strong>Macaca</strong></p>
+<p>Macaca 是阿里巴巴开源的一款面向多端的自动化测试工具，支持桌面端、Web、移动端、真实设备和模拟器。</p>
+</li>
+</ul>
+<h3 id="压力测试工具"><a href="#压力测试工具" class="headerlink" title="压力测试工具"></a>压力测试工具</h3><ul>
+<li><p><strong>Apache JMeter</strong></p>
+<p>JMeter 是一款开源的压力测试工具，纯 Java 应用程序。</p>
+</li>
+<li><p><strong>LoadRunner</strong></p>
+<p>LoadRunner 是惠普旗下的一款商业自动负载测试工具，可以通过录制的方式制作测试脚本，上手容易功能强大，可以方便的监控和分析性能测试结果。</p>
+</li>
+<li><p><strong>阿里云性能测试 PTS</strong></p>
+<p>阿里云性能测试 PTS 是基于云端的压力测试服务，可以模拟从全国各地域运营商网络发起的流量，真实地反映使用情况，生成有价值的性能测试报告。</p>
+</li>
+<li><p><strong>WebPageTest</strong></p>
+<p>WebPageTest 是一个可以用来测试和分析网页性能的在线工具，支持不同浏览器，支持 API。可参考《WebPagetest H5 性能测试工具入门详解》。</p>
+</li>
+</ul>
+<h3 id="安全测试工具"><a href="#安全测试工具" class="headerlink" title="安全测试工具"></a>安全测试工具</h3><ul>
+<li><p><strong>HP Fortify On Demand</strong></p>
+<p>Fortify On Demand 是惠普旗下的一款安全检测工具，可以通过分析源代码、二进制程序或者应用程序 URL 检测程序安全漏洞。</p>
+</li>
+<li><p><strong>Sqlmap</strong></p>
+<p>Sqlmap是一款开源免费的检测 SQL 注入的工具。</p>
+</li>
+<li><p><strong>IBM Application Security APPScan</strong></p>
+<p>APPScan 是 IBM 旗下的一款漏洞扫描工具，支持网站和移动 App。</p>
+</li>
+</ul>
+<h3 id="浏览器兼容性测试工具"><a href="#浏览器兼容性测试工具" class="headerlink" title="浏览器兼容性测试工具"></a>浏览器兼容性测试工具</h3><ul>
+<li><p><strong>Browsera</strong></p>
+<p>Browsera 可以对不同浏览器下的布局提供报告，包括截图和 Javascript 错误。</p>
+</li>
+<li><p><strong>Browslering</strong></p>
+<p>Browslering 可以针对不同浏览器进行测试，它在虚拟机中运行真实桌面浏览器，还可以人工进行交互。</p>
+</li>
+</ul>
+<h3 id="测试用例管理工具"><a href="#测试用例管理工具" class="headerlink" title="测试用例管理工具"></a><strong>测试用例管理工具</strong></h3><ul>
+<li><p><strong>TestRail</strong></p>
+<p>TestRail 是 TestRail 是一个专注于管理测试用例的工具，可以用它来创建测试用例和用例集，跟踪测试用例的执行和生成报告。</p>
+</li>
+<li><p><strong>飞蛾</strong></p>
+<p>飞蛾 是 Coding 旗下的测试管理工具，对中文支持好，界面美观。</p>
+</li>
+</ul>
+<h2 id="安全问题"><a href="#安全问题" class="headerlink" title="安全问题"></a>安全问题</h2><h3 id="安全问题本质是技术风险"><a href="#安全问题本质是技术风险" class="headerlink" title="安全问题本质是技术风险"></a>安全问题本质是技术风险</h3><p>软件中的安全问题来源主要可以分为以下三大类：</p>
+<ul>
+<li><p><strong>恶意输入</strong></p>
+<p>黑客通过恶意输入，然后绕过软件限制对系统进行攻击和破坏。</p>
+<p>SQL 注入：黑客把 SQL 命令输入到软件的输入框或网页的 URL 查询参数，欺骗服务器，执行恶意的 SQL 命令。这样可以绕过密码验证，登录管理员账号，或者删除数据库数据，甚至控制服务器。</p>
+<p>XSS 攻击：将恶意代码通过外部参数或者用户输入的方式植入网页中，获取用户的 Cookie 等敏感信息、盗用管理员权限，甚至非法转账。</p>
+</li>
+<li><p><strong>假冒身份</strong></p>
+<p>如果对用户的身份不做严格的验证，很可能就会导致假冒身份的安全问题。应对策略就是要对用户的身份做验证，尤其是涉及敏感权限的操作，甚至要做两重验证。</p>
+</li>
+<li><p><strong>数据泄露</strong></p>
+<p>一些软件会把服务器上的敏感信息打包在程序中，而程序可能会被反编译导致敏感数据泄露。<strong>我们不能假设数据存储是安全的，而是要考虑到数据是有泄露的可能，提前做好预防措施，对敏感数据进行加密。</strong></p>
+</li>
+</ul>
+<h3 id="如何预防软件中的安全问题"><a href="#如何预防软件中的安全问题" class="headerlink" title="如何预防软件中的安全问题"></a>如何预防软件中的安全问题</h3><ol>
+<li><p><strong>需求阶段</strong></p>
+<p><strong>在确定需求，做产品设计的时候，不仅要考虑到功能上的需求，还要同时考虑到安全方面的要求。</strong></p>
+<p>涉及用户输入的内容，需要考虑到可能的恶意输入，做出针对性预防措施；</p>
+<p>涉及用户权限的，要求有身份的验证，一些对安全要求极高的，可以在需求上就要求做双重验证；</p>
+<p>涉及敏感数据的，可以在需求上就要求对数据进行加密。</p>
+<p><strong>比如说用户登录功能，需要考虑到哪些安全问题？</strong></p>
+<ul>
+<li>登录网页使用 <strong>Https</strong> 或者在<strong>传输密码时加密</strong>；</li>
+<li><strong>增加图形校验码</strong>，避免恶意攻击；</li>
+<li>密码失败次数过多，应该<strong>锁定</strong>用户一段时间；</li>
+<li>记录用户登录 <strong>IP</strong>。</li>
+</ul>
+</li>
+<li><p><strong>设计阶段</strong></p>
+<ul>
+<li><p><strong>攻击面最小化</strong></p>
+<p>攻击面就是指程序被用户直接访问到的部分，比如 <strong>API、网站</strong>等，这些暴露给用户的地方也是最可能被黑客攻击的地方。</p>
+<p>数据库应该关闭外网访问，避免黑客直接攻击数据库导致数据泄露；</p>
+<p>复杂的多网站业务系统，实行单点认证，就可以让所有业务都在一个地方登录，可以在这一个地方做到足够安全，这样所有网站的登录都是相对安全的。</p>
+</li>
+<li><p><strong>权限最小化</strong></p>
+<p>权限最小化的设计原则就是对于<strong>系统的用户、文件访问、进程运行</strong>等，都<strong>只给予其能拥有的最小权限</strong>，这样可以保证一个应用程序或者网站被攻击、破解，能将损害降到最低。</p>
+</li>
+<li><p><strong>纵深防御</strong></p>
+<p>纵深防御的设计原则，指的是<strong>从不同的维度去实施安全保护措施</strong>，从而缓解被攻击的风险。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>开发阶段</strong></p>
+<ul>
+<li>编码规范中加入安全相关内容</li>
+<li>要有代码审查</li>
+<li>增加安全相关的自动化测试</li>
+</ul>
+</li>
+<li><p><strong>测试阶段</strong></p>
+<p>借助一些安全测试工具来进行测试。</p>
+</li>
+</ol>
+<h3 id="上线维护"><a href="#上线维护" class="headerlink" title="上线维护"></a><strong>上线维护</strong></h3><ul>
+<li>上线部署时，<strong>不部署源代码，只对编译后程序部署</strong>；<strong>删除 Debug 文件</strong>。</li>
+<li>对服务器进行安全设置，比如说<strong>严格限制端口，只保留必须的端口</strong>；</li>
+<li>只对少数服务器开发外放服务；</li>
+<li>开启操作日志；</li>
+<li>对访问目录设置最小的权限。</li>
+</ul>
+<h3 id="安全问题发生后怎么善后"><a href="#安全问题发生后怎么善后" class="headerlink" title="安全问题发生后怎么善后"></a>安全问题发生后怎么善后</h3><ol>
+<li><p>要<strong>设立应急的流程</strong>。当出现安全问题了，根据流程，知道该找谁，应该怎么去第一时间恢复生产，避免进一步损失。</p>
+</li>
+<li><p>要<strong>分析程序的漏洞在哪里</strong>。通过分析日志，找出漏洞在哪里，才能针对性去修补漏洞。</p>
+</li>
+<li><p>要<strong>总结原因</strong>。从错误中吸取教训，看问题是在哪个环节导致的，必要的话，就改进开发流程，避免类似的安全问题再次发生。</p>
+</li>
+</ol>
+<h2 id="版本发布"><a href="#版本发布" class="headerlink" title="版本发布"></a><strong>版本发布</strong></h2><h3 id="软件版本标识"><a href="#软件版本标识" class="headerlink" title="软件版本标识"></a>软件版本标识</h3><p>目前业界在软件版本的命名上，通常会采用以下方式：</p>
+<p><strong>主版本号 . 子版本号.[. 修正版本号.[构建版本号]]</strong></p>
+<p>主版本号和子版本号用来标识功能变化，小的功能变化增加子版本号，大的功能变化增加主版本号。修正版本号则表示功能不变化的情况下修复 Bug，而构建版本号表示一次新的构建，这个通常由编译程序自动生成。</p>
+<h3 id="版本发布前规划"><a href="#版本发布前规划" class="headerlink" title="版本发布前规划"></a>版本发布前规划</h3><p><strong>要在用户（或客户）的心理预期和你软件的实际情况之间，达到一种平衡，让软件的功能和质量，满足好用户的预期。</strong></p>
+<ul>
+<li><p><strong>规划好要发布的功能</strong></p>
+<p>在发布前，搞清楚哪些是用户必须要有的功能，哪些是用户可以没有的功能。对于必须要有的功能，那么要保证软件中有这个功能才能发布，对于不是必需的功能，可以以后再逐步完善。</p>
+</li>
+<li><p><strong>设计好发布的策略</strong></p>
+<p>让一部分用户使用 Beta 版也是一个好的发布策略，当用户知道你的软件还是 Beta 版的时候，要求会比较低一点，可以接受一些不那么严重的 Bug。 还有就是采用灰度测试的发布策略，让一小部分用户先用新功能，如果没发现什么问题，再继续扩大使用的用户规模，如果有问题，也只是影响少量用户。</p>
+</li>
+<li><p><strong>有一个综合性的版本发布计划</strong></p>
+<p>这个发布计划，不只是项目内部成员，还需要和项目之外利益相关方，比如客户、市场运营人员，大家一起确定最终的发布计划。</p>
+</li>
+</ul>
+<h3 id="发布流程"><a href="#发布流程" class="headerlink" title="发布流程"></a>发布流程</h3><ol>
+<li><p><strong>在发布之前要做代码冻结</strong></p>
+<p>在发布之前，对于要发布的版本，在源代码管理工具中，专门创建一个 release 分支，然后对于这个分支的代码，冻结功能的修改，不接受新功能的增加，甚至重要性不高的 Bug 都不修改，只修复重要的 Bug。</p>
+</li>
+<li><p><strong>对代码冻结后发现的 Bug 要分级</strong></p>
+<p>原则就是尽可能减少代码的修改，避免引起不稳定。所以对于这些 Bug，要有一个简单的分级：是否在发布前修改，还是留在发布后再修改。</p>
+</li>
+<li><p><strong>每次修复 Bug 后，发布新的候选版本</strong></p>
+<p>进入代码冻结后，开发人员还需要对一些 Bug 进行修复，每一次修复完 Bug 后，就要生成一个新的候选发布版本，比如说 1.1 RC1、1.1 RC2。</p>
+</li>
+<li><p><strong>每次部署新的候选发布版本后，要做回归测试</strong></p>
+<p>在 Bug 修复完，对主要流程要重新测试一遍，同时还要对之前确认过的 Bug 再确认一遍，以确保 Bug 确实修复了，并且没有引入新的 Bug。</p>
+</li>
+<li><p><strong>申请上线发布</strong></p>
+<p>在正式上线发布前，通常还需要有一个申请和审批的流程。审批的主要目的是要有人或者有部门统筹对所有的上线发布有一个全面的了解和控制，避免上线过于随意导致问题，避免和其他部门的上线冲突。</p>
+</li>
+<li><p><strong>部署发布</strong></p>
+<p>如果还没有自动化部署发布，也需要事先将详细的操作步骤写下来，避免部署发布时发生纰漏，这样在实际部署发布时，按照事先写好的步骤操作就不容易出现错误。</p>
+</li>
+<li><p><strong>上线后的测试</strong></p>
+<p>项目上线后，测试人员需要马上对已经上线的版本做一个主要功能的测试，以确保线上运行正常。如果做好了数据监控，还同时要对一些关键数据进行监控，例如服务器 CPU 利用率、内存占用率、服务出错率等数据。</p>
+</li>
+</ol>
+<h2 id="DevOps"><a href="#DevOps" class="headerlink" title="DevOps"></a>DevOps</h2><h3 id="传统的运维模式"><a href="#传统的运维模式" class="headerlink" title="传统的运维模式"></a>传统的运维模式</h3><p>在传统的瀑布模型开发中，当开发人员完成编码，测试人员测试验收通过后，到了要发布的时候，就会将程序交给运维人员部署发布到生产环境。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/2b3c01636b37728e5684d9bbc5e383e0.png" alt="传统运维模式"></p>
+<p>传统运维工程师最重要的职责就是<strong>保障线上服务的稳定运行</strong>。对服务器 24 小时监控，有<strong>意外情况发生时需要及时处理和解决，日常的更新维护</strong>（比如说安装升级操作系统、安装更新应用软件，更新数据库、配置文件等）。</p>
+<p><strong>存在的问题：</strong></p>
+<ul>
+<li>服务器规模快速增长和虚拟化技术的高速发展，以前的手动方式或者半自动的方式难以为继</li>
+<li>高频的部署发布，意味着运维要有更高的自动化能力</li>
+</ul>
+<h3 id="什么是-DevOps"><a href="#什么是-DevOps" class="headerlink" title="什么是 DevOps"></a>什么是 DevOps</h3><p><strong>DevOps 可以理解为一种开发（Development）和运维（Operations）一起紧密协作的工作方式，从而可以更快更可靠的构建、测试和发布软件。</strong></p>
+<p>对于运维来说，不再抵触开发的频繁更新部署，会帮助搭建自动化部署平台，提供自动化部署工具；</p>
+<p>对于开发来说，不再认为运维的工作和开发没关系，开发人员会邀请运维人员参与架构设计，帮助运维实现自动化脚本开发。</p>
+<p><strong>优势：</strong></p>
+<ul>
+<li><p><strong>整个软件的构建、测试和发布过程高度自动化</strong></p>
+<p>应用自动化后，对于运维人员来说，自动化的交付流程，减少了繁重的手工操作，自动化测试可以有效对产品质量提供很好的保障。对于开发人员来说，可以方便高频率地进行部署。</p>
+</li>
+<li><p><strong>信息更加透明和易于测量</strong></p>
+<p>当采用 DevOps 的工作方式，信息更加透明，通过日志和工具，数据也可以被更好测量。</p>
+</li>
+<li><p><strong>培养跨职能协作的文化</strong></p>
+</li>
+</ul>
+<h3 id="DevOps具体工作"><a href="#DevOps具体工作" class="headerlink" title="DevOps具体工作"></a>DevOps具体工作</h3><ol>
+<li><strong>DevOps 工程师要帮助团队建立基于持续集成和持续交付工作流程。</strong></li>
+<li><strong>要构建基于云计算和虚拟化技术的基础设施。</strong></li>
+<li><strong>形成 DevOps 的文化。</strong></li>
+</ol>
+<h2 id="线上故障"><a href="#线上故障" class="headerlink" title="线上故障"></a>线上故障</h2><h3 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h3><ul>
+<li><p>第一步，评估影响范围；（定义问题）</p>
+<p>先对故障进行评级，看对用户的影响范围，如果是核心业务，大面积影响用户，那么当务之急是恢复生产，然后再考虑如何去修复 Bug。</p>
+</li>
+<li><p>第二步，试图重现问题；（重现问题）</p>
+<p>先重现 Bug或者分析错误日志，通过错误日志，可以马上定位到错误在哪里。像内存泄漏或者 CPU 高的问题，一般就可以通过分析内存 Dump 文件，分析当前是哪些线程占用资源多，线程运行的代码是什么；哪些变量占用资源多。从而可以缩小范围，快速发现问题在哪。</p>
+</li>
+<li><p>第三步，临时方案和终极方案；（解决问题）</p>
+<p>仔细分析 Bug 产生的原因，从根本上解决，避免类似的故障再次发生。</p>
+</li>
+<li><p>第四步，风险评估及持续优化。（优化问题）</p>
+<p>记录故障发生处理全过程，分析故障原因，提出后续改进方案。</p>
+</li>
+</ul>
+<p><em>遇到线上故障，新手需要时刻牢记：恢复生产、降低损失是第一要务，修复 Bug 是其次的。</em></p>
+<h3 id="大厂是怎么处理线上故障的"><a href="#大厂是怎么处理线上故障的" class="headerlink" title="大厂是怎么处理线上故障的"></a>大厂是怎么处理线上故障的</h3><ul>
+<li>故障报警和轮值机制</li>
+<li>实战演习</li>
+<li>日志记录和分析工具</li>
+</ul>
+<h2 id="日志管理"><a href="#日志管理" class="headerlink" title="日志管理"></a><strong>日志管理</strong></h2><h3 id="如何快速发现和定位问题"><a href="#如何快速发现和定位问题" class="headerlink" title="如何快速发现和定位问题"></a>如何快速发现和定位问题</h3><ul>
+<li><strong>日志集中式管理后，就可以方便地对所有日志进行统一的检索。</strong></li>
+<li><strong>日志集中式管理后，可以通过图表直观的看到应用运行情况。</strong></li>
+</ul>
+<h3 id="大厂的日志管理系统的架构"><a href="#大厂的日志管理系统的架构" class="headerlink" title="大厂的日志管理系统的架构"></a>大厂的日志管理系统的架构</h3><p>很多大厂是基于 <strong>ELK</strong> 搭建自己的日志管理系统，而 ELK 的架构也是一套经典的日志管理的架构。</p>
+<p><strong>ELK = Elasticsearch+Logstash+Kibana</strong></p>
+<ul>
+<li><strong>ElasticSearch</strong> 是一套搜索框架，提供了方便的接口，可以方便地做<strong>全文检索</strong>，可以用来对日志进行检索。</li>
+<li><strong>Logstash</strong> 是一个数据收集工具，可以用来<strong>收集日志</strong>数据</li>
+<li><strong>Kibana</strong> 是一套可以和 ElasticSearch 交互的界面，通过 Kibana 可以方便的检索 ElasticSearch 内的所有数据，还可以用<strong>图形化的方式展示数据结果</strong></li>
+</ul>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/b9b53220894009769f5bcb031b7c0cf8.png" alt="基于 ELK 搭建的日志管理系统基本架构"></p>
+<p>这套架构有几个重要的模块：<strong>日志采集和解析、存储和搜索、结果可视化、监控和报警。</strong></p>
+<ul>
+<li><p><strong>日志采集和解析</strong></p>
+<p>如果日志文件只是一行行带时间戳的文本，那其实是无法有效检索的，必须将其解析成结构化的数据，才能方便地检索。一套系统可能由不同的应用类型组成，有的是 Java 写的，有的是 Go 写的，日志格式可能完全是不一样的，所以还有必要在对日志解析后，提取公共元素，比如时间、IP 地址、主机名、应用名称等。Logstash 不仅可以对日志数据进行收集，还能对日志数据进行过滤和解析，解析完成后再将解析好的数据发送给 ElasticSearch。</p>
+</li>
+<li><p><strong>存储和搜索</strong></p>
+<p>ElasticSearch 就是一套专业的全文检索和数据存储系统，同时还有一套类似于 SQL 的查询语句，这样你就可以基于它，方便对收集好的日志数据进行检索了。</p>
+</li>
+<li><p><strong>结果可视化</strong></p>
+<p>Kibana 就是一套专门针对 ElasticSearch 的图形化操作工具，可以方便对 ElasticSearch 数据进行检索，也可以对结果用图表的方式展现。</p>
+</li>
+<li><p><strong>监控和报警</strong></p>
+<p>自动报警是一个非常典型的场景，可以基于已经存储和索引好的日志数据，制定相应的自动报警规则，当线上服务发生异常时，可以自动地触发报警，通知相关值班人员及时处理。</p>
+<p>ELK 可以通过插件的方式，安装像 <a target="_blank" rel="noopener" href="https://github.com/Yelp/elastalert">ElastAlert</a> 或<a target="_blank" rel="noopener" href="http://www.elastic.co/guide/en/watcher/current/introduction.html">Watcher</a>这样的自动报警插件，实现自动报警功能。</p>
+<p><img src="https://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/%e8%bd%af%e4%bb%b6%e5%b7%a5%e7%a8%8b%e4%b9%8b%e7%be%8e/assets/8d59a0962b445900d7668b266e0adf6f.png"></p>
+</li>
+</ul>
+<h3 id="怎样搭建一套日志管理系统"><a href="#怎样搭建一套日志管理系统" class="headerlink" title="怎样搭建一套日志管理系统"></a>怎样搭建一套日志管理系统</h3><ul>
+<li><p>Splunk</p>
+<p>Splunk 是一套商业的日志管理系统，搜索功能非常强大，操作方便，就目前来说，要比 ELK 好用，但价钱很高。</p>
+</li>
+<li><p>Grafana</p>
+<p>Grafana 是一套开源的数据监测和可视化工具，可以和 ELK 或 Splunk 配合使用，展示效果比 Kibana 要更好。同时可以支持自动报警功能。</p>
+</li>
+<li><p>Wavefront</p>
+<p>Wavefront 是 VMware 旗下的一款商业的图形化监控和分析工具，可以从 ELK 或 Splunk 等数据源收集数据，在此基础上分析应用的性能瓶颈所在，排除故障。也支持自动报警。</p>
+</li>
+<li><p>PagerDuty</p>
+<p>PagerDuty 是一套报警服务，不仅可以和手机、邮件、Slack 等方便地集成，还可以和企业的轮值安排结合，按照排班顺序呼叫当值人员。</p>
+</li>
+</ul>
+<h2 id="项目总结"><a href="#项目总结" class="headerlink" title="项目总结"></a><strong>项目总结</strong></h2><h3 id="如何做好项目复盘"><a href="#如何做好项目复盘" class="headerlink" title="如何做好项目复盘"></a>如何做好项目复盘</h3><ol>
+<li><p>回顾项目目标</p>
+<p>要回顾最初的项目目标，方便对最终结果进行评估。<strong>只有做到准确和客观，在后续才能对目标的完成情况进行准确地评估。</strong></p>
+</li>
+<li><p>评估项目结果</p>
+<p>在对项目的目标进行回顾后，就可以来看看项目的实际结果和当初的目标有多少差异了。这里需要列出两方面的差异：好的差异和坏的差异。</p>
+</li>
+<li><p>分析原因</p>
+<p>分析的时候可以主要从两方面着手：是什么原因导致了好的差异，什么原因导致了坏的差异。<strong>只有分析清楚原因，才能总结出规律。</strong></p>
+</li>
+<li><p>总结规律，落实行动</p>
+<ul>
+<li>需求变更是导致项目延期的主要源头，需要在后续项目中控制好需求的变更；</li>
+<li>自动化测试加上代码审查，再配合持续集成工具，可以有效提升产品质量；</li>
+<li>任务跟踪系统可以方便地跟踪需求的执行情况，也能保证项目成员能及时同步需求的变更。</li>
+</ul>
+</li>
+</ol>
+<h2 id="小团队"><a href="#小团队" class="headerlink" title="小团队"></a><strong>小团队</strong></h2><h3 id="小团队在软件开发中存在的常见问题"><a href="#小团队在软件开发中存在的常见问题" class="headerlink" title="小团队在软件开发中存在的常见问题"></a>小团队在软件开发中存在的常见问题</h3><ul>
+<li>成本敏感</li>
+<li>人少活多</li>
+<li>缺少流程规范</li>
+</ul>
+<h3 id="小团队如何应用软件工程"><a href="#小团队如何应用软件工程" class="headerlink" title="小团队如何应用软件工程"></a>小团队如何应用软件工程</h3><ul>
+<li><p><strong>团队建设</strong></p>
+<ul>
+<li><p>培养人</p>
+<p><strong>培养人主要还是要靠内部形成好的学习分享的机制；</strong></p>
+<p>在工作过程中不断实践和总结，在这个过程中，及时准确的反馈很重要；</p>
+<p>代码审查，可以帮助团队及时发现代码问题，也能促进团队相互学习，代码风格统一；</p>
+<p>自动化测试，可以对代码结果马上有直观的反馈，有问题早发现修正；</p>
+<p>持续集成也是通过频繁地集成频繁地给出有效反馈，及早发现代码问题。</p>
+</li>
+<li><p>管理人</p>
+<p><strong>核心在于营造好的氛围，鼓励成员自我驱动去做事。</strong></p>
+</li>
+<li><p>开除人</p>
+</li>
+</ul>
+</li>
+<li><p><strong>流程建设</strong></p>
+<ul>
+<li>选择适合的软件开发模型</li>
+<li>构建基于源代码管理工具的开发流程</li>
+<li>建立外部提交需求和任务的流程</li>
+</ul>
+</li>
+</ul>
+<h2 id="业余项目"><a href="#业余项目" class="headerlink" title="业余项目"></a><strong>业余项目</strong></h2><h3 id="为什么程序员的业余项目大多都死了"><a href="#为什么程序员的业余项目大多都死了" class="headerlink" title="为什么程序员的业余项目大多都死了"></a>为什么程序员的业余项目大多都死了</h3><ul>
+<li>想法大，时间少</li>
+<li>过于追求技术，缺少约束</li>
+<li>缺少产品能力和运营能力</li>
+</ul>
+<h3 id="怎样提升业余项目成功的概率"><a href="#怎样提升业余项目成功的概率" class="headerlink" title="怎样提升业余项目成功的概率"></a>怎样提升业余项目成功的概率</h3><ul>
+<li>作为一个业余项目，你可以先实现最核心的功能。可以采用 MVP（minimum viable product，最小化的可行性产品）的模式，一开始只推出最核心的功能，满足用户最核心的需求，然后在用户的使用过程中收集反馈，进一步升级迭代。</li>
+<li>做项目计划，去设置里程碑。还要敢于把计划和里程碑分享给你的家人和朋友们，公开的做出里程碑的承诺，让他们帮助监督你的计划执行。</li>
+<li>从解决自己的需求，解决家人朋友的需求开始，设定一个小的产品目标，然后借鉴类似的产品，模仿它们的产品设计、交互设计，就能做出来一个基本可用的产品。</li>
+</ul>
+<h2 id="反面案例"><a href="#反面案例" class="headerlink" title="反面案例"></a><strong>反面案例</strong></h2><h3 id="失败的软件项目特征"><a href="#失败的软件项目特征" class="headerlink" title="失败的软件项目特征"></a>失败的软件项目特征</h3><p>成功的项目必须满足六个条件：</p>
+<ol>
+<li>按时交付。</li>
+<li>成本在预算范围内。</li>
+<li>能按照当初的设计正常运行。</li>
+<li>有人使用。</li>
+<li>满足项目最初的目标。</li>
+<li>项目出资方对项目满意。</li>
+</ol>
+<p>相应的失败的项目存在：</p>
+<ol>
+<li>没能按时交付。</li>
+<li>成本超出预算。</li>
+<li>Bug 太多，无法按照当初的设计正常运行。</li>
+<li>产品没有得到市场认可，没有人使用。</li>
+<li>产品偏移了最初的目标。</li>
+<li>项目出资方不满意。</li>
+</ol>
+<h3 id="失败软件项目的原因"><a href="#失败软件项目的原因" class="headerlink" title="失败软件项目的原因"></a>失败软件项目的原因</h3><ul>
+<li><p><strong>外部环境</strong></p>
+<p>对于商业软件项目，很多是由于缩减成本导致的。因为商业竞争的大环境，企业为了节约成本，总是希望用更少的人做更多的事情。</p>
+</li>
+<li><p><strong>技术管理</strong></p>
+<p>比如说在项目中使用了不成熟或不熟悉的技术，最终导致技术不可控，或者浪费大量的时间在技术的学习上。项目的规模也会导致技术复杂度直线上升，项目规模越大，失败的概率也更大。</p>
+</li>
+<li><p><strong>项目管理</strong></p>
+<p>一个软件项目中，项目经理掌握了资源的分配，还要制定项目的计划，对任务进行分配，组织分工协作，管理风险，项目成员的日常沟通等等。而这些决策通常很难量化，需要基于当时的情况进行权衡，一旦这些决策出现大的失误，就会导致项目的失败。</p>
+</li>
+<li><p><strong>组织文化</strong></p>
+<p>在软件项目中，一个开放、平等、注重沟通协作的团队或组织更容易及早发现和解决问题。</p>
+</li>
+</ul>
+<h3 id="失败的软件项目"><a href="#失败的软件项目" class="headerlink" title="失败的软件项目"></a>失败的软件项目</h3><ul>
+<li><p>来自地狱的项目</p>
+<p>来自法国政府，，原计划 2-3 年开发，结果干了十几年都没有完成，最终以项目负责人被以欺诈罪关进监狱而告终。详细内容可以查看中文版本：《<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/39827365">开发 12 年 整整 6 百万行代码：史上最烂的开发项目长这样</a>》。</p>
+<ul>
+<li><strong>外部环境</strong>：法国政府官员腐败，对于项目进度并没有施加压力；</li>
+<li><strong>技术管理</strong>：没有好的开发实践，完全 C++ 开发，600 万行代码，版本控制一团糟；</li>
+<li><strong>项目管理</strong>：糟糕的项目管理，团队成员 55 人，35 名经理，20 名开发人员，管理人员比开发人员还多；不断开会，只是展示 PPT；</li>
+<li><strong>组织文化</strong>：禁止超过 9 点打卡，禁止喝咖啡等奇葩要求。</li>
+</ul>
+</li>
+<li><p>美国联邦调查局虚拟案件文档系统</p>
+<p>初始目标是 3 年内将原有的 FBI 案件文档管理系统升级，但因为 911 恐怖袭击事件爆发，项目目标从升级变成了重写。最终 2005 年项目宣布废弃，而此时已经在这个项目上花费了 1.7 亿美元。有关项目的细节可以参考：《<a target="_blank" rel="noopener" href="https://linux.cn/article-2307-1.html">著名豆腐渣软件项目：美国联邦调查局虚拟案件文档系统</a>》。</p>
+<ul>
+<li><strong>外部环境</strong>：FBI 没有真正懂技术的负责人领导和管控项目，对承包商缺少控制；</li>
+<li><strong>技术管理</strong>：无法解决项目的复杂性，系统在设计上不完整，不充分，不到位，以至于在现实场景中完全无法使用，上线前没有测试；</li>
+<li><strong>项目管理</strong>：开发方和客户之间沟通不畅；频繁需求变更，项目管理混乱，外行领导内行；</li>
+<li><strong>组织文化</strong>：指出问题的雇员反而被调查和开除。</li>
+</ul>
+</li>
+<li><p>微软 Vista 项目</p>
+<p>开始与 2001 年 7 月，预计 2003 年发布。比尔盖茨为 Vista 提出了三大目标：1. 完全使用 C# 提升开发效率；2. 使用数据库作为新的文件系统 WinFS；3. 使用全新的显示技术 Avalon （后来改名为 WPF），打破桌面软件和网站的用户界面界限，提升微软竞争力。技术难度非常大，结果三年后也未能开发完成，不得不在 2004 年对目标进行调整：不用 C#、取消 WinFS、删改 Avalon ，一开始的三大目标就这样被完全否决，最终 2007 年才发布 Vista。参考文章：《<a target="_blank" rel="noopener" href="https://blog.51cto.com/jiayu/22476">五年磨砺: 微软 Vista 开发过程全记录</a>》。</p>
+<ul>
+<li><strong>外部环境</strong>：在目标的设定上，主要不是为了满足用户需求，而是为了商业上的竞争需要；</li>
+<li><strong>技术管理</strong>：技术上难度过大，超出团队控制范围，无法完成任务；</li>
+<li><strong>项目管理</strong>：比尔盖茨对项目直接干预较多，项目周期太长；</li>
+<li><strong>组织文化</strong>：盖茨制定目标后，核心团队明知困难，却不敢也没有反对，当看到任务无法完成时，他们不再努力工作，只想着如何推卸责任。</li>
+</ul>
+</li>
+</ul>
+<h2 id="VS-Code如何应用软件工程"><a href="#VS-Code如何应用软件工程" class="headerlink" title="VS Code如何应用软件工程"></a>VS Code如何应用软件工程</h2><h3 id="VS-Code-的开发迭代过程"><a href="#VS-Code-的开发迭代过程" class="headerlink" title="VS Code 的开发迭代过程"></a>VS Code 的开发迭代过程</h3><p>VS Code 采用的是快速迭代的开发模式，每四周一个迭代。</p>
+<ol>
+<li><p>第一周</p>
+<p>一方面要准备新版本，一方面还要对上一个版本的工作进行收尾；</p>
+<p>做一些偿还技术债务的事情，比如说重构代码，优化性能；</p>
+<p>一起讨论下一个迭代要做的功能。</p>
+</li>
+<li><p>第二周和第三周</p>
+<p>按照计划去开发，一部分是开发新功能，一部分是修复 Bug；</p>
+<p>团队成员每天还要先检查一下分配给自己的 Issue，如果遇到线上版本紧急的 Bug，要优先修复。</p>
+</li>
+<li><p>第四周</p>
+<p>测试所有新的 Feature 和验证已经修复的 Bug，确保被修复；</p>
+<p>同时还要更新文档和写 Release Notes。</p>
+</li>
+</ol>
+<h3 id="VS-Code-团队的角色和分工"><a href="#VS-Code-团队的角色和分工" class="headerlink" title="VS Code 团队的角色和分工"></a>VS Code 团队的角色和分工</h3><p>从角色上来说，除了开发，还有主要有两种角色：<a target="_blank" rel="noopener" href="https://github.com/microsoft/vscode/wiki/Issue-Tracking#inbox-tracking">Inbox Tracker</a>和<a target="_blank" rel="noopener" href="https://github.com/microsoft/vscode/wiki/Running-the-Endgame#duties-of-the-endgame-master">Endgame Master</a>。这两种角色在每个迭代的时候是轮值的，每个人都有机会去担任这两个角色。</p>
+<ul>
+<li><p><strong>Inbox Tracker</strong></p>
+<p>Inbox Tracker 的主要任务就是收集、验证、跟踪 Bug。Inbox Tracker 要检查新提交的 Issue 是不是一个真正的 Bug，如果是提问，建议到 StackOverflow 去问，如果是 Bug，打上 Bug 的标签，并指派给相应模块的负责人。</p>
+</li>
+<li><p><strong>Endgame Master</strong></p>
+<p>Endgame Master 在每个迭代测试之前，根据迭代的开发计划制定相应的测试计划，生成 Check List，确保每一个新的功能都有在 Check List 中列出来。因为 VS Code 团队没有专职测试，为了避免开发人员自己测试自己的代码会存在盲区，所以自己写的功能都是让其他人帮忙测试。Endgame Master 一个主要工作就是要将这些测试项分配给团队成员。</p>
+</li>
+</ul>
+<h3 id="VS-Code-的各个阶段"><a href="#VS-Code-的各个阶段" class="headerlink" title="VS Code 的各个阶段"></a>VS Code 的各个阶段</h3><ol>
+<li><p><strong>VS Code 的需求收集和版本计划</strong></p>
+<p>VS Code 的需求，一部分是团队内部产生的；一部分是从社区收集的，比如 GitHub、Twitter、StackOverflow 的反馈。VS Code 每半年或一年会对下一个阶段做一个<a target="_blank" rel="noopener" href="https://github.com/microsoft/vscode/wiki/Roadmap">Roadmap</a>，规划下一个半年或一年的计划。</p>
+<p><strong>怎么将 Issue 和迭代关联起来呢？</strong></p>
+<p>GitHub 的 Issue 管理有一个 Milestone 的功能，VS Code 有四个主要的 Milestone。</p>
+<ul>
+<li>当前迭代：当前正在开发中的 Milestone；</li>
+<li>On Deck：下一个迭代对应的 Milestone；</li>
+<li>Backlog：还没开始，表示未来要做的；</li>
+<li>Recovery：已经完成的迭代，但是可能要打一些补丁。</li>
+</ul>
+</li>
+<li><p><strong>VS Code 的设计和开发</strong></p>
+<p>VS Code 的开发流程也是用的<a target="_blank" rel="noopener" href="https://guides.github.com/introduction/flow/">GitHub Flow</a>，要开发一个新功能或者修复一个 Bug，都创建一个新的分支，开发完成之后提交 PR。PR 合并之前，必须要有核心成员的代码审查通过，并且要确保所有的自动化测试通过。VS Code 的<a target="_blank" rel="noopener" href="http://dev.azure.com/vscode/VSCode">CI（持续集成）</a>用的是微软自己的 Azure DevOps，每一次提交代码到 GitHub，CI 都会运行单元测试和集成测试代码，对 Windows/Linux/macOS 三个操作系统分别运行测试。</p>
+</li>
+<li><p><strong>VS Code 的测试</strong></p>
+<p>具体测试的时候，大家就是遵循 Endgame Master 制定好的测试计划，各自按照 Check List 逐一去检查验证，确保所有的新功能都通过了测试，标记为修复的 Bug 真的被修复了。对于验证通过的 Bug，在对应的 Issue 上打上 verified 的标签。</p>
+</li>
+<li><p><strong>VS Code 的发布流程</strong></p>
+<p>在 Endgame 测试后，就要从 master 创建一个 release 分支出去，比如说 release/1.10 ，后面的预发布版本和正式版本包括补丁版本都将从这个 release 分支发布。如果在创建 release 分支后发现了新的 Bug，那么对 Bug 修复的代码，要同时合并到 master 和 release 分支。</p>
+</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">AutinC</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://autinc.github.io/2023/11/15/ruan-jian-gong-cheng-zhi-mei/">https://autinc.github.io/2023/11/15/ruan-jian-gong-cheng-zhi-mei/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">AutinC</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B9%8B%E7%BE%8E-%E6%9E%81%E5%AE%A2/">
+                                    <span class="chip bg-color">软件工程之美-极客</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'v0LOxueiWIPRw9lXbmg2YToy-gzGzoHsz',
+        appKey: 'RhYvmeHaBq8MHqMgnwdQbvm8',
+        serverURLs: 'https://v0loxuei.lc-cn-n1-shared.com',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'false' === 'true',
+        avatar: 'mp',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '留下您的观点看法，共同讨论吧！'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/11/16/cheng-xu-yuan-de-zi-wo-xiu-yang-lian-jie-zhuang-zai-yu-ku-di-yi-zhang-du-shu-bi-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="《程序员的自我修养——链接、装载与库》第一章读书笔记">
+                        
+                        <span class="card-title">《程序员的自我修养——链接、装载与库》第一章读书笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-11-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            AutinC
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E3%80%8A%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB%E2%80%94%E2%80%94%E9%93%BE%E6%8E%A5%E3%80%81%E8%A3%85%E8%BD%BD%E4%B8%8E%E5%BA%93%E3%80%8B/">
+                        <span class="chip bg-color">《程序员的自我修养——链接、装载与库》</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/11/14/html5-cai-niao-jiao-cheng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="HTML5 菜鸟教程">
+                        
+                        <span class="card-title">HTML5 菜鸟教程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            AutinC
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%89%8D%E7%AB%AF%E4%B8%89%E4%BB%B6%E5%A5%97/">
+                        <span class="chip bg-color">前端三件套</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Huang Shichang&#39;s Blog<br />'
+            + '文章作者: AutinC<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022-2024</span>
+            
+            <a href="/about" target="_blank">AutinC</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">269.2k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Autinc" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:h1743551466@126.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我： h1743551466@126.com" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1743551466" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1743551466" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+        <script src="//code.tidio.co/9r5hwp19xkh9jgnm8ualt74ktcqj9hkg.js"></script>
+        <script>
+            $(document).ready(function () {
+                setInterval(change_Tidio, 50);
+                function change_Tidio() {
+                    var tidio=$("#tidio-chat iframe");
+                    if(tidio.css("display")=="block"&& $(window).width()>977 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"85px":"20px";
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";
+                        document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
+                        document.getElementById("tidio-chat-iframe").style.zIndex="998";
+                    }
+                }
+            });
+        </script>
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

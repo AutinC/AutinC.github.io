@@ -1,0 +1,1479 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Linux内核技术-内存泄漏相关, Huang Shichang&#39;s Blog">
+    <meta name="description" content="如何让Linux内核更好地服务应用程序？当发生TCP重传时，有人可以从tcpdump里面的信息看到是哪个TCP连接进行重传，然而高手们却可以通过这些信息看到为什么会发生重传。
+四大类中的典型问题：Page Cache管理问题、内存泄漏问题、">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Linux内核技术-内存泄漏相关 | Huang Shichang&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.0.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.jpeg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Huang Shichang&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.jpeg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Huang Shichang&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/AutinC/AutinC.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/AutinC/AutinC.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Linux内核技术-内存泄漏相关</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux%E5%86%85%E6%A0%B8/">
+                                <span class="chip bg-color">Linux内核</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-10-27
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="如何让Linux内核更好地服务应用程序？"><a href="#如何让Linux内核更好地服务应用程序？" class="headerlink" title="如何让Linux内核更好地服务应用程序？"></a>如何让Linux内核更好地服务应用程序？</h1><p>当发生TCP重传时，有人可以从<strong>tcpdump</strong>里面的信息看到是哪个TCP连接进行重传，然而高手们却可以通过这些信息看到为什么会发生重传。</p>
+<p>四大类中的典型问题：<strong>Page Cache管理问题、内存泄漏问题、TCP重传问题、内核态CPU利用率飙高问题</strong>。</p>
+<p>如何更好地利用Page Cache来减少无谓的I/O开销；</p>
+<p>应用程序都是如何从系统中申请内存以及如何释放的；</p>
+<p>TCP连接的建立、传输以及断开的过程。这个过程究竟会受哪些配置项的影响，如果配置不当会引起什么网络问题；</p>
+<p>应用程序该如何高效地使用CPU，以及哪些情况下会导致CPU的使用很低效。</p>
+<h1 id="内存泄漏问题"><a href="#内存泄漏问题" class="headerlink" title="内存泄漏问题"></a>内存泄漏问题</h1><h2 id="进程的哪些内存类型容易引起内存泄漏？"><a href="#进程的哪些内存类型容易引起内存泄漏？" class="headerlink" title="进程的哪些内存类型容易引起内存泄漏？"></a><strong>进程的哪些内存类型容易引起内存泄漏？</strong></h2><p>内存泄漏指的是内存被分配出去后一直没有被释放，导致这部分内存无法被再次使用，甚至更加严重的是，指向这块内存空间的指针都不存在了，进而再也无法访问这块内存空间。</p>
+<h3 id="内存泄漏可能导致的问题"><a href="#内存泄漏可能导致的问题" class="headerlink" title="内存泄漏可能导致的问题"></a>内存泄漏可能导致的问题</h3><ul>
+<li>伴随着服务器中的后台任务持续地运行，系统中可用内存越来越少；</li>
+<li>应用程序正在运行时忽然被OOM kill掉了；</li>
+<li>进程看起来没有消耗多少内存，但是系统内存就是不够用了；</li>
+<li>……</li>
+</ul>
+<h3 id="进程地址空间"><a href="#进程地址空间" class="headerlink" title="进程地址空间"></a>进程地址空间</h3><p><img src="http://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/Linux%e5%86%85%e6%a0%b8%e6%8a%80%e6%9c%af%e5%ae%9e%e6%88%98%e8%af%be/assets/c321c56a7b719bf14b0b5133d0a66132.jpg"></p>
+<h3 id="进程地址空间四种类型与易泄露类型"><a href="#进程地址空间四种类型与易泄露类型" class="headerlink" title="进程地址空间四种类型与易泄露类型"></a>进程地址空间四种类型与易泄露类型</h3><p><img src="http://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/Linux%e5%86%85%e6%a0%b8%e6%8a%80%e6%9c%af%e5%ae%9e%e6%88%98%e8%af%be/assets/85e7da0e15587c6a1d31f7e60e1ab00f.jpg"></p>
+<ul>
+<li><strong>私有匿名内存</strong>。**进程的堆、栈，以及mmap(MAP_ANON | MAP_PRIVATE)**这种方式申请的内存都属于这种类型的内存。其中栈是由操作系统来进行管理的，应用程序无需关注它的申请和释放；堆和私有匿名映射则是由应用程序（程序员）来进行管理的，它们的申请和释放都是由应用程序来负责的，所以它们是容易产生内存泄漏的地方。</li>
+<li><strong>共享匿名内存</strong>。进程通过**mmap(MAP_ANON | MAP_SHARED)**这种方式来申请的内存，比如说tmpfs和shm。这个类型的内存也是由应用程序来进行管理的，所以也可能会发生内存泄漏。</li>
+<li><strong>私有文件映射</strong>。进程通过**mmap(MAP_FILE | MAP_PRIVATE)**这种方式来申请的内存，比如进程将共享库（Shared libraries）和可执行文件的代码段（Text Segment）映射到自己的地址空间就是通过这种方式。对于共享库和可执行文件的代码段的映射，这是通过操作系统来进行管理的，应用程序无需关注它们的申请和释放。而应用程序直接通过mmap(MAP_FILE | MAP_PRIVATE)来申请的内存则是需要应用程序自己来进行管理，这也是可能会发生内存泄漏的地方。</li>
+<li><strong>共享文件映射</strong>。进程通过**mmap(MAP_FILE | MAP_SHARED)**这种方式来申请的内存，我们在上一个模块课程中讲到的File Page Cache就属于这类内存。这部分内存也需要应用程序来申请和释放，所以也存在内存泄漏的可能性。</li>
+</ul>
+<p><strong>即使进程只是调用malloc()或者mmap()而不去写这些地址，不去给它分配物理内存，也可能导致进程虚拟地址空间耗尽，即虚拟地址空间同样存在内存泄露的问题。</strong></p>
+<h3 id="分页过程（虚拟内存到物理地址的映射）"><a href="#分页过程（虚拟内存到物理地址的映射）" class="headerlink" title="分页过程（虚拟内存到物理地址的映射）"></a><strong>分页过程（虚拟内存到物理地址的映射）</strong></h3><p><img src="http://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/Linux%e5%86%85%e6%a0%b8%e6%8a%80%e6%9c%af%e5%ae%9e%e6%88%98%e8%af%be/assets/5e2dacf3890cd9d508d3e0181a8ac868.jpg"></p>
+<p>Paging的大致过程是，CPU将要请求的虚拟地址传给MMU（Memory Management Unit，内存管理单元），然后MMU先在高速缓存TLB（Translation Lookaside Buffer，页表缓存）中查找转换关系，如果找到了相应的物理地址则直接访问；如果找不到则在地址转换表（Page Table）里查找计算。最终进程访问的虚拟地址就对应到了实际的物理地址。</p>
+<p><strong>Linux上最典型的规划进程地址空间的方式就是通过ulimit，来规划进程最大的虚拟地址空间、物理地址空间、栈空间是多少等等。</strong></p>
+<h3 id="用数据观察进程的内存"><a href="#用数据观察进程的内存" class="headerlink" title="用数据观察进程的内存"></a>用数据观察进程的内存</h3><p>常用来观察进程内存的工具，比如说pmap、ps、top等，都可以很好地来观察进程的内存。</p>
+<p><strong>top</strong></p>
+<p>可以使用top来观察系统所有进程的内存使用概况，打开top后，然后按g再输入3，进入内存模式。</p>
+<p>在内存模式中，我们可以看到各个进程内存的%MEM、VIRT、RES、CODE、DATA、SHR、nMaj、nDRT</p>
+<p>nMaj（Major Page Fault， 主缺页中断，指内容不在内存中然后从磁盘中来读取的页数），%MEM则是从RES计算而来的。</p>
+<p><img src="http://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/Linux%e5%86%85%e6%a0%b8%e6%8a%80%e6%9c%af%e5%ae%9e%e6%88%98%e8%af%be/assets/a9615117becc0244a2a23802a9cf5c1d.jpg"></p>
+<p>如果RES太高而SHR不高，那可能是堆内存泄漏；如果SHR很高，那可能是tmpfs/shm之类的数据在持续增长，如果VIRT很高而RES很小，那可能是进程不停地在申请内存，但是却没有对这些内存进行任何的读写操作，即虚拟地址空间存在内存泄漏。</p>
+<p><strong>pmap</strong></p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$  pmap -x `pidof sshd`</span><br><span class="line"></span><br><span class="line">Address           Kbytes     RSS   Dirty Mode  Mapping </span><br><span class="line"><span class="number">000055e798</span>e1d000     <span class="number">768</span>     <span class="number">652</span>       <span class="number">0</span> r-x-- sshd</span><br><span class="line"><span class="number">000055e7990</span>dc000      <span class="number">16</span>      <span class="number">16</span>      <span class="number">16</span> r---- sshd</span><br><span class="line"><span class="number">000055e7990</span>e0000       <span class="number">4</span>       <span class="number">4</span>       <span class="number">4</span> rw--- sshd</span><br><span class="line"><span class="number">000055e7990</span>e1000      <span class="number">40</span>      <span class="number">40</span>      <span class="number">40</span> rw---   [ anon ]</span><br><span class="line">...</span><br><span class="line"><span class="number">00007f</span>189613a000    <span class="number">1800</span>    <span class="number">1624</span>       <span class="number">0</span> r-x-- libc<span class="number">-2.17</span>.so</span><br><span class="line"><span class="number">00007f</span>18962fc000    <span class="number">2048</span>       <span class="number">0</span>       <span class="number">0</span> ----- libc<span class="number">-2.17</span>.so</span><br><span class="line"><span class="number">00007f</span>18964fc000      <span class="number">16</span>      <span class="number">16</span>      <span class="number">16</span> r---- libc<span class="number">-2.17</span>.so</span><br><span class="line"><span class="number">00007f</span>1896500000       <span class="number">8</span>       <span class="number">8</span>       <span class="number">8</span> rw--- libc<span class="number">-2.17</span>.so</span><br><span class="line">...</span><br><span class="line"><span class="number">00007f</span>fd9d30f000     <span class="number">132</span>      <span class="number">40</span>      <span class="number">40</span> rw---   [ stack ]</span><br></pre></td></tr></tbody></table></figure>
+
+<p>每一行表示一种类型的内存（Virtual Memory Area），每一列的含义如下。</p>
+<ul>
+<li><strong>Mapping</strong>，用来表示文件映射中占用内存的文件，比如sshd这个可执行文件，或者堆[heap]，或者栈[stack]，或者其他，等等。</li>
+<li><strong>Mode</strong>，它是该内存的权限，比如，“r-x”是可读可执行，它往往是代码段(Text Segment)；“rw-”是可读可写，这部分往往是数据段(Data Segment)；“r–”是只读，这往往是数据段中的只读部分。</li>
+<li><strong>Address、Kbytes、RSS、Dirty</strong>，Address和Kbytes分别表示起始地址和虚拟内存的大小，RSS（Resident Set Size）则表示虚拟内存中已经分配的物理内存的大小，Dirty则表示内存中数据未同步到磁盘的字节数。</li>
+</ul>
+<p>如果地址空间中[heap]太大，那有可能是堆内存产生了泄漏；再比如说，如果进程地址空间包含太多的vma（可以把maps中的每一行理解为一个vma），那很可能是应用程序调用了很多mmap而没有munmap；再比如持续观察地址空间的变化，如果发现某些项在持续增长，那很可能是那里存在问题。</p>
+<h2 id="如何预防内存泄漏导致的系统假死？"><a href="#如何预防内存泄漏导致的系统假死？" class="headerlink" title="如何预防内存泄漏导致的系统假死？"></a><strong>如何预防内存泄漏导致的系统假死？</strong></h2><h3 id="valgrind检测内存泄漏"><a href="#valgrind检测内存泄漏" class="headerlink" title="valgrind检测内存泄漏"></a>valgrind检测内存泄漏</h3><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ valgrind --leak-check=full  ./a.out </span><br><span class="line"></span><br><span class="line">==<span class="number">20146</span>== HEAP SUMMARY:</span><br><span class="line">==<span class="number">20146</span>==     in use at exit: <span class="number">1</span>,<span class="number">073</span>,<span class="number">741</span>,<span class="number">824</span> bytes in <span class="number">1</span> blocks</span><br><span class="line">==<span class="number">20146</span>==   total heap usage: <span class="number">1</span> allocs, <span class="number">0</span> frees, <span class="number">1</span>,<span class="number">073</span>,<span class="number">741</span>,<span class="number">824</span> bytes allocated</span><br><span class="line">==<span class="number">20146</span>== </span><br><span class="line">==<span class="number">20146</span>== <span class="number">1</span>,<span class="number">073</span>,<span class="number">741</span>,<span class="number">824</span> bytes in <span class="number">1</span> blocks are possibly lost in loss record <span class="number">1</span> of <span class="number">1</span></span><br><span class="line">==<span class="number">20146</span>==    at <span class="number">0x4C29F73</span>: <span class="built_in">malloc</span> (vg_replace_malloc.c:<span class="number">309</span>)</span><br><span class="line">==<span class="number">20146</span>==    by <span class="number">0x400543</span>: <span class="built_in">main</span> (in /home/yafang/test/mmleak/a.out)</span><br><span class="line">==<span class="number">20146</span>== </span><br><span class="line">==<span class="number">20146</span>== LEAK SUMMARY:</span><br><span class="line">==<span class="number">20146</span>==    definitely lost: <span class="number">0</span> bytes in <span class="number">0</span> blocks</span><br><span class="line">==<span class="number">20146</span>==    indirectly lost: <span class="number">0</span> bytes in <span class="number">0</span> blocks</span><br><span class="line">==<span class="number">20146</span>==      possibly lost: <span class="number">1</span>,<span class="number">073</span>,<span class="number">741</span>,<span class="number">824</span> bytes in <span class="number">1</span> blocks</span><br><span class="line">==<span class="number">20146</span>==    still reachable: <span class="number">0</span> bytes in <span class="number">0</span> blocks</span><br><span class="line">==<span class="number">20146</span>==         suppressed: <span class="number">0</span> bytes in <span class="number">0</span> blocks</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="进程地址分配和销毁过程"><a href="#进程地址分配和销毁过程" class="headerlink" title="进程地址分配和销毁过程"></a>进程地址分配和销毁过程</h3><p><img src="http://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/Linux%e5%86%85%e6%a0%b8%e6%8a%80%e6%9c%af%e5%ae%9e%e6%88%98%e8%af%be/assets/e0e227529ba7f2fcab1ab445c4634764.jpg"></p>
+<p>进程在退出的时候，会把它建立的映射都给解除掉。换句话说，进程退出时，会把它申请的内存都给释放掉，那上面这个内存泄漏就是没危害的。</p>
+<p>对于后台服务型的业务而言，基本上都是需要长时间运行的程序，所以后台服务的内存泄漏会给系统造成实际的危害。</p>
+<h3 id="如何预防内存泄漏导致的危害？"><a href="#如何预防内存泄漏导致的危害？" class="headerlink" title="如何预防内存泄漏导致的危害？"></a>如何预防内存泄漏导致的危害？</h3><p>系统内存不足时会唤醒OOM killer来选择一个进程给杀掉，<strong>OOM killer选择进程是有策略的，它未必一定会杀掉正在内存泄漏的进程，很有可能是一个无辜的进程被杀掉。</strong></p>
+<p><strong>案例：OOM日志打印导致多进程内存申请失败：</strong></p>
+<p><img src="http://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/Linux%e5%86%85%e6%a0%b8%e6%8a%80%e6%9c%af%e5%ae%9e%e6%88%98%e8%af%be/assets/b39503a3fb39e731d2d4c51687db70a7.jpg"></p>
+<p>OOM日志可以理解为是一个单生产者多消费者的模型。问题就出在console这里，如果console的速率很慢，输出太多日志会非常消耗时间。</p>
+<p><img src="http://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/Linux%e5%86%85%e6%a0%b8%e6%8a%80%e6%9c%af%e5%ae%9e%e6%88%98%e8%af%be/assets/2c4e5452584e9a1525921dffbdfda4e7.jpg"></p>
+<ul>
+<li>进程A在申请内存失败后会触发OOM，在发生OOM的时候会打印很多很多日志，会选择一个合适的进程来杀掉，从而释放出来空闲的内存；</li>
+<li>进程B同样也会触发OOM来尝试释放内存，而OOM这里又有一个全局锁（oom_lock）来进行保护，进程B尝试获取（trylock）这个锁的时候会失败，就只能再次重试；</li>
+<li>如果此时系统中有很多进程都在申请内存，那么这些申请内存的进程都会被阻塞在这里，这就形成了一个恶性循环，甚至会引发系统长时间无响应（假死）。</li>
+</ul>
+<p><strong>解决方案：</strong></p>
+<ul>
+<li><strong>在发生OOM时尽可能少地打印信息</strong>，<strong>这并不是一个完美的方案，只是一个规避措施</strong>。</li>
+<li><strong>调整串口打印级别，不将OOM信息打印到串口。</strong></li>
+</ul>
+<p>建议选择第二种，因为使用console的概率还是较少一些，所以第二种方案的影响也相对较小一些。</p>
+<h2 id="进程没有消耗内存，内存哪去了？"><a href="#进程没有消耗内存，内存哪去了？" class="headerlink" title="进程没有消耗内存，内存哪去了？"></a><strong>进程没有消耗内存，内存哪去了？</strong></h2><p>磁盘的速度是远远低于内存的，有些应用程序为了提升性能，会避免将一些无需持续化存储的数据写入到磁盘，而是把这部分临时数据写入到内存中，然后定期或者在不需要这部分数据时，清理掉这部分内容来释放出内存。在这种需求下，就产生了一种特殊的Shmem：tmpfs。它是一种内存文件系统，只存在于内存中，它无需应用程序去申请和释放内存，而是操作系统自动来规划好一部分空间，应用程序只需要往这里面写入数据就可以了，这样会很方便。<strong>tmpfs中的文件一样不会体现在进程的内存占用上。</strong></p>
+<p>除了tmpfs之外，其他一些类型的内存也不会体现在进程内存中，比如内核消耗的内存：**/proc/meminfo中的Slab（高速缓存）、KernelStack（内核栈）和VmallocUsed（内核通过vmalloc申请的内存）。**</p>
+<h3 id="OOM杀进程的危害"><a href="#OOM杀进程的危害" class="headerlink" title="OOM杀进程的危害"></a>OOM杀进程的危害</h3><p><img src="http://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/Linux%e5%86%85%e6%a0%b8%e6%8a%80%e6%9c%af%e5%ae%9e%e6%88%98%e8%af%be/assets/150863953f090f09179e87814322a5ee.jpg"></p>
+<p>如果你的进程无论如何都不能被杀掉，那你可以将oom_score_adj配置为-1000。</p>
+<h2 id="如何对内核内存泄漏做些基础的分析？"><a href="#如何对内核内存泄漏做些基础的分析？" class="headerlink" title="如何对内核内存泄漏做些基础的分析？"></a><strong>如何对内核内存泄漏做些基础的分析？</strong></h2><h3 id="内核内存泄漏是什么？"><a href="#内核内存泄漏是什么？" class="headerlink" title="内核内存泄漏是什么？"></a>内核内存泄漏是什么？</h3><p>应用程序可以通过malloc()和free()在用户态申请和释放内存，与之对应，可以通过<strong>kmalloc()/kfree()以及vmalloc()/vfree()在内核态申请和释放内存</strong>。kmalloc()内存的物理地址是连续的，而vmalloc()内存的物理地址则是不连续的。</p>
+<p>内核空间内存的生命周期是与内核一致的，却不是跟内核模块一致的，也就是说，在内核模块退出时，不会自动释放掉该内核模块申请的内存，只有在内核重启（即服务器重启）时才会释放掉这部分内存。</p>
+<p>内核内存泄漏的问题往往会发生在一些驱动程序中，比如说网卡驱动，SSD卡驱动等。</p>
+<h3 id="如何观察内核内存泄漏？"><a href="#如何观察内核内存泄漏？" class="headerlink" title="如何观察内核内存泄漏？"></a>如何观察内核内存泄漏？</h3><p>通过/proc/meminfo来观察内核内存的分配情况：</p>
+<ul>
+<li>如果/proc/meminfo中内核内存（比如VmallocUsed和SUnreclaim）太大，那很有可能发生内核内存泄漏；</li>
+<li>也可以周期性地观察VmallocUsed和SUnreclaim的变化，如果它们持续增长而不下降，也可能是发生了内核内存泄漏。</li>
+</ul>
+<h3 id="复杂场景下内核内存泄漏问题分析思路"><a href="#复杂场景下内核内存泄漏问题分析思路" class="headerlink" title="复杂场景下内核内存泄漏问题分析思路"></a>复杂场景下内核内存泄漏问题分析思路</h3><p>最常用的分析工具就是<a target="_blank" rel="noopener" href="https://www.kernel.org/doc/html/v4.10/dev-tools/kmemleak.html">kmemleak</a>。因为打开该特性会给性能带来一些损耗，所以生产环境中的内核都会默认关闭该特性。</p>
+<p>kmemleak是通过检查内核内存的申请和释放，来判断是否存在申请的内存不再使用也不释放的情况。</p>
+<p>如果存在，就认为是内核内存泄漏，然后把这些泄漏的信息通过/sys/kernel/debug/kmemleak这个文件导出给用户分析。</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">unreferenced object <span class="number">0xffffc9008a003000</span> (size <span class="number">1073741824</span>):</span><br><span class="line">  comm <span class="string">"insmod"</span>, pid <span class="number">11247</span>, jiffies <span class="number">4344145825</span> (age <span class="number">3719.606</span>s)</span><br><span class="line">  <span class="function">hex <span class="title">dump</span> <span class="params">(first <span class="number">32</span> bytes)</span>:</span></span><br><span class="line"><span class="function">    <span class="number">38</span> <span class="number">40</span> <span class="number">18</span> ba <span class="number">80</span> <span class="number">88</span> ff ff <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span>  <span class="number">8</span>@..............</span></span><br><span class="line"><span class="function">    f0 <span class="number">13</span> c9 <span class="number">73</span> <span class="number">80</span> <span class="number">88</span> ff ff <span class="number">18</span> <span class="number">40</span> <span class="number">18</span> ba <span class="number">80</span> <span class="number">88</span> ff ff  ...s.....@......</span></span><br><span class="line"><span class="function">  backtrace:</span></span><br><span class="line"><span class="function">    [&lt;<span class="number">00000000f</span>bd7cb65&gt;] __vmalloc_node_range+<span class="number">0x22f</span>/<span class="number">0x2a0</span></span></span><br><span class="line"><span class="function">    [&lt;<span class="number">000000008</span>c0afaef&gt;] vmalloc+<span class="number">0x45</span>/<span class="number">0x50</span></span></span><br><span class="line"><span class="function">    [&lt;<span class="number">000000004f</span>3750a2&gt;] <span class="number">0xffffffffa0937013</span></span></span><br><span class="line"><span class="function">    [&lt;<span class="number">0000000078198</span>a11&gt;] <span class="number">0xffffffffa093c01a</span></span></span><br><span class="line"><span class="function">    [&lt;<span class="number">000000002041</span>c0ec&gt;] do_one_initcall+<span class="number">0x4a</span>/<span class="number">0x200</span></span></span><br><span class="line"><span class="function">    [&lt;<span class="number">000000008</span>d10d1ed&gt;] do_init_module+<span class="number">0x60</span>/<span class="number">0x220</span></span></span><br><span class="line"><span class="function">    [&lt;<span class="number">000000003</span>c285703&gt;] load_module+<span class="number">0x156c</span>/<span class="number">0x17f0</span></span></span><br><span class="line"><span class="function">    [&lt;<span class="number">00000000</span>c428a5fe&gt;] __do_sys_finit_module+<span class="number">0xbd</span>/<span class="number">0x120</span></span></span><br><span class="line"><span class="function">    [&lt;<span class="number">00000000b</span>c613a5a&gt;] __x64_sys_finit_module+<span class="number">0x1a</span>/<span class="number">0x20</span></span></span><br><span class="line"><span class="function">    [&lt;<span class="number">000000004b</span>0870a2&gt;] do_syscall_64+<span class="number">0x52</span>/<span class="number">0x90</span></span></span><br><span class="line"><span class="function">    [&lt;<span class="number">000000002f</span>458917&gt;] entry_SYSCALL_64_after_hwframe+<span class="number">0x44</span>/<span class="number">0xa9</span></span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在生产环境上来观察内核内存泄漏，可以使用内核提供的内核内存申请释放的tracepoint，来动态观察内核内存使用情况：</p>
+<p><img src="http://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/Linux%e5%86%85%e6%a0%b8%e6%8a%80%e6%9c%af%e5%ae%9e%e6%88%98%e8%af%be/assets/4c434f56b5c41f9cc2eb53a2c98f948c.jpg"></p>
+<p>想要观察某些内核结构体的申请和释放时，可能没有对应的tracepiont。这个时候就需要使用kprobe或者systemtap，来针对具体的内核结构体申请释放函数进行追踪了。</p>
+<h2 id="内存泄漏时，如何一步步找到根因？"><a href="#内存泄漏时，如何一步步找到根因？" class="headerlink" title="内存泄漏时，如何一步步找到根因？"></a><strong>内存泄漏时，如何一步步找到根因？</strong></h2><h3 id="如何定位出是谁在消耗内存-？"><a href="#如何定位出是谁在消耗内存-？" class="headerlink" title="如何定位出是谁在消耗内存 ？"></a>如何定位出是谁在消耗内存 ？</h3><p>如果进程的内存有问题，那使用top就可以观察出来；</p>
+<p>如果进程的内存没有问题，那你可以从/proc/meminfo入手来一步步地去深入分析。</p>
+<p><img src="http://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/Linux%e5%86%85%e6%a0%b8%e6%8a%80%e6%9c%af%e5%ae%9e%e6%88%98%e8%af%be/assets/a48d1c573d19e30ecee8dc6f6fdd3930.jpg"></p>
+<h3 id="如何去分析进程的内存泄漏原因？"><a href="#如何去分析进程的内存泄漏原因？" class="headerlink" title="如何去分析进程的内存泄漏原因？"></a>如何去分析进程的内存泄漏原因？</h3><p>案例：业务进程的虚拟地址空间（VIRT）被消耗很大，但是物理内存（RES）使用得却很少。</p>
+<ol>
+<li><p>可以用<strong>pidstat命令来追踪下该进程的内存行为</strong>，看看能够发现什么现象：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ pidstat -r -p <span class="number">31108</span>  <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="number">04</span>:<span class="number">47</span>:<span class="number">00</span> PM     <span class="number">31108</span>    <span class="number">353.00</span>      <span class="number">0.00</span> <span class="number">299029776</span> <span class="number">4182152</span>  <span class="number">12.73</span>  app_server</span><br><span class="line">...</span><br><span class="line"><span class="number">04</span>:<span class="number">47</span>:<span class="number">59</span> PM     <span class="number">31108</span>    <span class="number">149.00</span>      <span class="number">0.00</span> <span class="number">299029776</span> <span class="number">4181052</span>  <span class="number">12.73</span>  app_server</span><br><span class="line"><span class="number">04</span>:<span class="number">48</span>:<span class="number">00</span> PM     <span class="number">31108</span>    <span class="number">191.00</span>      <span class="number">0.00</span> <span class="number">299040020</span> <span class="number">4181188</span>  <span class="number">12.73</span>  app_server</span><br><span class="line">...</span><br><span class="line"><span class="number">04</span>:<span class="number">48</span>:<span class="number">59</span> PM     <span class="number">31108</span>    <span class="number">179.00</span>      <span class="number">0.00</span> <span class="number">299040020</span> <span class="number">4181400</span>  <span class="number">12.73</span>  app_server</span><br><span class="line"><span class="number">04</span>:<span class="number">49</span>:<span class="number">00</span> PM     <span class="number">31108</span>    <span class="number">183.00</span>      <span class="number">0.00</span> <span class="number">299050264</span> <span class="number">4181524</span>  <span class="number">12.73</span>  app_server</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如上所示，在每个整分钟的时候，VSZ会增大10244KB，这看起来是一个很有规律的现象；</p>
+</li>
+<li><p>可以通过**/proc/PID/smaps来看增大的这个内存区域**到底是什么：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">$ cat /proc/<span class="number">31108</span>/smaps </span><br><span class="line">...</span><br><span class="line"><span class="number">7f</span>aae0e49000<span class="number">-7f</span>aae1849000 rw-p <span class="number">00000000</span> <span class="number">00</span>:<span class="number">00</span> <span class="number">0</span> </span><br><span class="line">Size:              <span class="number">10240</span> kB</span><br><span class="line">Rss:                  <span class="number">80</span> kB</span><br><span class="line">Pss:                  <span class="number">80</span> kB</span><br><span class="line">Shared_Clean:          <span class="number">0</span> kB</span><br><span class="line">Shared_Dirty:          <span class="number">0</span> kB</span><br><span class="line">Private_Clean:         <span class="number">0</span> kB</span><br><span class="line">Private_Dirty:        <span class="number">80</span> kB</span><br><span class="line">Referenced:           <span class="number">60</span> kB</span><br><span class="line">Anonymous:            <span class="number">80</span> kB</span><br><span class="line">AnonHugePages:         <span class="number">0</span> kB</span><br><span class="line">Swap:                  <span class="number">0</span> kB</span><br><span class="line">KernelPageSize:        <span class="number">4</span> kB</span><br><span class="line">MMUPageSize:           <span class="number">4</span> kB</span><br><span class="line"></span><br><span class="line"><span class="number">7f</span>aae1849000<span class="number">-7f</span>aae184a000 ---p <span class="number">00000000</span> <span class="number">00</span>:<span class="number">00</span> <span class="number">0</span> </span><br><span class="line">Size:                  <span class="number">4</span> kB</span><br><span class="line">Rss:                   <span class="number">0</span> kB</span><br><span class="line">Pss:                   <span class="number">0</span> kB</span><br><span class="line">Shared_Clean:          <span class="number">0</span> kB</span><br><span class="line">Shared_Dirty:          <span class="number">0</span> kB</span><br><span class="line">Private_Clean:         <span class="number">0</span> kB</span><br><span class="line">Private_Dirty:         <span class="number">0</span> kB</span><br><span class="line">Referenced:            <span class="number">0</span> kB</span><br><span class="line">Anonymous:             <span class="number">0</span> kB</span><br><span class="line">AnonHugePages:         <span class="number">0</span> kB</span><br><span class="line">Swap:                  <span class="number">0</span> kB</span><br><span class="line">KernelPageSize:        <span class="number">4</span> kB</span><br><span class="line">MMUPageSize:           <span class="number">4</span> kB</span><br></pre></td></tr></tbody></table></figure>
+
+<p>它包括：一个私有地址空间，这从rw-p这个属性中的private可以看出来；以及一个保护页 ，这从—p这个属性可以看出来，即进程无法访问。</p>
+<p>对于有经验的开发者而言，从这个4K的保护页就可以猜测出应该跟<strong>线程栈</strong>有关了。</p>
+</li>
+<li><p>通过<strong>strace命令来跟踪系统调用了解进程申请这部分地址空间的目的</strong>是什么：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ cat <span class="number">31108.</span>strace | grep <span class="number">10489856</span>    </span><br><span class="line"></span><br><span class="line"><span class="number">31152</span> <span class="number">23</span>:<span class="number">00</span>:<span class="number">00</span> <span class="built_in">mmap</span>(<span class="literal">NULL</span>, <span class="number">10489856</span>, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, <span class="number">-1</span>, <span class="number">0</span> &lt;unfinished ...&gt;</span><br><span class="line"><span class="number">31151</span> <span class="number">23</span>:<span class="number">01</span>:<span class="number">00</span> <span class="built_in">mmap</span>(<span class="literal">NULL</span>, <span class="number">10489856</span>, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, <span class="number">-1</span>, <span class="number">0</span> &lt;unfinished ...&gt;</span><br><span class="line"><span class="number">31157</span> <span class="number">23</span>:<span class="number">02</span>:<span class="number">00</span> <span class="built_in">mmap</span>(<span class="literal">NULL</span>, <span class="number">10489856</span>, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, <span class="number">-1</span>, <span class="number">0</span> &lt;unfinished ...&gt;</span><br><span class="line"><span class="number">31158</span> <span class="number">23</span>:<span class="number">03</span>:<span class="number">00</span> <span class="built_in">mmap</span>(<span class="literal">NULL</span>, <span class="number">10489856</span>, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, <span class="number">-1</span>, <span class="number">0</span> &lt;unfinished ...&gt;</span><br><span class="line"><span class="number">31165</span> <span class="number">23</span>:<span class="number">04</span>:<span class="number">00</span> <span class="built_in">mmap</span>(<span class="literal">NULL</span>, <span class="number">10489856</span>, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, <span class="number">-1</span>, <span class="number">0</span> &lt;unfinished ...&gt;</span><br><span class="line"><span class="number">31163</span> <span class="number">23</span>:<span class="number">05</span>:<span class="number">00</span> <span class="built_in">mmap</span>(<span class="literal">NULL</span>, <span class="number">10489856</span>, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, <span class="number">-1</span>, <span class="number">0</span> &lt;unfinished ...&gt;</span><br><span class="line"><span class="number">31153</span> <span class="number">23</span>:<span class="number">06</span>:<span class="number">00</span> <span class="built_in">mmap</span>(<span class="literal">NULL</span>, <span class="number">10489856</span>, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, <span class="number">-1</span>, <span class="number">0</span> &lt;unfinished ...&gt;</span><br><span class="line"><span class="number">31155</span> <span class="number">23</span>:<span class="number">07</span>:<span class="number">00</span> <span class="built_in">mmap</span>(<span class="literal">NULL</span>, <span class="number">10489856</span>, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, <span class="number">-1</span>, <span class="number">0</span> &lt;unfinished ...&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>实际上，系统中并没有很多app_server的线程，那这是为什么呢？答案其实比较简单：线程短暂执行完毕后就退出了，可是mmap的线程栈却没有被释放。</strong></p>
+</li>
+</ol>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">AutinC</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://autinc.github.io/2023/10/27/linux-nei-he-ji-zhu-nei-cun-xie-lou-xiang-guan/">https://autinc.github.io/2023/10/27/linux-nei-he-ji-zhu-nei-cun-xie-lou-xiang-guan/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">AutinC</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Linux%E5%86%85%E6%A0%B8/">
+                                    <span class="chip bg-color">Linux内核</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'v0LOxueiWIPRw9lXbmg2YToy-gzGzoHsz',
+        appKey: 'RhYvmeHaBq8MHqMgnwdQbvm8',
+        serverURLs: 'https://v0loxuei.lc-cn-n1-shared.com',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'false' === 'true',
+        avatar: 'mp',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '留下您的观点看法，共同讨论吧！'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/10/31/linux-nei-he-ji-zhu-tcp-lian-jie-xiang-guan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Linux内核技术-TCP连接相关">
+                        
+                        <span class="card-title">Linux内核技术-TCP连接相关</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-10-31
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            AutinC
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux%E5%86%85%E6%A0%B8/">
+                        <span class="chip bg-color">Linux内核</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/10/16/linux-nei-he-ji-zhu-page-cache-xiang-guan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Linux内核技术-Page Cache相关">
+                        
+                        <span class="card-title">Linux内核技术-Page Cache相关</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            AutinC
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux%E5%86%85%E6%A0%B8/">
+                        <span class="chip bg-color">Linux内核</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Huang Shichang&#39;s Blog<br />'
+            + '文章作者: AutinC<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022-2024</span>
+            
+            <a href="/about" target="_blank">AutinC</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">269.2k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Autinc" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:h1743551466@126.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我： h1743551466@126.com" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1743551466" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1743551466" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+        <script src="//code.tidio.co/9r5hwp19xkh9jgnm8ualt74ktcqj9hkg.js"></script>
+        <script>
+            $(document).ready(function () {
+                setInterval(change_Tidio, 50);
+                function change_Tidio() {
+                    var tidio=$("#tidio-chat iframe");
+                    if(tidio.css("display")=="block"&& $(window).width()>977 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"85px":"20px";
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";
+                        document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
+                        document.getElementById("tidio-chat-iframe").style.zIndex="998";
+                    }
+                }
+            });
+        </script>
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

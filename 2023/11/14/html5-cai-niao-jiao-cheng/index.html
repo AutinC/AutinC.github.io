@@ -1,0 +1,2275 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="HTML5 菜鸟教程, Huang Shichang&#39;s Blog">
+    <meta name="description" content="HTML5 简介改进
+新元素
+新属性
+完全支持 CSS3
+Video 和 Audio
+2D/3D 制图
+本地存储
+本地 SQL 数据
+Web 应用
+
+HTML5 多媒体使用 HTML5 你可以简单的在网页中播放 视频(video)与音频 (">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>HTML5 菜鸟教程 | Huang Shichang&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.0.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.jpeg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Huang Shichang&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.jpeg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Huang Shichang&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/AutinC/AutinC.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/AutinC/AutinC.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">HTML5 菜鸟教程</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%89%8D%E7%AB%AF%E4%B8%89%E4%BB%B6%E5%A5%97/">
+                                <span class="chip bg-color">前端三件套</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-11-14
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    10.2k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="HTML5-简介"><a href="#HTML5-简介" class="headerlink" title="HTML5 简介"></a>HTML5 简介</h2><h3 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h3><ul>
+<li>新元素</li>
+<li>新属性</li>
+<li>完全支持 CSS3</li>
+<li>Video 和 Audio</li>
+<li>2D/3D 制图</li>
+<li>本地存储</li>
+<li>本地 SQL 数据</li>
+<li>Web 应用</li>
+</ul>
+<h3 id="HTML5-多媒体"><a href="#HTML5-多媒体" class="headerlink" title="HTML5 多媒体"></a>HTML5 多媒体</h3><p>使用 HTML5 你可以简单的在网页中播放 视频(video)与音频 (audio) 。</p>
+<ul>
+<li>HTML5&lt;video&gt;</li>
+<li>HTML5 &lt;audio&gt;</li>
+</ul>
+<h3 id="HTML5-应用"><a href="#HTML5-应用" class="headerlink" title="HTML5 应用"></a>HTML5 应用</h3><p>使用 HTML5 可以简单地开发应用</p>
+<ul>
+<li>本地数据存储</li>
+<li>访问本地文件</li>
+<li>本地 SQL 数据</li>
+<li>缓存引用</li>
+<li>Javascript 工作者</li>
+<li>XHTMLHttpRequest 2</li>
+</ul>
+<h3 id="HTML5-图形"><a href="#HTML5-图形" class="headerlink" title="HTML5 图形"></a>HTML5 图形</h3><p>使用 HTML5 可以简单的绘制图形:</p>
+<ul>
+<li>使用 &lt;canvas&gt;元素。</li>
+<li>使用内联 <a target="_blank" rel="noopener" href="https://www.runoob.com/html/html5-svg.html">SVG</a>。</li>
+<li>使用 <a target="_blank" rel="noopener" href="https://www.runoob.com/css3/css3-2dtransforms.html">CSS3 2D 转换</a>、<a target="_blank" rel="noopener" href="https://www.runoob.com/css3/css3-3dtransforms.html">CSS3 3D 转换</a>。</li>
+</ul>
+<h3 id="HTML5-使用-CSS3"><a href="#HTML5-使用-CSS3" class="headerlink" title="HTML5 使用 CSS3"></a>HTML5 使用 CSS3</h3><ul>
+<li>新选择器</li>
+<li>新属性</li>
+<li>动画</li>
+<li>2D/3D 转换</li>
+<li>圆角</li>
+<li>阴影效果</li>
+<li>可下载的字体</li>
+</ul>
+<h3 id="HTML5-新语义元素"><a href="#HTML5-新语义元素" class="headerlink" title="HTML5 新语义元素"></a>HTML5 新语义元素</h3><table>
+<thead>
+<tr>
+<th align="center">标签</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&lt;article&gt;</td>
+<td align="center">定义页面独立的内容区域。</td>
+</tr>
+<tr>
+<td align="center">&lt;aside&gt;</td>
+<td align="center">定义页面的侧边栏内容。</td>
+</tr>
+<tr>
+<td align="center">&lt;bdi&gt;</td>
+<td align="center">允许您设置一段文本，使其脱离其父元素的文本方向设置。</td>
+</tr>
+<tr>
+<td align="center">&lt;command&gt;</td>
+<td align="center">定义命令按钮，比如单选按钮、复选框或按钮</td>
+</tr>
+<tr>
+<td align="center">&lt;details&gt;</td>
+<td align="center">用于描述文档或文档某个部分的细节</td>
+</tr>
+<tr>
+<td align="center">&lt;dialog&gt;</td>
+<td align="center">定义对话框，比如提示框</td>
+</tr>
+<tr>
+<td align="center">&lt;summary&gt;</td>
+<td align="center">标签包含 details 元素的标题</td>
+</tr>
+<tr>
+<td align="center">&lt;figure&gt;</td>
+<td align="center">规定独立的流内容（图像、图表、照片、代码等等）。</td>
+</tr>
+<tr>
+<td align="center">&lt;figcaption&gt;</td>
+<td align="center">定义 &lt;figure&gt; 元素的标题</td>
+</tr>
+<tr>
+<td align="center">&lt;footer&gt;</td>
+<td align="center">定义 section 或 document 的页脚。</td>
+</tr>
+<tr>
+<td align="center">&lt;header&gt;</td>
+<td align="center">定义了文档的头部区域</td>
+</tr>
+<tr>
+<td align="center">&lt;mark&gt;</td>
+<td align="center">定义带有记号的文本。</td>
+</tr>
+<tr>
+<td align="center">&lt;meter&gt;</td>
+<td align="center">定义度量衡。仅用于已知最大和最小值的度量。</td>
+</tr>
+<tr>
+<td align="center">&lt;nav&gt;</td>
+<td align="center">定义导航链接的部分。</td>
+</tr>
+<tr>
+<td align="center">&lt;progress&gt;</td>
+<td align="center">定义任何类型的任务的进度。</td>
+</tr>
+<tr>
+<td align="center">&lt;ruby&gt;</td>
+<td align="center">定义 ruby 注释（中文注音或字符）。</td>
+</tr>
+<tr>
+<td align="center">&lt;rt&gt;</td>
+<td align="center">定义字符（中文注音或字符）的解释或发音。</td>
+</tr>
+<tr>
+<td align="center">&lt;rp&gt;</td>
+<td align="center">在 ruby 注释中使用，定义不支持 ruby 元素的浏览器所显示的内容。</td>
+</tr>
+<tr>
+<td align="center">&lt;section&gt;</td>
+<td align="center">定义文档中的节（section、区段）。</td>
+</tr>
+<tr>
+<td align="center">&lt;time&gt;</td>
+<td align="center">定义日期或时间。</td>
+</tr>
+<tr>
+<td align="center">&lt;wbr&gt;</td>
+<td align="center">规定在文本中的何处适合添加换行符。</td>
+</tr>
+</tbody></table>
+<h2 id="HTML5-Canvas"><a href="#HTML5-Canvas" class="headerlink" title="HTML5 Canvas"></a>HTML5 Canvas</h2><h3 id="什么是-canvas"><a href="#什么是-canvas" class="headerlink" title="什么是 canvas"></a>什么是 canvas</h3><p>HTML5 &lt;canvas&gt; 元素用于图形的绘制，通过脚本 (通常是JavaScript)来完成.</p>
+<p>&lt;canvas&gt; 标签只是图形容器，必须使用脚本来绘制图形。</p>
+<p>可以通过多种方法使用 canvas 绘制路径,盒、圆、字符以及添加图像。</p>
+<h3 id="创建一个画布（Canvas）"><a href="#创建一个画布（Canvas）" class="headerlink" title="创建一个画布（Canvas）"></a>创建一个画布（Canvas）</h3><p>一个画布在网页中是一个矩形框，通过 &lt;canvas&gt; 元素来绘制。</p>
+<p><strong>注意:</strong> 默认情况下 &lt;canvas&gt; 元素<strong>没有边框和内容</strong>。</p>
+<p>使用 style 属性来添加边框：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"myCanvas"</span> <span class="attr">width</span>=<span class="string">"200"</span> <span class="attr">height</span>=<span class="string">"100"</span></span></span><br><span class="line"><span class="tag"><span class="attr">style</span>=<span class="string">"border:1px solid #000000;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="使用-JavaScript-来绘制图像"><a href="#使用-JavaScript-来绘制图像" class="headerlink" title="使用 JavaScript 来绘制图像"></a>使用 JavaScript 来绘制图像</h3><p>所有的绘制工作必须在 JavaScript 内部完成：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c=<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"myCanvas"</span>);	<span class="comment">// 找到 &lt;canvas&gt; 元素</span></span><br><span class="line"><span class="keyword">var</span> ctx=c.<span class="title function_">getContext</span>(<span class="string">"2d"</span>);					<span class="comment">// 创建 context 对象</span></span><br><span class="line"><span class="comment">// 绘制一个红色的矩形</span></span><br><span class="line">ctx.<span class="property">fillStyle</span>=<span class="string">"#FF0000"</span>;					</span><br><span class="line">ctx.<span class="title function_">fillRect</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">150</span>,<span class="number">75</span>);					<span class="comment">// 设置fillStyle属性：可以是CSS颜色，渐变，或图案。fillStyle 默认设置是#000000（黑色）。</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="Canvas-坐标"><a href="#Canvas-坐标" class="headerlink" title="Canvas 坐标"></a>Canvas 坐标</h3><p>canvas 是一个二维网格。</p>
+<p>canvas 的左上角坐标为 (0,0)</p>
+<p>上面的 fillRect 方法拥有参数 (0,0,150,75)。</p>
+<p>意思是：在画布上绘制 150x75 的矩形，从左上角开始 (0,0)。</p>
+<h3 id="Canvas-路径"><a href="#Canvas-路径" class="headerlink" title="Canvas 路径"></a>Canvas 路径</h3><p>在Canvas上画线，使用以下两种方法：</p>
+<ul>
+<li><strong>moveTo(<em>x,y</em>)</strong> 定义线条开始坐标</li>
+<li><strong>lineTo(<em>x,y</em>)</strong> 定义线条结束坐标</li>
+</ul>
+<p>绘制线条必须使用到 “ink” 的方法，就像stroke().</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c=<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"myCanvas"</span>);</span><br><span class="line"><span class="keyword">var</span> ctx=c.<span class="title function_">getContext</span>(<span class="string">"2d"</span>);</span><br><span class="line">ctx.<span class="title function_">moveTo</span>(<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">ctx.<span class="title function_">lineTo</span>(<span class="number">200</span>,<span class="number">100</span>);</span><br><span class="line">ctx.<span class="title function_">stroke</span>();</span><br></pre></td></tr></tbody></table></figure>
+
+<p>在canvas中绘制圆形：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c=<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"myCanvas"</span>);</span><br><span class="line"><span class="keyword">var</span> ctx=c.<span class="title function_">getContext</span>(<span class="string">"2d"</span>);</span><br><span class="line">ctx.<span class="title function_">beginPath</span>();</span><br><span class="line">ctx.<span class="title function_">arc</span>(<span class="number">95</span>,<span class="number">50</span>,<span class="number">40</span>,<span class="number">0</span>,<span class="number">2</span>*<span class="title class_">Math</span>.<span class="property">PI</span>);</span><br><span class="line">ctx.<span class="title function_">stroke</span>();</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="Canvas-文本"><a href="#Canvas-文本" class="headerlink" title="Canvas 文本"></a>Canvas 文本</h3><p>使用 canvas 绘制文本，重要的属性和方法如下：</p>
+<ul>
+<li>font - 定义字体</li>
+<li><strong>fillText(<em>text,x,y</em>)</strong> - 在 canvas 上绘制实心的文本</li>
+<li><strong>strokeText(<em>text,x,y</em>)</strong> - 在 canvas 上绘制空心的文本</li>
+</ul>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c=<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"myCanvas"</span>);</span><br><span class="line"><span class="keyword">var</span> ctx=c.<span class="title function_">getContext</span>(<span class="string">"2d"</span>);</span><br><span class="line">ctx.<span class="property">font</span>=<span class="string">"30px Arial"</span>;</span><br><span class="line">ctx.<span class="title function_">fillText</span>(<span class="string">"Hello World"</span>,<span class="number">10</span>,<span class="number">50</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="Canvas-渐变"><a href="#Canvas-渐变" class="headerlink" title="Canvas 渐变"></a>Canvas 渐变</h3><p>渐变可以填充在矩形, 圆形, 线条, 文本等等, 各种形状可以自己定义不同的颜色。</p>
+<p>以下有两种不同的方式来设置Canvas渐变：</p>
+<ul>
+<li><strong>createLinearGradient(<em>x,y,x1,y1</em>)</strong> - 创建线条渐变</li>
+<li><strong>createRadialGradient(<em>x,y,r,x1,y1,r1</em>)</strong> - 创建一个径向/圆渐变</li>
+</ul>
+<p>当我们使用渐变对象，必须使用<strong>两种或两种以上</strong>的停止颜色。</p>
+<p>addColorStop()方法指定颜色停止，参数使用坐标来描述，可以是0至1。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c=<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"myCanvas"</span>);</span><br><span class="line"><span class="keyword">var</span> ctx=c.<span class="title function_">getContext</span>(<span class="string">"2d"</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 创建渐变</span></span><br><span class="line"><span class="keyword">var</span> grd=ctx.<span class="title function_">createLinearGradient</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">200</span>,<span class="number">0</span>);</span><br><span class="line">grd.<span class="title function_">addColorStop</span>(<span class="number">0</span>,<span class="string">"red"</span>);</span><br><span class="line">grd.<span class="title function_">addColorStop</span>(<span class="number">1</span>,<span class="string">"white"</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 填充渐变</span></span><br><span class="line">ctx.<span class="property">fillStyle</span>=grd;</span><br><span class="line">ctx.<span class="title function_">fillRect</span>(<span class="number">10</span>,<span class="number">10</span>,<span class="number">150</span>,<span class="number">80</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="Canvas-图像"><a href="#Canvas-图像" class="headerlink" title="Canvas 图像"></a>Canvas 图像</h3><p>把一幅图像放置到画布上, 使用以下方法:</p>
+<ul>
+<li><strong>drawImage(<em>image,x,y</em>)</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c=<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"myCanvas"</span>);</span><br><span class="line"><span class="keyword">var</span> ctx=c.<span class="title function_">getContext</span>(<span class="string">"2d"</span>);</span><br><span class="line"><span class="keyword">var</span> img=<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"scream"</span>);</span><br><span class="line">ctx.<span class="title function_">drawImage</span>(img,<span class="number">10</span>,<span class="number">10</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="HTML5-SVG"><a href="#HTML5-SVG" class="headerlink" title="HTML5 SVG"></a>HTML5 SVG</h2><h3 id="什么是SVG"><a href="#什么是SVG" class="headerlink" title="什么是SVG"></a>什么是SVG</h3><ul>
+<li>SVG 指可伸缩矢量图形 (Scalable Vector Graphics)</li>
+<li>SVG 用于定义用于网络的基于矢量的图形</li>
+<li>SVG 使用 XML 格式定义图形</li>
+<li>SVG 图像在放大或改变尺寸的情况下其图形质量不会有损失</li>
+<li>SVG 是万维网联盟的标准</li>
+</ul>
+<h3 id="SVG优势"><a href="#SVG优势" class="headerlink" title="SVG优势"></a>SVG优势</h3><p>与其他图像格式相比（比如 JPEG 和 GIF），使用 SVG 的优势在于：</p>
+<ul>
+<li>SVG 图像可通过文本编辑器来创建和修改</li>
+<li>SVG 图像可被搜索、索引、脚本化或压缩</li>
+<li>SVG 是可伸缩的</li>
+<li>SVG 图像可在任何的分辨率下被高质量地打印</li>
+<li>SVG 可在图像质量不下降的情况下被放大</li>
+</ul>
+<h3 id="SVG-直接嵌入-HTML-页面"><a href="#SVG-直接嵌入-HTML-页面" class="headerlink" title="SVG 直接嵌入 HTML 页面"></a>SVG 直接嵌入 HTML 页面</h3><p>在 HTML5 中，能够将 SVG 元素直接嵌入 HTML 页面中。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span> <span class="attr">version</span>=<span class="string">"1.1"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"100"</span> <span class="attr">cy</span>=<span class="string">"50"</span> <span class="attr">r</span>=<span class="string">"40"</span> <span class="attr">stroke</span>=<span class="string">"black"</span> <span class="attr">stroke-width</span>=<span class="string">"2"</span> <span class="attr">fill</span>=<span class="string">"red"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="Canvas-与-SVG-的比较"><a href="#Canvas-与-SVG-的比较" class="headerlink" title="Canvas 与 SVG 的比较"></a>Canvas 与 SVG 的比较</h3><p><img src="https://gcdnb.pbrd.co/images/3Bgzg1MrzOZT.png?o=1"></p>
+<h2 id="HTML5-MathML"><a href="#HTML5-MathML" class="headerlink" title="HTML5 MathML"></a>HTML5 MathML</h2><p>HTML5 可以在文档中使用 MathML 元素，对应的标签是 &lt;math&gt;…&lt;/math&gt; 。</p>
+<p>MathML 是数学标记语言，是一种基于XML（标准通用标记语言的子集）的标准，用来在互联网上书写数学符号和公式的置标语言。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">&nbsp; &nbsp;<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">&nbsp; &nbsp; &nbsp; <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">&nbsp; &nbsp; &nbsp; <span class="tag">&lt;<span class="name">title</span>&gt;</span>菜鸟教程(runoob.com)<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">&nbsp; &nbsp;<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; </span><br><span class="line">&nbsp; &nbsp;<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; </span><br><span class="line">&nbsp; &nbsp; &nbsp; <span class="tag">&lt;<span class="name">math</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/1998/Math/MathML"</span>&gt;</span></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="tag">&lt;<span class="name">mrow</span>&gt;</span></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="tag">&lt;<span class="name">msup</span>&gt;</span><span class="tag">&lt;<span class="name">mi</span>&gt;</span>a<span class="tag">&lt;/<span class="name">mi</span>&gt;</span><span class="tag">&lt;<span class="name">mn</span>&gt;</span>2<span class="tag">&lt;/<span class="name">mn</span>&gt;</span><span class="tag">&lt;/<span class="name">msup</span>&gt;</span></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="tag">&lt;<span class="name">mo</span>&gt;</span>+<span class="tag">&lt;/<span class="name">mo</span>&gt;</span></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="tag">&lt;<span class="name">msup</span>&gt;</span><span class="tag">&lt;<span class="name">mi</span>&gt;</span>b<span class="tag">&lt;/<span class="name">mi</span>&gt;</span><span class="tag">&lt;<span class="name">mn</span>&gt;</span>2<span class="tag">&lt;/<span class="name">mn</span>&gt;</span><span class="tag">&lt;/<span class="name">msup</span>&gt;</span></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="tag">&lt;<span class="name">mo</span>&gt;</span>=<span class="tag">&lt;/<span class="name">mo</span>&gt;</span></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="tag">&lt;<span class="name">msup</span>&gt;</span><span class="tag">&lt;<span class="name">mi</span>&gt;</span>c<span class="tag">&lt;/<span class="name">mi</span>&gt;</span><span class="tag">&lt;<span class="name">mn</span>&gt;</span>2<span class="tag">&lt;/<span class="name">mn</span>&gt;</span><span class="tag">&lt;/<span class="name">msup</span>&gt;</span></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="tag">&lt;/<span class="name">mrow</span>&gt;</span></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><br><span class="line">&nbsp; &nbsp; &nbsp; <span class="tag">&lt;/<span class="name">math</span>&gt;</span></span><br><span class="line">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><br><span class="line">&nbsp; &nbsp;<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="HTML5-拖放"><a href="#HTML5-拖放" class="headerlink" title="HTML5 拖放"></a>HTML5 拖放</h2><h3 id="设置元素为可拖放"><a href="#设置元素为可拖放" class="headerlink" title="设置元素为可拖放"></a>设置元素为可拖放</h3><p>首先，为了使元素可拖动，把 draggable 属性设置为 true ：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">draggable</span>=<span class="string">"true"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="拖动什么：ondragstart-和-setData"><a href="#拖动什么：ondragstart-和-setData" class="headerlink" title="拖动什么：ondragstart 和 setData()"></a>拖动什么：ondragstart 和 setData()</h3><p>规定当元素被拖动时，会发生什么。</p>
+<p>ondragstart 属性可以调用函数来规定被拖动的数据。</p>
+<p>dataTransfer.setData() 方法设置被拖数据的数据类型和值：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function drag(ev)</span><br><span class="line">{</span><br><span class="line">    ev.dataTransfer.setData("Text",ev.target.id);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">Text 是一个 DOMString 表示要添加到 drag object 的拖动数据的类型。值是可拖动元素的 id ("drag1")。</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="放到何处：ondragover"><a href="#放到何处：ondragover" class="headerlink" title="放到何处：ondragover"></a>放到何处：ondragover</h3><p>ondragover 事件规定<strong>在何处放置</strong>被拖动的数据。</p>
+<p>默认地，无法将数据/元素放置到其他元素中。如果需要设置允许放置，我们必须阻止对元素的默认处理方式。这要通过调用 ondragover 事件的 event.preventDefault() 方法：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">event.preventDefault()</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="进行放置：ondrop"><a href="#进行放置：ondrop" class="headerlink" title="进行放置：ondrop"></a>进行放置：ondrop</h3><p>当放置被拖数据时，会发生 drop 事件。</p>
+<p>ondrop 属性可以调用函数drop(event)：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function drop(ev)</span><br><span class="line">{</span><br><span class="line">    ev.preventDefault();</span><br><span class="line">    var data=ev.dataTransfer.getData("Text");</span><br><span class="line">    ev.target.appendChild(document.getElementById(data));</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>代码解释：</p>
+<ul>
+<li>调用 preventDefault() 来<strong>避免浏览器对数据的默认处理</strong>（<strong>drop 事件的默认行为是以链接形式打开</strong>）</li>
+<li>通过 dataTransfer.getData(“Text”) 方法获得被拖的数据。该方法将返回在 setData() 方法中设置为相同类型的任何数据。</li>
+<li>被拖数据是被拖元素的 id (“drag1”)</li>
+<li>把被拖元素追加到放置元素（目标元素）中</li>
+</ul>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>菜鸟教程(runoob.com)<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-id">#div1</span> {<span class="attribute">width</span>:<span class="number">350px</span>;<span class="attribute">height</span>:<span class="number">70px</span>;<span class="attribute">padding</span>:<span class="number">10px</span>;<span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#aaaaaa</span>;}</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">function</span> <span class="title function_">allowDrop</span>(<span class="params">ev</span>)</span></span><br><span class="line"><span class="language-javascript">{</span></span><br><span class="line"><span class="language-javascript">    ev.<span class="title function_">preventDefault</span>();</span></span><br><span class="line"><span class="language-javascript">}</span></span><br><span class="line"><span class="language-javascript"> </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">function</span> <span class="title function_">drag</span>(<span class="params">ev</span>)</span></span><br><span class="line"><span class="language-javascript">{</span></span><br><span class="line"><span class="language-javascript">    ev.<span class="property">dataTransfer</span>.<span class="title function_">setData</span>(<span class="string">"Text"</span>,ev.<span class="property">target</span>.<span class="property">id</span>);</span></span><br><span class="line"><span class="language-javascript">}</span></span><br><span class="line"><span class="language-javascript"> </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">function</span> <span class="title function_">drop</span>(<span class="params">ev</span>)</span></span><br><span class="line"><span class="language-javascript">{</span></span><br><span class="line"><span class="language-javascript">    ev.<span class="title function_">preventDefault</span>();</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> data=ev.<span class="property">dataTransfer</span>.<span class="title function_">getData</span>(<span class="string">"Text"</span>);</span></span><br><span class="line"><span class="language-javascript">    ev.<span class="property">target</span>.<span class="title function_">appendChild</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(data));</span></span><br><span class="line"><span class="language-javascript">}</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>拖动 RUNOOB.COM 图片到矩形框中:<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span> <span class="attr">ondrop</span>=<span class="string">"drop(event)"</span> <span class="attr">ondragover</span>=<span class="string">"allowDrop(event)"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"drag1"</span> <span class="attr">src</span>=<span class="string">"/images/logo.png"</span> <span class="attr">draggable</span>=<span class="string">"true"</span> <span class="attr">ondragstart</span>=<span class="string">"drag(event)"</span> <span class="attr">width</span>=<span class="string">"336"</span> <span class="attr">height</span>=<span class="string">"69"</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="HTML5-地理定位"><a href="#HTML5-地理定位" class="headerlink" title="HTML5 地理定位"></a>HTML5 地理定位</h2><h3 id="使用地理定位"><a href="#使用地理定位" class="headerlink" title="使用地理定位"></a>使用地理定位</h3><p>使用 <strong>getCurrentPosition()</strong> 方法来获得用户的位置。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var x=document.getElementById("demo");</span><br><span class="line">function getLocation()</span><br><span class="line">{</span><br><span class="line">    if (navigator.geolocation)</span><br><span class="line">    {</span><br><span class="line">        navigator.geolocation.getCurrentPosition(showPosition);</span><br><span class="line">    }</span><br><span class="line">    else</span><br><span class="line">    {</span><br><span class="line">        x.innerHTML="该浏览器不支持获取地理位置。";</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line">function showPosition(position)</span><br><span class="line">{</span><br><span class="line">    x.innerHTML="纬度: " + position.coords.latitude + </span><br><span class="line">    "<span class="tag">&lt;<span class="name">br</span>&gt;</span>经度: " + position.coords.longitude;    </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>检测是否支持地理定位</li>
+<li>如果支持，则运行 getCurrentPosition() 方法。如果不支持，则向用户显示一段消息。</li>
+<li>如果 getCurrentPosition() 运行成功，则向参数showPosition中规定的函数返回一个 <strong>coordinates 对象</strong></li>
+<li>showPosition() 函数获得并显示经度和纬度</li>
+</ul>
+<h3 id="处理错误和拒绝"><a href="#处理错误和拒绝" class="headerlink" title="处理错误和拒绝"></a>处理错误和拒绝</h3><p>getCurrentPosition() 方法的第二个参数用于处理错误。它规定当获取用户位置失败时运行的函数：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">showError</span>(<span class="params">error</span>)</span><br><span class="line">{</span><br><span class="line">    <span class="keyword">switch</span>(error.<span class="property">code</span>) </span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">case</span> error.<span class="property">PERMISSION_DENIED</span>:</span><br><span class="line">            x.<span class="property">innerHTML</span>=<span class="string">"用户拒绝对获取地理位置的请求。"</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> error.<span class="property">POSITION_UNAVAILABLE</span>:</span><br><span class="line">            x.<span class="property">innerHTML</span>=<span class="string">"位置信息是不可用的。"</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> error.<span class="property">TIMEOUT</span>:</span><br><span class="line">            x.<span class="property">innerHTML</span>=<span class="string">"请求用户地理位置超时。"</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> error.<span class="property">UNKNOWN_ERROR</span>:</span><br><span class="line">            x.<span class="property">innerHTML</span>=<span class="string">"未知错误。"</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>Permission denied - 用户不允许地理定位</li>
+<li>Position unavailable - 无法获取当前位置</li>
+<li>Timeout - 操作超时</li>
+</ul>
+<h3 id="在地图中显示结果"><a href="#在地图中显示结果" class="headerlink" title="在地图中显示结果"></a>在地图中显示结果</h3><p>如需在地图中显示结果，需要访问可使用经纬度的地图服务，如谷歌地图或百度地图：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">showPosition</span>(<span class="params">position</span>)</span><br><span class="line">{</span><br><span class="line">    <span class="keyword">var</span> latlon=position.<span class="property">coords</span>.<span class="property">latitude</span>+<span class="string">","</span>+position.<span class="property">coords</span>.<span class="property">longitude</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">var</span> img_url=<span class="string">"http://maps.googleapis.com/maps/api/staticmap?center="</span></span><br><span class="line">    +latlon+<span class="string">"&amp;zoom=14&amp;size=400x300&amp;sensor=false"</span>;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"mapholder"</span>).<span class="property">innerHTML</span>=<span class="string">"&lt;img src='"</span>+img_url+<span class="string">"'&gt;"</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="getCurrentPosition-返回的数据"><a href="#getCurrentPosition-返回的数据" class="headerlink" title="getCurrentPosition() 返回的数据"></a>getCurrentPosition() 返回的数据</h3><p>若成功，则 getCurrentPosition() 方法返回coordinates 对象。<strong>始终会返回 latitude、longitude 以及 accuracy 属性。</strong>如果可用，则会返回其他下面的属性。</p>
+<table>
+<thead>
+<tr>
+<th align="center">属性</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">coords.latitude</td>
+<td align="center">十进制数的纬度</td>
+</tr>
+<tr>
+<td align="center">coords.longitude</td>
+<td align="center">十进制数的经度</td>
+</tr>
+<tr>
+<td align="center">coords.accuracy</td>
+<td align="center">位置精度</td>
+</tr>
+<tr>
+<td align="center">coords.altitude</td>
+<td align="center">海拔，海平面以上以米计</td>
+</tr>
+<tr>
+<td align="center">coords.altitudeAccuracy</td>
+<td align="center">位置的海拔精度</td>
+</tr>
+<tr>
+<td align="center">coords.heading</td>
+<td align="center">方向，从正北开始以度计</td>
+</tr>
+<tr>
+<td align="center">coords.speed</td>
+<td align="center">速度，以米/每秒计</td>
+</tr>
+<tr>
+<td align="center">timestamp</td>
+<td align="center">响应的日期/时间</td>
+</tr>
+</tbody></table>
+<h3 id="Geolocation-对象其他方法"><a href="#Geolocation-对象其他方法" class="headerlink" title="Geolocation 对象其他方法"></a>Geolocation 对象其他方法</h3><p><strong>watchPosition()</strong> - 返回用户的当前位置，并继续返回用户移动时的更新位置（就像汽车上的 GPS）。</p>
+<p><strong>clearWatch()</strong> - 停止 watchPosition() 方法</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x=<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"demo"</span>);</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">getLocation</span>(<span class="params"></span>)</span><br><span class="line">{</span><br><span class="line">    <span class="keyword">if</span> (navigator.<span class="property">geolocation</span>)</span><br><span class="line">    {</span><br><span class="line">        navigator.<span class="property">geolocation</span>.<span class="title function_">watchPosition</span>(showPosition);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    {</span><br><span class="line">        x.<span class="property">innerHTML</span>=<span class="string">"该浏览器不支持获取地理位置。"</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">showPosition</span>(<span class="params">position</span>)</span><br><span class="line">{</span><br><span class="line">    x.<span class="property">innerHTML</span>=<span class="string">"纬度: "</span> + position.<span class="property">coords</span>.<span class="property">latitude</span> + </span><br><span class="line">    <span class="string">"&lt;br&gt;经度: "</span> + position.<span class="property">coords</span>.<span class="property">longitude</span>; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="HTML5-视频"><a href="#HTML5-视频" class="headerlink" title="HTML5 视频"></a>HTML5 视频</h2><h3 id="如何工作"><a href="#如何工作" class="headerlink" title="如何工作"></a>如何工作</h3><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">width</span>=<span class="string">"320"</span> <span class="attr">height</span>=<span class="string">"240"</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"movie.mp4"</span> <span class="attr">type</span>=<span class="string">"video/mp4"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"movie.ogg"</span> <span class="attr">type</span>=<span class="string">"video/ogg"</span>&gt;</span></span><br><span class="line">您的浏览器不支持Video标签。</span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>&lt;video&gt; 元素提供了 播放、暂停和音量控件来控制视频。</p>
+<p>同时 &lt;video&gt; 元素也提供了 width 和 height 属性控制视频的尺寸。如果设置的高度和宽度，所需的视频空间会在页面加载时保留。如果没有设置这些属性，浏览器不知道大小的视频，浏览器就不能再加载时保留特定的空间，页面就会根据原始视频的大小而改变。</p>
+<p>&lt;video&gt; 与&lt;/video&gt; 标签之间插入的内容是<strong>提供给不支持 video 元素的浏览器显示的。</strong></p>
+<p>&lt;video&gt; 元素支持多个 &lt;source&gt; 元素. &lt;source&gt; 元素可以链接不同的视频文件。<strong>浏览器将使用第一个可识别的格式。</strong></p>
+<h3 id="浏览器的支持"><a href="#浏览器的支持" class="headerlink" title="浏览器的支持"></a>浏览器的支持</h3><p>&lt;video&gt; 元素支持三种视频格式： MP4, WebM, 和 Ogg:</p>
+<table>
+<thead>
+<tr>
+<th align="left">浏览器</th>
+<th align="left">MP4</th>
+<th align="left">WebM</th>
+<th align="left">Ogg</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Internet Explorer</td>
+<td align="left">YES</td>
+<td align="left">NO</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="left">Chrome</td>
+<td align="left">YES</td>
+<td align="left">YES</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="left">Firefox</td>
+<td align="left">YES</td>
+<td align="left">YES</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="left">Safari</td>
+<td align="left">YES</td>
+<td align="left">NO</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="left">Opera</td>
+<td align="left">YES (从 Opera 25 起)</td>
+<td align="left">YES</td>
+<td align="left">YES</td>
+</tr>
+</tbody></table>
+<ul>
+<li>MP4 = 带有 H.264 视频编码和 AAC 音频编码的 MPEG 4 文件</li>
+<li>WebM = 带有 VP8 视频编码和 Vorbis 音频编码的 WebM 文件</li>
+<li>Ogg = 带有 Theora 视频编码和 Vorbis 音频编码的 Ogg 文件</li>
+</ul>
+<h3 id="使用-DOM-进行控制"><a href="#使用-DOM-进行控制" class="headerlink" title="使用 DOM 进行控制"></a>使用 DOM 进行控制</h3><p>HTML5 &lt;video&gt; 和 &lt;audio&gt; 元素同样拥有方法、属性和事件。</p>
+<p>&lt;video&gt; 和 &lt;audio&gt;元素的方法、属性和事件可以使用JavaScript进行控制.</p>
+<p>其中的方法用于播放、暂停以及加载等。其中的属性（比如时长、音量等）可以被读取或设置。其中的 DOM 事件能够通知您，比方说，&lt;video&gt; 元素开始播放、已暂停，已停止，等等。</p>
+<h2 id="HTML5-音频"><a href="#HTML5-音频" class="headerlink" title="HTML5 音频"></a>HTML5 音频</h2><h3 id="如何工作-1"><a href="#如何工作-1" class="headerlink" title="如何工作"></a>如何工作</h3><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">controls</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"horse.ogg"</span> <span class="attr">type</span>=<span class="string">"audio/ogg"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"horse.mp3"</span> <span class="attr">type</span>=<span class="string">"audio/mpeg"</span>&gt;</span></span><br><span class="line">您的浏览器不支持 audio 元素。</span><br><span class="line"><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>control 属性供添加播放、暂停和音量控件。</p>
+<p>在&lt;audio&gt; 与 &lt;/audio&gt; 之间需要插入<strong>浏览器不支持的&lt;audio&gt;元素的提示文本</strong> 。</p>
+<p>&lt;audio&gt; 元素允许使用多个 &lt;source&gt; 元素。&lt;source&gt; 元素可以链接不同的音频文件，<strong>浏览器将使用第一个支持的音频文件。</strong></p>
+<h3 id="浏览器支持"><a href="#浏览器支持" class="headerlink" title="浏览器支持"></a>浏览器支持</h3><p>&lt;audio&gt;元素支持三种音频格式文件: MP3, Wav, 和 Ogg:</p>
+<table>
+<thead>
+<tr>
+<th align="left">浏览器</th>
+<th align="left">MP3</th>
+<th align="left">Wav</th>
+<th align="left">Ogg</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Internet Explorer 9+</td>
+<td align="left">YES</td>
+<td align="left">NO</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="left">Chrome 6+</td>
+<td align="left">YES</td>
+<td align="left">YES</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="left">Firefox 3.6+</td>
+<td align="left">YES</td>
+<td align="left">YES</td>
+<td align="left">YES</td>
+</tr>
+<tr>
+<td align="left">Safari 5+</td>
+<td align="left">YES</td>
+<td align="left">YES</td>
+<td align="left">NO</td>
+</tr>
+<tr>
+<td align="left">Opera 10+</td>
+<td align="left">YES</td>
+<td align="left">YES</td>
+<td align="left">YES</td>
+</tr>
+</tbody></table>
+<h2 id="HTML5-新的-Input-类型"><a href="#HTML5-新的-Input-类型" class="headerlink" title="HTML5 新的 Input 类型"></a>HTML5 新的 Input 类型</h2><h3 id="color"><a href="#color" class="headerlink" title="color"></a>color</h3><p>color 类型用在input字段主要用于选取颜色：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择你喜欢的颜色: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"color"</span> <span class="attr">name</span>=<span class="string">"favcolor"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="date"><a href="#date" class="headerlink" title="date"></a>date</h3><p>date 类型允许从一个日期选择器选择一个日期：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">生日: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"date"</span> <span class="attr">name</span>=<span class="string">"bday"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="datetime"><a href="#datetime" class="headerlink" title="datetime"></a>datetime</h3><p>datetime 类型允许选择一个日期（UTC 时间）：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">生日 (日期和时间): <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"datetime"</span> <span class="attr">name</span>=<span class="string">"bdaytime"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="datetime-local"><a href="#datetime-local" class="headerlink" title="datetime-local"></a>datetime-local</h3><p>datetime-local 类型允许你选择一个日期和时间 (无时区)：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">生日 (日期和时间): <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"datetime-local"</span> <span class="attr">name</span>=<span class="string">"bdaytime"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="email"><a href="#email" class="headerlink" title="email"></a>email</h3><p>email 类型用于应该包含 e-mail 地址的输入域：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E-mail: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"email"</span> <span class="attr">name</span>=<span class="string">"email"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="month"><a href="#month" class="headerlink" title="month"></a>month</h3><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">生日 (月和年): <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"month"</span> <span class="attr">name</span>=<span class="string">"bdaymonth"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="number"><a href="#number" class="headerlink" title="number"></a>number</h3><p>number 类型用于应该包含数值的输入域。还能够设定对所接受的数字的限定：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">数量 ( 1 到 5 之间 ): <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"quantity"</span> <span class="attr">min</span>=<span class="string">"1"</span> </span></span><br><span class="line"><span class="tag">	<span class="attr">max</span>=<span class="string">"5"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>使用下面的属性来规定对数字类型的限定：</p>
+<table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">disabled</td>
+<td align="left">规定输入字段是禁用的</td>
+</tr>
+<tr>
+<td align="left">max</td>
+<td align="left">规定允许的最大值</td>
+</tr>
+<tr>
+<td align="left">maxlength</td>
+<td align="left">规定输入字段的最大字符长度</td>
+</tr>
+<tr>
+<td align="left">min</td>
+<td align="left">规定允许的最小值</td>
+</tr>
+<tr>
+<td align="left">pattern</td>
+<td align="left">规定用于验证输入字段的模式</td>
+</tr>
+<tr>
+<td align="left">readonly</td>
+<td align="left">规定输入字段的值无法修改</td>
+</tr>
+<tr>
+<td align="left">required</td>
+<td align="left">规定输入字段的值是必需的</td>
+</tr>
+<tr>
+<td align="left">size</td>
+<td align="left">规定输入字段中的可见字符数</td>
+</tr>
+<tr>
+<td align="left">step</td>
+<td align="left">规定输入字段的合法数字间隔</td>
+</tr>
+<tr>
+<td align="left">value</td>
+<td align="left">规定输入字段的默认值</td>
+</tr>
+</tbody></table>
+<h3 id="range"><a href="#range" class="headerlink" title="range"></a>range</h3><p>range 类型用于应该包含一定范围内数字值的输入域。range 类型显示为滑动条：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"range"</span> <span class="attr">name</span>=<span class="string">"points"</span> <span class="attr">min</span>=<span class="string">"1"</span> <span class="attr">max</span>=<span class="string">"10"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>使用下面的属性来规定对数字类型的限定：</p>
+<ul>
+<li>max - 规定允许的最大值</li>
+<li>min - 规定允许的最小值</li>
+<li>step - 规定合法的数字间隔</li>
+<li>value - 规定默认值</li>
+</ul>
+<h3 id="search"><a href="#search" class="headerlink" title="search"></a>search</h3><p>search 类型用于搜索域，比如站点搜索或 Google 搜索。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Search Google: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"search"</span> <span class="attr">name</span>=<span class="string">"googlesearch"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="tel"><a href="#tel" class="headerlink" title="tel"></a>tel</h3><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">电话号码: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"tel"</span> <span class="attr">name</span>=<span class="string">"usrtel"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="time"><a href="#time" class="headerlink" title="time"></a>time</h3><p>time 类型允许选择一个时间：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择时间: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"time"</span> <span class="attr">name</span>=<span class="string">"usr_time"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="url"><a href="#url" class="headerlink" title="url"></a>url</h3><p>url 类型用于应该包含 URL 地址的输入域。在提交表单时，会自动验证 url 域的值：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">添加您的主页: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"url"</span> <span class="attr">name</span>=<span class="string">"homepage"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="week"><a href="#week" class="headerlink" title="week"></a>week</h3><p>week 类型允许选择周和年：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">选择周: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"week"</span> <span class="attr">name</span>=<span class="string">"week_year"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="HTML5-表单元素"><a href="#HTML5-表单元素" class="headerlink" title="HTML5 表单元素"></a>HTML5 表单元素</h2><h3 id="元素"><a href="#元素" class="headerlink" title="<datalist> 元素"></a>&lt;datalist&gt; 元素</h3><p>&lt;datalist&gt; 元素规定<strong>输入域的选项列表</strong>。</p>
+<p>&lt;datalist&gt; 属性规定 form 或 input 域应该拥有自动完成功能。</p>
+<p>当用户在自动完成域中开始输入时，浏览器应该在该域中显示填写的选项。</p>
+<p>使用 &lt;input&gt; 元素的列表属性与 &lt;datalist&gt; 元素绑定:</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">list</span>=<span class="string">"browsers"</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">datalist</span> <span class="attr">id</span>=<span class="string">"browsers"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"Internet Explorer"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"Firefox"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"Chrome"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"Opera"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"Safari"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">datalist</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="元素-1"><a href="#元素-1" class="headerlink" title="<keygen> 元素"></a>&lt;keygen&gt; 元素</h3><p>&lt;keygen&gt; 元素的作用是提供一种<strong>验证用户</strong>的可靠方法。</p>
+<p>&lt;keygen&gt;标签规定用于表单的<strong>密钥对生成器</strong>字段。</p>
+<p>当提交表单时，会生成两个键，一个是私钥，一个公钥。</p>
+<p><strong>私钥（private key）存储于客户端，公钥（public key）则被发送到服务器。公钥可用于之后验证用户的客户端证书（client certificate）。</strong></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"demo_keygen.asp"</span> <span class="attr">method</span>=<span class="string">"get"</span>&gt;</span></span><br><span class="line">用户名: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"usr_name"</span>&gt;</span></span><br><span class="line">加密: <span class="tag">&lt;<span class="name">keygen</span> <span class="attr">name</span>=<span class="string">"security"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="元素-2"><a href="#元素-2" class="headerlink" title="<output> 元素"></a>&lt;output&gt; 元素</h3><p>&lt;output&gt; 元素用于不同类型的输出，比如计算或脚本输出：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">oninput</span>=<span class="string">"x.value=parseInt(a.value)+parseInt(b.value)"</span>&gt;</span>0</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"range"</span> <span class="attr">id</span>=<span class="string">"a"</span> <span class="attr">value</span>=<span class="string">"50"</span>&gt;</span>100 +</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">id</span>=<span class="string">"b"</span> <span class="attr">value</span>=<span class="string">"50"</span>&gt;</span>=</span><br><span class="line"><span class="tag">&lt;<span class="name">output</span> <span class="attr">name</span>=<span class="string">"x"</span> <span class="attr">for</span>=<span class="string">"a b"</span>&gt;</span><span class="tag">&lt;/<span class="name">output</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="HTML5-表单属性"><a href="#HTML5-表单属性" class="headerlink" title="HTML5 表单属性"></a>HTML5 表单属性</h2><h3 id="autocomplete-属性"><a href="#autocomplete-属性" class="headerlink" title="<form> / <input> autocomplete 属性"></a>&lt;form&gt; / &lt;input&gt; autocomplete 属性</h3><p>autocomplete 属性规定 form 或 input 域应该拥有<strong>自动完成</strong>功能。</p>
+<p>当用户在自动完成域中开始输入时，浏览器应该在该域中显示填写的选项。</p>
+<p><strong>提示:</strong> autocomplete 属性有可能在 form元素中是开启的，而在input元素中是关闭的。</p>
+<p><strong>注意:</strong> autocomplete 适用于 &lt;form&gt; 标签，以及以下类型的 &lt;input&gt; 标签：text, search, url, telephone, email, password, datepickers, range 以及 color。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"demo-form.php"</span> <span class="attr">autocomplete</span>=<span class="string">"on"</span>&gt;</span></span><br><span class="line">  First name:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"fname"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  Last name: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"lname"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  E-mail: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"email"</span> <span class="attr">name</span>=<span class="string">"email"</span> <span class="attr">autocomplete</span>=<span class="string">"off"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="novalidate-属性"><a href="#novalidate-属性" class="headerlink" title="<form> novalidate 属性"></a>&lt;form&gt; novalidate 属性</h3><p>novalidate 属性是 HTML 表单元素的一个布尔属性，用于设置浏览器不<strong>对表单进行验证</strong>。</p>
+<p>当该属性被添加到 &lt;form&gt; 元素上时，浏览器将<strong>不会执行默认的表单验证</strong>，<strong>不会检查输入字段是否符合指定的验证规则</strong>。</p>
+<p>使用 novalidate 属性可以让开发者完全控制表单验证的逻辑，可以通过 JavaScript 或其他方式来自定义表单验证的行为。</p>
+<h3 id="autofocus-属性"><a href="#autofocus-属性" class="headerlink" title="<input> autofocus 属性"></a>&lt;input&gt; autofocus 属性</h3><p>autofocus 属性是一个布尔属性。</p>
+<p>autofocus 属性规定在页面加载时，<strong>域自动地获得焦点</strong>。</p>
+<h3 id="form-属性"><a href="#form-属性" class="headerlink" title="<input> form 属性"></a>&lt;input&gt; form 属性</h3><p>form 属性规定<strong>输入域所属的一个或多个表单</strong>。</p>
+<p>**提示:**如需引用一个以上的表单，请使用空格分隔的列表。</p>
+<h3 id="formaction-属性"><a href="#formaction-属性" class="headerlink" title="<input> formaction 属性"></a>&lt;input&gt; formaction 属性</h3><p>The formaction 属性用于<strong>描述表单提交的URL地址</strong>。</p>
+<p>The formaction 属性会覆盖&lt;form&gt; 元素中的action属性。</p>
+<p><strong>注意:</strong> The formaction 属性用于 type=”submit” 和 type=”image”。</p>
+<h3 id="formenctype-属性"><a href="#formenctype-属性" class="headerlink" title="<input> formenctype 属性"></a>&lt;input&gt; formenctype 属性</h3><p>formenctype 属性描述了<strong>表单提交到服务器的数据编码</strong> (只对form表单中 method=”post” 表单)</p>
+<p>formenctype 属性覆盖 form 元素的 enctype 属性。</p>
+<p><strong>主要:</strong> 该属性与 type=”submit” 和 type=”image” 配合使用。</p>
+<h3 id="formmethod-属性"><a href="#formmethod-属性" class="headerlink" title="<input> formmethod 属性"></a>&lt;input&gt; formmethod 属性</h3><p>formmethod 属性定义了<strong>表单提交的方式</strong>。</p>
+<p>formmethod 属性覆盖了 &lt;form&gt; 元素的 method 属性。</p>
+<p><strong>注意:</strong> 该属性可以与 type=”submit” 和 type=”image” 配合使用。</p>
+<h3 id="formnovalidate-属性"><a href="#formnovalidate-属性" class="headerlink" title="<input> formnovalidate 属性"></a>&lt;input&gt; formnovalidate 属性</h3><p>novalidate 属性是一个布尔属性。</p>
+<p>novalidate属性描述了 &lt;input&gt; 元素在表单<strong>提交时无需被验证</strong>。</p>
+<p>formnovalidate 属性会覆盖 &lt;form&gt; 元素的novalidate属性.</p>
+<p><strong>注意:</strong> formnovalidate 属性与 <strong>type=”submit”</strong> 一起使用</p>
+<h3 id="formtarget-属性"><a href="#formtarget-属性" class="headerlink" title="<input> formtarget 属性"></a>&lt;input&gt; formtarget 属性</h3><p>formtarget 属性指定一个名称或一个关键字来<strong>指明表单提交数据接收后的展示</strong>。</p>
+<p>formtarget 属性覆盖 &lt;form&gt;元素的target属性.</p>
+<p><strong>注意:</strong> formtarget 属性与 <strong>type=”submit”</strong> 和 <strong>type=”image”</strong> 配合使用。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"demo-form.php"</span>&gt;</span></span><br><span class="line">  First name: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"fname"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  Last name: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"lname"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"正常提交"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">formtarget</span>=<span class="string">"_blank"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">value</span>=<span class="string">"提交到一个新的页面上"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="height-和-width-属性"><a href="#height-和-width-属性" class="headerlink" title="<input> height 和 width 属性"></a>&lt;input&gt; height 和 width 属性</h3><p>height 和 width 属性规定用于 image 类型的 &lt;input&gt; 标签的<strong>图像高度和宽度</strong>。</p>
+<p><strong>注意:</strong> height 和 width 属性只适用于 image 类型的&lt;input&gt; 标签。</p>
+<h3 id="list-属性"><a href="#list-属性" class="headerlink" title="<input> list 属性"></a>&lt;input&gt; list 属性</h3><p>list 属性<strong>规定输入域的 datalist</strong>。datalist 是输入域的选项列表。</p>
+<h3 id="min-和-max-属性"><a href="#min-和-max-属性" class="headerlink" title="<input> min 和 max 属性"></a>&lt;input&gt; min 和 max 属性</h3><p>min、max 和 step 属性用于<strong>为包含数字或日期的 input 类型规定限定（约束）</strong>。</p>
+<p><strong>注意:</strong> min、max 和 step 属性适用于以下类型的 &lt;input&gt; 标签：date pickers、number 以及 range。</p>
+<h3 id="multiple-属性"><a href="#multiple-属性" class="headerlink" title="<input> multiple 属性"></a>&lt;input&gt; multiple 属性</h3><p>multiple 属性是一个布尔属性.</p>
+<p>multiple 属性规定&lt;input&gt; 元素中<strong>可选择多个值</strong>。</p>
+<p><strong>注意:</strong> multiple 属性适用于以下类型的 &lt;input&gt; 标签：email 和 file。</p>
+<h3 id="pattern-属性"><a href="#pattern-属性" class="headerlink" title="<input> pattern 属性"></a>&lt;input&gt; pattern 属性</h3><p>pattern 属性描述了<strong>一个正则表达式用于验证 &lt;input&gt; 元素的值</strong>。</p>
+<p>**注意:**pattern 属性适用于以下类型的 &lt;input&gt; 标签: text, search, url, tel, email, 和 password。</p>
+<p><strong>提示：</strong> 是用来全局 <a target="_blank" rel="noopener" href="https://www.runoob.com/tags/tag-title.html">title</a> 属性来描述模式。</p>
+<h3 id="placeholder-属性"><a href="#placeholder-属性" class="headerlink" title="<input> placeholder 属性"></a>&lt;input&gt; placeholder 属性</h3><p>placeholder 属性提供一种提示（hint），<strong>描述输入域所期待的值</strong>。</p>
+<p>简短的提示在用户输入值前会显示在输入域上。</p>
+<p><strong>注意:</strong> placeholder 属性适用于以下类型的 &lt;input&gt; 标签：text, search, url, telephone, email 以及 password。</p>
+<h3 id="required-属性"><a href="#required-属性" class="headerlink" title="<input> required 属性"></a>&lt;input&gt; required 属性</h3><p>required 属性是一个布尔属性.</p>
+<p>required 属性规定必须<strong>在提交之前填写输入域（不能为空）</strong>。</p>
+<p>**注意:**required 属性适用于以下类型的 &lt;input&gt; 标签：text, search, url, telephone, email, password, date pickers, number, checkbox, radio 以及 file。</p>
+<h3 id="step-属性"><a href="#step-属性" class="headerlink" title="<input> step 属性"></a>&lt;input&gt; step 属性</h3><p>step 属性为<strong>输入域规定合法的数字间隔</strong>。</p>
+<p>如果 step=”3”，则合法的数是 -3,0,3,6 等。</p>
+<p><strong>提示：</strong>step 属性可以与 max 和 min 属性创建一个区域值。</p>
+<p><strong>注意:</strong> step 属性与以下type类型一起使用: number, range, date, datetime, datetime-local, month, time 和 week。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"points"</span> <span class="attr">step</span>=<span class="string">"3"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="HTML5-语义元素"><a href="#HTML5-语义元素" class="headerlink" title="HTML5 语义元素"></a>HTML5 语义元素</h2><h3 id="什么是语义元素"><a href="#什么是语义元素" class="headerlink" title="什么是语义元素"></a>什么是语义元素</h3><p>一个语义元素能够清楚的描述其意义给浏览器和开发者。</p>
+<p><strong>无语义</strong>元素实例: &lt;div&gt; 和 &lt;span&gt; - 无需考虑内容。</p>
+<p><strong>语义</strong>元素实例: &lt;form&gt;, &lt;table&gt;, and &lt;img&gt; - 清楚的定义了它的内容。</p>
+<h3 id="元素-3"><a href="#元素-3" class="headerlink" title="<section> 元素"></a>&lt;section&gt; 元素</h3><p>&lt;section&gt; 标签定义文档中的节（section、区段）。比如<strong>章节、页眉、页脚或文档中的其他部分。</strong></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>WWF<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>The World Wide Fund for Nature (WWF) is....<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="元素-4"><a href="#元素-4" class="headerlink" title="<article> 元素"></a>&lt;article&gt; 元素</h3><p>&lt;article&gt; 标签定义<strong>独立的内容</strong>。.</p>
+<p>&lt;article&gt; 元素使用实例:</p>
+<ul>
+<li>Forum post</li>
+<li>Blog post</li>
+<li>News story</li>
+<li>Comment</li>
+</ul>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Internet Explorer 9<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Windows Internet Explorer 9(缩写为 IE9 )在2011年3月14日21:00 发布。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="元素-5"><a href="#元素-5" class="headerlink" title="<nav> 元素"></a>&lt;nav&gt; 元素</h3><p>&lt;nav&gt; 标签定义<strong>导航链</strong>接的部分。</p>
+<p>&lt;nav&gt; 元素用于定义页面的导航链接部分区域，但是，不是所有的链接都需要包含在 &lt;nav&gt; 元素中。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/html/"</span>&gt;</span>HTML<span class="tag">&lt;/<span class="name">a</span>&gt;</span> |</span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/css/"</span>&gt;</span>CSS<span class="tag">&lt;/<span class="name">a</span>&gt;</span> |</span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/js/"</span>&gt;</span>JavaScript<span class="tag">&lt;/<span class="name">a</span>&gt;</span> |</span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/jquery/"</span>&gt;</span>jQuery<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="元素-6"><a href="#元素-6" class="headerlink" title="<aside> 元素"></a>&lt;aside&gt; 元素</h3><p>&lt;aside&gt; 标签定义<strong>页面主区域内容之外的内容（比如侧边栏）</strong>。</p>
+<p>aside 标签的内容应与主区域的内容相关。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>My family and I visited The Epcot center this summer.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">aside</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h4</span>&gt;</span>Epcot Center<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>The Epcot Center is a theme park in Disney World, Florida.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">aside</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="元素-7"><a href="#元素-7" class="headerlink" title="<header> 元素"></a>&lt;header&gt; 元素</h3><p>&lt;header&gt;元素描述了<strong>文档的头部区域</strong>。&lt;header&gt;元素主要用于定义内容的介绍展示区域。</p>
+<p>在页面中可以使用多个&lt;header&gt; 元素。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Internet Explorer 9<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">time</span> <span class="attr">pubdate</span> <span class="attr">datetime</span>=<span class="string">"2011-03-15"</span>&gt;</span><span class="tag">&lt;/<span class="name">time</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Windows Internet Explorer 9(缩写为 IE9 )是在2011年3月14日21:00发布的<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="元素-8"><a href="#元素-8" class="headerlink" title="<footer> 元素"></a>&lt;footer&gt; 元素</h3><p>&lt;footer&gt; 元素描述了<strong>文档的底部区域</strong>。</p>
+<p>&lt;footer&gt; 元素应该包含它的包含元素。</p>
+<p>一个页脚通常包含<strong>文档的作者，著作权信息，链接的使用条款，联系信息</strong>等</p>
+<p>文档中可以使用多个 &lt;footer&gt;元素。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">footer</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Posted by: Hege Refsnes<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">time</span> <span class="attr">pubdate</span> <span class="attr">datetime</span>=<span class="string">"2012-03-01"</span>&gt;</span><span class="tag">&lt;/<span class="name">time</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="和-元素"><a href="#和-元素" class="headerlink" title="<figure> 和 <figcaption> 元素"></a>&lt;figure&gt; 和 &lt;figcaption&gt; 元素</h3><p>&lt;figure&gt;标签规定<strong>独立的流内容（图像、图表、照片、代码等等）</strong>。</p>
+<p>&lt;figure&gt; 元素的内容应该与主内容相关，但如果被删除，则不应对文档流产生影响。</p>
+<p>&lt;figcaption&gt; 标签定义 &lt;figure&gt; 元素的标题。</p>
+<p>&lt;figcaption&gt;元素应该被置于 “figure” 元素的<strong>第一个或最后一个子元素的位置</strong>。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">figure</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img_pulpit.jpg"</span> <span class="attr">alt</span>=<span class="string">"The Pulpit Rock"</span> <span class="attr">width</span>=<span class="string">"304"</span> <span class="attr">height</span>=<span class="string">"228"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">figcaption</span>&gt;</span>Fig1. - The Pulpit Pock, Norway.<span class="tag">&lt;/<span class="name">figcaption</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">figure</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="HTML5-Web-存储"><a href="#HTML5-Web-存储" class="headerlink" title="HTML5 Web 存储"></a>HTML5 Web 存储</h2><h3 id="什么是-HTML5-Web-存储"><a href="#什么是-HTML5-Web-存储" class="headerlink" title="什么是 HTML5 Web 存储"></a>什么是 HTML5 Web 存储</h3><p>使用HTML5可以<strong>在本地存储用户的浏览数据</strong>。</p>
+<p>早些时候，本地存储使用的是 cookie。但是Web 存储需要<strong>更加的安全与快速</strong>。 这些数据不会被保存在服务器上，但是这些数据只用于用户请求网站数据上。它也可以存储大量的数据，而不影响网站的性能。</p>
+<p>数据以 <strong>键/值 对</strong>存在, web网页的数据只允许该网页访问使用。</p>
+<h3 id="localStorage-和-sessionStorage"><a href="#localStorage-和-sessionStorage" class="headerlink" title="localStorage 和 sessionStorage"></a>localStorage 和 sessionStorage</h3><p>客户端存储数据的两个对象为：</p>
+<ul>
+<li><p>localStorage - 用于<strong>长久保存</strong>整个网站的数据，保存的数据<strong>没有过期时间</strong>，直到手动去除。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 存储</span></span><br><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">setItem</span>(<span class="string">"sitename"</span>, <span class="string">"菜鸟教程"</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 查找</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"result"</span>).<span class="property">innerHTML</span> = <span class="string">"网站名："</span> +  <span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">"sitename"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移除</span></span><br><span class="line"><span class="variable language_">localStorage</span>.<span class="title function_">removeItem</span>(<span class="string">"sitename"</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>使用 <strong>key=”sitename”</strong> 和 <strong>value=”菜鸟教程”</strong> 创建一个 localStorage 键/值对。</li>
+<li>检索键值为 “sitename” 的值然后将数据插入 <strong>id=”result”</strong> 的元素中。</li>
+<li>保存数据：localStorage.setItem(key,value);</li>
+<li>读取数据：localStorage.getItem(key);</li>
+<li>删除单个数据：localStorage.removeItem(key);</li>
+<li>删除所有数据：localStorage.clear();</li>
+<li>得到某个索引的key：localStorage.key(index);</li>
+</ul>
+</li>
+<li><p>sessionStorage - 用于<strong>临时保存</strong>同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="variable language_">sessionStorage</span>.<span class="property">clickcount</span>)</span><br><span class="line">{</span><br><span class="line">    <span class="variable language_">sessionStorage</span>.<span class="property">clickcount</span>=<span class="title class_">Number</span>(<span class="variable language_">sessionStorage</span>.<span class="property">clickcount</span>)+<span class="number">1</span>;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">{</span><br><span class="line">    <span class="variable language_">sessionStorage</span>.<span class="property">clickcount</span>=<span class="number">1</span>;</span><br><span class="line">}</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"result"</span>).<span class="property">innerHTML</span>=<span class="string">"在这个会话中你已经点击了该按钮 "</span> + <span class="variable language_">sessionStorage</span>.<span class="property">clickcount</span> + <span class="string">" 次 "</span>;</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h3 id="Web-Storage-开发一个简单的网站列表程序"><a href="#Web-Storage-开发一个简单的网站列表程序" class="headerlink" title="Web Storage 开发一个简单的网站列表程序"></a>Web Storage 开发一个简单的网站列表程序</h3><p>实现以下功能：</p>
+<ul>
+<li>可以输入网站名，网址，以网站名作为key存入localStorage；</li>
+<li>根据网站名，查找网址；</li>
+<li>列出当前已保存的所有网站；</li>
+</ul>
+<p><strong>保存与查找数据</strong>：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//保存数据  </span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">save</span>(<span class="params"></span>){  </span><br><span class="line">    <span class="keyword">var</span> siteurl = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"siteurl"</span>).<span class="property">value</span>;  </span><br><span class="line">    <span class="keyword">var</span> sitename = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"sitename"</span>).<span class="property">value</span>;  </span><br><span class="line">    <span class="variable language_">localStorage</span>.<span class="title function_">setItem</span>(sitename, siteurl);</span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">"添加成功"</span>);</span><br><span class="line">}</span><br><span class="line"><span class="comment">//查找数据  </span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">find</span>(<span class="params"></span>){  </span><br><span class="line">    <span class="keyword">var</span> search_site = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"search_site"</span>).<span class="property">value</span>;  </span><br><span class="line">    <span class="keyword">var</span> sitename = <span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(search_site);  </span><br><span class="line">    <span class="keyword">var</span> find_result = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"find_result"</span>);  </span><br><span class="line">    find_result.<span class="property">innerHTML</span> = search_site + <span class="string">"的网址是："</span> + sitename;  </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>实例</strong>：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=<span class="string">"border: 2px dashed #ccc;width:320px;text-align:center;"</span>&gt;     </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"sitename"</span>&gt;</span>网站名(key)：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"sitename"</span> <span class="attr">name</span>=<span class="string">"sitename"</span> <span class="attr">class</span>=<span class="string">"text"</span>/&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"siteurl"</span>&gt;</span>网 址(value)：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"siteurl"</span> <span class="attr">name</span>=<span class="string">"siteurl"</span>/&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">onclick</span>=<span class="string">"save()"</span> <span class="attr">value</span>=<span class="string">"新增记录"</span>/&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"search_site"</span>&gt;</span>输入网站名：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"search_site"</span> <span class="attr">name</span>=<span class="string">"search_site"</span>/&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">onclick</span>=<span class="string">"find()"</span> <span class="attr">value</span>=<span class="string">"查找网站"</span>/&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"find_result"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span>  </span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>使用 <a target="_blank" rel="noopener" href="https://www.runoob.com/js/javascript-json-stringify.html">JSON.stringify</a> 来存储对象数据，<a target="_blank" rel="noopener" href="https://www.runoob.com/js/javascript-json-stringify.html">JSON.stringify</a> 可以将对象转换为字符串:</strong></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> site = <span class="keyword">new</span> <span class="title class_">Object</span>;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">var</span> str = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(site); <span class="comment">// 将对象转换为字符串</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>使用 <a target="_blank" rel="noopener" href="https://www.runoob.com/js/javascript-json-parse.html">JSON.parse</a> 方法将字符串转换为 JSON 对象：</strong></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> site = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(str);</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>JavaScript 实现代码：</strong></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//保存数据  </span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">save</span>(<span class="params"></span>){  </span><br><span class="line">    <span class="keyword">var</span> site = <span class="keyword">new</span> <span class="title class_">Object</span>;</span><br><span class="line">    site.<span class="property">keyname</span> = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"keyname"</span>).<span class="property">value</span>;</span><br><span class="line">    site.<span class="property">sitename</span> = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"sitename"</span>).<span class="property">value</span>;  </span><br><span class="line">    site.<span class="property">siteurl</span> = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"siteurl"</span>).<span class="property">value</span>;</span><br><span class="line">    <span class="keyword">var</span> str = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(site); <span class="comment">// 将对象转换为字符串</span></span><br><span class="line">    <span class="variable language_">localStorage</span>.<span class="title function_">setItem</span>(site.<span class="property">keyname</span>,str);  </span><br><span class="line">    <span class="title function_">alert</span>(<span class="string">"保存成功"</span>);</span><br><span class="line">}  </span><br><span class="line"><span class="comment">//查找数据  </span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">find</span>(<span class="params"></span>){  </span><br><span class="line">    <span class="keyword">var</span> search_site = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"search_site"</span>).<span class="property">value</span>;  </span><br><span class="line">    <span class="keyword">var</span> str = <span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(search_site);  </span><br><span class="line">    <span class="keyword">var</span> find_result = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"find_result"</span>);</span><br><span class="line">    <span class="keyword">var</span> site = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(str);  </span><br><span class="line">    find_result.<span class="property">innerHTML</span> = search_site + <span class="string">"的网站名是："</span> + site.<span class="property">sitename</span> + <span class="string">"，网址是："</span> + site.<span class="property">siteurl</span>;  </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>完整实例如下</strong>：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=<span class="string">"border: 2px dashed #ccc;width:320px;text-align:center;"</span>&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"keyname"</span>&gt;</span>别名(key):<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"keyname"</span> <span class="attr">name</span>=<span class="string">"keyname"</span> <span class="attr">class</span>=<span class="string">"text"</span>/&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"sitename"</span>&gt;</span>网站名：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"sitename"</span> <span class="attr">name</span>=<span class="string">"sitename"</span> <span class="attr">class</span>=<span class="string">"text"</span>/&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"siteurl"</span>&gt;</span>网 址：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"siteurl"</span> <span class="attr">name</span>=<span class="string">"siteurl"</span>/&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">onclick</span>=<span class="string">"save()"</span> <span class="attr">value</span>=<span class="string">"新增记录"</span>/&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">hr</span>/&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"search_site"</span>&gt;</span>输入别名(key)：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"search_site"</span> <span class="attr">name</span>=<span class="string">"search_site"</span>/&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">onclick</span>=<span class="string">"find()"</span> <span class="attr">value</span>=<span class="string">"查找网站"</span>/&gt;</span></span>  </span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"find_result"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span>  </span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="HTML5-Web-SQL"><a href="#HTML5-Web-SQL" class="headerlink" title="HTML5 Web SQL"></a>HTML5 Web SQL</h2><p>Web SQL 数据库 API 并不是 HTML5 规范的一部分，但是它是一个独立的规范，引入了一组使用 SQL 操作客户端数据库的 APIs。</p>
+<h3 id="核心方法"><a href="#核心方法" class="headerlink" title="核心方法"></a>核心方法</h3><p>以下是规范中定义的三个核心方法：</p>
+<ol>
+<li><strong>openDatabase</strong>：这个方法使用现有的数据库或者新建的数据库<strong>创建一个数据库对象</strong>。</li>
+<li><strong>transaction</strong>：这个方法让我们能够<strong>控制一个事务</strong>，以及基于这种情况执行提交或者回滚。</li>
+<li><strong>executeSql</strong>：这个方法用于<strong>执行实际的 SQL 查询</strong>。</li>
+</ol>
+<h3 id="打开数据库"><a href="#打开数据库" class="headerlink" title="打开数据库"></a>打开数据库</h3><p>我们可以使用 <strong>openDatabase()</strong> 方法来打开已存在的数据库，如果数据库不存在，则会创建一个新的数据库，使用代码如下：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> db = <span class="title function_">openDatabase</span>(<span class="string">'mydb'</span>, <span class="string">'1.0'</span>, <span class="string">'Test DB'</span>, <span class="number">2</span> * <span class="number">1024</span> * <span class="number">1024</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>openDatabase() 方法对应的五个参数说明：</p>
+<ol>
+<li>数据库名称</li>
+<li>版本号</li>
+<li>描述文本</li>
+<li>数据库大小</li>
+<li>创建回调</li>
+</ol>
+<p>第五个参数，创建回调会在创建数据库后被调用。</p>
+<h3 id="执行查询操作"><a href="#执行查询操作" class="headerlink" title="执行查询操作"></a>执行查询操作</h3><p>执行操作使用 <strong>database.transaction()</strong> 函数：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> db = <span class="title function_">openDatabase</span>(<span class="string">'mydb'</span>, <span class="string">'1.0'</span>, <span class="string">'Test DB'</span>, <span class="number">2</span> * <span class="number">1024</span> * <span class="number">1024</span>);</span><br><span class="line">db.<span class="title function_">transaction</span>(<span class="keyword">function</span> (<span class="params">tx</span>) {  </span><br><span class="line">   tx.<span class="title function_">executeSql</span>(<span class="string">'CREATE TABLE IF NOT EXISTS LOGS (id unique, log)'</span>);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<p>上面的语句执行后会在 ‘mydb’ 数据库中创建一个名为 LOGS 的表。</p>
+<h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><p>在执行上面的创建表语句后，可以插入一些数据：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> db = <span class="title function_">openDatabase</span>(<span class="string">'mydb'</span>, <span class="string">'1.0'</span>, <span class="string">'Test DB'</span>, <span class="number">2</span> * <span class="number">1024</span> * <span class="number">1024</span>);</span><br><span class="line">db.<span class="title function_">transaction</span>(<span class="keyword">function</span> (<span class="params">tx</span>) {</span><br><span class="line">   tx.<span class="title function_">executeSql</span>(<span class="string">'CREATE TABLE IF NOT EXISTS LOGS (id unique, log)'</span>);</span><br><span class="line">   tx.<span class="title function_">executeSql</span>(<span class="string">'INSERT INTO LOGS (id, log) VALUES (1, "菜鸟教程")'</span>);</span><br><span class="line">   tx.<span class="title function_">executeSql</span>(<span class="string">'INSERT INTO LOGS (id, log) VALUES (2, "www.runoob.com")'</span>);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<p>使用动态值来插入数据：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> db = <span class="title function_">openDatabase</span>(<span class="string">'mydb'</span>, <span class="string">'1.0'</span>, <span class="string">'Test DB'</span>, <span class="number">2</span> * <span class="number">1024</span> * <span class="number">1024</span>); db.<span class="title function_">transaction</span>(<span class="keyword">function</span> (<span class="params">tx</span>) {     </span><br><span class="line">	tx.<span class="title function_">executeSql</span>(<span class="string">'CREATE TABLE IF NOT EXISTS LOGS (id unique, log)'</span>);   		tx.<span class="title function_">executeSql</span>(<span class="string">'INSERT INTO LOGS (id,log) VALUES (?, ?)'</span>, [e_id, e_log]); </span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<p>实例中的 e_id 和 e_log 是外部变量，executeSql 会映射数组参数中的每个条目给 “?”。</p>
+<h3 id="读取数据"><a href="#读取数据" class="headerlink" title="读取数据"></a>读取数据</h3><p>读取数据库中已经存在的数据：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> db = <span class="title function_">openDatabase</span>(<span class="string">'mydb'</span>, <span class="string">'1.0'</span>, <span class="string">'Test DB'</span>, <span class="number">2</span> * <span class="number">1024</span> * <span class="number">1024</span>);</span><br><span class="line"> </span><br><span class="line">db.<span class="title function_">transaction</span>(<span class="keyword">function</span> (<span class="params">tx</span>) {</span><br><span class="line">   tx.<span class="title function_">executeSql</span>(<span class="string">'CREATE TABLE IF NOT EXISTS LOGS (id unique, log)'</span>);</span><br><span class="line">   tx.<span class="title function_">executeSql</span>(<span class="string">'INSERT INTO LOGS (id, log) VALUES (1, "菜鸟教程")'</span>);</span><br><span class="line">   tx.<span class="title function_">executeSql</span>(<span class="string">'INSERT INTO LOGS (id, log) VALUES (2, "www.runoob.com")'</span>);</span><br><span class="line">});</span><br><span class="line"> </span><br><span class="line">db.<span class="title function_">transaction</span>(<span class="keyword">function</span> (<span class="params">tx</span>) {</span><br><span class="line">   tx.<span class="title function_">executeSql</span>(<span class="string">'SELECT * FROM LOGS'</span>, [], <span class="keyword">function</span> (<span class="params">tx, results</span>) {</span><br><span class="line">      <span class="keyword">var</span> len = results.<span class="property">rows</span>.<span class="property">length</span>, i;</span><br><span class="line">      msg = <span class="string">"&lt;p&gt;查询记录条数: "</span> + len + <span class="string">"&lt;/p&gt;"</span>;</span><br><span class="line">      <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">'#status'</span>).<span class="property">innerHTML</span> +=  msg;</span><br><span class="line">    </span><br><span class="line">      <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++){</span><br><span class="line">         <span class="title function_">alert</span>(results.<span class="property">rows</span>.<span class="title function_">item</span>(i).<span class="property">log</span> );</span><br><span class="line">      }</span><br><span class="line">    </span><br><span class="line">   }, <span class="literal">null</span>);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="HTML5-应用程序缓存"><a href="#HTML5-应用程序缓存" class="headerlink" title="HTML5 应用程序缓存"></a>HTML5 应用程序缓存</h2><p>通过创建 cache manifest 文件，可以轻松地创建 web 应用的离线版本。</p>
+<h3 id="什么是应用程序缓存（Application-Cache）"><a href="#什么是应用程序缓存（Application-Cache）" class="headerlink" title="什么是应用程序缓存（Application Cache）"></a>什么是应用程序缓存（Application Cache）</h3><p>HTML5 引入了应用程序缓存，这意味着 web 应用可进行缓存，并可在没有因特网连接时进行访问。</p>
+<p>应用程序缓存为应用带来三个优势：</p>
+<ol>
+<li>离线浏览 - 用户可在应用离线时使用它们</li>
+<li>速度 - 已缓存资源加载得更快</li>
+<li>减少服务器负载 - 浏览器将只从服务器下载更新过或更改过的资源。</li>
+</ol>
+<h3 id="Cache-Manifest-基础"><a href="#Cache-Manifest-基础" class="headerlink" title="Cache Manifest 基础"></a>Cache Manifest 基础</h3><p>如需启用应用程序缓存，需要在文档的&lt;html&gt; 标签中包含 manifest 属性：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">manifest</span>=<span class="string">"demo.appcache"</span>&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>每个指定了 manifest 的页面在用户对其访问时都会被缓存。如果未指定 manifest 属性，则页面不会被缓存。manifest 文件的建议的文件扩展名是：”.appcache”。</p>
+<h3 id="Manifest-文件"><a href="#Manifest-文件" class="headerlink" title="Manifest 文件"></a>Manifest 文件</h3><p>manifest 文件是简单的文本文件，它告知浏览器被缓存的内容（以及不缓存的内容）。</p>
+<p>manifest 文件可分为三个部分：</p>
+<ul>
+<li><p><em>CACHE MANIFEST</em> - 在此标题下列出的文件将<strong>在首次下载后进行缓存</strong>，是必需的。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CACHE MANIFEST</span><br><span class="line">/theme.css</span><br><span class="line">/logo.gif</span><br><span class="line">/main.js</span><br></pre></td></tr></tbody></table></figure>
+
+<p>当 manifest 文件加载后，浏览器会从网站的根目录下载这三个文件。然后，无论用户何时与因特网断开连接，这些资源依然是可用的。</p>
+</li>
+<li><p><em>NETWORK</em> - 在此标题下列出的文件需要与服务器的连接，且<strong>不会被缓存</strong></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// "login.php" 永远不会被缓存，且离线时是不可用的</span><br><span class="line">NETWORK:</span><br><span class="line">login.php</span><br><span class="line"></span><br><span class="line">// 使用星号来指示所有其他资源/文件都需要因特网连接</span><br><span class="line">NETWORK:</span><br><span class="line">*</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p><em>FALLBACK</em> - 在此标题下列出的文件规定<strong>当页面无法访问时的回退页面</strong>（比如 404 页面）</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 规定如果无法建立因特网连接，则用 "offline.html" 替代 /html5/ 目录中的所有文件</span><br><span class="line">FALLBACK:</span><br><span class="line">/html/ /offline.html</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h3 id="更新缓存"><a href="#更新缓存" class="headerlink" title="更新缓存"></a>更新缓存</h3><p>一旦应用被缓存，它就会保持缓存直到发生下列情况：</p>
+<ul>
+<li>用户清空浏览器缓存</li>
+<li>manifest 文件被修改</li>
+<li>由程序来更新应用缓存</li>
+</ul>
+<h2 id="HTML5-Web-Workers"><a href="#HTML5-Web-Workers" class="headerlink" title="HTML5 Web Workers"></a>HTML5 Web Workers</h2><p>当在 HTML 页面中执行脚本时，页面的状态是不可响应的，直到脚本已完成。</p>
+<p>web worker 是运行在后台的 JavaScript，独立于其他脚本，<strong>不会影响页面的性能</strong>。您可以继续做任何愿意做的事情：点击、选取内容等等，而此时 web worker 在后台运行。</p>
+<h3 id="创建-web-worker-文件"><a href="#创建-web-worker-文件" class="headerlink" title="创建 web worker 文件"></a>创建 web worker 文件</h3><p>在一个外部 JavaScript 中创建 web worker：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">timedCount</span>(<span class="params"></span>)</span><br><span class="line">{</span><br><span class="line">&nbsp; &nbsp; i=i+<span class="number">1</span>;</span><br><span class="line">&nbsp; &nbsp; <span class="title function_">postMessage</span>(i);		<span class="comment">// 向HTML页面传回一段消息</span></span><br><span class="line">&nbsp; &nbsp; <span class="built_in">setTimeout</span>(<span class="string">"timedCount()"</span>,<span class="number">500</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="title function_">timedCount</span>();</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="创建-Web-Worker-对象"><a href="#创建-Web-Worker-对象" class="headerlink" title="创建 Web Worker 对象"></a>创建 Web Worker 对象</h3><p>已经有了 web worker 文件，现在需要从 HTML 页面调用它。</p>
+<p>检测是否存在 worker，如果不存在，创建一个新的 web worker 对象，然后运行 “demo_workers.js” 中的代码：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="title function_">typeof</span>(w)==<span class="string">"undefined"</span>)</span><br><span class="line">{</span><br><span class="line">    w=<span class="keyword">new</span> <span class="title class_">Worker</span>(<span class="string">"demo_workers.js"</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>然后就可以从 web worker 发送和接收消息了。向 web worker 添加一个 “onmessage” 事件监听器：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">w.<span class="property">onmessage</span>=<span class="keyword">function</span>(<span class="params">event</span>){</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"result"</span>).<span class="property">innerHTML</span>=event.<span class="property">data</span>;</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="终止-Web-Worker"><a href="#终止-Web-Worker" class="headerlink" title="终止 Web Worker"></a>终止 Web Worker</h3><p>创建 web worker 对象后，它会继续监听消息（即使在外部脚本完成之后）直到其被终止为止。</p>
+<p>如需终止 web worker，并释放浏览器/计算机资源，使用 <strong>w.terminate()</strong> 方法。</p>
+<h3 id="实例代码"><a href="#实例代码" class="headerlink" title="实例代码"></a>实例代码</h3><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>&nbsp;</span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span>&nbsp;<span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span>&nbsp;</span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>菜鸟教程(runoob.com)<span class="tag">&lt;/<span class="name">title</span>&gt;</span>&nbsp;</span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>计数： <span class="tag">&lt;<span class="name">output</span> <span class="attr">id</span>=<span class="string">"result"</span>&gt;</span><span class="tag">&lt;/<span class="name">output</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"startWorker()"</span>&gt;</span>开始工作<span class="tag">&lt;/<span class="name">button</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"stopWorker()"</span>&gt;</span>停止工作<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>注意：<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> Internet Explorer 9 及更早 IE 版本浏览器不支持 Web Workers.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> w;</span></span><br><span class="line"><span class="language-javascript"> </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">function</span> <span class="title function_">startWorker</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">if</span>(<span class="title function_">typeof</span>(<span class="title class_">Worker</span>) !== <span class="string">"undefined"</span>) {</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">if</span>(<span class="title function_">typeof</span>(w) == <span class="string">"undefined"</span>) {</span></span><br><span class="line"><span class="language-javascript">            w = <span class="keyword">new</span> <span class="title class_">Worker</span>(<span class="string">"demo_workers.js"</span>);</span></span><br><span class="line"><span class="language-javascript">        }</span></span><br><span class="line"><span class="language-javascript">        w.<span class="property">onmessage</span> = <span class="keyword">function</span>(<span class="params">event</span>) {</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"result"</span>).<span class="property">innerHTML</span> = event.<span class="property">data</span>;</span></span><br><span class="line"><span class="language-javascript">        };</span></span><br><span class="line"><span class="language-javascript">    } <span class="keyword">else</span> {</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"result"</span>).<span class="property">innerHTML</span> = <span class="string">"抱歉，你的浏览器不支持 Web Workers..."</span>;</span></span><br><span class="line"><span class="language-javascript">    }</span></span><br><span class="line"><span class="language-javascript">}</span></span><br><span class="line"><span class="language-javascript"> </span></span><br><span class="line"><span class="language-javascript"><span class="keyword">function</span> <span class="title function_">stopWorker</span>(<span class="params"></span>) </span></span><br><span class="line"><span class="language-javascript">{ </span></span><br><span class="line"><span class="language-javascript">    w.<span class="title function_">terminate</span>();</span></span><br><span class="line"><span class="language-javascript">    w = <span class="literal">undefined</span>;</span></span><br><span class="line"><span class="language-javascript">}</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="HTML5-服务器发送事件"><a href="#HTML5-服务器发送事件" class="headerlink" title="HTML5 服务器发送事件"></a>HTML5 服务器发送事件</h2><h3 id="ServerSent-事件：单向消息传递"><a href="#ServerSent-事件：单向消息传递" class="headerlink" title="ServerSent 事件：单向消息传递"></a>ServerSent 事件：单向消息传递</h3><p>Server-Sent 事件指的是<strong>网页自动获取来自服务器的更新。</strong></p>
+<p>以前也可能做到这一点，前提是网页不得不询问是否有可用的更新。通过服务器发送事件，更新能够自动到达。</p>
+<p>例子：Facebook/Twitter 更新、股价更新、新的博文、赛事结果等。</p>
+<h3 id="接收-Server-Sent-事件通知"><a href="#接收-Server-Sent-事件通知" class="headerlink" title="接收 Server-Sent 事件通知"></a>接收 Server-Sent 事件通知</h3><p><strong>EventSource</strong> 对象用于接收服务器发送事件通知：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个新的 EventSource 对象，然后规定发送更新的页面的 URL（本例中是 "demo_sse.php"）</span></span><br><span class="line"><span class="keyword">var</span> source=<span class="keyword">new</span> <span class="title class_">EventSource</span>(<span class="string">"demo_sse.php"</span>);		</span><br><span class="line"><span class="comment">// 每接收到一次更新，就会发生 onmessage 事件</span></span><br><span class="line">source.<span class="property">onmessage</span>=<span class="keyword">function</span>(<span class="params">event</span>)</span><br><span class="line">{</span><br><span class="line">    <span class="comment">// 当 onmessage 事件发生时，把已接收的数据推入 id 为 "result" 的元素中</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">"result"</span>).<span class="property">innerHTML</span>+=event.<span class="property">data</span> + <span class="string">"&lt;br&gt;"</span>;</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h3 id="服务器端代码实例"><a href="#服务器端代码实例" class="headerlink" title="服务器端代码实例"></a>服务器端代码实例</h3><p>服务器端事件流的语法是非常简单的，把 <strong>“Content-Type”</strong> 报头设置为 **”text/event-stream”**，就可以开始发送事件流了。</p>
+<figure class="highlight php"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">'Content-Type:&nbsp;text/event-stream'</span>);		<span class="comment">// 把报头 "Content-Type" 设置为 "text/event-stream"</span></span><br><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">'Cache-Control:&nbsp;no-cache'</span>);				<span class="comment">// 把报头 "Content-Type" 设置为 "text/event-stream"</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$time&nbsp;</span>=&nbsp;<span class="title function_ invoke__">date</span>(<span class="string">'r'</span>);								<span class="comment">// 输出发送日期（始终以 "data: " 开头）</span></span><br><span class="line"><span class="keyword">echo</span>&nbsp;<span class="string">"data:&nbsp;The&nbsp;server&nbsp;time&nbsp;is:&nbsp;<span class="subst">{$time}</span>\n\n"</span>;	</span><br><span class="line"><span class="title function_ invoke__">flush</span>();										<span class="comment">// 向网页刷新输出数据</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="HTML5-WebSocket"><a href="#HTML5-WebSocket" class="headerlink" title="HTML5 WebSocket"></a>HTML5 WebSocket</h2><p>WebSocket 是 HTML5 开始提供的一种在单个 TCP 连接上进行全双工通讯的<strong>协议</strong>。</p>
+<p>在 WebSocket API 中，浏览器和服务器只需要做一个握手的动作，然后，浏览器和服务器之间就形成了一条快速通道。两者之间就直接可以数据互相传送。</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2016/03/ws.png"></p>
+<h3 id="创建-WebSocket-对象"><a href="#创建-WebSocket-对象" class="headerlink" title="创建 WebSocket 对象"></a>创建 WebSocket 对象</h3><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title class_">Socket</span> = <span class="keyword">new</span> <span class="title class_">WebSocket</span>(url, [protocol] );</span><br></pre></td></tr></tbody></table></figure>
+
+<p>第一个参数 url, 指定连接的 URL。第二个参数 protocol 是可选的，指定了可接受的子协议。</p>
+<h3 id="WebSocket-属性"><a href="#WebSocket-属性" class="headerlink" title="WebSocket 属性"></a>WebSocket 属性</h3><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Socket.readyState</td>
+<td align="left">只读属性 <strong>readyState</strong> 表示连接状态，可以是以下值：0 - 表示连接尚未建立。1 - 表示连接已建立，可以进行通信。2 - 表示连接正在进行关闭。3 - 表示连接已经关闭或者连接不能打开。</td>
+</tr>
+<tr>
+<td align="left">Socket.bufferedAmount</td>
+<td align="left">只读属性 <strong>bufferedAmount</strong> 已被 send() 放入正在队列中等待传输，但是还没有发出的 UTF-8 文本字节数。</td>
+</tr>
+</tbody></table>
+<h3 id="WebSocket-事件"><a href="#WebSocket-事件" class="headerlink" title="WebSocket 事件"></a>WebSocket 事件</h3><table>
+<thead>
+<tr>
+<th align="left">事件</th>
+<th align="left">事件处理程序</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">open</td>
+<td align="left">Socket.onopen</td>
+<td align="left">连接建立时触发</td>
+</tr>
+<tr>
+<td align="left">message</td>
+<td align="left">Socket.onmessage</td>
+<td align="left">客户端接收服务端数据时触发</td>
+</tr>
+<tr>
+<td align="left">error</td>
+<td align="left">Socket.onerror</td>
+<td align="left">通信发生错误时触发</td>
+</tr>
+<tr>
+<td align="left">close</td>
+<td align="left">Socket.onclose</td>
+<td align="left">连接关闭时触发</td>
+</tr>
+</tbody></table>
+<h3 id="WebSocket-方法"><a href="#WebSocket-方法" class="headerlink" title="WebSocket 方法"></a>WebSocket 方法</h3><table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Socket.send()</td>
+<td align="left">使用连接发送数据</td>
+</tr>
+<tr>
+<td align="left">Socket.close()</td>
+<td align="left">关闭连接</td>
+</tr>
+</tbody></table>
+<h3 id="WebSocket-实例"><a href="#WebSocket-实例" class="headerlink" title="WebSocket 实例"></a>WebSocket 实例</h3><p>WebSocket 协议本质上是一个基于 TCP 的协议。为了建立一个 WebSocket 连接，客户端浏览器首先要向服务器发起一个 HTTP 请求，这个请求和通常的 HTTP 请求不同，包含了一些附加头信息，其中附加头信息”Upgrade: WebSocket”表明这是一个申请协议升级的 HTTP 请求，服务器端解析这些附加的头信息然后产生应答信息返回给客户端，客户端和服务器端的 WebSocket 连接就建立起来了，双方就可以通过这个连接通道自由的传递信息，并且这个连接会持续存在直到客户端或者服务器端的某一方主动的关闭连接。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">HTML</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">title</span>&gt;</span>菜鸟教程(runoob.com)<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">&nbsp;&nbsp;&nbsp;&nbsp;</span><br><span class="line">      <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">         <span class="keyword">function</span> <span class="title function_">WebSocketTest</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="language-javascript">         {</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (<span class="string">"WebSocket"</span> <span class="keyword">in</span> <span class="variable language_">window</span>)</span></span><br><span class="line"><span class="language-javascript">            {</span></span><br><span class="line"><span class="language-javascript">               <span class="title function_">alert</span>(<span class="string">"您的浏览器支持 WebSocket!"</span>);</span></span><br><span class="line"><span class="language-javascript">               </span></span><br><span class="line"><span class="language-javascript">               <span class="comment">// 打开一个 web socket</span></span></span><br><span class="line"><span class="language-javascript">               <span class="keyword">var</span> ws = <span class="keyword">new</span> <span class="title class_">WebSocket</span>(<span class="string">"ws://localhost:9998/echo"</span>);</span></span><br><span class="line"><span class="language-javascript">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><br><span class="line"><span class="language-javascript">               ws.<span class="property">onopen</span> = <span class="keyword">function</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="language-javascript">               {</span></span><br><span class="line"><span class="language-javascript">                  <span class="comment">// Web Socket 已连接上，使用 send() 方法发送数据</span></span></span><br><span class="line"><span class="language-javascript">                  ws.<span class="title function_">send</span>(<span class="string">"发送数据"</span>);</span></span><br><span class="line"><span class="language-javascript">                  <span class="title function_">alert</span>(<span class="string">"数据发送中..."</span>);</span></span><br><span class="line"><span class="language-javascript">               };</span></span><br><span class="line"><span class="language-javascript">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><br><span class="line"><span class="language-javascript">               ws.<span class="property">onmessage</span> = <span class="keyword">function</span> (<span class="params">evt</span>) </span></span><br><span class="line"><span class="language-javascript">               { </span></span><br><span class="line"><span class="language-javascript">                  <span class="keyword">var</span> received_msg = evt.<span class="property">data</span>;</span></span><br><span class="line"><span class="language-javascript">                  <span class="title function_">alert</span>(<span class="string">"数据已接收..."</span>);</span></span><br><span class="line"><span class="language-javascript">               };</span></span><br><span class="line"><span class="language-javascript">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><br><span class="line"><span class="language-javascript">               ws.<span class="property">onclose</span> = <span class="keyword">function</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="language-javascript">               { </span></span><br><span class="line"><span class="language-javascript">                  <span class="comment">// 关闭 websocket</span></span></span><br><span class="line"><span class="language-javascript">                  <span class="title function_">alert</span>(<span class="string">"连接已关闭..."</span>); </span></span><br><span class="line"><span class="language-javascript">               };</span></span><br><span class="line"><span class="language-javascript">            }</span></span><br><span class="line"><span class="language-javascript">            </span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">else</span></span></span><br><span class="line"><span class="language-javascript">            {</span></span><br><span class="line"><span class="language-javascript">               <span class="comment">// 浏览器不支持 WebSocket</span></span></span><br><span class="line"><span class="language-javascript">               <span class="title function_">alert</span>(<span class="string">"您的浏览器不支持 WebSocket!"</span>);</span></span><br><span class="line"><span class="language-javascript">            }</span></span><br><span class="line"><span class="language-javascript">         }</span></span><br><span class="line"><span class="language-javascript">      </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br><span class="line">   <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">   </span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"sse"</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:WebSocketTest()"</span>&gt;</span>运行 WebSocket<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      </span><br><span class="line">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">AutinC</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://autinc.github.io/2023/11/14/html5-cai-niao-jiao-cheng/">https://autinc.github.io/2023/11/14/html5-cai-niao-jiao-cheng/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">AutinC</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%89%8D%E7%AB%AF%E4%B8%89%E4%BB%B6%E5%A5%97/">
+                                    <span class="chip bg-color">前端三件套</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'v0LOxueiWIPRw9lXbmg2YToy-gzGzoHsz',
+        appKey: 'RhYvmeHaBq8MHqMgnwdQbvm8',
+        serverURLs: 'https://v0loxuei.lc-cn-n1-shared.com',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'false' === 'true',
+        avatar: 'mp',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '留下您的观点看法，共同讨论吧！'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/11/15/ruan-jian-gong-cheng-zhi-mei/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="软件工程之美">
+                        
+                        <span class="card-title">软件工程之美</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-11-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            AutinC
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B9%8B%E7%BE%8E-%E6%9E%81%E5%AE%A2/">
+                        <span class="chip bg-color">软件工程之美-极客</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/11/12/html-cai-niao-jiao-cheng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="HTML菜鸟教程">
+                        
+                        <span class="card-title">HTML菜鸟教程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            AutinC
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%89%8D%E7%AB%AF%E4%B8%89%E4%BB%B6%E5%A5%97/">
+                        <span class="chip bg-color">前端三件套</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Huang Shichang&#39;s Blog<br />'
+            + '文章作者: AutinC<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022-2024</span>
+            
+            <a href="/about" target="_blank">AutinC</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">269.2k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Autinc" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:h1743551466@126.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我： h1743551466@126.com" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1743551466" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1743551466" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+        <script src="//code.tidio.co/9r5hwp19xkh9jgnm8ualt74ktcqj9hkg.js"></script>
+        <script>
+            $(document).ready(function () {
+                setInterval(change_Tidio, 50);
+                function change_Tidio() {
+                    var tidio=$("#tidio-chat iframe");
+                    if(tidio.css("display")=="block"&& $(window).width()>977 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"85px":"20px";
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";
+                        document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
+                        document.getElementById("tidio-chat-iframe").style.zIndex="998";
+                    }
+                }
+            });
+        </script>
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,1653 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="C++其他21-36, Huang Shichang&#39;s Blog">
+    <meta name="description" content="C++之其余问题
+
+21、什么情况会自动生成默认构造函数？
+带有默认构造函数的类成员对象，如果一个类没有任何构造函数，但它含有一个成员对象，而后者有默认构造函数，那么编译器就为该类合成出一个默认构造函数。
+
+不过这个合成操作只有在构造函数真">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>C++其他21-36 | Huang Shichang&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.0.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.jpeg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Huang Shichang&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.jpeg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Huang Shichang&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/AutinC/AutinC.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/AutinC/AutinC.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">C++其他21-36</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/C-%E5%85%B6%E4%BB%96/">
+                                <span class="chip bg-color">C++其他</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-02-28
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.2k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 align="center">C++之其余问题</h1>
+
+<h2 id="21、什么情况会自动生成默认构造函数？"><a href="#21、什么情况会自动生成默认构造函数？" class="headerlink" title="21、什么情况会自动生成默认构造函数？"></a>21、什么情况会自动生成默认构造函数？</h2><ol>
+<li>带有默认构造函数的类成员对象，如果一个类没有任何构造函数，但它含有一个成员对象，而后者有默认构造函数，那么编译器就为该类合成出一个默认构造函数。</li>
+</ol>
+<p>不过这个合成操作只有在构造函数真正被需要的时候才会发生；</p>
+<p>如果一个类A含有多个成员类对象的话，那么类A的每一个构造函数必须调用每一个成员对象的默认构造函数而且必须按照类对象在类A中的声明顺序进行；</p>
+<ol start="2">
+<li><p>带有默认构造函数的基类，如果一个没有任务构造函数的派生类派生自一个带有默认构造函数基类，那么该派生类会合成一个构造函数调用上一层基类的默认构造函数；</p>
+</li>
+<li><p>带有一个虚函数的类</p>
+</li>
+<li><p>带有一个虚基类的类</p>
+</li>
+<li><p>合成的默认构造函数中，只有基类子对象和成员类对象会被初始化。所有其他的非静态数据成员都不会被初始化。</p>
+</li>
+</ol>
+<p id="抽象基类为什么不能创建对象"></p>
+
+
+<h2 id="22、抽象基类为什么不能创建对象？"><a href="#22、抽象基类为什么不能创建对象？" class="headerlink" title="22、抽象基类为什么不能创建对象？"></a>22、抽象基类为什么不能创建对象？</h2><p>抽象类是一种特殊的类，它是为了抽象和设计的目的为建立的，它处于继承层次结构的较上层。</p>
+<p>1、抽象类的定义：<br>   称带有纯虚函数的类为抽象类。</p>
+<p>2、抽象类的作用：<br>   抽象类的主要作用是将有关的操作作为结果接口组织在一个继承层次结构中，由它来为派生类提供一个公共的根，派生类将具体实现在其基类中作为接口的操作。所以派生类实际上刻画了一组子类的操作接口的通用语义，这些语义也传给子类，子类可以具体实现这些语义，也可以再将这些语义传给自己的子类。</p>
+<p>3、  抽象类只能作为基类来使用，其纯虚函数的实现由派生类给出。如果派生类中没有重新定义纯虚函数，而只是继承基类的纯虚函数，则这个派生类仍然还是一个抽象类。如果派生类中给出了基类纯虚函数的实现，则该派生类就不再是抽象类了，它是一个可以建立对象的具体的类。</p>
+<p>抽象类是不能定义对象的。一个纯虚函数不需要（但是可以）被定义。</p>
+<p>4、纯虚函数定义<br> 纯虚函数是一种特殊的虚函数，它的一般格式如下：</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> &lt;类名&gt; 　{ 　<span class="keyword">virtual</span> &lt;类型&gt;&lt;函数名&gt;(&lt;参数表&gt;)=<span class="number">0</span>; 　… 　}; </span><br></pre></td></tr></tbody></table></figure>
+
+<p> 　　在许多情况下，在基类中不能对虚函数给出有意义的实现，而把它声明为纯虚函数，它的实现留给该基类的派生类去做。这就是纯虚函数的作用。<br> 　纯虚函数可以让类先具有一个操作名称，而没有操作内容，让派生类在继承时再去具体地给出定义。凡是含有纯虚函数的类叫做抽象类。这种类不能声明对象，只是作为基类为派生类服务。除非在派生类中完全实现基类中所有的的纯虚函数，否则，派生类也变成了抽象类，不能实例化对象。</p>
+<p> 5、纯虚函数引入原因<br>  1、为了方便使用多态特性，我们常常需要在基类中定义虚拟函数。<br>  2、在很多情况下，基类本身生成对象是不合情理的。例如，动物作为一个基类可以派生出老虎、孔 雀等子类，但动物本身生成对象明显不合常理。<br> 　为了解决上述问题，引入了纯虚函数的概念，将函数定义为纯虚函数（方法：virtual ReturnType Function()= 0;）。若要使派生类为非抽象类，则编译器要求在派生类中，必须对纯虚函数予以重载以实现多态性。同时含有纯虚函数的类称为抽象类，它不能生成对象。这样就很好地解决了上述两个问题。<br> 例如，绘画程序中，shape作为一个基类可以派生出圆形、矩形、正方形、梯形等， 如果我要求面积总和的话，那么会可以使用一个 shape * 的数组，只要依次调用派生类的area()函数了。如果不用接口就没法定义成数组，因为既可以是circle ,也可以是square ,而且以后还可能加上rectangle，等等.</p>
+<p>6、相似概念<br> 1、多态性</p>
+<p>指相同对象收到不同消息或不同对象收到相同消息时产生不同的实现动作。C++支持两种多态性：编译时多态性，运行时多态性。<br> 　a.编译时多态性：通过重载函数实现<br> 　b.运行时多态性：通过虚函数实现。<br> 2、虚函数<br> 　虚函数是在基类中被声明为virtual，并在派生类中重新定义的成员函数，可实现成员函数的动态重载。<br> 3、抽象类<br> 　包含纯虚函数的类称为抽象类。由于抽象类包含了没有定义的纯虚函数，所以不能定义抽象类的对象。</p>
+<p id="模板类和模板函数的区别是什么"></p>
+
+
+<h2 id="23、模板类和模板函数的区别是什么？"><a href="#23、模板类和模板函数的区别是什么？" class="headerlink" title="23、模板类和模板函数的区别是什么？"></a>23、模板类和模板函数的区别是什么？</h2><p>函数模板的实例化是由编译程序在处理函数调用时自动完成的，而类模板的实例化必须由程序员在程序中显式地指</p>
+<p>定。即函数模板允许隐式调用和显式调用而类模板只能显示调用。在使用时类模板必须加&lt;T&gt;，而函数模板不必</p>
+<p id="多继承的优缺点作为一个开发者怎么看待多继承"></p>
+
+
+<h2 id="24、多继承的优缺点，作为一个开发者怎么看待多继承"><a href="#24、多继承的优缺点，作为一个开发者怎么看待多继承" class="headerlink" title="24、多继承的优缺点，作为一个开发者怎么看待多继承"></a>24、多继承的优缺点，作为一个开发者怎么看待多继承</h2><ol>
+<li><p>C++允许为一个派生类指定多个基类，这样的继承结构被称做多重继承。</p>
+</li>
+<li><p>多重继承的优点很明显，就是对象可以调用多个基类中的接口；</p>
+</li>
+<li><p>如果派生类所继承的多个基类有相同的基类，而派生类对象需要调用这个祖先类的接口方法，就会容易出现二义性</p>
+</li>
+<li><p>加上全局符确定调用哪一份拷贝。比如pa.Author::eat()调用属于Author的拷贝。</p>
+</li>
+<li><p>使用虚拟继承，使得多重继承类Programmer_Author只拥有Person类的一份拷贝。</p>
+</li>
+</ol>
+<p id="模板和实现可不可以不写在一个文件里面为什么"></p>
+
+
+<h2 id="25、模板和实现可不可以不写在一个文件里面？为什么？"><a href="#25、模板和实现可不可以不写在一个文件里面？为什么？" class="headerlink" title="25、模板和实现可不可以不写在一个文件里面？为什么？"></a>25、模板和实现可不可以不写在一个文件里面？为什么？</h2><p>因为在编译时模板并不能生成真正的二进制代码，而是在编译调用模板类或函数的CPP文件时才会去找对应的模板声明和实现，在这种情况下编译器是不知道实现模板类或函数的CPP文件的存在，所以它只能找到模板类或函数的声明而找不到实现，而只好创建一个符号寄希望于链接程序找地址。</p>
+<p>但模板类或函数的实现并不能被编译成二进制代码，结果链接程序找不到地址只好报错了。<br> 《C++编程思想》第15章(第300页)说明了原因：模板定义很特殊。由template&lt;…&gt;处理的任何东西都意味着编译器在当时不为它分配存储空间，</p>
+<p>它一直处于等待状态直到被一个模板实例告知。在编译器和连接器的某一处，有一机制能去掉指定模板的多重定义。所以为了容易使用，几乎总是在头文件中放置全部的模板声明和定义。</p>
+<p id="将字符串helloworld从开始到打印到屏幕上的全过程"></p>
+
+
+<h2 id="26、将字符串“hello-world”从开始到打印到屏幕上的全过程"><a href="#26、将字符串“hello-world”从开始到打印到屏幕上的全过程" class="headerlink" title="26、将字符串“hello world”从开始到打印到屏幕上的全过程?"></a>26、将字符串“hello world”从开始到打印到屏幕上的全过程?</h2><p>1.用户告诉操作系统执行HelloWorld程序（通过键盘输入等）</p>
+<p>2．操作系统：找到helloworld程序的相关信息，检查其类型是否是可执行文件；并通过程序首部信息，确定代码和数据在可执行文件中的位置并计算出对应的磁盘块地址。</p>
+<p>3．操作系统：创建一个新进程，将HelloWorld可执行文件映射到该进程结构，表示由该进程执行helloworld程序。</p>
+<p>4．操作系统：为helloworld程序设置cpu上下文环境，并跳到程序开始处。</p>
+<p>5．执行helloworld程序的第一条指令，发生缺页异常</p>
+<p>6．操作系统：分配一页物理内存，并将代码从磁盘读入内存，然后继续执行helloworld程序</p>
+<p>7．helloword程序执行puts函数（系统调用），在显示器上写一字符串</p>
+<p>8．操作系统：找到要将字符串送往的显示设备，通常设备是由一个进程控制的，所以，操作系统将要写的字符串送给该进程</p>
+<p>9．操作系统：控制设备的进程告诉设备的窗口系统，它要显示该字符串，窗口系统确定这是一个合法的操作，然后将字符串转换成像素，将像素写入设备的存储映像区</p>
+<p>10．视频硬件将像素转换成显示器可接收和一组控制数据信号</p>
+<p>11．显示器解释信号，激发液晶屏</p>
+<p>12．OK，我们在屏幕上看到了HelloWorld</p>
+<p id="为什么拷贝构造函数必须传引用不能传值"></p>
+
+
+<h2 id="27、为什么拷贝构造函数必须传引用不能传值？"><a href="#27、为什么拷贝构造函数必须传引用不能传值？" class="headerlink" title="27、为什么拷贝构造函数必须传引用不能传值？"></a>27、为什么拷贝构造函数必须传引用不能传值？</h2><ol>
+<li>拷贝构造函数的作用就是用来复制对象的，在使用这个对象的实例来初始化这个对象的一个新的实例。</li>
+<li>参数传递过程到底发生了什么？<br> 将地址传递和值传递统一起来，归根结底还是传递的是”值”(地址也是值，只不过通过它可以找到另一个值)！<br>a 值传递:<br> 对于内置数据类型的传递时，直接赋值拷贝给形参(注意形参是函数内局部变量)；<br> 对于类类型的传递时，需要首先调用该类的拷贝构造函数来初始化形参(局部对象)；</li>
+</ol>
+<p>如void foo(class_type obj_local){}, 如果调用foo(obj); 首先class_type obj_local(obj) ,这样就定义了局部变量obj_local供函数内部使用</p>
+<p>b 引用传递:<br>   无论对内置类型还是类类型，传递引用或指针最终都是传递的地址值！而地址总是指针类型(属于简单类型), 显然参数传递时，按简单类型的赋值拷贝，而不会有拷贝构造函数的调用(对于类类型).<br> 上述1) 2)回答了为什么拷贝构造函数使用值传递会产生无限递归调用，内存溢出。</p>
+<p>拷贝构造函数用来初始化一个非引用类类型对象，如果用传值的方式进行传参数，那么构造实参需要调用拷贝构造函数，而拷贝构造函数需要传递实参，所以会一直递归。</p>
+<p id="静态函数能定义为虚函数吗长函数呢"></p>
+
+
+<h2 id="28、静态函数能定义为虚函数吗？常函数呢？说说你的理解"><a href="#28、静态函数能定义为虚函数吗？常函数呢？说说你的理解" class="headerlink" title="28、静态函数能定义为虚函数吗？常函数呢？说说你的理解"></a>28、静态函数能定义为虚函数吗？常函数呢？说说你的理解</h2><p>1、static成员不属于任何类对象或类实例，所以即使给此函数加上virutal也是没有任何意义的。</p>
+<p>2、静态与非静态成员函数之间有一个主要的区别，那就是静态成员函数没有this指针。</p>
+<p>虚函数依靠vptr和vtable来处理。vptr是一个指针，在类的构造函数中创建生成，并且只能用this指针来访问它，因为它是类的一个成员，并且vptr指向保存虚函数地址的vtable.对于静态成员函数，它没有this指针，所以无法访问vptr。</p>
+<p>这就是为何static函数不能为virtual，虚函数的调用关系：this -&gt; vptr -&gt; vtable -&gt;virtual function。</p>
+<p id="虚函数的代价"></p>
+
+
+<h2 id="29、虚函数的代价是什么？"><a href="#29、虚函数的代价是什么？" class="headerlink" title="29、虚函数的代价是什么？"></a>29、虚函数的代价是什么？</h2><ol>
+<li><p>带有虚函数的类，每一个类会产生一个虚函数表，用来存储指向虚成员函数的指针，增大类；</p>
+</li>
+<li><p>带有虚函数的类的每一个对象，都会有有一个指向虚表的指针，会增加对象的空间大小；</p>
+</li>
+<li><p>不能再是内联的函数，因为内联函数在编译阶段进行替代，而虚函数表示等待，在运行阶段才能确定到低是采用哪种函数，虚函数不能是内联函数。</p>
+</li>
+</ol>
+<p id="说一说你了解到的移动构造函数"></p>
+
+
+<h2 id="30、说一说你了解到的移动构造函数？"><a href="#30、说一说你了解到的移动构造函数？" class="headerlink" title="30、说一说你了解到的移动构造函数？"></a>30、说一说你了解到的移动构造函数？</h2><ol>
+<li><p>有时候我们会遇到这样一种情况，我们用对象a初始化对象b后对象a我们就不在使用了，但是对象a的空间还在呀（在析构之前），既然拷贝构造函数，实际上就是把a对象的内容复制一份到b中，那么为什么我们不能直接使用a的空间呢？这样就避免了新的空间的分配，大大降低了构造的成本。这就是移动构造函数设计的初衷；</p>
+</li>
+<li><p>拷贝构造函数中，对于指针，我们一定要采用深层复制，而移动构造函数中，对于指针，我们采用浅层复制；</p>
+</li>
+<li><p>C++引入了移动构造函数，专门处理这种，用a初始化b后，就将a析构的情况；</p>
+</li>
+<li><p>与拷贝类似，移动也使用一个对象的值设置另一个对象的值。但是，又与拷贝不同的是，移动实现的是对象值真实的转移（源对象到目的对象）：源对象将丢失其内容，其内容将被目的对象占有。移动操作的发生的时候，是当移动值的对象是未命名的对象的时候。这里未命名的对象就是那些临时变量，甚至都不会有名称。典型的未命名对象就是函数的返回值或者类型转换的对象。使用临时对象的值初始化另一个对象值，不会要求对对象的复制：因为临时对象不会有其它使用，因而，它的值可以被移动到目的对象。做到这些，就要使用移动构造函数和移动赋值：当使用一个临时变量对象进行构造初始化的时候，调用移动构造函数。类似的，使用未命名的变量的值赋给一个对象时，调用移动赋值操作；</p>
+</li>
+<li></li>
+</ol>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Example6</span> (Example6&amp;&amp; x) : <span class="built_in">ptr</span>(x.ptr) </span><br><span class="line">  {</span><br><span class="line">    x.ptr = <span class="literal">nullptr</span>;</span><br><span class="line">  }</span><br><span class="line">  <span class="comment">// move assignment</span></span><br><span class="line">  Example6&amp; <span class="keyword">operator</span>= (Example6&amp;&amp; x) </span><br><span class="line">  {</span><br><span class="line">   <span class="keyword">delete</span> ptr; </span><br><span class="line">   ptr = x.ptr;</span><br><span class="line">   x.ptr=<span class="literal">nullptr</span>;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p id="什么时候合成构造函数都说一说你知道的都说一下"></p>
+
+
+<h2 id="31、-什么情况下会合成构造函数？都说一说，你知道的都说一下"><a href="#31、-什么情况下会合成构造函数？都说一说，你知道的都说一下" class="headerlink" title="31、 什么情况下会合成构造函数？都说一说，你知道的都说一下"></a>31、 什么情况下会合成构造函数？都说一说，你知道的都说一下</h2><ol>
+<li><p>如果一个类没有任何构造函数，但他含有一个成员对象，该成员对象含有默认构造函数，那么编译器就为该类合成一个默认构造函数，因为不合成一个默认构造函数那么该成员对象的构造函数不能调用；</p>
+</li>
+<li><p>没有任何构造函数的类派生自一个带有默认构造函数的基类，那么需要为该派生类合成一个构造函数，只有这样基类的构造函数才能被调用；</p>
+</li>
+<li><p>带有虚函数的类，虚函数的引入需要进入虚表，指向虚表的指针，该指针是在构造函数中初始化的，所以没有构造函数的话该指针无法被初始化；</p>
+</li>
+<li><p>带有一个虚基类的类</p>
+</li>
+</ol>
+<p> 还有一点需要注意的是：</p>
+<ol>
+<li><p>并不是任何没有构造函数的类都会合成一个构造函数</p>
+</li>
+<li><p>编译器合成出来的构造函数并不会显示设定类内的每一个成员变量</p>
+</li>
+</ol>
+<p id="那什么时候需要合成拷贝构造函数呢"></p>
+
+
+<h2 id="32、那什么时候需要合成拷贝构造函数呢？"><a href="#32、那什么时候需要合成拷贝构造函数呢？" class="headerlink" title="32、那什么时候需要合成拷贝构造函数呢？"></a>32、那什么时候需要合成拷贝构造函数呢？</h2><p>有三种情况会以一个对象的内容作为另一个对象的初值：</p>
+<ol>
+<li><p>对一个对象做显示的初始化操作，X xx = x;</p>
+</li>
+<li><p>当对象被当做参数交给某个函数时；</p>
+</li>
+<li><p>当函数传回一个类对象时；</p>
+</li>
+<li><p>如果一个类没有拷贝构造函数，但是含有一个类类型的成员变量，该类型含有拷贝构造函数，此时编译器会为该类合成一个拷贝构造函数；</p>
+</li>
+<li><p>如果一个类没有拷贝构造函数，但是该类继承自含有拷贝构造函数的基类，此时编译器会为该类合成一个拷贝构造函数；</p>
+</li>
+<li><p>如果一个类没有拷贝构造函数，但是该类声明或继承了虚函数，此时编译器会为该类合成一个拷贝构造函数；</p>
+</li>
+<li><p>如果一个类没有拷贝构造函数，但是该类含有虚基类，此时编译器会为该类合成一个拷贝构造函数；</p>
+</li>
+</ol>
+<p id="构造函数的执行顺序是什么"></p>
+
+
+<h2 id="33、构造函数的执行顺序是什么？"><a href="#33、构造函数的执行顺序是什么？" class="headerlink" title="33、构造函数的执行顺序是什么？"></a>33、构造函数的执行顺序是什么？</h2><ol>
+<li><p>在派生类构造函数中，所有的虚基类及上一层基类的构造函数调用；</p>
+</li>
+<li><p>对象的vptr被初始化；</p>
+</li>
+<li><p>如果有成员初始化列表，将在构造函数体内扩展开来，这必须在vptr被设定之后才做；</p>
+</li>
+<li><p>执行程序员所提供的代码；</p>
+</li>
+</ol>
+<p id="一个类中的全部构造函数的扩展过程是什么"></p>
+
+
+<h2 id="34、一个类中的全部构造函数的扩展过程是什么？"><a href="#34、一个类中的全部构造函数的扩展过程是什么？" class="headerlink" title="34、一个类中的全部构造函数的扩展过程是什么？"></a>34、一个类中的全部构造函数的扩展过程是什么？</h2><ol>
+<li><p>记录在成员初始化列表中的数据成员初始化操作会被放在构造函数的函数体内，并与成员的声明顺序为顺序；</p>
+</li>
+<li><p>如果一个成员并没有出现在成员初始化列表中，但它有一个默认构造函数，那么默认构造函数必须被调用；</p>
+</li>
+<li><p>如果class有虚表，那么它必须被设定初值；</p>
+</li>
+<li><p>所有上一层的基类构造函数必须被调用；</p>
+</li>
+<li><p>所有虚基类的构造函数必须被调用。</p>
+</li>
+</ol>
+<p id="哪些函数不能是虚函数把你知道的都说一说"></p>
+
+
+<h2 id="35、哪些函数不能是虚函数？把你知道的都说一说"><a href="#35、哪些函数不能是虚函数？把你知道的都说一说" class="headerlink" title="35、哪些函数不能是虚函数？把你知道的都说一说"></a>35、哪些函数不能是虚函数？把你知道的都说一说</h2><ol>
+<li><p>构造函数，构造函数初始化对象，派生类必须知道基类函数干了什么，才能进行构造；当有虚函数时，每一个类有一个虚表，每一个对象有一个虚表指针，虚表指针在构造函数中初始化；</p>
+</li>
+<li><p>内联函数，内联函数表示在编译阶段进行函数体的替换操作，而虚函数意味着在运行期间进行类型确定，所以内联函数不能是虚函数；</p>
+</li>
+<li><p>静态函数，静态函数不属于对象属于类，静态成员函数没有this指针，因此静态函数设置为虚函数没有任何意义。</p>
+</li>
+<li><p>友元函数，友元函数不属于类的成员函数，不能被继承。对于没有继承特性的函数没有虚函数的说法。</p>
+</li>
+<li><p>普通函数，普通函数不属于类的成员函数，不具有继承特性，因此普通函数没有虚函数。</p>
+</li>
+</ol>
+<p id="什么是纯虚函数与虚函数的区别"></p>
+
+
+<h2 id="36、什么是纯虚函数，与虚函数的区别"><a href="#36、什么是纯虚函数，与虚函数的区别" class="headerlink" title="36、什么是纯虚函数，与虚函数的区别"></a>36、什么是纯虚函数，与虚函数的区别</h2><p><strong>虚函数和纯虚函数区别</strong>？</p>
+<ul>
+<li><p>虚函数是为了实现动态编联产生的，目的是通过基类类型的指针指向不同对象时，自动调用相应的、和基类同名的函数（使用同一种调用形式，既能调用派生类又能调用基类的同名函数）。虚函数需要在基类中加上virtual修饰符修饰，因为virtual会被隐式继承，所以子类中相同函数都是虚函数。当一个成员函数被声明为虚函数之后，其派生类中同名函数自动成为虚函数，在派生类中重新定义此函数时要求函数名、返回值类型、参数个数和类型全部与基类函数相同。</p>
+</li>
+<li><p>纯虚函数只是相当于一个接口名，但含有纯虚函数的类不能够实例化。</p>
+</li>
+</ul>
+<p>纯虚函数首先是虚函数，其次它没有函数体，取而代之的是用“=0”。</p>
+<p>既然是虚函数，它的函数指针会被存在虚函数表中，由于纯虚函数并没有具体的函数体，因此它在虚函数表中的值就为0，而具有函数体的虚函数则是函数的具体地址。</p>
+<p>一个类中如果有纯虚函数的话，称其为抽象类。抽象类不能用于实例化对象，否则会报错。抽象类一般用于定义一些公有的方法。子类继承抽象类也必须实现其中的纯虚函数才能实例化对象。</p>
+<p>举个例子：</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span></span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">fun1</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		cout &lt;&lt; <span class="string">"普通虚函数"</span> &lt;&lt; endl;</span><br><span class="line">	}</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">fun2</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">virtual</span> ~<span class="built_in">Base</span>() {}</span><br><span class="line">};</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Son</span> : <span class="keyword">public</span> Base</span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">fun2</span><span class="params">()</span> </span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		cout &lt;&lt; <span class="string">"子类实现的纯虚函数"</span> &lt;&lt; endl;</span><br><span class="line">	}</span><br><span class="line">};</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	Base* b = <span class="keyword">new</span> Son;</span><br><span class="line">	b-&gt;<span class="built_in">fun1</span>(); <span class="comment">//普通虚函数</span></span><br><span class="line">	b-&gt;<span class="built_in">fun2</span>(); <span class="comment">//子类实现的纯虚函数</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p id="reference"></p>
+
+
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
+<p>《C++中的虚函数》<a target="_blank" rel="noopener" href="https://blog.csdn.net/wuchuanpingstone/article/details/6742465">https://blog.csdn.net/wuchuanpingstone/article/details/6742465</a></p>
+<p>《C++虚函数简介》<a target="_blank" rel="noopener" href="https://blog.csdn.net/xiaoyanilw/article/details/108575035">https://blog.csdn.net/xiaoyanilw/article/details/108575035</a></p>
+<p>《C++ Map用法》<a target="_blank" rel="noopener" href="https://blog.csdn.net/sevenjoin/article/details/81943864">https://blog.csdn.net/sevenjoin/article/details/81943864</a></p>
+<p>《C++中堆（heap）和栈(stack)的区别》：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34175893/article/details/83502412">https://blog.csdn.net/qq_34175893/article/details/83502412</a></p>
+<p>《虚函数表存放在哪里》：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u013270326/article/details/82830656">https://blog.csdn.net/u013270326/article/details/82830656</a></p>
+<p>《<a target="_blank" rel="noopener" href="https://www.cnblogs.com/ITziyuan/p/9487760.md">C语言与C++有什么区别？</a>》<a target="_blank" rel="noopener" href="https://www.cnblogs.com/ITziyuan/p/9487760.md">https://www.cnblogs.com/ITziyuan/p/9487760.md</a></p>
+<p>《C++和java的区别和联系》：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/tanrong/p/8503202.md">https://www.cnblogs.com/tanrong/p/8503202.md</a></p>
+<p>《struct结构在C和C++中的区别》：<a target="_blank" rel="noopener" href="https://blog.csdn.net/mm_hh/article/details/70456240">https://blog.csdn.net/mm_hh/article/details/70456240</a></p>
+<p>《C++ 顶层const与底层const总结》：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fbbcf11100f6">https://www.jianshu.com/p/fbbcf11100f6</a></p>
+<p>《C++的顶层const和底层const浅析》：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37059483/article/details/78811231">https://blog.csdn.net/qq_37059483/article/details/78811231</a></p>
+<p>《C++:override和final》：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/whlook/p/6501918.md">https://www.cnblogs.com/whlook/p/6501918.md</a></p>
+<p>C++的直接初始化与复制初始化的区别：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq936836/article/details/83450218">https://blog.csdn.net/qq936836/article/details/83450218</a></p>
+<p>《extern “C”的功能和用法研究》：<a target="_blank" rel="noopener" href="https://blog.csdn.net/sss_369/article/details/84060561">https://blog.csdn.net/sss_369/article/details/84060561</a></p>
+<p>《类和函数模板特例化》：<a target="_blank" rel="noopener" href="https://blog.csdn.net/wang664626482/article/details/52372789">https://blog.csdn.net/wang664626482/article/details/52372789</a></p>
+<p>《C++实现多态的原理》：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37954088/article/details/79947898">https://blog.csdn.net/qq_37954088/article/details/79947898</a></p>
+<p>《浅谈C++中的几种构造函数》：<a target="_blank" rel="noopener" href="https://blog.csdn.net/zxc024000/article/details/51153743">https://blog.csdn.net/zxc024000/article/details/51153743</a></p>
+<p>《C++面试题之浅拷贝和深拷贝的区别》：<a target="_blank" rel="noopener" href="https://blog.csdn.net/caoshangpa/article/details/79226270">https://blog.csdn.net/caoshangpa/article/details/79226270</a></p>
+<p>《构造函数、析构函数、虚函数可否内联，有何意义》：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/helloweworld/archive/2013/06/14/3136705.md">https://www.cnblogs.com/helloweworld/archive/2013/06/14/3136705.md</a></p>
+<p>《auto和decltype的用法总结》：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/XiangfeiAi/p/4451904.md">https://www.cnblogs.com/XiangfeiAi/p/4451904.md</a></p>
+<p>《C++11新特性中auto 和 decltype 区别和联系》：<a target="_blank" rel="noopener" href="https://www.jb51.net/article/103666.htm">https://www.jb51.net/article/103666.htm</a></p>
+<p>《写程序判断系统是大端序还是小端序》：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhoudayang/p/5985563.md">https://www.cnblogs.com/zhoudayang/p/5985563.md</a></p>
+<p>《C++拷贝构造函数详解》：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/alantu2018/p/8459250.md">https://www.cnblogs.com/alantu2018/p/8459250.md</a></p>
+<p>《【C++】几种类型的new介绍》：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9b57e769c3cb">https://www.jianshu.com/p/9b57e769c3cb</a></p>
+<p>《NULL和nullptr区别》：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39380590/article/details/82563571">https://blog.csdn.net/qq_39380590/article/details/82563571</a></p>
+<p>《C/C++内存管理详解》：<a target="_blank" rel="noopener" href="https://chenqx.github.io/2014/09/25/Cpp-Memory-Management/">https://chenqx.github.io/2014/09/25/Cpp-Memory-Management/</a></p>
+<p>《C++异常处理（try catch throw）完全攻略》：<a target="_blank" rel="noopener" href="http://c.biancheng.net/view/422.md">http://c.biancheng.net/view/422.md</a></p>
+<p>《C++STL 》<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1db411q7B8?p=12">https://www.bilibili.com/video/BV1db411q7B8?p=12</a> </p>
+<p>《C++内存管理》<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Kb411B7N8?p=25">https://www.bilibili.com/video/BV1Kb411B7N8?p=25</a></p>
+<p>《C++中的 trivial destructor》：<a target="_blank" rel="noopener" href="https://blog.csdn.net/wudishine/article/details/12307611">https://blog.csdn.net/wudishine/article/details/12307611</a></p>
+<p>《C++封装继承多态总结》：<a target="_blank" rel="noopener" href="https://blog.csdn.net/IOT_SHUN/article/details/79674293">https://blog.csdn.net/IOT_SHUN/article/details/79674293</a></p>
+<p>《C++类对象成员变量和函数内存分配的问题》：<a target="_blank" rel="noopener" href="https://blog.csdn.net/z2664836046/article/details/78967313">https://blog.csdn.net/z2664836046/article/details/78967313</a></p>
+<p>《为什么用成员初始化列表会快一些？》：<a target="_blank" rel="noopener" href="https://blog.csdn.net/JackZhang_123/article/details/82590368">https://blog.csdn.net/JackZhang_123/article/details/82590368</a></p>
+<p>《为什么C++不能有虚构造函数，却可以有虚析构函数》：<a target="_blank" rel="noopener" href="https://dwz.cn/lnfW9H6m">https://dwz.cn/lnfW9H6m</a></p>
+<p>《构造函数或者析构函数中调用虚函数会怎么样？》：<a target="_blank" rel="noopener" href="https://dwz.cn/TaJTJONX">https://dwz.cn/TaJTJONX</a></p>
+<p>《智能指针的原理及实现》：<a target="_blank" rel="noopener" href="https://blog.csdn.net/lizhentao0707/article/details/81156384">https://blog.csdn.net/lizhentao0707/article/details/81156384</a></p>
+<p>《C++构造函数的default和delete》：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u010591680/article/details/71101737">https://blog.csdn.net/u010591680/article/details/71101737</a></p>
+<p>《C/C++函数调用过程分析》：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/biyeymyhjob/archive/2012/07/20/2601204.md">https://www.cnblogs.com/biyeymyhjob/archive/2012/07/20/2601204.md</a></p>
+<p>《C/C++函数调用的压栈模型》：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_37717595/article/details/80368411">https://blog.csdn.net/m0_37717595/article/details/80368411</a></p>
+<p>《C++临时变量不能作为函数的返回值？》：<a target="_blank" rel="noopener" href="https://www.wandouip.com/t5i204349/">https://www.wandouip.com/t5i204349/</a></p>
+<p>《C++中this指针的用法详解》<a target="_blank" rel="noopener" href="http://blog.chinaunix.net/uid-21411227-id-1826942.md">http://blog.chinaunix.net/uid-21411227-id-1826942.md</a></p>
+<p>《C++ 智能指针（及循环引用问题）》：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_37968340/article/details/76737395">https://blog.csdn.net/m0_37968340/article/details/76737395</a></p>
+<p>《C++中的静态绑定和动态绑定》：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/lizhenghn/p/3657717.md">https://www.cnblogs.com/lizhenghn/p/3657717.md</a></p>
+<p>《C++经典面试题》：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/yjd_hycf_space/p/7495640.md">https://www.cnblogs.com/yjd_hycf_space/p/7495640.md</a></p>
+<p>《C++ 虚函数表解析》：<a target="_blank" rel="noopener" href="https://blog.csdn.net/haoel/article/details/1948051/">https://blog.csdn.net/haoel/article/details/1948051/</a></p>
+<p>《操作系统（三）》：<a target="_blank" rel="noopener" href="https://www.nowcoder.com/tutorial/93/675fd4af3ab34b2db0ae650855aa52d5">https://www.nowcoder.com/tutorial/93/675fd4af3ab34b2db0ae650855aa52d5</a></p>
+<p>《互斥锁、读写锁、自旋锁、条件变量的特点总结》：<a target="_blank" rel="noopener" href="https://blog.csdn.net/RUN32875094/article/details/80169978">https://blog.csdn.net/RUN32875094/article/details/80169978</a></p>
+<p>《c++右值引用以及使用》：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/likaiming/p/9045642.md">https://www.cnblogs.com/likaiming/p/9045642.md</a></p>
+<p>《从4行代码看右值引用》：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/likaiming/p/9029908.md">https://www.cnblogs.com/likaiming/p/9029908.md</a></p>
+<p>《Free的前世今生》<a target="_blank" rel="noopener" href="https://blog.csdn.net/YMY_me/article/details/811801">https://blog.csdn.net/YMY_me/article/details/811801</a></p>
+<p>《友元函数和友元类》：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhuguanhao/p/6286145.md">https://www.cnblogs.com/zhuguanhao/p/6286145.md</a></p>
+<p>《程序员求职宝典》王道论坛</p>
+<p>《STL源码解析》侯捷</p>
+</blockquote>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">AutinC</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://autinc.github.io/2023/02/28/c-qi-ta-21-36/">https://autinc.github.io/2023/02/28/c-qi-ta-21-36/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">AutinC</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/C-%E5%85%B6%E4%BB%96/">
+                                    <span class="chip bg-color">C++其他</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'v0LOxueiWIPRw9lXbmg2YToy-gzGzoHsz',
+        appKey: 'RhYvmeHaBq8MHqMgnwdQbvm8',
+        serverURLs: 'https://v0loxuei.lc-cn-n1-shared.com',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'false' === 'true',
+        avatar: 'mp',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '留下您的观点看法，共同讨论吧！'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/03/02/mysql-xue-xi-zong-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="MySQL学习总结">
+                        
+                        <span class="card-title">MySQL学习总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-03-02
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            AutinC
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MySQL/">
+                        <span class="chip bg-color">MySQL</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/02/27/c-qi-ta-1-20/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="C++其他1-20">
+                        
+                        <span class="card-title">C++其他1-20</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            AutinC
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C-%E5%85%B6%E4%BB%96/">
+                        <span class="chip bg-color">C++其他</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Huang Shichang&#39;s Blog<br />'
+            + '文章作者: AutinC<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022-2024</span>
+            
+            <a href="/about" target="_blank">AutinC</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">269.2k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Autinc" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:h1743551466@126.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我： h1743551466@126.com" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1743551466" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1743551466" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+        <script src="//code.tidio.co/9r5hwp19xkh9jgnm8ualt74ktcqj9hkg.js"></script>
+        <script>
+            $(document).ready(function () {
+                setInterval(change_Tidio, 50);
+                function change_Tidio() {
+                    var tidio=$("#tidio-chat iframe");
+                    if(tidio.css("display")=="block"&& $(window).width()>977 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"85px":"20px";
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";
+                        document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
+                        document.getElementById("tidio-chat-iframe").style.zIndex="998";
+                    }
+                }
+            });
+        </script>
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

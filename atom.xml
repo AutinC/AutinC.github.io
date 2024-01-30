@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Huang Shichang&#39;s Blog</title>
+  
+  <subtitle>Codes Change World</subtitle>
+  <link href="https://autinc.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://autinc.github.io/"/>
+  <updated>2024-01-24T03:07:25.773Z</updated>
+  <id>https://autinc.github.io/</id>
+  
+  <author>
+    <name>AutinC</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《大话设计模式》28-访问者模式</title>
+    <link href="https://autinc.github.io/2024/01/03/da-hua-she-ji-mo-shi-28-fang-wen-zhe-mo-shi/"/>
+    <id>https://autinc.github.io/2024/01/03/da-hua-she-ji-mo-shi-28-fang-wen-zhe-mo-shi/</id>
+    <published>2024-01-02T16:00:00.000Z</published>
+    <updated>2024-01-24T03:07:25.773Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;访问者模式&quot;&gt;&lt;a href=&quot;#访问者模式&quot; class=&quot;headerlink&quot; title=&quot;访问者模式&quot;&gt;&lt;/a&gt;访问者模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《大话设计模式》27-解释器模式</title>
+    <link href="https://autinc.github.io/2023/12/28/da-hua-she-ji-mo-shi-27-jie-shi-qi-mo-shi/"/>
+    <id>https://autinc.github.io/2023/12/28/da-hua-she-ji-mo-shi-27-jie-shi-qi-mo-shi/</id>
+    <published>2023-12-27T16:00:00.000Z</published>
+    <updated>2024-01-11T08:44:00.534Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;解释器模式&quot;&gt;&lt;a href=&quot;#解释器模式&quot; class=&quot;headerlink&quot; title=&quot;解释器模式&quot;&gt;&lt;/a&gt;解释器模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《大话设计模式》26-享元模式</title>
+    <link href="https://autinc.github.io/2023/12/27/da-hua-she-ji-mo-shi-26-xiang-yuan-mo-shi/"/>
+    <id>https://autinc.github.io/2023/12/27/da-hua-she-ji-mo-shi-26-xiang-yuan-mo-shi/</id>
+    <published>2023-12-26T16:00:00.000Z</published>
+    <updated>2024-01-09T08:48:08.309Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;享元模式&quot;&gt;&lt;a href=&quot;#享元模式&quot; class=&quot;headerlink&quot; title=&quot;享元模式&quot;&gt;&lt;/a&gt;享元模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《大话设计模式》25-中介者模式</title>
+    <link href="https://autinc.github.io/2023/12/24/da-hua-she-ji-mo-shi-25-zhong-jie-zhe-mo-shi/"/>
+    <id>https://autinc.github.io/2023/12/24/da-hua-she-ji-mo-shi-25-zhong-jie-zhe-mo-shi/</id>
+    <published>2023-12-23T16:00:00.000Z</published>
+    <updated>2024-01-08T03:55:11.277Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;中介者模式&quot;&gt;&lt;a href=&quot;#中介者模式&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《大话设计模式》24-职责链模式</title>
+    <link href="https://autinc.github.io/2023/12/23/da-hua-she-ji-mo-shi-24-zhi-ze-lian-mo-shi/"/>
+    <id>https://autinc.github.io/2023/12/23/da-hua-she-ji-mo-shi-24-zhi-ze-lian-mo-shi/</id>
+    <published>2023-12-22T16:00:00.000Z</published>
+    <updated>2023-12-28T09:37:18.304Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;职责链模式&quot;&gt;&lt;a href=&quot;#职责链模式&quot; class=&quot;headerlink&quot; title=&quot;职责链模式&quot;&gt;&lt;/a&gt;职责链模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《大话设计模式》23-命令模式</title>
+    <link href="https://autinc.github.io/2023/12/22/da-hua-she-ji-mo-shi-23-ming-ling-mo-shi/"/>
+    <id>https://autinc.github.io/2023/12/22/da-hua-she-ji-mo-shi-23-ming-ling-mo-shi/</id>
+    <published>2023-12-21T16:00:00.000Z</published>
+    <updated>2023-12-28T02:47:15.714Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;命令模式&quot;&gt;&lt;a href=&quot;#命令模式&quot; class=&quot;headerlink&quot; title=&quot;命令模式&quot;&gt;&lt;/a&gt;命令模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《大话设计模式》22-桥接模式</title>
+    <link href="https://autinc.github.io/2023/12/21/da-hua-she-ji-mo-shi-22-qiao-jie-mo-shi/"/>
+    <id>https://autinc.github.io/2023/12/21/da-hua-she-ji-mo-shi-22-qiao-jie-mo-shi/</id>
+    <published>2023-12-20T16:00:00.000Z</published>
+    <updated>2023-12-26T09:31:42.463Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;桥接模式&quot;&gt;&lt;a href=&quot;#桥接模式&quot; class=&quot;headerlink&quot; title=&quot;桥接模式&quot;&gt;&lt;/a&gt;桥接模式&lt;/h2&gt;&lt;h3 id=&quot;合成-聚合复用原则&quot;&gt;&lt;a href=&quot;#合成-聚合复用原则&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《大话设计模式》21-单例模式</title>
+    <link href="https://autinc.github.io/2023/12/20/da-hua-she-ji-mo-shi-21-dan-li-mo-shi/"/>
+    <id>https://autinc.github.io/2023/12/20/da-hua-she-ji-mo-shi-21-dan-li-mo-shi/</id>
+    <published>2023-12-19T16:00:00.000Z</published>
+    <updated>2023-12-22T09:50:19.912Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;单例模式&quot;&gt;&lt;a href=&quot;#单例模式&quot; class=&quot;headerlink&quot; title=&quot;单例模式&quot;&gt;&lt;/a&gt;单例模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《大话设计模式》20-迭代器模式</title>
+    <link href="https://autinc.github.io/2023/12/19/da-hua-she-ji-mo-shi-20-die-dai-qi-mo-shi/"/>
+    <id>https://autinc.github.io/2023/12/19/da-hua-she-ji-mo-shi-20-die-dai-qi-mo-shi/</id>
+    <published>2023-12-18T16:00:00.000Z</published>
+    <updated>2023-12-21T08:44:41.129Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;迭代器模式&quot;&gt;&lt;a href=&quot;#迭代器模式&quot; class=&quot;headerlink&quot; title=&quot;迭代器模式&quot;&gt;&lt;/a&gt;迭代器模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《大话设计模式》19-组合模式</title>
+    <link href="https://autinc.github.io/2023/12/18/da-hua-she-ji-mo-shi-19-zu-he-mo-shi/"/>
+    <id>https://autinc.github.io/2023/12/18/da-hua-she-ji-mo-shi-19-zu-he-mo-shi/</id>
+    <published>2023-12-17T16:00:00.000Z</published>
+    <updated>2023-12-21T02:46:49.633Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;组合模式&quot;&gt;&lt;a href=&quot;#组合模式&quot; class=&quot;headerlink&quot; title=&quot;组合模式&quot;&gt;&lt;/a&gt;组合模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《大话设计模式》18-备忘录模式</title>
+    <link href="https://autinc.github.io/2023/12/17/da-hua-she-ji-mo-shi-18-bei-wang-lu-mo-shi/"/>
+    <id>https://autinc.github.io/2023/12/17/da-hua-she-ji-mo-shi-18-bei-wang-lu-mo-shi/</id>
+    <published>2023-12-16T16:00:00.000Z</published>
+    <updated>2023-12-19T12:38:55.419Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;备忘录模式&quot;&gt;&lt;a href=&quot;#备忘录模式&quot; class=&quot;headerlink&quot; title=&quot;备忘录模式&quot;&gt;&lt;/a&gt;备忘录模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《大话设计模式》17-适配器模式</title>
+    <link href="https://autinc.github.io/2023/12/16/da-hua-she-ji-mo-shi-17-gua-pei-qi-mo-shi/"/>
+    <id>https://autinc.github.io/2023/12/16/da-hua-she-ji-mo-shi-17-gua-pei-qi-mo-shi/</id>
+    <published>2023-12-15T16:00:00.000Z</published>
+    <updated>2023-12-18T12:30:29.548Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;适配器模式&quot;&gt;&lt;a href=&quot;#适配器模式&quot; class=&quot;headerlink&quot; title=&quot;适配器模式&quot;&gt;&lt;/a&gt;适配器模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《大话设计模式》16-状态模式</title>
+    <link href="https://autinc.github.io/2023/12/15/da-hua-she-ji-mo-shi-16-zhuang-tai-mo-shi/"/>
+    <id>https://autinc.github.io/2023/12/15/da-hua-she-ji-mo-shi-16-zhuang-tai-mo-shi/</id>
+    <published>2023-12-14T16:00:00.000Z</published>
+    <updated>2023-12-15T09:21:29.489Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;状态模式&quot;&gt;&lt;a href=&quot;#状态模式&quot; class=&quot;headerlink&quot; title=&quot;状态模式&quot;&gt;&lt;/a&gt;状态模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《程序员的自我修养——链接、装载与库》第九章读书笔记</title>
+    <link href="https://autinc.github.io/2023/12/15/cheng-xu-yuan-de-zi-wo-xiu-yang-lian-jie-zhuang-zai-yu-ku-di-jiu-zhang-du-shu-bi-ji/"/>
+    <id>https://autinc.github.io/2023/12/15/cheng-xu-yuan-de-zi-wo-xiu-yang-lian-jie-zhuang-zai-yu-ku-di-jiu-zhang-du-shu-bi-ji/</id>
+    <published>2023-12-14T16:00:00.000Z</published>
+    <updated>2023-12-19T09:06:02.489Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;DLL简介&quot;&gt;&lt;a href=&quot;#DLL简介&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《程序员的自我修养——链接、装载与库》" scheme="https://autinc.github.io/tags/%E3%80%8A%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB%E2%80%94%E2%80%94%E9%93%BE%E6%8E%A5%E3%80%81%E8%A3%85%E8%BD%BD%E4%B8%8E%E5%BA%93%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《大话设计模式》15-抽象工厂模式</title>
+    <link href="https://autinc.github.io/2023/12/14/da-hua-she-ji-mo-shi-15-chou-xiang-gong-han-mo-shi/"/>
+    <id>https://autinc.github.io/2023/12/14/da-hua-she-ji-mo-shi-15-chou-xiang-gong-han-mo-shi/</id>
+    <published>2023-12-13T16:00:00.000Z</published>
+    <updated>2023-12-15T03:39:36.986Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;抽象工厂模式&quot;&gt;&lt;a href=&quot;#抽象工厂模式&quot; class=&quot;headerlink&quot; title=&quot;抽象工厂模式&quot;&gt;&lt;/a&gt;抽象工厂模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《大话设计模式》14-观察者模式</title>
+    <link href="https://autinc.github.io/2023/12/13/da-hua-she-ji-mo-shi-14-guan-cha-zhe-mo-shi/"/>
+    <id>https://autinc.github.io/2023/12/13/da-hua-she-ji-mo-shi-14-guan-cha-zhe-mo-shi/</id>
+    <published>2023-12-12T16:00:00.000Z</published>
+    <updated>2023-12-13T08:04:04.243Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;观察者模式&quot;&gt;&lt;a href=&quot;#观察者模式&quot; class=&quot;headerlink&quot; title=&quot;观察者模式&quot;&gt;&lt;/a&gt;观察者模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《程序员的自我修养——链接、装载与库》第八章读书笔记</title>
+    <link href="https://autinc.github.io/2023/12/13/cheng-xu-yuan-de-zi-wo-xiu-yang-lian-jie-zhuang-zai-yu-ku-di-ba-zhang-du-shu-bi-ji/"/>
+    <id>https://autinc.github.io/2023/12/13/cheng-xu-yuan-de-zi-wo-xiu-yang-lian-jie-zhuang-zai-yu-ku-di-ba-zhang-du-shu-bi-ji/</id>
+    <published>2023-12-12T16:00:00.000Z</published>
+    <updated>2023-12-14T08:13:44.403Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;共享库版本&quot;&gt;&lt;a href=&quot;#共享库版本&quot; class=&quot;headerlink&quot; title=&quot;共享库版本&quot;&gt;&lt;/a&gt;共享库版本&lt;/h2&gt;&lt;h3 id=&quot;共享库的兼容性&quot;&gt;&lt;a href=&quot;#共享库的兼容性&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《程序员的自我修养——链接、装载与库》" scheme="https://autinc.github.io/tags/%E3%80%8A%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB%E2%80%94%E2%80%94%E9%93%BE%E6%8E%A5%E3%80%81%E8%A3%85%E8%BD%BD%E4%B8%8E%E5%BA%93%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《大话设计模式》13-建造者模式</title>
+    <link href="https://autinc.github.io/2023/12/12/da-hua-she-ji-mo-shi-13-jian-zao-mo-shi/"/>
+    <id>https://autinc.github.io/2023/12/12/da-hua-she-ji-mo-shi-13-jian-zao-mo-shi/</id>
+    <published>2023-12-11T16:00:00.000Z</published>
+    <updated>2023-12-13T02:57:40.305Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;建造者模式&quot;&gt;&lt;a href=&quot;#建造者模式&quot; class=&quot;headerlink&quot; title=&quot;建造者模式&quot;&gt;&lt;/a&gt;建造者模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《大话设计模式》12-外观模式</title>
+    <link href="https://autinc.github.io/2023/12/11/da-hua-she-ji-mo-shi-12-wai-guan-mo-shi/"/>
+    <id>https://autinc.github.io/2023/12/11/da-hua-she-ji-mo-shi-12-wai-guan-mo-shi/</id>
+    <published>2023-12-10T16:00:00.000Z</published>
+    <updated>2023-12-12T09:12:06.076Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;外观模式&quot;&gt;&lt;a href=&quot;#外观模式&quot; class=&quot;headerlink&quot; title=&quot;外观模式&quot;&gt;&lt;/a&gt;外观模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《大话设计模式》11-迪米特法则</title>
+    <link href="https://autinc.github.io/2023/12/10/da-hua-she-ji-mo-shi-11-di-mi-te-fa-ze/"/>
+    <id>https://autinc.github.io/2023/12/10/da-hua-she-ji-mo-shi-11-di-mi-te-fa-ze/</id>
+    <published>2023-12-09T16:00:00.000Z</published>
+    <updated>2023-12-11T12:36:42.884Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;迪米特法则&quot;&gt;&lt;a href=&quot;#迪米特法则&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
+    
+  </entry>
+  
+</feed>
