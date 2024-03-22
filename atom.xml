@@ -6,7 +6,7 @@
   <link href="https://autinc.github.io/atom.xml" rel="self"/>
   
   <link href="https://autinc.github.io/"/>
-  <updated>2024-01-24T03:07:25.773Z</updated>
+  <updated>2024-03-22T08:06:26.779Z</updated>
   <id>https://autinc.github.io/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>《大话设计模式》29-模式总结</title>
+    <link href="https://autinc.github.io/2024/01/10/da-hua-she-ji-mo-shi-29-mo-shi-zong-jie/"/>
+    <id>https://autinc.github.io/2024/01/10/da-hua-she-ji-mo-shi-29-mo-shi-zong-jie/</id>
+    <published>2024-01-09T16:00:00.000Z</published>
+    <updated>2024-03-22T08:06:26.779Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;模式总结&quot;&gt;&lt;a href=&quot;#模式总结&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>《大话设计模式》28-访问者模式</title>
     <link href="https://autinc.github.io/2024/01/03/da-hua-she-ji-mo-shi-28-fang-wen-zhe-mo-shi/"/>
     <id>https://autinc.github.io/2024/01/03/da-hua-she-ji-mo-shi-28-fang-wen-zhe-mo-shi/</id>
     <published>2024-01-02T16:00:00.000Z</published>
-    <updated>2024-01-24T03:07:25.773Z</updated>
+    <updated>2024-03-21T08:02:50.525Z</updated>
     
     
       
@@ -443,29 +466,6 @@
         
         
     <summary type="html">&lt;h2 id=&quot;外观模式&quot;&gt;&lt;a href=&quot;#外观模式&quot; class=&quot;headerlink&quot; title=&quot;外观模式&quot;&gt;&lt;/a&gt;外观模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《大话设计模式》11-迪米特法则</title>
-    <link href="https://autinc.github.io/2023/12/10/da-hua-she-ji-mo-shi-11-di-mi-te-fa-ze/"/>
-    <id>https://autinc.github.io/2023/12/10/da-hua-she-ji-mo-shi-11-di-mi-te-fa-ze/</id>
-    <published>2023-12-09T16:00:00.000Z</published>
-    <updated>2023-12-11T12:36:42.884Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;迪米特法则&quot;&gt;&lt;a href=&quot;#迪米特法则&quot; class=&quot;headerlink&quot;</summary>
         
       
     

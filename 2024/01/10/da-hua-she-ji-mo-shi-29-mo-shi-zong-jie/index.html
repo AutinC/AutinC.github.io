@@ -4,12 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="《大话设计模式》20-迭代器模式, Huang Shichang&#39;s Blog">
-    <meta name="description" content="迭代器模式定义
-提供一种方法顺序访问一个聚合对象中各个元素，而又不暴露该对象的内部表示
+    <meta name="keywords" content="《大话设计模式》29-模式总结, Huang Shichang&#39;s Blog">
+    <meta name="description" content="模式总结
+简单工厂模式每次扩展都要更改工厂类，对修改开放，不符合开闭原则
 
-结构
-123456789101112131415161718192021222324252627282930313233343536373839404">
+设计模式核心是面向对象，依赖于抽象、封装、继承、多态
+
+重要原则包括：单一职责、开放封闭、依赖倒转、里氏代换、合成聚和复用、迪米特
+
+面向过程设计开发容易，但不容易">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +24,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>《大话设计模式》20-迭代器模式 | Huang Shichang&#39;s Blog</title>
+    <title>《大话设计模式》29-模式总结 | Huang Shichang&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -341,12 +344,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">《大话设计模式》20-迭代器模式</h1>
+                    <h1 class="description center-align post-title">《大话设计模式》29-模式总结</h1>
                 </div>
             </div>
         </div>
@@ -386,7 +389,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-12-19
+                    2024-01-10
                 </div>
                 
 
@@ -395,7 +398,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    368
+                    2.7k
                 </div>
                 
 
@@ -415,12 +418,100 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
-<li>提供一种方法<strong>顺序</strong>访问一个聚合对象中各个元素，而又<strong>不暴露该对象的内部表示</strong></li>
+                <h2 id="模式总结"><a href="#模式总结" class="headerlink" title="模式总结"></a>模式总结</h2><ul>
+<li><p>简单工厂模式每次扩展都要更改工厂类，对修改开放，<strong>不符合开闭原则</strong></p>
+</li>
+<li><p>设计模式核心是<strong>面向对象</strong>，依赖于<strong>抽象、封装、继承、多态</strong></p>
+</li>
+<li><p>重要原则包括：<strong>单一职责、开放封闭、依赖倒转、里氏代换、合成聚和复用、迪米特</strong></p>
+</li>
+<li><p>面向过程设计开发容易，但不容易应对变化；面向对象设计开发困难，但能应对千变万化</p>
+</li>
+<li><p>设计模式可以分为：<strong>创建型模式、结构型模式和行为型模式</strong></p>
+<p><img src="https://gcdnb.pbrd.co/images/U0R4OCXn8PPB.jpg?o=1"></p>
+</li>
 </ul>
-<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p><img src="https://gcdnb.pbrd.co/images/mnehyVTnSs6b.png?o=1"></p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Iterator抽象类，迭代器抽象类</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Iterator</span></span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> T* <span class="title">First</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> T* <span class="title">Next</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="type">bool</span> <span class="title">IsLast</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> T* <span class="title">CurrentItem</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">virtual</span> ~<span class="built_in">Iterator</span>() = <span class="keyword">default</span>;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">// Aggregate抽象类，容器抽象类</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Aggregate</span></span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> Iterator&lt;T&gt;* <span class="title">CreateIterator</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">virtual</span> ~<span class="built_in">Aggregate</span>() = <span class="keyword">default</span>;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">// ConcreteIterator类，具体迭代器，实现接口</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ConcreteIterator</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ConcreteAggregate类，具体容器类，拥有Count属性</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ConcreteAggregate</span> : <span class="keyword">public</span> Aggregate&lt;T&gt;</span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function">Iterator&lt;T&gt;* <span class="title">CreateIterator</span><span class="params">()</span> <span class="keyword">override</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">ConcreteIterator</span>&lt;T&gt;(<span class="keyword">this</span>);</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="type">int</span> <span class="title">Count</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>-&gt;vec.<span class="built_in">size</span>();</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	T&amp; <span class="keyword">operator</span>[](<span class="type">int</span> index)</span><br><span class="line">	{</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>-&gt;vec[index];</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	vector&lt;T&gt; vec;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">// ConcreteIterator类，具体迭代器，实现接口</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ConcreteIterator</span> : <span class="keyword">public</span> Iterator&lt;T&gt;</span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">ConcreteIterator</span>(ConcreteAggregate&lt;T&gt;* aggregate) : <span class="built_in">aggregate</span>(aggregate), <span class="built_in">current</span>(<span class="number">0</span>) {}</span><br><span class="line"></span><br><span class="line">	<span class="function">T* <span class="title">First</span><span class="params">()</span> <span class="keyword">override</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">return</span> &amp;aggregate-&gt;<span class="keyword">operator</span>[](<span class="number">0</span>);</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function">T* <span class="title">Next</span><span class="params">()</span> <span class="keyword">override</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		T* ret = <span class="literal">nullptr</span>;</span><br><span class="line">		current++;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (current &lt; aggregate-&gt;<span class="built_in">Count</span>())</span><br><span class="line">		{</span><br><span class="line">			ret = &amp;aggregate-&gt;<span class="keyword">operator</span>[](current);</span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> ret;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="type">bool</span> <span class="title">IsLast</span><span class="params">()</span> <span class="keyword">override</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">return</span> current &gt;= aggregate-&gt;<span class="built_in">Count</span>() ? <span class="literal">true</span> : <span class="literal">false</span>;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="function">T* <span class="title">CurrentItem</span><span class="params">()</span> <span class="keyword">override</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">return</span> &amp;aggregate-&gt;<span class="keyword">operator</span>[](current);</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	ConcreteAggregate&lt;T&gt;* aggregate;</span><br><span class="line">	<span class="type">int</span> current;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">// 客户端</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	ConcreteAggregate&lt;string&gt;* c = <span class="keyword">new</span> <span class="built_in">ConcreteAggregate</span>&lt;string&gt;();</span><br><span class="line"></span><br><span class="line">	(*c)[<span class="number">0</span>] = <span class="string">"a"</span>;</span><br><span class="line">	(*c)[<span class="number">1</span>] = <span class="string">"b"</span>;</span><br><span class="line">	(*c)[<span class="number">2</span>] = <span class="string">"c"</span>;</span><br><span class="line">	(*c)[<span class="number">3</span>] = <span class="string">"d"</span>;</span><br><span class="line">	(*c)[<span class="number">4</span>] = <span class="string">"e"</span>;</span><br><span class="line">	(*c)[<span class="number">5</span>] = <span class="string">"f"</span>;</span><br><span class="line"></span><br><span class="line">	Iterator&lt;string&gt;* i = c-&gt;<span class="built_in">CreateIterator</span>();</span><br><span class="line"></span><br><span class="line">	string* first = i-&gt;<span class="built_in">First</span>();</span><br><span class="line">	<span class="keyword">while</span> (!i-&gt;<span class="built_in">IsLast</span>())</span><br><span class="line">	{</span><br><span class="line">		cout &lt;&lt; *i-&gt;<span class="built_in">CurrentItem</span>() &lt;&lt; <span class="string">"请购买车票！"</span> &lt;&lt; endl;</span><br><span class="line">		i-&gt;<span class="built_in">Next</span>();</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="keyword">delete</span> c;</span><br><span class="line">	<span class="keyword">delete</span> i;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
+<h2 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h2><p>创建型模式隐藏了类的实例是如何被创建和放在一起的，<strong>整个系统关于这些对象所知道的是由抽象类定义的接口</strong>，使得创建了什么、谁创建它、它是怎么被创建的、何时被创建的都提供很大的灵活性。</p>
+<p><em>如何实现松耦合？</em></p>
+<p>将一个复杂对象的构建和表示分离，可以很容易改变一个产品的内部表示，客户无需关心产品的构造过程。</p>
+<h3 id="1-抽象工厂"><a href="#1-抽象工厂" class="headerlink" title="1. 抽象工厂"></a>1. <strong>抽象工厂</strong></h3><p>提供一个创建一系列或者相关依赖对象的接口，且无需指定它们具体的类。</p>
+<p><img src="https://gcdnb.pbrd.co/images/156kaHoL7LKR.jpg?o=1"></p>
+<p>可以解决多个类型产品的创建问题，可以实现同一对象与多个数据库的ORM（Objected-Relational Mapping，用于在面向对象编程语言和关系型数据库之间建立映射关系，从而实现通过面向对象的方式操作数据库）。</p>
+<h3 id="2-建造者"><a href="#2-建造者" class="headerlink" title="2. 建造者"></a>2. 建造者</h3><p>将一个复杂对象的构建与它的表示分离，使同样的构建过程可以创建不同表示。</p>
+<p><img src="https://gcdnb.pbrd.co/images/E7uhX0HHpUUy.jpg?o=1"></p>
+<p>实现过程隐藏，一个请求就可以创建完整的产品，高内聚，与外界耦合低。</p>
+<h3 id="3-工厂方法"><a href="#3-工厂方法" class="headerlink" title="3. 工厂方法"></a>3. 工厂方法</h3><p>定义一个用于创建对象的接口，让子类决定实例化哪一个类，工厂模式使一个类的实例化延迟到其子类。</p>
+<p><img src="https://gcdnb.pbrd.co/images/y7BnwmfYTkha.jpg?o=1"></p>
+<h3 id="4-原型"><a href="#4-原型" class="headerlink" title="4. 原型"></a>4. 原型</h3><p>用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。</p>
+<p><img src="https://gcdnb.pbrd.co/images/nCo0HhflVO7J.jpg?o=1"></p>
+<p>调用原型的Clone可以解决数据结构的拷贝问题，Copy不仅可以复制结构，数据也可以复制。</p>
+<h3 id="5-单例"><a href="#5-单例" class="headerlink" title="5. 单例"></a>5. 单例</h3><p>保证一个类仅由一个实例，并提供一个访问它的全局访问点。</p>
+<p><img src="https://gcdnb.pbrd.co/images/bCWRWKQt6Rhi.jpg?o=1"></p>
+<p>可以严格控制客户怎样、何时访问全局实例。</p>
+<h2 id="结构型模型"><a href="#结构型模型" class="headerlink" title="结构型模型"></a>结构型模型</h2><h3 id="1-适配器"><a href="#1-适配器" class="headerlink" title="1. 适配器"></a>1. 适配器</h3><p>讲一个类的接口转换成客户希望的另一个接口，使得原本接口不兼容而不能一起工作的那些类可以一起工作。</p>
+<p><img src="https://gcdnb.pbrd.co/images/xzo1zQIxlL8H.jpg?o=1"></p>
+<p>想用一个已经存在的类，而它的接口不符合要求，或者希望创建一个可以复用的类，该类可以与其他不相关的类或不可预见的类协同工作。</p>
+<h3 id="2-桥接"><a href="#2-桥接" class="headerlink" title="2. 桥接"></a>2. 桥接</h3><p>将抽象部分与实现部分分离，使得它们可以独立地变化。</p>
+<p><img src="https://gcdnb.pbrd.co/images/QCUtufTQEL7O.jpg?o=1"></p>
+<p>用聚合代替继承，把两个角色间的继承关系改为了组合关系，可以应对各自的变化。</p>
+<h3 id="3-组合"><a href="#3-组合" class="headerlink" title="3. 组合"></a>3. 组合</h3><p>将对象组合成树形结构以表示“部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。</p>
+<p><img src="https://gcdnb.pbrd.co/images/0eUkpln9dF6O.jpg?o=1"></p>
+<p>客户可以一致地使用组合结构和单个对象，任何用到基本对象的地方都可以使用组合对象。</p>
+<h3 id="4-装饰"><a href="#4-装饰" class="headerlink" title="4. 装饰"></a>4. 装饰</h3><p>动态地给一个对象添加一些额外的职责，比生成子类更灵活。</p>
+<p><img src="https://gcdnb.pbrd.co/images/i9JOu7rm6Ytd.jpg?o=1"></p>
+<p>子类大多是为某个对象增加一些职责，通过装饰可以动态透明的给单个对象添加职责。</p>
+<h3 id="5-外观"><a href="#5-外观" class="headerlink" title="5. 外观"></a>5. 外观</h3><p>为子系统中的一组接口提供一个一致的界面，定义了一个高层接口使得子系统更容易使用。</p>
+<p><img src="https://gcdnb.pbrd.co/images/A49w50V6BrSE.jpg?o=1"></p>
+<p>引入一个外观对象，为子系统间提供单一简单的屏障，可以让软件中子系统的通信和依赖最小。</p>
+<h3 id="6-享元"><a href="#6-享元" class="headerlink" title="6. 享元"></a>6. 享元</h3><p>为运用共享技术有效地支持大量细粒度对象。</p>
+<p><img src="https://gcdnb.pbrd.co/images/VcjR6M1e8ndq.jpg?o=1"></p>
+<p>让所有相同的对象共享同一资源。</p>
+<h3 id="7-代理"><a href="#7-代理" class="headerlink" title="7. 代理"></a>7. 代理</h3><p>为其他对象提供一种代理以控制对这个对象的访问。</p>
+<p><img src="https://gcdnb.pbrd.co/images/vmTYZu3MWzhf.jpg?o=1"></p>
+<p>与外观的区别：代理对象代表一个单一对象而外观对象代表一个子系统；代理的客户对象无法直接访问目标对象，由代理提供对单独的目标对象的访问控制，外观的客户对象可以直接访问子系统中的各个对象，但通常由外观对象提供对子系统各元件功能的简化共同层次调用接口</p>
+<p>与适配器的区别：代理是原对象的代表，其他与原对象的交互都需要和代表进行，适配器不需要虚构一个代表着，只需要应付特定使用目的，对原来的类进行一些组合。</p>
+<h2 id="行为型模式"><a href="#行为型模式" class="headerlink" title="行为型模式"></a>行为型模式</h2><h3 id="1-观察者"><a href="#1-观察者" class="headerlink" title="1. 观察者"></a>1. 观察者</h3><p>定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并自动更新。</p>
+<p><img src="https://gcdnb.pbrd.co/images/Kf0d2ryAU1A5.jpg?o=1"></p>
+<h3 id="2-模板方法"><a href="#2-模板方法" class="headerlink" title="2. 模板方法"></a>2. 模板方法</h3><p>定义一个操作的算法骨架，将一些步骤延迟到子类中，使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。</p>
+<p><img src="https://gcdnb.pbrd.co/images/46xEWI27J3wA.jpg?o=1"></p>
+<p>由一个抽象类组成，该抽象类定义了需要覆盖的可能有不同实现的模板方法，每个从这个抽象类派生的具体类将为此模板实现新方法，使得所有可重复的代码被提炼到抽象类。</p>
+<h3 id="3-命令"><a href="#3-命令" class="headerlink" title="3. 命令"></a>3. 命令</h3><p>将一个请求封装为一个对象，从而可以用不用的请求对客户进行参数化，可以对请求排队或记录请求日志以及支持可撤销的操作。</p>
+<p><img src="https://gcdnb.pbrd.co/images/fLKiPQbJ4J4Q.jpg?o=1"></p>
+<p>将调用操作的对象和知道如何实现该操作的对象解耦，可以在这两者间处理额外的事，可以支持事务的实现。</p>
+<h3 id="4-状态"><a href="#4-状态" class="headerlink" title="4. 状态"></a>4. 状态</h3><p>允许一个对象在其内部状态改变时改变它的行为，让对象看起来似乎修改了它的类。</p>
+<p><img src="https://gcdnb.pbrd.co/images/Jds5Dc9vFRbx.jpg?o=1"></p>
+<p>提供了一个更好的方法来组织与特定状态相关的代码，决定状态转移的逻辑不在单个if或switch中，而是分布在各个状态子类间，通过定义新的子类可以很容易增加新的状态和转换。</p>
+<h3 id="5-职责链"><a href="#5-职责链" class="headerlink" title="5. 职责链"></a>5. 职责链</h3><p>使多个对象都有机会处理请求，从而避免请求的发送者和接受者之间的耦合关系，将这些对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理该请求</p>
+<p><img src="https://gcdnb.pbrd.co/images/8PpuxzL1qd4t.jpg?o=1"></p>
+<p>当有多个对象可以处理一个请求的时候，事先不知道具体哪个对象处理，运行时确定，就可以让所有请求串成链。</p>
+<h3 id="6-解释器"><a href="#6-解释器" class="headerlink" title="6. 解释器"></a>6. 解释器</h3><p>给定一个语言，定义它的文法的一种表示，并定义一个解释器来解释语言中的句子。</p>
+<p><img src="https://gcdnb.pbrd.co/images/kwtzSg1y3jkw.jpg?o=1"></p>
+<p>如果一种特定类型的问题发生频率足够高们就可以把该问题的各个实例描述为一个简单语言中的句子。</p>
+<h3 id="7-中介者"><a href="#7-中介者" class="headerlink" title="7. 中介者"></a>7. 中介者</h3><p>用一个中介对象来封装一系列的对象交互，使各对象不需要显式的互相引用，从而使其耦合松散，可以独立的改变它们之间的交互。</p>
+<p><img src="https://gcdnb.pbrd.co/images/6xHXsnYuWR4A.jpg?o=1"></p>
+<p>将集体行为封装到一个中介者对象来控制和协调一组对象间的交互，减少对象间耦合。</p>
+<h3 id="8-访问者"><a href="#8-访问者" class="headerlink" title="8. 访问者"></a>8. 访问者</h3><p>一个作用域某对象结构中的各元素的操作，可以在不改变各元素的类的前提下定义作用于这些元素的新操作。</p>
+<p><img src="https://gcdnb.pbrd.co/images/5uQ1fWpcy3VL.jpg?o=1"></p>
+<p>增加具体的Element困难，增加依赖于复杂对象结构的构建很容易，仅需增加一个新的访问者即可在一个对象的构件上定义一个新的操作。</p>
+<h3 id="9-策略"><a href="#9-策略" class="headerlink" title="9. 策略"></a>9. 策略</h3><p>定义一系列算法，把它们一个个封装起来，并且使它们可以相互替换，使得算法可以独立于使用它的客户而变化。</p>
+<p><img src="https://gcdnb.pbrd.co/images/zy8BJLpvOCIH.jpg?o=1"></p>
+<h3 id="10-备忘录"><a href="#10-备忘录" class="headerlink" title="10. 备忘录"></a>10. 备忘录</h3><p>不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态，就可以将该对象恢复到原先保存的状态。</p>
+<p><img src="https://gcdnb.pbrd.co/images/z2decNwIHz82.jpg?o=1"></p>
+<p>把复杂对象的内部信息对其他对象拼比起来，保持封装边界。</p>
+<h3 id="11-迭代器"><a href="#11-迭代器" class="headerlink" title="11. 迭代器"></a>11. 迭代器</h3><p>提供一种方法顺序的访问一个聚合对象中各个元素，而不需要暴露该对象的内部表示。</p>
+<p><img src="https://gcdnb.pbrd.co/images/cJXdsG9vYUdz.jpg?o=1"></p>
+<p>将对列表的访问和遍历从列表对象中分离出来并放入一个迭代器对象中，定义一个访问该列表元素的接口，迭代器对象负责追踪当前的元素，并且知道哪些元素已经遍历。</p>
+<h2 id="薪资管理系统开发"><a href="#薪资管理系统开发" class="headerlink" title="薪资管理系统开发"></a>薪资管理系统开发</h2><h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>逻辑：普通员工：月薪+月奖金；市场和销售员工：月薪+月提成；中高级管理员工：年薪+年分红；兼职和临时员工：时薪；</p>
+<p>系统：菜单、工具栏、状态栏</p>
+<p>存储：SQL Server，后期用Oracle、MySQL做持久化</p>
+<p>功能：查询薪资、统计薪资、生成统计图</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><ul>
+<li><strong>外观模式：</strong>表示层、业务外观层、业务逻辑层、数据访问层。增加业务外观层保证表示层的任何变化（使用客户端软件或网页）不会影响业务和数据设计</li>
+<li><strong>观察者模式：</strong>表示层使用事件驱动技术，点击按钮触发事件</li>
+<li><strong>适配器模式：</strong>生成统计图可用已有组件，让业务模块依赖一个抽象的生成图接口，对于第三方的接口不统一的问题可以使用适配器处理</li>
+<li><strong>策略模式：</strong>不希望薪资发放规则的变化影响系统的数据新增修改、统计查询等具体业务逻辑，可以用策略模式把薪资发放规则一个个封装起来，使他们可以相互替换</li>
+<li><strong>工厂方法模式：</strong>如果创建的时候只动了对象是SQL Server，就不能适应后面改用其他数据库的变化，可以<strong>用抽象工厂模式、反射技术让业务逻辑和数据访问减少耦合</strong>。</li>
+</ul>
 
                 
             </div>
@@ -447,7 +538,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://autinc.github.io/2023/12/19/da-hua-she-ji-mo-shi-20-die-dai-qi-mo-shi/">https://autinc.github.io/2023/12/19/da-hua-she-ji-mo-shi-20-die-dai-qi-mo-shi/</a>
+                    <a href="https://autinc.github.io/2024/01/10/da-hua-she-ji-mo-shi-29-mo-shi-zong-jie/">https://autinc.github.io/2024/01/10/da-hua-she-ji-mo-shi-29-mo-shi-zong-jie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -832,17 +923,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/12/20/da-hua-she-ji-mo-shi-21-dan-li-mo-shi/">
+                <a href="/2024/01/10/da-hua-she-ji-mo-shi-29-mo-shi-zong-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="《大话设计模式》21-单例模式">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="《大话设计模式》29-模式总结">
                         
-                        <span class="card-title">《大话设计模式》21-单例模式</span>
+                        <span class="card-title">《大话设计模式》29-模式总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -852,9 +944,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -863,6 +955,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -881,13 +974,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/12/18/da-hua-she-ji-mo-shi-19-zu-he-mo-shi/">
+                <a href="/2024/01/03/da-hua-she-ji-mo-shi-28-fang-wen-zhe-mo-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="《大话设计模式》19-组合模式">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="《大话设计模式》28-访问者模式">
                         
-                        <span class="card-title">《大话设计模式》19-组合模式</span>
+                        <span class="card-title">《大话设计模式》28-访问者模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -898,7 +991,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-03
                             </span>
                         <span class="publish-author">
                             
