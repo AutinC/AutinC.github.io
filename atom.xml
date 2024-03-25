@@ -6,7 +6,7 @@
   <link href="https://autinc.github.io/atom.xml" rel="self"/>
   
   <link href="https://autinc.github.io/"/>
-  <updated>2024-03-22T08:06:26.779Z</updated>
+  <updated>2024-03-25T10:01:39.013Z</updated>
   <id>https://autinc.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《qt5开发及实例 第4版》第二章-模板库、工具类及控件</title>
+    <link href="https://autinc.github.io/2024/02/21/qt5-kai-fa-ji-shi-li-di-4-ban-di-er-zhang-mo-ban-ku-gong-ju-lei-ji-kong-jian/"/>
+    <id>https://autinc.github.io/2024/02/21/qt5-kai-fa-ji-shi-li-di-4-ban-di-er-zhang-mo-ban-ku-gong-ju-lei-ji-kong-jian/</id>
+    <published>2024-02-20T16:00:00.000Z</published>
+    <updated>2024-03-25T10:01:39.013Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;字符串类&quot;&gt;&lt;a href=&quot;#字符串类&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《qt5开发及实例 第4版》" scheme="https://autinc.github.io/tags/%E3%80%8Aqt5%E5%BC%80%E5%8F%91%E5%8F%8A%E5%AE%9E%E4%BE%8B-%E7%AC%AC4%E7%89%88%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《qt5开发及实例 第4版》第一章-概述</title>
+    <link href="https://autinc.github.io/2024/02/20/qt5-kai-fa-ji-shi-li-di-4-ban-di-yi-zhang-gai-shu/"/>
+    <id>https://autinc.github.io/2024/02/20/qt5-kai-fa-ji-shi-li-di-4-ban-di-yi-zhang-gai-shu/</id>
+    <published>2024-02-19T16:00:00.000Z</published>
+    <updated>2024-03-25T05:56:34.187Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;QT5开发环境&quot;&gt;&lt;a href=&quot;#QT5开发环境&quot; class=&quot;headerlink&quot; title=&quot;QT5开发环境&quot;&gt;&lt;/a&gt;QT5开发环境&lt;/h2&gt;&lt;h3 id=&quot;QT-Designer-控件-视图&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《qt5开发及实例 第4版》" scheme="https://autinc.github.io/tags/%E3%80%8Aqt5%E5%BC%80%E5%8F%91%E5%8F%8A%E5%AE%9E%E4%BE%8B-%E7%AC%AC4%E7%89%88%E3%80%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>《大话设计模式》29-模式总结</title>
@@ -427,52 +473,6 @@
     
     
     <category term="《程序员的自我修养——链接、装载与库》" scheme="https://autinc.github.io/tags/%E3%80%8A%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB%E2%80%94%E2%80%94%E9%93%BE%E6%8E%A5%E3%80%81%E8%A3%85%E8%BD%BD%E4%B8%8E%E5%BA%93%E3%80%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《大话设计模式》13-建造者模式</title>
-    <link href="https://autinc.github.io/2023/12/12/da-hua-she-ji-mo-shi-13-jian-zao-mo-shi/"/>
-    <id>https://autinc.github.io/2023/12/12/da-hua-she-ji-mo-shi-13-jian-zao-mo-shi/</id>
-    <published>2023-12-11T16:00:00.000Z</published>
-    <updated>2023-12-13T02:57:40.305Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;建造者模式&quot;&gt;&lt;a href=&quot;#建造者模式&quot; class=&quot;headerlink&quot; title=&quot;建造者模式&quot;&gt;&lt;/a&gt;建造者模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《大话设计模式》12-外观模式</title>
-    <link href="https://autinc.github.io/2023/12/11/da-hua-she-ji-mo-shi-12-wai-guan-mo-shi/"/>
-    <id>https://autinc.github.io/2023/12/11/da-hua-she-ji-mo-shi-12-wai-guan-mo-shi/</id>
-    <published>2023-12-10T16:00:00.000Z</published>
-    <updated>2023-12-12T09:12:06.076Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;外观模式&quot;&gt;&lt;a href=&quot;#外观模式&quot; class=&quot;headerlink&quot; title=&quot;外观模式&quot;&gt;&lt;/a&gt;外观模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
     
   </entry>
   
