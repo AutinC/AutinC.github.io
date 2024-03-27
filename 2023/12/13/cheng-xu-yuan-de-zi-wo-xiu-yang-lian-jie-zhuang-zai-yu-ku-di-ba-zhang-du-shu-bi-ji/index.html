@@ -3,7 +3,7 @@
 
 
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="《程序员的自我修养——链接、装载与库》第八章读书笔记, Huang Shichang&#39;s Blog">
     <meta name="description" content="共享库版本共享库的兼容性
 共享库的更新可以简单的分为两类：
@@ -59,12 +59,13 @@
 
 <meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -362,7 +363,32 @@
     
     <div class="row">
     <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+        <!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+<!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -407,9 +433,6 @@
         </div>
         <hr class="clearfix">
 
-        
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
         
 
         
@@ -466,7 +489,7 @@
 </li>
 </ul>
 <p>Linux下可以使用<strong>“–version_script”</strong>参数将符号版本脚本文件传递个链接器：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -shared -fPIC lib.c -Xlinker --version-script lib.ver -o lib.so</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">gcc -shared -fPIC lib.c -Xlinker --version-script lib.ver -o lib.so</span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="共享库系统路径"><a href="#共享库系统路径" class="headerlink" title="共享库系统路径"></a>共享库系统路径</h3><p><strong>FHS</strong>(File Hierachy Standard)标准规定，一个系统中主要有3个存放共享库的位置：</p>
 <ul>
@@ -494,18 +517,18 @@
 <h2 id="共享库的创建和安装"><a href="#共享库的创建和安装" class="headerlink" title="共享库的创建和安装"></a>共享库的创建和安装</h2><h3 id="共享库的创建"><a href="#共享库的创建" class="headerlink" title="共享库的创建"></a>共享库的创建</h3><p>最关键的参数即-shared与-fPIC，我们还可以使用**-W1,-soname,SO-NAME**(SO-NAME是使用者指定的字符串)来指定输出共享库的SO-NAME。</p>
 <p>除了使用<strong>LD_LIBRARY_PATH</strong>之外，我们还可以使用ld的**-rpath<strong>参数，或者gcc的</strong>-W1,-rpath,path**参数来指定共享库查找路径。</p>
 <h3 id="清除符号信息"><a href="#清除符号信息" class="headerlink" title="清除符号信息"></a>清除符号信息</h3><p>我们可以使用<strong>strip</strong>工具来清除共享库或可执行文件的所有符号和调试信息。</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strip libfoo.so</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">strip libfoo.so</span><br></pre></td></tr></tbody></table></figure>
 
 <p>除了使用“strip”工具，我们还可以使用ld的<strong>“-s”和“-S”</strong>参数，使得链接器生成输出文件时就不产生符号信息。“-s”和“-S”的区别是：“-S”消除调试符号信息，而“-s”消除所有符号信息。我们也可以在gcc中通过<strong>“-Wl,-s”</strong>和<strong>“-Wl,-S”</strong>给ld传递这两个参数。</p>
 <h3 id="共享库的安装"><a href="#共享库的安装" class="headerlink" title="共享库的安装"></a>共享库的安装</h3><p>最简单的办法就是将共享库复制到某个标准的共享库目录，如/lib、/usr/lib等，然后运行<strong>ldconfig</strong>。</p>
 <h3 id="共享库的构造和析构函数"><a href="#共享库的构造和析构函数" class="headerlink" title="共享库的构造和析构函数"></a>共享库的构造和析构函数</h3><p>GCC提供了一种共享库的构造函数，只要在函数声明时加上_<em>attribute</em>_((constructor))的属性，即指定该函数为共享库构造函数，拥有这种属性的函数会在共享库加载时被执行，即在程序的main函数之前执行(同样会在dlopen之前执行)。</p>
 <p>与共享库构造函数相对应的是析构函数，我们可以使用在函数声明时加上_<em>attribute</em>_((destructor))的属性，这种函数会在main()函数执行完毕之后执行（或者是程序调用exit()时执行）。</p>
 <p>有多个构造和析构函数时，我们还可以给它们指定<strong>优先级</strong>：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">void __attribute__((constructor(5))) init_function(void);</span><br><span class="line">void __attribute__((constructor(10))) init_function2(void);</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">void __attribute__((constructor(5))) init_function(void);</span><br><span class="line">void __attribute__((constructor(10))) init_function2(void);</span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>对于构造函数来说，优先级数字越小越先执行，而对于析构函数来说，则刚好相反。</strong></p>
 <h3 id="共享库脚本"><a href="#共享库脚本" class="headerlink" title="共享库脚本"></a>共享库脚本</h3><p>可以将几个现有共享库组合起来，从用户的角度来看就是一个新的共享库。</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GROUP(/lib/libc.so.6 /lib/libm.so.2)</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">GROUP(/lib/libc.so.6 /lib/libm.so.2)</span><br></pre></td></tr></tbody></table></figure>
 
 <p>语法命令方面跟链接脚本没有什么不同，作用也相似，即将一个或多个输入文件以一定格式经过变换后形成一个输出文件，所以共享库脚本也叫做<strong>动态链接脚本</strong>，链接过程是在运行时完成的。</p>
 
@@ -1055,9 +1078,6 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -1179,7 +1199,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">276.1k</span>
+                        class="white-color">276.6k</span>
             
             
             
@@ -1462,7 +1482,7 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>

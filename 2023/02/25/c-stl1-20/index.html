@@ -3,7 +3,7 @@
 
 
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="C++STL1-20, Huang Shichang&#39;s Blog">
     <meta name="description" content="C++之STL模板库
 
@@ -60,12 +60,13 @@
 
 <meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -363,7 +364,32 @@
     
     <div class="row">
     <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+        <!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+<!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -409,9 +435,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
@@ -452,12 +475,12 @@
 <h2 id="4、迭代器：-it、it-哪个好，为什么"><a href="#4、迭代器：-it、it-哪个好，为什么" class="headerlink" title="4、迭代器：++it、it++哪个好，为什么"></a>4、迭代器：++it、it++哪个好，为什么</h2><ol>
 <li>前置返回一个引用，后置返回一个对象</li>
 </ol>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ++i实现代码为：</span></span><br><span class="line"><span class="type">int</span>&amp; <span class="keyword">operator</span>++()</span><br><span class="line">{</span><br><span class="line">  *<span class="keyword">this</span> += <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">} </span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// ++i实现代码为：</span></span><br><span class="line"><span class="type">int</span>&amp; <span class="keyword">operator</span>++()</span><br><span class="line">{</span><br><span class="line">  *<span class="keyword">this</span> += <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">} </span><br></pre></td></tr></tbody></table></figure>
 
 <ol start="2">
 <li>前置不会产生临时对象，后置必须产生临时对象，临时对象会导致效率降低</li>
 </ol>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//i++实现代码为：                 </span></span><br><span class="line"><span class="type">int</span> <span class="keyword">operator</span>++(<span class="type">int</span>)                 </span><br><span class="line">{</span><br><span class="line"><span class="type">int</span> temp = *<span class="keyword">this</span>;                   </span><br><span class="line">   ++*<span class="keyword">this</span>;                       </span><br><span class="line">   <span class="keyword">return</span> temp;                  </span><br><span class="line">} </span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//i++实现代码为：                 </span></span><br><span class="line"><span class="type">int</span> <span class="keyword">operator</span>++(<span class="type">int</span>)                 </span><br><span class="line">{</span><br><span class="line"><span class="type">int</span> temp = *<span class="keyword">this</span>;                   </span><br><span class="line">   ++*<span class="keyword">this</span>;                       </span><br><span class="line">   <span class="keyword">return</span> temp;                  </span><br><span class="line">} </span><br></pre></td></tr></tbody></table></figure>
 
 <p id="说一下左值引用和右值引用"></p>
 
@@ -475,7 +498,7 @@
 </ol>
 <p><strong>左值和右值</strong></p>
 <p>左值：表示的是可以获取地址的表达式，它能出现在赋值语句的左边，对该表达式进行赋值。但是修饰符const的出现使得可以声明如下的标识符，它可以取得地址，但是没办法对其进行赋值</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span>&amp; a = <span class="number">10</span>;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span>&amp; a = <span class="number">10</span>;</span><br></pre></td></tr></tbody></table></figure>
 
 <p>右值：表示无法获取地址的对象，有常量值、函数返回值、lambda表达式等。无法获取地址，但不表示其不可改变，当定义了右值的右值引用时就可以更改右值。</p>
 <p><strong>左值引用和右值引用</strong></p>
@@ -488,7 +511,7 @@
 <li>特点3：T&amp;&amp; t在发生自动类型推断的时候，它是左值还是右值取决于它的初始化。</li>
 </ul>
 <p>举个例子：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">fun</span><span class="params">(T&amp;&amp; t)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	cout &lt;&lt; t &lt;&lt; endl;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getInt</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">return</span> <span class="number">5</span>;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line">	<span class="type">int</span>&amp; b = a;  <span class="comment">//b是左值引用</span></span><br><span class="line">	<span class="type">int</span>&amp; c = <span class="number">10</span>;  <span class="comment">//错误，c是左值不能使用右值初始化</span></span><br><span class="line">	<span class="type">int</span>&amp;&amp; d = <span class="number">10</span>;  <span class="comment">//正确，右值引用用右值初始化</span></span><br><span class="line">	<span class="type">int</span>&amp;&amp; e = a;  <span class="comment">//错误，e是右值引用不能使用左值初始化</span></span><br><span class="line">	<span class="type">const</span> <span class="type">int</span>&amp; f = a; <span class="comment">//正确，左值常引用相当于是万能型，可以用左值或者右值初始化</span></span><br><span class="line">	<span class="type">const</span> <span class="type">int</span>&amp; g = <span class="number">10</span>;<span class="comment">//正确，左值常引用相当于是万能型，可以用左值或者右值初始化</span></span><br><span class="line">	<span class="type">const</span> <span class="type">int</span>&amp;&amp; h = <span class="number">10</span>; <span class="comment">//正确，右值常引用</span></span><br><span class="line">	<span class="type">const</span> <span class="type">int</span>&amp; aa = h;<span class="comment">//正确</span></span><br><span class="line">	<span class="type">int</span>&amp; i = <span class="built_in">getInt</span>();  <span class="comment">//错误，i是左值引用不能使用临时变量（右值）初始化</span></span><br><span class="line">	<span class="type">int</span>&amp;&amp; j = <span class="built_in">getInt</span>();  <span class="comment">//正确，函数返回值是右值</span></span><br><span class="line">	<span class="built_in">fun</span>(<span class="number">10</span>); <span class="comment">//此时fun函数的参数t是右值</span></span><br><span class="line">	<span class="built_in">fun</span>(a); <span class="comment">//此时fun函数的参数t是左值</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">fun</span><span class="params">(T&amp;&amp; t)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	cout &lt;&lt; t &lt;&lt; endl;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getInt</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">return</span> <span class="number">5</span>;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line">	<span class="type">int</span>&amp; b = a;  <span class="comment">//b是左值引用</span></span><br><span class="line">	<span class="type">int</span>&amp; c = <span class="number">10</span>;  <span class="comment">//错误，c是左值不能使用右值初始化</span></span><br><span class="line">	<span class="type">int</span>&amp;&amp; d = <span class="number">10</span>;  <span class="comment">//正确，右值引用用右值初始化</span></span><br><span class="line">	<span class="type">int</span>&amp;&amp; e = a;  <span class="comment">//错误，e是右值引用不能使用左值初始化</span></span><br><span class="line">	<span class="type">const</span> <span class="type">int</span>&amp; f = a; <span class="comment">//正确，左值常引用相当于是万能型，可以用左值或者右值初始化</span></span><br><span class="line">	<span class="type">const</span> <span class="type">int</span>&amp; g = <span class="number">10</span>;<span class="comment">//正确，左值常引用相当于是万能型，可以用左值或者右值初始化</span></span><br><span class="line">	<span class="type">const</span> <span class="type">int</span>&amp;&amp; h = <span class="number">10</span>; <span class="comment">//正确，右值常引用</span></span><br><span class="line">	<span class="type">const</span> <span class="type">int</span>&amp; aa = h;<span class="comment">//正确</span></span><br><span class="line">	<span class="type">int</span>&amp; i = <span class="built_in">getInt</span>();  <span class="comment">//错误，i是左值引用不能使用临时变量（右值）初始化</span></span><br><span class="line">	<span class="type">int</span>&amp;&amp; j = <span class="built_in">getInt</span>();  <span class="comment">//正确，函数返回值是右值</span></span><br><span class="line">	<span class="built_in">fun</span>(<span class="number">10</span>); <span class="comment">//此时fun函数的参数t是右值</span></span><br><span class="line">	<span class="built_in">fun</span>(a); <span class="comment">//此时fun函数的参数t是左值</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p id="hashtable的实现"></p>
 
@@ -512,14 +535,14 @@
 </ul>
 <p><strong>type_traits</strong></p>
 <p>关注的是型别的<strong>特性</strong>，例如这个型别是否具备non-trivial defalt ctor（默认构造函数）、non-trivial copy ctor（拷贝构造函数）、non-trivial assignment operator（赋值运算符） 和non-trivial dtor（析构函数），如果答案是否定的，可以采取直接操作内存的方式提高效率，一般来说，type_traits支持以下5中类型的判断：</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">__type_traits&lt;T&gt;::has_trivial_default_constructor</span><br><span class="line">__type_traits&lt;T&gt;::has_trivial_copy_constructor</span><br><span class="line">__type_traits&lt;T&gt;::has_trivial_assignment_operator</span><br><span class="line">__type_traits&lt;T&gt;::has_trivial_destructor</span><br><span class="line">__type_traits&lt;T&gt;::is_POD_type</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line">__type_traits&lt;T&gt;::has_trivial_default_constructor</span><br><span class="line">__type_traits&lt;T&gt;::has_trivial_copy_constructor</span><br><span class="line">__type_traits&lt;T&gt;::has_trivial_assignment_operator</span><br><span class="line">__type_traits&lt;T&gt;::has_trivial_destructor</span><br><span class="line">__type_traits&lt;T&gt;::is_POD_type</span><br></pre></td></tr></tbody></table></figure>
 
 <p>由于编译器只针对class object形式的参数进行参数推到，因此上式的返回结果不应该是个bool值，实际上使用的是一种空的结构体：</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">__true_type</span>{};<span class="keyword">struct</span> <span class="title class_">__false_type</span>{};</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">__true_type</span>{};<span class="keyword">struct</span> <span class="title class_">__false_type</span>{};</span><br></pre></td></tr></tbody></table></figure>
 
 <p>这两个结构体没有任何成员，不会带来其他的负担，又能满足需求，可谓一举两得</p>
 <p>当然，如果我们自行定义了一个Shape类型，也可以针对这个Shape设计type_traits的特化版本</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;&gt; <span class="keyword">struct</span> <span class="title class_">__type_traits</span>&lt;Shape&gt;{</span><br><span class="line">	<span class="keyword">typedef</span> __true_type has_trivial_default_constructor;</span><br><span class="line">	<span class="keyword">typedef</span> __false_type has_trivial_copy_constructor;</span><br><span class="line">	<span class="keyword">typedef</span> __false_type has_trivial_assignment_operator;</span><br><span class="line">	<span class="keyword">typedef</span> __false_type has_trivial_destructor;</span><br><span class="line">	<span class="keyword">typedef</span> __false_type is_POD_type;</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;&gt; <span class="keyword">struct</span> <span class="title class_">__type_traits</span>&lt;Shape&gt;{</span><br><span class="line">	<span class="keyword">typedef</span> __true_type has_trivial_default_constructor;</span><br><span class="line">	<span class="keyword">typedef</span> __false_type has_trivial_copy_constructor;</span><br><span class="line">	<span class="keyword">typedef</span> __false_type has_trivial_assignment_operator;</span><br><span class="line">	<span class="keyword">typedef</span> __false_type has_trivial_destructor;</span><br><span class="line">	<span class="keyword">typedef</span> __false_type is_POD_type;</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
 
 
 <p id="的两级空间配置器"></p>
@@ -577,7 +600,7 @@
 <h2 id="10、STL-中vector删除其中的元素，迭代器如何变化？为什么是两倍扩容？释放空间？"><a href="#10、STL-中vector删除其中的元素，迭代器如何变化？为什么是两倍扩容？释放空间？" class="headerlink" title="10、STL 中vector删除其中的元素，迭代器如何变化？为什么是两倍扩容？释放空间？"></a>10、STL 中vector删除其中的元素，迭代器如何变化？为什么是两倍扩容？释放空间？</h2><p>size()函数返回的是已用空间大小，capacity()返回的是总空间大小，capacity()-size()则是剩余的可用空间大小。当size()和capacity()相等，说明vector目前的空间已被用完，如果再添加新元素，则会引起vector空间的动态增长。</p>
 <p>由于动态增长会引起重新分配内存空间、拷贝原空间、释放原空间，这些过程会降低程序效率。因此，可以使用reserve(n)预先分配一块较大的指定大小的内存空间，这样当指定大小的内存空间未使用完时，是不会重新分配内存空间的，这样便提升了效率。只有当n&gt;capacity()时，调用reserve(n)才会改变vector容量。</p>
 <p> resize()成员函数改变元素的数目，至于空间的的变化需要看具体情况去分析，如下：</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">resize</span><span class="params">(size_type __new_size, <span class="type">const</span> _Tp&amp; __x)</span> {</span><br><span class="line">      <span class="keyword">if</span> (__new_size &lt; size()) </span><br><span class="line">            erase(begin() + __new_size, end());</span><br><span class="line">      <span class="keyword">else</span></span><br><span class="line">            insert(end(), __new_size - size(), __x);</span><br><span class="line">      }</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">resize</span><span class="params">(size_type __new_size, <span class="type">const</span> _Tp&amp; __x)</span> {</span><br><span class="line">      <span class="keyword">if</span> (__new_size &lt; size()) </span><br><span class="line">            erase(begin() + __new_size, end());</span><br><span class="line">      <span class="keyword">else</span></span><br><span class="line">            insert(end(), __new_size - size(), __x);</span><br><span class="line">      }</span><br></pre></td></tr></tbody></table></figure>
 
 
 
@@ -597,12 +620,12 @@
 <h2 id="11、Vector如何释放空间"><a href="#11、Vector如何释放空间" class="headerlink" title="11、Vector如何释放空间?"></a>11、Vector如何释放空间?</h2><p>由于vector的内存占用空间只增不减，比如你首先分配了10,000个字节，然后erase掉后面9,999个，留下一个有效元素，但是内存占用仍为10,000个。所有内存空间是在vector析构时候才能被系统回收。empty()用来检测容器是否为空的，clear()可以清空所有元素。但是即使clear()，vector所占用的内存空间依然如故，无法保证内存的回收。</p>
 <p>如果需要空间动态缩小，可以考虑使用deque。</p>
 <p>如果使用vector，可以用swap()来帮助你释放多余内存或者清空全部内存。</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>(Vec).<span class="built_in">swap</span>(Vec); <span class="comment">//将Vec中多余内存清除； </span></span><br><span class="line"><span class="built_in">vector</span>().<span class="built_in">swap</span>(Vec); <span class="comment">//清空Vec的全部内存；</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>(Vec).<span class="built_in">swap</span>(Vec); <span class="comment">//将Vec中多余内存清除； </span></span><br><span class="line"><span class="built_in">vector</span>().<span class="built_in">swap</span>(Vec); <span class="comment">//清空Vec的全部内存；</span></span><br></pre></td></tr></tbody></table></figure>
 
 
 
 <p>实例</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">vec</span> <span class="params">(<span class="number">100</span>,<span class="number">100</span>)</span></span>;   <span class="comment">// three ints with a value of 100</span></span><br><span class="line">    vec.<span class="built_in">push_back</span>(<span class="number">1</span>);</span><br><span class="line">    vec.<span class="built_in">push_back</span>(<span class="number">2</span>);</span><br><span class="line">    cout &lt;&lt;<span class="string">"vec.size(): "</span> &lt;&lt; vec.<span class="built_in">size</span>() &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt;<span class="string">"vec.capasity(): "</span> &lt;&lt; vec.<span class="built_in">capacity</span>() &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(vec).<span class="built_in">swap</span>(vec); <span class="comment">//清空vec中多余的空间，相当于vec.shrink_to_fit();</span></span><br><span class="line">    cout &lt;&lt;<span class="string">"vec.size(): "</span> &lt;&lt; vec.<span class="built_in">size</span>() &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt;<span class="string">"vec.capasity(): "</span> &lt;&lt; vec.<span class="built_in">capacity</span>() &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;().<span class="built_in">swap</span>(vec); <span class="comment">//清空vec的全部空间</span></span><br><span class="line">    cout &lt;&lt;<span class="string">"vec.size(): "</span> &lt;&lt; vec.<span class="built_in">size</span>() &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt;<span class="string">"vec.capasity(): "</span> &lt;&lt; vec.<span class="built_in">capacity</span>() &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    运行结果：</span></span><br><span class="line"><span class="comment">    vec.size(): 102</span></span><br><span class="line"><span class="comment">    vec.capasity(): 200</span></span><br><span class="line"><span class="comment">    vec.size(): 102</span></span><br><span class="line"><span class="comment">    vec.capasity(): 102</span></span><br><span class="line"><span class="comment">    vec.size(): 0</span></span><br><span class="line"><span class="comment">    vec.capasity(): 0</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">vec</span> <span class="params">(<span class="number">100</span>,<span class="number">100</span>)</span></span>;   <span class="comment">// three ints with a value of 100</span></span><br><span class="line">    vec.<span class="built_in">push_back</span>(<span class="number">1</span>);</span><br><span class="line">    vec.<span class="built_in">push_back</span>(<span class="number">2</span>);</span><br><span class="line">    cout &lt;&lt;<span class="string">"vec.size(): "</span> &lt;&lt; vec.<span class="built_in">size</span>() &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt;<span class="string">"vec.capasity(): "</span> &lt;&lt; vec.<span class="built_in">capacity</span>() &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(vec).<span class="built_in">swap</span>(vec); <span class="comment">//清空vec中多余的空间，相当于vec.shrink_to_fit();</span></span><br><span class="line">    cout &lt;&lt;<span class="string">"vec.size(): "</span> &lt;&lt; vec.<span class="built_in">size</span>() &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt;<span class="string">"vec.capasity(): "</span> &lt;&lt; vec.<span class="built_in">capacity</span>() &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;().<span class="built_in">swap</span>(vec); <span class="comment">//清空vec的全部空间</span></span><br><span class="line">    cout &lt;&lt;<span class="string">"vec.size(): "</span> &lt;&lt; vec.<span class="built_in">size</span>() &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt;<span class="string">"vec.capasity(): "</span> &lt;&lt; vec.<span class="built_in">capacity</span>() &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    运行结果：</span></span><br><span class="line"><span class="comment">    vec.size(): 102</span></span><br><span class="line"><span class="comment">    vec.capasity(): 200</span></span><br><span class="line"><span class="comment">    vec.size(): 102</span></span><br><span class="line"><span class="comment">    vec.capasity(): 102</span></span><br><span class="line"><span class="comment">    vec.size(): 0</span></span><br><span class="line"><span class="comment">    vec.capasity(): 0</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p id="容器内部删除一个元素"></p>
 
@@ -654,22 +677,22 @@
 <h2 id="16、map插入方式有哪几种？"><a href="#16、map插入方式有哪几种？" class="headerlink" title="16、map插入方式有哪几种？"></a>16、map插入方式有哪几种？</h2><ol>
 <li>用insert函数插入pair数据，</li>
 </ol>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mapStudent.<span class="built_in">insert</span>(<span class="built_in">pair</span>&lt;<span class="type">int</span>, string&gt;(<span class="number">1</span>, <span class="string">"student_one"</span>)); </span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line">mapStudent.<span class="built_in">insert</span>(<span class="built_in">pair</span>&lt;<span class="type">int</span>, string&gt;(<span class="number">1</span>, <span class="string">"student_one"</span>)); </span><br></pre></td></tr></tbody></table></figure>
 
 <ol start="2">
 <li>用insert函数插入value_type数据</li>
 </ol>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mapStudent.<span class="built_in">insert</span>(map&lt;<span class="type">int</span>, string&gt;::<span class="built_in">value_type</span> (<span class="number">1</span>, <span class="string">"student_one"</span>));</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line">mapStudent.<span class="built_in">insert</span>(map&lt;<span class="type">int</span>, string&gt;::<span class="built_in">value_type</span> (<span class="number">1</span>, <span class="string">"student_one"</span>));</span><br></pre></td></tr></tbody></table></figure>
 
 <ol start="3">
 <li>在insert函数中使用make_pair()函数</li>
 </ol>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mapStudent.<span class="built_in">insert</span>(<span class="built_in">make_pair</span>(<span class="number">1</span>, <span class="string">"student_one"</span>)); </span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line">mapStudent.<span class="built_in">insert</span>(<span class="built_in">make_pair</span>(<span class="number">1</span>, <span class="string">"student_one"</span>)); </span><br></pre></td></tr></tbody></table></figure>
 
 <ol start="4">
 <li>用数组方式插入数据</li>
 </ol>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mapStudent[<span class="number">1</span>] = <span class="string">"student_one"</span>; </span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line">mapStudent[<span class="number">1</span>] = <span class="string">"student_one"</span>; </span><br></pre></td></tr></tbody></table></figure>
 
 <p id="hashmap如何解决冲突以及扩容"></p>
 
@@ -1279,9 +1302,6 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -1403,7 +1423,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">276.1k</span>
+                        class="white-color">276.6k</span>
             
             
             
@@ -1686,7 +1706,7 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>

@@ -3,11 +3,11 @@
 
 
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="《大话设计模式》2-策略模式, Huang Shichang&#39;s Blog">
     <meta name="description" content="策略模式策略模式结构定了了算法家族，分别封装起来，让它们之间可以互相替换，此策略让算法的变化，不会影响到使用算法的客户
 
-12345678910111213141516171819202122232425262728293031323334">
+// Strategy类：定义所有支持的算法的公共接口class Strategy{public:	virtual v">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -56,12 +56,13 @@
 
 <meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -359,7 +360,32 @@
     
     <div class="row">
     <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+        <!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+<!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -393,7 +419,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    831
+                    830
                 </div>
                 
 
@@ -405,9 +431,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
@@ -415,10 +438,10 @@
             <div id="articleContent">
                 <h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><h3 id="策略模式结构"><a href="#策略模式结构" class="headerlink" title="策略模式结构"></a>策略模式结构</h3><p>定了了算法家族，分别封装起来，让它们之间可以互相替换，此策略让算法的变化，不会影响到使用算法的客户</p>
 <p><img src="https://gcdnb.pbrd.co/images/EAoxBBgLlnpq.png?o=1" alt="策略模式结构图"></p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Strategy类：定义所有支持的算法的公共接口</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Strategy</span></span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">AlgorithmInterface</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// ConcreteStrategyA/B/C类：封装了具体的算法或行为，继承于Strategy</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ConcreteStrategyA</span> : <span class="keyword">public</span> Strategy</span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">AlgorithmInterface</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="comment">// 算法A的实现</span></span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// Context类：包含一个Strategy类，需要用一个ConcreteStrategy来构造，根据具体对象调用算法</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Context</span></span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">Context</span>(Strategy strategy)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">this</span>.strategy = strategy;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">ContextInterface</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        strategy.<span class="built_in">AlgorithmInterface</span>();</span><br><span class="line">    }</span><br><span class="line">   </span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Strategy Strategy;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// Strategy类：定义所有支持的算法的公共接口</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Strategy</span></span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">AlgorithmInterface</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// ConcreteStrategyA/B/C类：封装了具体的算法或行为，继承于Strategy</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ConcreteStrategyA</span> : <span class="keyword">public</span> Strategy</span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">AlgorithmInterface</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="comment">// 算法A的实现</span></span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// Context类：包含一个Strategy类，需要用一个ConcreteStrategy来构造，根据具体对象调用算法</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Context</span></span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">Context</span>(Strategy strategy)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">this</span>.strategy = strategy;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">ContextInterface</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        strategy.<span class="built_in">AlgorithmInterface</span>();</span><br><span class="line">    }</span><br><span class="line">   </span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Strategy Strategy;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>弊端：需要在客户端判断用哪一个方法。因此，可以将判断的过程从客户端程序转移走，这时候就需要将策略模式的<strong>Context</strong>和<strong>简单工厂</strong>相结合。</p>
-<h3 id="简单工厂与策略相结合"><a href="#简单工厂与策略相结合" class="headerlink" title="简单工厂与策略相结合"></a>简单工厂与策略相结合</h3><figure class="highlight c#"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">CashContext</span>{</span><br><span class="line">	<span class="keyword">private</span> CashSuper cs;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//通过构造方法，传入具体的收费策略</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">CashContext</span>(<span class="params"><span class="built_in">int</span> cashType</span>)</span>{</span><br><span class="line">		<span class="keyword">switch</span>(cashType){</span><br><span class="line">		<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">			<span class="keyword">this</span>.cs = <span class="keyword">new</span> CashNormal();</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">			<span class="keyword">this</span>.cs = <span class="keyword">new</span> CashRebate(<span class="number">0.8</span>d);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">			<span class="keyword">this</span>.cs = <span class="keyword">new</span> CashRebate(<span class="number">0.7</span>d);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">			<span class="keyword">this</span>.cs = <span class="keyword">new</span> CashReturn(<span class="number">300</span>d,<span class="number">100</span>d);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="built_in">double</span> <span class="title">getResult</span>(<span class="params"><span class="built_in">double</span> price,<span class="built_in">int</span> num</span>)</span>{</span><br><span class="line">		<span class="comment">//根据收费策略的不同，获取计算结果</span></span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.cs.accpetCash(price,num)</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 客户端代码</span></span><br><span class="line">	<span class="comment">//根据用户输入，将对应的策略对象作为参数传入CashContext对象中</span></span><br><span class="line">	CashContext cc = <span class="keyword">new</span> CashContext(discount);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//通过Context的getResult方法的调用，获取收取费用的结果，从而让具体算法和客户进行隔离</span></span><br><span class="line">	totalPrices = cc.getResult(price,num);</span><br><span class="line">	total = total + totalPrices;</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="简单工厂与策略相结合"><a href="#简单工厂与策略相结合" class="headerlink" title="简单工厂与策略相结合"></a>简单工厂与策略相结合</h3><figure class="highlight c#"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">CashContext</span>{</span><br><span class="line">	<span class="keyword">private</span> CashSuper cs;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//通过构造方法，传入具体的收费策略</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">CashContext</span>(<span class="params"><span class="built_in">int</span> cashType</span>)</span>{</span><br><span class="line">		<span class="keyword">switch</span>(cashType){</span><br><span class="line">		<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">			<span class="keyword">this</span>.cs = <span class="keyword">new</span> CashNormal();</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">			<span class="keyword">this</span>.cs = <span class="keyword">new</span> CashRebate(<span class="number">0.8</span>d);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">			<span class="keyword">this</span>.cs = <span class="keyword">new</span> CashRebate(<span class="number">0.7</span>d);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">			<span class="keyword">this</span>.cs = <span class="keyword">new</span> CashReturn(<span class="number">300</span>d,<span class="number">100</span>d);</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="built_in">double</span> <span class="title">getResult</span>(<span class="params"><span class="built_in">double</span> price,<span class="built_in">int</span> num</span>)</span>{</span><br><span class="line">		<span class="comment">//根据收费策略的不同，获取计算结果</span></span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.cs.accpetCash(price,num)</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 客户端代码</span></span><br><span class="line">	<span class="comment">//根据用户输入，将对应的策略对象作为参数传入CashContext对象中</span></span><br><span class="line">	CashContext cc = <span class="keyword">new</span> CashContext(discount);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//通过Context的getResult方法的调用，获取收取费用的结果，从而让具体算法和客户进行隔离</span></span><br><span class="line">	totalPrices = cc.getResult(price,num);</span><br><span class="line">	total = total + totalPrices;</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 
 <p>简单工厂模式需要让客户端认识两个类，<strong>CashSuper</strong> 和<strong>CashFactory</strong>，而策略模式与简单工厂结合的用法，客户端就只需要认识一个类<strong>CashContext</strong>就可以了，耦合更加降低。</p>
 <h3 id="策略模式解析"><a href="#策略模式解析" class="headerlink" title="策略模式解析"></a>策略模式解析</h3><ul>
@@ -977,9 +1000,6 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -1101,7 +1121,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">276.1k</span>
+                        class="white-color">276.6k</span>
             
             
             
@@ -1384,7 +1404,7 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>

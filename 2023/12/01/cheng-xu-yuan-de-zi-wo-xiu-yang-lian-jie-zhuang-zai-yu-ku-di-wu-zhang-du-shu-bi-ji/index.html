@@ -3,7 +3,7 @@
 
 
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="《程序员的自我修养——链接、装载与库》第五章读书笔记, Huang Shichang&#39;s Blog">
     <meta name="description" content="Windows的二进制文件格式PE/COFF在Windows平台下，可执行性文件采用PE文件格式，而Visual C++编译器产生的目标文件仍然使用COFF格式。64位的Windows中对PE文件格式做了一点小小的修改，叫做PE32+格式，">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,12 +54,13 @@
 
 <meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -357,7 +358,32 @@
     
     <div class="row">
     <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+        <!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+<!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -403,9 +429,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
@@ -413,18 +436,18 @@
             <div id="articleContent">
                 <h2 id="Windows的二进制文件格式PE-COFF"><a href="#Windows的二进制文件格式PE-COFF" class="headerlink" title="Windows的二进制文件格式PE/COFF"></a>Windows的二进制文件格式PE/COFF</h2><p>在Windows平台下，可执行性文件采用<strong>PE文件格式</strong>，而Visual C++编译器产生的目标文件仍然使用<strong>COFF格式</strong>。64位的Windows中对PE文件格式做了一点小小的修改，叫做<strong>PE32+格式</strong>，只是将32位的字段换成了64位而已。</p>
 <p>与ELF相同PE/COFF也是采用基于段的方式。GCC中使用__attribute__((section(“name”)))指定段，visual C++中也可以使用#pragma编译器指示：</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> data_seg(<span class="string">"FOO"</span>)</span></span><br><span class="line"><span class="type">int</span> global = <span class="number">1</span>;</span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> data_seg(<span class="string">".data"</span>)</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> data_seg(<span class="string">"FOO"</span>)</span></span><br><span class="line"><span class="type">int</span> global = <span class="number">1</span>;</span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> data_seg(<span class="string">".data"</span>)</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>使用pragma将当前段切换至“FOO”段，存放全局变量global后，切换回“.data”段。</p>
 <h2 id="COFF"><a href="#COFF" class="headerlink" title="COFF"></a>COFF</h2><p>通过命令行<strong>cl</strong>使用VC++编译器：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cl /c /Za simplesection.c</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">cl /c /Za simplesection.c</span><br></pre></td></tr></tbody></table></figure>
 
 <ul>
 <li>/c 表示只编译不链接，形成.obj文件，而不生成.exe文件</li>
 <li>/Za 表示禁用Visual C++的一些专用扩展，是的程序跟标准的C/C++兼容</li>
 </ul>
 <p>使用<strong>dumpbin</strong>来查看obj文件的结构：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dumpbin /ALL simplesection.obj &gt; simplesection.txt</span><br><span class="line">dumpbin simplesection.obj /SUMMAY</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">dumpbin /ALL simplesection.obj &gt; simplesection.txt</span><br><span class="line">dumpbin simplesection.obj /SUMMAY</span><br></pre></td></tr></tbody></table></figure>
 
 <ul>
 <li>/ALL 表示打印输出目标文件的所有相关信息，包括文件头、每个段的属性、段的原始数据和符号表</li>
@@ -1018,9 +1041,6 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -1142,7 +1162,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">276.1k</span>
+                        class="white-color">276.6k</span>
             
             
             
@@ -1425,7 +1445,7 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>

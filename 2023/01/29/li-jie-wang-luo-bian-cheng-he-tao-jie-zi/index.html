@@ -3,7 +3,7 @@
 
 
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="理解网络编程和套接字, Huang Shichang&#39;s Blog">
     <meta name="description" content="第 1 章：理解网络编程和套接字1.1 理解网络编程和套接字1.1.1构建打电话套接字以电话机打电话的方式来理解套接字。调用 socket 函数（安装电话机）时进行的对话：问：接电话需要准备什么？答：当然是电话机。有了电话机才能安装电话，于">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,12 +54,13 @@
 
 <meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -357,7 +358,32 @@
     
     <div class="row">
     <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+        <!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+<!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -391,7 +417,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    963
+                    958
                 </div>
                 
 
@@ -403,26 +429,23 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="第-1-章：理解网络编程和套接字"><a href="#第-1-章：理解网络编程和套接字" class="headerlink" title="第 1 章：理解网络编程和套接字"></a>第 1 章：理解网络编程和套接字</h1><h2 id="1-1-理解网络编程和套接字"><a href="#1-1-理解网络编程和套接字" class="headerlink" title="1.1 理解网络编程和套接字"></a><strong>1.1 理解网络编程和套接字</strong></h2><h3 id="1-1-1构建打电话套接字"><a href="#1-1-1构建打电话套接字" class="headerlink" title="1.1.1构建打电话套接字"></a>1.1.1构建打电话套接字</h3><p>以电话机打电话的方式来理解套接字。<br>调用 socket 函数（安装电话机）时进行的对话：<br>问：接电话需要准备什么？<br>答：当然是电话机。<br>有了电话机才能安装电话，于是就要准备一个电话机，下面函数相当于电机的套接字。</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">socket</span><span class="params">(<span class="type">int</span> domain, <span class="type">int</span> type, <span class="type">int</span> protocol)</span></span>;</span><br><span class="line"><span class="comment">//成功时返回文件描述符，失败时返回-1</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">socket</span><span class="params">(<span class="type">int</span> domain, <span class="type">int</span> type, <span class="type">int</span> protocol)</span></span>;</span><br><span class="line"><span class="comment">//成功时返回文件描述符，失败时返回-1</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>调用 bind 函数（分配电话号码）时进行的对话：</p>
 <p>问：请问我的电话号码是多少<br>答：我的电话号码是123-1234<br>套接字同样如此。就想给电话机分配电话号码一样，利用以下函数给创建好的套接字分配地址信息（IP地址和端口号）：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">bind</span><span class="params">(<span class="type">int</span> sockfd, <span class="keyword">struct</span> sockaddr *myaddr, <span class="type">socklen_t</span> addrlen)</span></span>;</span><br><span class="line"><span class="comment">//成功时返回0，失败时返回-1</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">bind</span><span class="params">(<span class="type">int</span> sockfd, <span class="keyword">struct</span> sockaddr *myaddr, <span class="type">socklen_t</span> addrlen)</span></span>;</span><br><span class="line"><span class="comment">//成功时返回0，失败时返回-1</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>调用 bind 函数给套接字分配地址之后，就基本完成了所有的准备工作。接下来是需要连接电话线并等待来电。<br>调用 listen 函数（连接电话线）时进行的对话：<br>问：已架设完电话机后是否只需链接电话线？<br>答：对，只需要连接就能接听电话。<br>一连接电话线，电话机就可以转换为可接听状态，这时其他人可以拨打电话请求连接到该机。同样，需要把套接字转化成可接受连接状态。</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">listen</span><span class="params">(<span class="type">int</span> sockfd, <span class="type">int</span> backlog)</span></span>;</span><br><span class="line"><span class="comment">//成功时返回0，失败时返回-1</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">listen</span><span class="params">(<span class="type">int</span> sockfd, <span class="type">int</span> backlog)</span></span>;</span><br><span class="line"><span class="comment">//成功时返回0，失败时返回-1</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>连接好电话线以后，如果有人拨打电话就响铃，拿起话筒才能接听电话。<br>调用 accept 函数（拿起话筒）时进行的对话：<br>问：电话铃响了，我该怎么办？<br>答：接听啊。</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">accept</span><span class="params">(<span class="type">int</span> sockfd,<span class="keyword">struct</span> sockaddr *addr,<span class="type">socklen_t</span> *addrlen)</span></span>;</span><br><span class="line"><span class="comment">//成功时返回文件描述符，失败时返回-1</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">accept</span><span class="params">(<span class="type">int</span> sockfd,<span class="keyword">struct</span> sockaddr *addr,<span class="type">socklen_t</span> *addrlen)</span></span>;</span><br><span class="line"><span class="comment">//成功时返回文件描述符，失败时返回-1</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>网络编程中和接受连接请求的套接字创建过程可整理如下：</p>
 <ol>
@@ -438,10 +461,10 @@
 </li>
 <li><p>与服务端共同运行以收发字符串数据 </p>
 <p>客户端代码请参见：hello_client.c<br>编译：<br>分别对客户端和服务端程序进行编译：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc hello_server.c -o hserver</span><br><span class="line">gcc hello_client.c -o hclient</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line">gcc hello_server.c -o hserver</span><br><span class="line">gcc hello_client.c -o hclient</span><br></pre></td></tr></tbody></table></figure>
 
 <p>运行：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./hserver <span class="number">9190</span></span><br><span class="line">./hclient <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> <span class="number">9190</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line">./hserver <span class="number">9190</span></span><br><span class="line">./hclient <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span> <span class="number">9190</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>运行的时候，首先再 9190 端口启动服务，然后 heserver 就会一直等待客户端进行响应，当客户端监听位于本地的 IP 为 127.0.0.1 的地址的9190端口时，客户端就会收到服务端的回应，输出 Hello World!</p>
 </li>
@@ -993,9 +1016,6 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -1117,7 +1137,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">276.1k</span>
+                        class="white-color">276.6k</span>
             
             
             
@@ -1400,7 +1420,7 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>

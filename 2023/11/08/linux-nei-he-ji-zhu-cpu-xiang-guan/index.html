@@ -3,7 +3,7 @@
 
 
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="Linux内核技术-CPU, Huang Shichang&#39;s Blog">
     <meta name="description" content="如何让Linux内核更好地服务应用程序？当发生TCP重传时，有人可以从tcpdump里面的信息看到是哪个TCP连接进行重传，然而高手们却可以通过这些信息看到为什么会发生重传。
 四大类中的典型问题：Page Cache管理问题、内存泄漏问题、">
@@ -55,12 +55,13 @@
 
 <meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -358,7 +359,32 @@
     
     <div class="row">
     <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+        <!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+<!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -404,9 +430,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
@@ -430,7 +453,7 @@
 <li>因此，虽然这两个线程改写的数据不同，但是由于它们位于同一个Cache Line中，所以一个CPU中的线程在写数据时会导致另外一个CPU中的Cache Line失效，而<strong>另外一个CPU中的线程在读写数据时就会发生cache miss</strong>，然后去内存读数据，这就大大降低了性能。</li>
 </ul>
 <p>定义一个结构体，该结构体里的两个成员a和b在地址上是连续的。如果CPU 0去写a，同时CPU 1去读b的话，此时不会有竞争，因为a和b是不同的地址。不过，a和b由于在地址上是连续的，它们可能会位于同一个Cache Line中，所以为了防止前面提到的Cache伪共享问题，我们可以<strong>强制将b的地址设置为Cache Line对齐地址</strong>，如下:</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">foo</span> {</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">int</span> b ____cacheline_aligned;</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">foo</span> {</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">int</span> b ____cacheline_aligned;</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
 
 
 
@@ -440,12 +463,12 @@
 <p><strong>调度类的优先级如下：Deadline &gt; Realtime &gt; Fair。</strong></p>
 <p>不做任何设置的话，用户线程在默认情况下都是普通线程，也就是属于Fair调度类，由CFS调度器来进行管理。</p>
 <p>如果某些任务对延迟容忍度很低，可以考虑将任务设置为<strong>实时任务</strong>，比如将它设置为SCHED_FIFO的任务：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">chrt -f -p 1 1327</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">chrt -f -p 1 1327</span></span><br></pre></td></tr></tbody></table></figure>
 
 
 
 <h1 id="业务是否需要使用透明大页？"><a href="#业务是否需要使用透明大页？" class="headerlink" title="业务是否需要使用透明大页？"></a><strong>业务是否需要使用透明大页？</strong></h1><h2 id="细化CPU利用率监控"><a href="#细化CPU利用率监控" class="headerlink" title="细化CPU利用率监控"></a>细化CPU利用率监控</h2><p>CPU利用率监控通常是去解析**/proc/stat文件**，常用的top命令来看看CPU更加细化的利用率指标：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">%</span><span class="language-bash">Cpu(s): 12.5 us, 0.0 sy, 0.0 ni, 87.4 <span class="built_in">id</span>, 0.0 wa, 0.0 hi, 0.0 si, 0.0 st</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">%</span><span class="language-bash">Cpu(s): 12.5 us, 0.0 sy, 0.0 ni, 87.4 <span class="built_in">id</span>, 0.0 wa, 0.0 hi, 0.0 si, 0.0 st</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p><img src="http://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/Linux%e5%86%85%e6%a0%b8%e6%8a%80%e6%9c%af%e5%ae%9e%e6%88%98%e8%af%be/assets/3756d973a1f7f350bf600c9438f1a4a5.jpg" alt="CPU各指标具体含义"></p>
 <h2 id="抓取sys利用率飙高现场"><a href="#抓取sys利用率飙高现场" class="headerlink" title="抓取sys利用率飙高现场"></a>抓取sys利用率飙高现场</h2><p>CPU的sys利用率高，说明内核函数执行花费了太多的时间，所以我们需要采集CPU在sys飙高的瞬间所执行的内核函数。采集内核函数的方法有很多，比如：</p>
@@ -457,7 +480,7 @@
 </ul>
 <p><strong>这些方法更加适合采集一个时间段内的信息。</strong></p>
 <p><strong>sysrq</strong>是经常用来分析内核问题的工具，用它可以观察当前的内存快照、任务快照，可以构造vmcore把系统的所有信息都保存下来，甚至还可以在内存紧张的时候用它杀掉内存开销最大的那个进程。</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sysctl -w kernel.sysrq = 1	<span class="comment"># 将sysrq的所有功能都使能</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> t &gt; /proc/sysrq-trigger	<span class="comment"># 把当前的任务快照保存下来</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">dmesg							<span class="comment"># 通过dmesg命令来查看任务快照信息</span></span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sysctl -w kernel.sysrq = 1	<span class="comment"># 将sysrq的所有功能都使能</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> t &gt; /proc/sysrq-trigger	<span class="comment"># 把当前的任务快照保存下来</span></span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">dmesg							<span class="comment"># 通过dmesg命令来查看任务快照信息</span></span></span><br></pre></td></tr></tbody></table></figure>
 
 
 
@@ -473,21 +496,21 @@
 </ul>
 <h1 id="网络吞吐高的业务是否需要开启网卡特性呢？"><a href="#网络吞吐高的业务是否需要开启网卡特性呢？" class="headerlink" title="网络吞吐高的业务是否需要开启网卡特性呢？"></a><strong>网络吞吐高的业务是否需要开启网卡特性呢？</strong></h1><h2 id="中断与业务进程之间是如何相互干扰的"><a href="#中断与业务进程之间是如何相互干扰的" class="headerlink" title="中断与业务进程之间是如何相互干扰的"></a>中断与业务进程之间是如何相互干扰的</h2><p>案例：为了提升QPS（Query per Second），开启了RPS（Receivce Packet Steering）来模拟网卡多队列，反而导致了QPS明显下降。</p>
 <p>在业务打开RPS之前的性能指标：</p>
-<figure class="highlight perl"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ dstat </span><br><span class="line">You did <span class="keyword">not</span> <span class="keyword">select</span> any stats, using -cdngy by default.</span><br><span class="line">----total-cpu-usage---- -dsk/total- -net/total- ---paging-- ---<span class="keyword">system</span>--</span><br><span class="line">usr sys idl wai hiq si<span class="string">q| read  writ|</span> <span class="keyword">recv</span>  <span class="keyword">send</span>|  in   out | <span class="keyword">int</span>   csw </span><br><span class="line"> <span class="number">64</span>  <span class="number">23</span>   <span class="number">6</span>   <span class="number">0</span>   <span class="number">0</span>   <span class="number">7</span>|   <span class="number">0</span>  <span class="number">8192</span>B|<span class="number">7917</span>k   <span class="number">12</span>M|   <span class="number">0</span>     <span class="number">0</span> |  <span class="number">27</span>k <span class="number">1922</span> </span><br><span class="line"> <span class="number">64</span>  <span class="number">22</span>   <span class="number">6</span>   <span class="number">0</span>   <span class="number">0</span>   <span class="number">8</span>|   <span class="number">0</span>     <span class="number">0</span> |<span class="number">7739</span>k   <span class="number">12</span>M|   <span class="number">0</span>     <span class="number">0</span> |  <span class="number">26</span>k <span class="number">2210</span> </span><br><span class="line"> <span class="number">61</span>  <span class="number">23</span>   <span class="number">9</span>   <span class="number">0</span>   <span class="number">0</span>   <span class="number">7</span>|   <span class="number">0</span>     <span class="number">0</span> |<span class="number">7397</span>k   <span class="number">11</span>M|   <span class="number">0</span>     <span class="number">0</span> |  <span class="number">25</span>k <span class="number">2267</span> </span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight perl"><table><tbody><tr><td class="code"><pre><span class="line">$ dstat </span><br><span class="line">You did <span class="keyword">not</span> <span class="keyword">select</span> any stats, using -cdngy by default.</span><br><span class="line">----total-cpu-usage---- -dsk/total- -net/total- ---paging-- ---<span class="keyword">system</span>--</span><br><span class="line">usr sys idl wai hiq si<span class="string">q| read  writ|</span> <span class="keyword">recv</span>  <span class="keyword">send</span>|  in   out | <span class="keyword">int</span>   csw </span><br><span class="line"> <span class="number">64</span>  <span class="number">23</span>   <span class="number">6</span>   <span class="number">0</span>   <span class="number">0</span>   <span class="number">7</span>|   <span class="number">0</span>  <span class="number">8192</span>B|<span class="number">7917</span>k   <span class="number">12</span>M|   <span class="number">0</span>     <span class="number">0</span> |  <span class="number">27</span>k <span class="number">1922</span> </span><br><span class="line"> <span class="number">64</span>  <span class="number">22</span>   <span class="number">6</span>   <span class="number">0</span>   <span class="number">0</span>   <span class="number">8</span>|   <span class="number">0</span>     <span class="number">0</span> |<span class="number">7739</span>k   <span class="number">12</span>M|   <span class="number">0</span>     <span class="number">0</span> |  <span class="number">26</span>k <span class="number">2210</span> </span><br><span class="line"> <span class="number">61</span>  <span class="number">23</span>   <span class="number">9</span>   <span class="number">0</span>   <span class="number">0</span>   <span class="number">7</span>|   <span class="number">0</span>     <span class="number">0</span> |<span class="number">7397</span>k   <span class="number">11</span>M|   <span class="number">0</span>     <span class="number">0</span> |  <span class="number">25</span>k <span class="number">2267</span> </span><br></pre></td></tr></tbody></table></figure>
 
 <p>打开了RPS之后的性能指标：</p>
-<figure class="highlight perl"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ dstat </span><br><span class="line">You did <span class="keyword">not</span> <span class="keyword">select</span> any stats, using -cdngy by default.</span><br><span class="line">----total-cpu-usage---- -dsk/total- -net/total- ---paging-- ---<span class="keyword">system</span>--</span><br><span class="line">usr sys idl wai hiq si<span class="string">q| read  writ|</span> <span class="keyword">recv</span>  <span class="keyword">send</span>|  in   out | <span class="keyword">int</span>   csw </span><br><span class="line"> <span class="number">62</span>  <span class="number">23</span>   <span class="number">4</span>   <span class="number">0</span>   <span class="number">0</span>  <span class="number">12</span>|   <span class="number">0</span>     <span class="number">0</span> |<span class="number">7096</span>k   <span class="number">11</span>M|   <span class="number">0</span>     <span class="number">0</span> |  <span class="number">49</span>k <span class="number">2261</span> </span><br><span class="line"> <span class="number">74</span>  <span class="number">13</span>   <span class="number">4</span>   <span class="number">0</span>   <span class="number">0</span>   <span class="number">9</span>|   <span class="number">0</span>     <span class="number">0</span> |<span class="number">4003</span>k <span class="number">6543</span>k|   <span class="number">0</span>     <span class="number">0</span> |  <span class="number">31</span>k <span class="number">2004</span> </span><br><span class="line"> <span class="number">59</span>  <span class="number">22</span>   <span class="number">5</span>   <span class="number">0</span>   <span class="number">0</span>  <span class="number">13</span>|   <span class="number">0</span>  <span class="number">4096</span>B|<span class="number">6710</span>k   <span class="number">10</span>M|   <span class="number">0</span>     <span class="number">0</span> |  <span class="number">48</span>k <span class="number">2220</span> </span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight perl"><table><tbody><tr><td class="code"><pre><span class="line">$ dstat </span><br><span class="line">You did <span class="keyword">not</span> <span class="keyword">select</span> any stats, using -cdngy by default.</span><br><span class="line">----total-cpu-usage---- -dsk/total- -net/total- ---paging-- ---<span class="keyword">system</span>--</span><br><span class="line">usr sys idl wai hiq si<span class="string">q| read  writ|</span> <span class="keyword">recv</span>  <span class="keyword">send</span>|  in   out | <span class="keyword">int</span>   csw </span><br><span class="line"> <span class="number">62</span>  <span class="number">23</span>   <span class="number">4</span>   <span class="number">0</span>   <span class="number">0</span>  <span class="number">12</span>|   <span class="number">0</span>     <span class="number">0</span> |<span class="number">7096</span>k   <span class="number">11</span>M|   <span class="number">0</span>     <span class="number">0</span> |  <span class="number">49</span>k <span class="number">2261</span> </span><br><span class="line"> <span class="number">74</span>  <span class="number">13</span>   <span class="number">4</span>   <span class="number">0</span>   <span class="number">0</span>   <span class="number">9</span>|   <span class="number">0</span>     <span class="number">0</span> |<span class="number">4003</span>k <span class="number">6543</span>k|   <span class="number">0</span>     <span class="number">0</span> |  <span class="number">31</span>k <span class="number">2004</span> </span><br><span class="line"> <span class="number">59</span>  <span class="number">22</span>   <span class="number">5</span>   <span class="number">0</span>   <span class="number">0</span>  <span class="number">13</span>|   <span class="number">0</span>  <span class="number">4096</span>B|<span class="number">6710</span>k   <span class="number">10</span>M|   <span class="number">0</span>     <span class="number">0</span> |  <span class="number">48</span>k <span class="number">2220</span> </span><br></pre></td></tr></tbody></table></figure>
 
 <p>打开RPS后，CPU的利用率有所升高。其中，siq即软中断利用率明显增加，int即硬中断频率也明显升高，而net这一项里的网络吞吐数据则有所下降。在网络吞吐不升反降的情况下，系统的硬中断和软中断都明显增加。由此我们可以推断出，网络吞吐的下降应该是中断增加导致的结果。</p>
 <p>通过**/proc/interruptes**这个文件来查看硬中断及其发生频率：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> /proc/interrupts</span> </span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> /proc/interrupts</span> </span><br></pre></td></tr></tbody></table></figure>
 
 <p>可以通过**/proc/softirq**来查看软中断：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> /proc/softirqs</span> </span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> /proc/softirqs</span> </span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>软中断是用来处理硬中断在短时间内无法完成的任务的。</strong>相比硬中断，软中断的执行时间会长一些，而且它也会抢占正在执行进程的CPU，从而导致进程在它运行期间只能等待。</p>
 <p>可以通过如下两个tracepoints来进行观测：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/sys/kernel/debug/tracing/events/irq/softirq_entry</span><br><span class="line">/sys/kernel/debug/tracing/events/irq/softirq_exit</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">/sys/kernel/debug/tracing/events/irq/softirq_entry</span><br><span class="line">/sys/kernel/debug/tracing/events/irq/softirq_exit</span><br></pre></td></tr></tbody></table></figure>
 
 <p>这两个tracepoint分别表示软中断的进入和退出，退出时间减去进入时间就是该软中断这一次的耗时。</p>
 <p>同样可以使用bcc里的<a target="_blank" rel="noopener" href="https://github.com/iovisor/bcc/blob/master/tools/softirqs.py"><strong>softirqs.py</strong></a>工具进行观测，它会统计软中断的次数和耗时。</p>
@@ -500,7 +523,7 @@
 <h1 id="如何分析CPU利用率飙高问题-？"><a href="#如何分析CPU利用率飙高问题-？" class="headerlink" title="如何分析CPU利用率飙高问题 ？"></a><strong>如何分析CPU利用率飙高问题 ？</strong></h1><h2 id="如何拓展分析问题的边界"><a href="#如何拓展分析问题的边界" class="headerlink" title="如何拓展分析问题的边界"></a>如何拓展分析问题的边界</h2><p><strong>strace：</strong></p>
 <p>可以用来分析应用和内核的“边界”——系统调用。strace可以跟踪进程的系统调用、特定的系统调用以及系统调用的执行时间。</p>
 <p>比如想要跟踪一个多线程程序的系统调用情况，那就可以这样使用strace：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">strace -T -tt -ff -p pid -o strace.out</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">strace -T -tt -ff -p pid -o strace.out</span></span><br></pre></td></tr></tbody></table></figure>
 
 
 
@@ -518,25 +541,25 @@
 <li><p>查看<a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/v5.9-rc6/source/include/linux/syscalls.h">include/linux/syscalls.h</a>文件里的内核函数：</p>
 </li>
 <li><p>通过/proc/kallsyms这个文件来查找：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> /proc/kallsyms | grep pread64- …- ffffffffa02ef3d0 T ksys_pread64- …</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cat</span> /proc/kallsyms | grep pread64- …- ffffffffa02ef3d0 T ksys_pread64- …</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>/proc/kallsyms里的每一行都是一个符号，其中第一列是符号地址，第二列是符号的属性，第三列是符号名字，比如上面这个信息中的T就表示全局代码符号，可以追踪这类的符号。关于这些符号属性的含义，可以通过<a target="_blank" rel="noopener" href="https://man7.org/linux/man-pages/man1/nm.1p.html">man nm</a>来查看。</p>
 </li>
 </ul>
 <p><strong>ftrace：</strong></p>
 <p>​	可以使用ftrace的function_trace功能来追踪内核函数的耗时情况。function_graph的使用方式如下：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">首先设置要追踪的函数</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> ksys_pread64 &gt; /sys/kernel/debug/tracing/set_graph_function</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">其次设置要追踪的线程的pid，如果有多个线程，那需要将每个线程都逐个写入</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> 6577 &gt; /sys/kernel/debug/tracing/set_ftrace_pid</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> 6589 &gt;&gt; /sys/kernel/debug/tracing/set_ftrace_pid</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将function_graph设置为当前的tracer，来追踪函数调用情况</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> function_graph &gt; /sys/kernel/debug/tracing/current_trace</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">首先设置要追踪的函数</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> ksys_pread64 &gt; /sys/kernel/debug/tracing/set_graph_function</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">其次设置要追踪的线程的pid，如果有多个线程，那需要将每个线程都逐个写入</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> 6577 &gt; /sys/kernel/debug/tracing/set_ftrace_pid</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> 6589 &gt;&gt; /sys/kernel/debug/tracing/set_ftrace_pid</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将function_graph设置为当前的tracer，来追踪函数调用情况</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> function_graph &gt; /sys/kernel/debug/tracing/current_trace</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p><strong>iostat：</strong></p>
 <p>查看系统的磁盘I/O情况：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">iostat -dxm 1</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">iostat -dxm 1</span></span><br></pre></td></tr></tbody></table></figure>
 
 
 
 <h2 id="自己写分析工具"><a href="#自己写分析工具" class="headerlink" title="自己写分析工具"></a>自己写分析工具</h2><p><strong>判断内存中都有哪些文件以及这些文件的大小：</strong></p>
 <p>常规方式是用fincore和mincore，不过它们都比较低效。</p>
 <p>更加高效的方式：通过<strong>写一个内核模块遍历inode来查看Page Cache的组成</strong>。伪代码如下：</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">iterate_supers <span class="comment">// 遍历super block</span></span><br><span class="line">  iterate_pagecache_sb <span class="comment">// 遍历superblock里的inode</span></span><br><span class="line">      <span class="built_in">list_for_each_entry</span>(inode, &amp;sb-&gt;s_inodes, i_sb_list)</span><br><span class="line">        <span class="comment">// 记录该inode的pagecache大小 </span></span><br><span class="line">        nrpages = inode-&gt;i_mapping-&gt;nrpages; </span><br><span class="line">        <span class="comment">/* 获取该inode对应的dentry，然后根据该dentry来查找文件路径；</span></span><br><span class="line"><span class="comment">         * 请注意inode可能没有对应的dentry，因为dentry可能被回收掉了，</span></span><br><span class="line"><span class="comment">         * 此时就无法查看该inode对应的文件名了。</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        dentry = <span class="built_in">dentry_from_inode</span>(inode); </span><br><span class="line">        <span class="built_in">dentry_path_raw</span>(dentry, filename, PATH_MAX);</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line">iterate_supers <span class="comment">// 遍历super block</span></span><br><span class="line">  iterate_pagecache_sb <span class="comment">// 遍历superblock里的inode</span></span><br><span class="line">      <span class="built_in">list_for_each_entry</span>(inode, &amp;sb-&gt;s_inodes, i_sb_list)</span><br><span class="line">        <span class="comment">// 记录该inode的pagecache大小 </span></span><br><span class="line">        nrpages = inode-&gt;i_mapping-&gt;nrpages; </span><br><span class="line">        <span class="comment">/* 获取该inode对应的dentry，然后根据该dentry来查找文件路径；</span></span><br><span class="line"><span class="comment">         * 请注意inode可能没有对应的dentry，因为dentry可能被回收掉了，</span></span><br><span class="line"><span class="comment">         * 此时就无法查看该inode对应的文件名了。</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        dentry = <span class="built_in">dentry_from_inode</span>(inode); </span><br><span class="line">        <span class="built_in">dentry_path_raw</span>(dentry, filename, PATH_MAX);</span><br></pre></td></tr></tbody></table></figure>
 
 <p>这种方式不仅可以查看进程正在打开的文件，也能查看文件已经被进程关闭，但文件内容还在内存中的情况。</p>
 <h1 id="如何使用tracepoint来分析内核Bug的？"><a href="#如何使用tracepoint来分析内核Bug的？" class="headerlink" title="如何使用tracepoint来分析内核Bug的？"></a><strong>如何使用tracepoint来分析内核Bug的？</strong></h1><h2 id="内存申请在慢速路径上为什么会失败"><a href="#内存申请在慢速路径上为什么会失败" class="headerlink" title="内存申请在慢速路径上为什么会失败"></a>内存申请在慢速路径上为什么会失败</h2><p>在内存分配慢速路径里失败，原因可以分为以下三种情况：</p>
@@ -547,11 +570,11 @@
 </ul>
 <h2 id="使用tracepoint分析生产环境"><a href="#使用tracepoint分析生产环境" class="headerlink" title="使用tracepoint分析生产环境"></a>使用tracepoint分析生产环境</h2><p>tracepoint是一种性能开销比较小的追踪手段，在生产环境上使用它，不会给业务带来明显的性能影响。</p>
 <p>以function tracer为例来追踪direct compact：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> <span class="keyword">function</span> &gt; /sys/kernel/debug/tracing/current_tracer</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> __alloc_pages_direct_compact &gt; /sys/kernel/debug/tracing/set_ftrace_filter</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> <span class="keyword">function</span> &gt; /sys/kernel/debug/tracing/current_tracer</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> __alloc_pages_direct_compact &gt; /sys/kernel/debug/tracing/set_ftrace_filter</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>这样，当发生direct compact时，在trace_pipe中就会有相应的信息输出。</p>
 <p>可以借助direct reclaim的tracepoint来查看direct claim能否成功回收内存：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> 1 &gt; /sys/kernel/debug/tracing/events/vmscan/mm_vmscan_direct_reclaim_begin/enable</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> 1 &gt; /sys/kernel/debug/tracing/events/vmscan/mm_vmscan_direct_reclaim_end/enable</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> 1 &gt; /sys/kernel/debug/tracing/events/vmscan/mm_vmscan_direct_reclaim_begin/enable</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> 1 &gt; /sys/kernel/debug/tracing/events/vmscan/mm_vmscan_direct_reclaim_end/enable</span></span><br></pre></td></tr></tbody></table></figure>
                 
             </div>
             <hr/>
@@ -1098,9 +1121,6 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -1222,7 +1242,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">276.1k</span>
+                        class="white-color">276.6k</span>
             
             
             
@@ -1505,7 +1525,7 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>

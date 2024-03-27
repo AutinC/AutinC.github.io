@@ -3,7 +3,7 @@
 
 
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="C++基础语法101-120, Huang Shichang&#39;s Blog">
     <meta name="description" content="
 
@@ -56,12 +56,13 @@
 
 <meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -359,7 +360,32 @@
     
     <div class="row">
     <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+        <!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+<!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -405,9 +431,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
@@ -428,7 +451,7 @@
 </ol>
 <p id="如果有一个空类它会默认添加哪些函数"></p>
 
-<h2 id="103、如果有一个空类，它会默认添加哪些函数？"><a href="#103、如果有一个空类，它会默认添加哪些函数？" class="headerlink" title="103、如果有一个空类，它会默认添加哪些函数？"></a>103、如果有一个空类，它会默认添加哪些函数？</h2><figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>)  <span class="built_in">Empty</span>(); <span class="comment">// 缺省构造函数//</span></span><br><span class="line"><span class="number">2</span>)  <span class="built_in">Empty</span>( <span class="type">const</span> Empty&amp; ); <span class="comment">// 拷贝构造函数//</span></span><br><span class="line"><span class="number">3</span>)  ~<span class="built_in">Empty</span>(); <span class="comment">// 析构函数//</span></span><br><span class="line"><span class="number">4</span>)  Empty&amp; <span class="keyword">operator</span>=( <span class="type">const</span> Empty&amp; ); <span class="comment">// 赋值运算符//</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="103、如果有一个空类，它会默认添加哪些函数？"><a href="#103、如果有一个空类，它会默认添加哪些函数？" class="headerlink" title="103、如果有一个空类，它会默认添加哪些函数？"></a>103、如果有一个空类，它会默认添加哪些函数？</h2><figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="number">1</span>)  <span class="built_in">Empty</span>(); <span class="comment">// 缺省构造函数//</span></span><br><span class="line"><span class="number">2</span>)  <span class="built_in">Empty</span>( <span class="type">const</span> Empty&amp; ); <span class="comment">// 拷贝构造函数//</span></span><br><span class="line"><span class="number">3</span>)  ~<span class="built_in">Empty</span>(); <span class="comment">// 析构函数//</span></span><br><span class="line"><span class="number">4</span>)  Empty&amp; <span class="keyword">operator</span>=( <span class="type">const</span> Empty&amp; ); <span class="comment">// 赋值运算符//</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p id="西加加中标准库是什么"></p>
 
@@ -451,7 +474,7 @@
 <li><p>三者的转化关系如下所示：</p>
 </li>
 </ol>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">a)  string转<span class="type">const</span> <span class="type">char</span>* </span><br><span class="line">string s = “abc”; </span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* c_s = s.<span class="built_in">c_str</span>(); </span><br><span class="line">b)  <span class="type">const</span> <span class="type">char</span>* 转string，直接赋值即可 </span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* c_s = “abc”; </span><br><span class="line"> <span class="function">string <span class="title">s</span><span class="params">(c_s)</span></span>; </span><br><span class="line">c)  string 转<span class="type">char</span>* </span><br><span class="line"> string s = “abc”; </span><br><span class="line"> <span class="type">char</span>* c; </span><br><span class="line"> <span class="type">const</span> <span class="type">int</span> len = s.<span class="built_in">length</span>(); </span><br><span class="line"> c = <span class="keyword">new</span> <span class="type">char</span>[len+<span class="number">1</span>]; </span><br><span class="line"> <span class="built_in">strcpy</span>(c,s.<span class="built_in">c_str</span>()); </span><br><span class="line">d)  <span class="type">char</span>* 转string </span><br><span class="line"> <span class="type">char</span>* c = “abc”; </span><br><span class="line"> <span class="function">string <span class="title">s</span><span class="params">(c)</span></span>; </span><br><span class="line">e)  <span class="type">const</span> <span class="type">char</span>* 转<span class="type">char</span>* </span><br><span class="line"> <span class="type">const</span> <span class="type">char</span>* cpc = “abc”; </span><br><span class="line"> <span class="type">char</span>* pc = <span class="keyword">new</span> <span class="type">char</span>[<span class="built_in">strlen</span>(cpc)+<span class="number">1</span>]; </span><br><span class="line"> <span class="built_in">strcpy</span>(pc,cpc);</span><br><span class="line">f)  <span class="type">char</span>* 转<span class="type">const</span> <span class="type">char</span>*，直接赋值即可 </span><br><span class="line"> <span class="type">char</span>* pc = “abc”; </span><br><span class="line"> <span class="type">const</span> <span class="type">char</span>* cpc = pc;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line">a)  string转<span class="type">const</span> <span class="type">char</span>* </span><br><span class="line">string s = “abc”; </span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* c_s = s.<span class="built_in">c_str</span>(); </span><br><span class="line">b)  <span class="type">const</span> <span class="type">char</span>* 转string，直接赋值即可 </span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* c_s = “abc”; </span><br><span class="line"> <span class="function">string <span class="title">s</span><span class="params">(c_s)</span></span>; </span><br><span class="line">c)  string 转<span class="type">char</span>* </span><br><span class="line"> string s = “abc”; </span><br><span class="line"> <span class="type">char</span>* c; </span><br><span class="line"> <span class="type">const</span> <span class="type">int</span> len = s.<span class="built_in">length</span>(); </span><br><span class="line"> c = <span class="keyword">new</span> <span class="type">char</span>[len+<span class="number">1</span>]; </span><br><span class="line"> <span class="built_in">strcpy</span>(c,s.<span class="built_in">c_str</span>()); </span><br><span class="line">d)  <span class="type">char</span>* 转string </span><br><span class="line"> <span class="type">char</span>* c = “abc”; </span><br><span class="line"> <span class="function">string <span class="title">s</span><span class="params">(c)</span></span>; </span><br><span class="line">e)  <span class="type">const</span> <span class="type">char</span>* 转<span class="type">char</span>* </span><br><span class="line"> <span class="type">const</span> <span class="type">char</span>* cpc = “abc”; </span><br><span class="line"> <span class="type">char</span>* pc = <span class="keyword">new</span> <span class="type">char</span>[<span class="built_in">strlen</span>(cpc)+<span class="number">1</span>]; </span><br><span class="line"> <span class="built_in">strcpy</span>(pc,cpc);</span><br><span class="line">f)  <span class="type">char</span>* 转<span class="type">const</span> <span class="type">char</span>*，直接赋值即可 </span><br><span class="line"> <span class="type">char</span>* pc = “abc”; </span><br><span class="line"> <span class="type">const</span> <span class="type">char</span>* cpc = pc;</span><br></pre></td></tr></tbody></table></figure>
 
 
 
@@ -476,7 +499,7 @@
 <p>如果数据对象是结构，则使用引用或者指针</p>
 <p>如果数据是类对象，则使用引用</p>
 <p>也有一种说法认为：“如果数据对象是数组，则只能使用指针”，这是不对的，比如</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="type">int</span> N&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">(T (&amp;a)[N])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    a[<span class="number">0</span>] = <span class="number">2</span>;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> a[] = { <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> };</span><br><span class="line">    <span class="built_in">func</span>(a);</span><br><span class="line">    cout &lt;&lt; a[<span class="number">0</span>] &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="type">int</span> N&gt;</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">(T (&amp;a)[N])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    a[<span class="number">0</span>] = <span class="number">2</span>;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> a[] = { <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> };</span><br><span class="line">    <span class="built_in">func</span>(a);</span><br><span class="line">    cout &lt;&lt; a[<span class="number">0</span>] &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 
 
@@ -611,7 +634,7 @@
 <p>main（int args, char **argv） 参数的传递。参数的处理，一般会调用getopt（）函数处理，但实践中，这仅仅是一部分，不会经常用到的技能点。</p>
 <p id="写一个比较大小的模板函数"></p>
 
-<h2 id="119、模板会写吗？写一个比较大小的模板函数"><a href="#119、模板会写吗？写一个比较大小的模板函数" class="headerlink" title="119、模板会写吗？写一个比较大小的模板函数"></a>119、模板会写吗？写一个比较大小的模板函数</h2><figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span> </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std; </span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> type1,<span class="keyword">typename</span> type2&gt;<span class="comment">//函数模板 </span></span><br><span class="line"><span class="function">type1 <span class="title">Max</span><span class="params">(type1 a,type2 b)</span> </span></span><br><span class="line"><span class="function"></span>{ </span><br><span class="line">   <span class="keyword">return</span> a &gt; b ? a : b; </span><br><span class="line">} </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"> </span>{ </span><br><span class="line">  cout&lt;&lt;<span class="string">"Max = "</span>&lt;&lt;<span class="built_in">Max</span>(<span class="number">5.5</span>,<span class="string">'a'</span>)&lt;&lt;endl; </span><br><span class="line">} </span><br></pre></td></tr></tbody></table></figure>
+<h2 id="119、模板会写吗？写一个比较大小的模板函数"><a href="#119、模板会写吗？写一个比较大小的模板函数" class="headerlink" title="119、模板会写吗？写一个比较大小的模板函数"></a>119、模板会写吗？写一个比较大小的模板函数</h2><figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span> </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std; </span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> type1,<span class="keyword">typename</span> type2&gt;<span class="comment">//函数模板 </span></span><br><span class="line"><span class="function">type1 <span class="title">Max</span><span class="params">(type1 a,type2 b)</span> </span></span><br><span class="line"><span class="function"></span>{ </span><br><span class="line">   <span class="keyword">return</span> a &gt; b ? a : b; </span><br><span class="line">} </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"> </span>{ </span><br><span class="line">  cout&lt;&lt;<span class="string">"Max = "</span>&lt;&lt;<span class="built_in">Max</span>(<span class="number">5.5</span>,<span class="string">'a'</span>)&lt;&lt;endl; </span><br><span class="line">} </span><br></pre></td></tr></tbody></table></figure>
 
 <p>其实该模板有个比较隐晦的bug，那就是a、b只有在能进行转型的时候才能进行比较，否则 a &gt; b 这一步是会报错的。</p>
 <p>这个时候往往需要对于 &gt; 号进行重载，这代码量瞬间上来了。</p>
@@ -620,7 +643,7 @@
 <h2 id="120、strcpy函数和strncpy函数的区别？哪个函数更安全？"><a href="#120、strcpy函数和strncpy函数的区别？哪个函数更安全？" class="headerlink" title="120、strcpy函数和strncpy函数的区别？哪个函数更安全？"></a>120、strcpy函数和strncpy函数的区别？哪个函数更安全？</h2><ol>
 <li>函数原型</li>
 </ol>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span>* <span class="title">strcpy</span><span class="params">(<span class="type">char</span>* strDest, <span class="type">const</span> <span class="type">char</span>* strSrc)</span></span></span><br><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strncpy</span><span class="params">(<span class="type">char</span> *dest, <span class="type">const</span> <span class="type">char</span> *src, <span class="type">size_t</span> n)</span></span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span>* <span class="title">strcpy</span><span class="params">(<span class="type">char</span>* strDest, <span class="type">const</span> <span class="type">char</span>* strSrc)</span></span></span><br><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strncpy</span><span class="params">(<span class="type">char</span> *dest, <span class="type">const</span> <span class="type">char</span> *src, <span class="type">size_t</span> n)</span></span></span><br></pre></td></tr></tbody></table></figure>
 <ol start="2">
 <li><ul>
 <li>strcpy函数: 如果参数 dest 所指的内存空间不够大，可能会造成缓冲溢出(buffer Overflow)的错误情况，在编写程序时请特别留意，或者用strncpy()来取代。 </li>
@@ -1181,9 +1204,6 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -1305,7 +1325,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">276.1k</span>
+                        class="white-color">276.6k</span>
             
             
             
@@ -1588,7 +1608,7 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>

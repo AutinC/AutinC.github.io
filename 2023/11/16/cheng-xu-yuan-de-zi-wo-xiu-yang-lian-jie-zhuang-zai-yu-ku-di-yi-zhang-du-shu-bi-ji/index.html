@@ -3,7 +3,7 @@
 
 
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="《程序员的自我修养——链接、装载与库》第一章读书笔记, Huang Shichang&#39;s Blog">
     <meta name="description" content="计算机硬件计算机硬件核心三部分：中央处理器CPU、内存、I/O控制芯片。CPU频率：大体上理解是，CPU操作的最小时间单位叫时钟周期，它的倒数叫频率。意思就是一秒钟CPU能执行多少条指令。频率越高，单位时间内能执行的命令越多，也就越快。&amp;n">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,12 +54,13 @@
 
 <meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -357,7 +358,32 @@
     
     <div class="row">
     <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+        <!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+<!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -402,9 +428,6 @@
         </div>
         <hr class="clearfix">
 
-        
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
         
 
         
@@ -514,7 +537,7 @@
 <p>线程通常有三种状态：<strong>运行</strong>(Running)、<strong>就绪</strong>(Ready)、<strong>等待</strong>(Waiting)。</p>
 <p><img src="https://gcdnb.pbrd.co/images/6AXOxzvy3SOk.png?o=1"></p>
 <p>线程的调度遵循<strong>优先级</strong>（Priority）和<strong>时间片</strong>（Time Slice）。Linux下可以通过<strong>pthread库</strong>来手动给线程设置优先级，在Windows中通过以下API：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">BOOL WINAPI <span class="title">SetThreadPriority</span><span class="params">(HANDLE hThread, <span class="type">int</span> nPriority)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function">BOOL WINAPI <span class="title">SetThreadPriority</span><span class="params">(HANDLE hThread, <span class="type">int</span> nPriority)</span></span>;</span><br></pre></td></tr></tbody></table></figure>
 
 <p>系统会给线程自动调整优先级，以使得线程调度更有效率。一般来说由于<strong>IO密集型线程</strong>等待状态较多，会主动放弃CPU时间，不容易造成其他线程饿死，所以其优先级较高，而<strong>计算密集型线程</strong>相反。</p>
 <p>优先级改变的三种方式：</p>
@@ -538,7 +561,7 @@
 <li><p>fork只能产生本任务的镜像，需要配合exec才能启动新任务，新任务可以调用exec执行新的可执行文件。</p>
 </li>
 <li><p>clone可以生成一个新的任务并从指定位置开始执行，并共享当前的内存空间和文件，等同于clone函数的原型：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">clone</span><span class="params">(<span class="type">int</span> (*fn)(<span class="type">void</span>*), <span class="type">void</span>* child_stack, <span class="type">int</span> flags, <span class="type">void</span>* arg)</span></span>;</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">clone</span><span class="params">(<span class="type">int</span> (*fn)(<span class="type">void</span>*), <span class="type">void</span>* child_stack, <span class="type">int</span> flags, <span class="type">void</span>* arg)</span></span>;</span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
 <ol start="7">
 <li>线程安全：</li>
@@ -1138,9 +1161,6 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -1262,7 +1282,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">276.1k</span>
+                        class="white-color">276.6k</span>
             
             
             
@@ -1545,7 +1565,7 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>

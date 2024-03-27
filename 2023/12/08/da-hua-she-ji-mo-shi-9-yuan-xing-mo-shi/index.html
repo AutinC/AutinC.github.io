@@ -3,11 +3,11 @@
 
 
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="《大话设计模式》9-原型模式, Huang Shichang&#39;s Blog">
     <meta name="description" content="原型模式定义用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象
 结构
-代码1234567891011121314151617181920212223242526272829303132333435363738394041// 原">
+代码// 原型类Prototypeclass Prototype{public:    Prototype(string id)    {        th">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -56,12 +56,13 @@
 
 <meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -359,7 +360,32 @@
     
     <div class="row">
     <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+        <!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+<!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -393,7 +419,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    533
+                    531
                 </div>
                 
 
@@ -405,9 +431,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
@@ -415,7 +438,7 @@
             <div id="articleContent">
                 <h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>用原型实例指定创建对象的种类，并且通过<strong>拷贝这些原型创建新的对象</strong></p>
 <h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p><img src="https://gcdnb.pbrd.co/images/B8VYxgC8L5Jg.png?o=1"></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 原型类Prototype</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Prototype</span></span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Prototype</span>(string id)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">this</span>._id = id;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    string Id</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">return</span> _id;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 抽象类关键就是有这个Clone纯虚函数</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> Prototype* <span class="title">Clone</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    string _id;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 具体原型类ConcretePrototype</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ConcretePrototype1</span> : Prototype</span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">ConcretePrototype1</span>(string id) : <span class="built_in">Prototype</span>(id){}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> Prototype* <span class="title">Clone</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">ConcretePrototype1</span>(*<span class="keyword">this</span>);</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 客户端</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    ConcretePrototype1 p1 = <span class="keyword">new</span> <span class="built_in">ConcretePrototype1</span>(<span class="string">"xiaohuang"</span>);</span><br><span class="line">    ConcretePrototype1 c1 = (ConcretePrototype1)p1.<span class="built_in">Clone</span>();		<span class="comment">// 通过克隆对象p1就可以得到新对象c1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>；</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// 原型类Prototype</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Prototype</span></span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Prototype</span>(string id)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">this</span>._id = id;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    string Id</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">return</span> _id;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 抽象类关键就是有这个Clone纯虚函数</span></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> Prototype* <span class="title">Clone</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    string _id;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 具体原型类ConcretePrototype</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ConcretePrototype1</span> : Prototype</span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">ConcretePrototype1</span>(string id) : <span class="built_in">Prototype</span>(id){}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> Prototype* <span class="title">Clone</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">ConcretePrototype1</span>(*<span class="keyword">this</span>);</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 客户端</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    ConcretePrototype1 p1 = <span class="keyword">new</span> <span class="built_in">ConcretePrototype1</span>(<span class="string">"xiaohuang"</span>);</span><br><span class="line">    ConcretePrototype1 c1 = (ConcretePrototype1)p1.<span class="built_in">Clone</span>();		<span class="comment">// 通过克隆对象p1就可以得到新对象c1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>；</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <ul>
 <li>原型模式其实就是从一个对象再创建另外一个可定制的对象，而且不需知道任何创建的细节</li>
@@ -428,7 +451,7 @@
 <li>深复制：把引用对象的变量指向复制过的新对象，而不是原有的被引用的对象</li>
 </ul>
 <p><strong>原型模式里面的深复制需要程序员设计实现。</strong></p>
-<h3 id="深复制案例"><a href="#深复制案例" class="headerlink" title="深复制案例"></a>深复制案例</h3><figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 工作经历类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">WorkExperience</span> : ICloneable</span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	string _workdate;</span><br><span class="line">	string _company;</span><br><span class="line">	</span><br><span class="line">	<span class="function">Object* <span class="title">Clone</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">WorkExperience</span>(*<span class="keyword">this</span>);</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 简历类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Resume</span> : ICloneable</span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">Resume</span>(string name)</span><br><span class="line">	{</span><br><span class="line">		<span class="keyword">this</span>._name = name;</span><br><span class="line">		work = <span class="keyword">new</span> <span class="built_in">WorkExperience</span>();</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">Resum</span>(WorkExperience work)</span><br><span class="line">	{</span><br><span class="line">		<span class="keyword">this</span>._work = (WorkExperience)work.<span class="built_in">Clone</span>();</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">SetPersonalInfo</span><span class="params">(string sex, string age)</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">this</span>._sex = sex;</span><br><span class="line">		<span class="keyword">this</span>._age = age;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">SetWorkExperience</span><span class="params">(string workdate, string company)</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		_work._workdate = workdate;</span><br><span class="line">		_work._company = company;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">Show</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		cout &lt;&lt; _name &lt;&lt; _sex &lt;&lt; _age &lt;&lt; _work._workdate &lt;&lt; _work._company;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> Prototype* <span class="title">Clone</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		Resume obj = <span class="keyword">new</span> <span class="built_in">Resume</span>(<span class="keyword">this</span>._work);</span><br><span class="line">		obj._name = <span class="keyword">this</span>._name;</span><br><span class="line">		obj._sex = <span class="keyword">this</span>._sex;</span><br><span class="line">		obj._age = <span class="keyword">this</span>._age;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> obj;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	string _name;</span><br><span class="line">	string _sex;</span><br><span class="line">	string _age;</span><br><span class="line">	WorkExperience _work;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="深复制案例"><a href="#深复制案例" class="headerlink" title="深复制案例"></a>深复制案例</h3><figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// 工作经历类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">WorkExperience</span> : ICloneable</span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	string _workdate;</span><br><span class="line">	string _company;</span><br><span class="line">	</span><br><span class="line">	<span class="function">Object* <span class="title">Clone</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">WorkExperience</span>(*<span class="keyword">this</span>);</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 简历类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Resume</span> : ICloneable</span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">Resume</span>(string name)</span><br><span class="line">	{</span><br><span class="line">		<span class="keyword">this</span>._name = name;</span><br><span class="line">		work = <span class="keyword">new</span> <span class="built_in">WorkExperience</span>();</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">Resum</span>(WorkExperience work)</span><br><span class="line">	{</span><br><span class="line">		<span class="keyword">this</span>._work = (WorkExperience)work.<span class="built_in">Clone</span>();</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">SetPersonalInfo</span><span class="params">(string sex, string age)</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		<span class="keyword">this</span>._sex = sex;</span><br><span class="line">		<span class="keyword">this</span>._age = age;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">SetWorkExperience</span><span class="params">(string workdate, string company)</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		_work._workdate = workdate;</span><br><span class="line">		_work._company = company;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">Show</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		cout &lt;&lt; _name &lt;&lt; _sex &lt;&lt; _age &lt;&lt; _work._workdate &lt;&lt; _work._company;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> Prototype* <span class="title">Clone</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		Resume obj = <span class="keyword">new</span> <span class="built_in">Resume</span>(<span class="keyword">this</span>._work);</span><br><span class="line">		obj._name = <span class="keyword">this</span>._name;</span><br><span class="line">		obj._sex = <span class="keyword">this</span>._sex;</span><br><span class="line">		obj._age = <span class="keyword">this</span>._age;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> obj;</span><br><span class="line">	}</span><br><span class="line">	</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	string _name;</span><br><span class="line">	string _sex;</span><br><span class="line">	string _age;</span><br><span class="line">	WorkExperience _work;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 
                 
@@ -977,9 +1000,6 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -1101,7 +1121,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">276.1k</span>
+                        class="white-color">276.6k</span>
             
             
             
@@ -1384,7 +1404,7 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>

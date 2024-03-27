@@ -3,12 +3,12 @@
 
 
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="《程序员的自我修养——链接、装载与库》第二章读书笔记, Huang Shichang&#39;s Blog">
     <meta name="description" content="可执行文件四步走
-预编译123$ gcc -E hello.c -o hello.i或者$ cpp hello.c &amp;gt; hello.i
+预编译$ gcc -E hello.c -o hello.i或者$ cpp hello.c &amp;gt; hello.i
 
-主要处理源代码中以“#”开始的预编译指令，如“#include”、“#define”“#ifde">
+主要处理源代码中以“#”开始的预编译指令，如“#include”、“#define”“#ifdef”等">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -57,12 +57,13 @@
 
 <meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -360,7 +361,32 @@
     
     <div class="row">
     <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+        <!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+<!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -406,16 +432,13 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="可执行文件四步走"><a href="#可执行文件四步走" class="headerlink" title="可执行文件四步走"></a>可执行文件四步走</h2><p><img src="https://gcdnb.pbrd.co/images/al6l0zfKZtSf.png?o=1" alt="GCC编译过程分解"></p>
-<h3 id="预编译"><a href="#预编译" class="headerlink" title="预编译"></a>预编译</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ gcc -E hello.c -o hello.i</span><br><span class="line">或者</span><br><span class="line">$ cpp hello.c &gt; hello.i</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="预编译"><a href="#预编译" class="headerlink" title="预编译"></a>预编译</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ gcc -E hello.c -o hello.i</span><br><span class="line">或者</span><br><span class="line">$ cpp hello.c &gt; hello.i</span><br></pre></td></tr></tbody></table></figure>
 
 <p>主要<strong>处理源代码中以“#”开始的预编译指令</strong>，如“#include”、“#define”“#ifdef”等。这个过程包括了：</p>
 <ul>
@@ -426,17 +449,17 @@
 <li>保留所有的#pragma编译器指令，因为编译器要使用</li>
 </ul>
 <p>经过预编译后的.i文件不包含任何宏定义，因为所有的宏已经被展开，并且包含的文件也已经被插入到.i文件中。<strong>当无法判断宏定义是否正确或头文件包含是否正确，可以查看预编译后的文件来定位问题。</strong></p>
-<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gcc -S hello.i -o hello.s</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gcc -S hello.i -o hello.s</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>将预处理完的文件进行一系列的<strong>词法分析、语法分析、语义分析及优化</strong>，然后生产出相应的<strong>汇编代码文件</strong>。现版本gcc把预编译和编译两个步骤合并成一个步骤，使用一个叫ccl的程序来完成这两个步骤：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">/usr/lib/gcc/i486-linux-gnu/4.1/ccl helloc.c</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">/usr/lib/gcc/i486-linux-gnu/4.1/ccl helloc.c</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>C++用cclplus，Objective-C用cclobj，fortran用f771，java用jcl。</p>
 <p><strong>实际上gcc只是这些后台程序的包装，他会根据不同参数调用对应程序。</strong></p>
-<h3 id="汇编"><a href="#汇编" class="headerlink" title="汇编"></a>汇编</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gcc -c hello.s -o hello.o</span></span><br><span class="line">或者</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">as hello.s -o hello.o</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="汇编"><a href="#汇编" class="headerlink" title="汇编"></a>汇编</h3><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gcc -c hello.s -o hello.o</span></span><br><span class="line">或者</span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">as hello.s -o hello.o</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>对照着汇编指令与机器指令的表，将汇编代码转变成机器可以执行的指令。汇编器输出的是目标文件.o（不是可执行文件）。</p>
-<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ld -static crt1.o crti.o crtbeginT.o hello.o -start-group -lgcc -lgcc_eh -lc-end-group crtend.o crtn.o</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">ld -static crt1.o crti.o crtbeginT.o hello.o -start-group -lgcc -lgcc_eh -lc-end-group crtend.o crtn.o</span><br></pre></td></tr></tbody></table></figure>
 
 <p>详细见下文。</p>
 <h2 id="编译器的作用"><a href="#编译器的作用" class="headerlink" title="编译器的作用"></a>编译器的作用</h2><p>编译器是<strong>将高级语言翻译成机器语言</strong>的工具。</p>
@@ -445,7 +468,7 @@
 <p><strong>扫描、语法分析、语义分析、源代码优化、代码生成、目标代码优化。</strong></p>
 <p><img src="https://gcdnb.pbrd.co/images/0cF2jdW0ueS1.png?o=1" alt="编译过程"></p>
 <p>以下述代码做分析：</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">array</span>[index] = (index + <span class="number">4</span>) * (<span class="number">2</span> + <span class="number">6</span>)</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">array</span>[index] = (index + <span class="number">4</span>) * (<span class="number">2</span> + <span class="number">6</span>)</span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h3><p><strong>扫描器（Scanner）做词法分析</strong>。分析产生的符号可以分为：关键字、标识符、字面量（数字、字符串等）、特殊符号（加号、等号等）。</p>
 <p>识别的同时，扫描器将标识符放到符号表，将字面量放到文字表等。</p>
@@ -1013,9 +1036,6 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -1137,7 +1157,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">276.1k</span>
+                        class="white-color">276.6k</span>
             
             
             
@@ -1420,7 +1440,7 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>

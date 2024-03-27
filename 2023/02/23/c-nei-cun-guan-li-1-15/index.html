@@ -3,7 +3,7 @@
 
 
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="C++内存管理1-15, Huang Shichang&#39;s Blog">
     <meta name="description" content="
 C++内存管理
@@ -67,12 +67,13 @@ C++内存管理
 
 <meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -370,7 +371,32 @@ C++内存管理
     
     <div class="row">
     <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+        <!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+<!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -415,9 +441,6 @@ C++内存管理
         </div>
         <hr class="clearfix">
 
-        
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
         
 
         
@@ -472,7 +495,7 @@ C++内存管理
 <p>只许比所要申请的内容大，不许小！</p>
 <p><strong>但是现在GC4.9及其之后</strong> 也还有 alloc 函数，只不过已经变成_pool_alloc这个名字了，名字已经改了，也不再是默认的了。</p>
 <p>你需要自己手动去指定它可以自己指定，比如</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;string,__gnu_cxx::pool_alloc&lt;string&gt;&gt; vec;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line">vector&lt;string,__gnu_cxx::pool_alloc&lt;string&gt;&gt; vec;</span><br></pre></td></tr></tbody></table></figure>
 
 <p>这样来使用它，等于兜兜转转又回到以前那种对malloc和free的包装形式了。</p>
 <p id="可以说一下你了解的内存管理吗"></p>
@@ -491,7 +514,7 @@ C++内存管理
 
 <h2 id="5、C-中类的数据成员和成员函数内存分布情况"><a href="#5、C-中类的数据成员和成员函数内存分布情况" class="headerlink" title="5、C++中类的数据成员和成员函数内存分布情况"></a>5、C++中类的数据成员和成员函数内存分布情况</h2><p>C++类是由结构体发展得来的，所以他们的成员变量（C语言的结构体只有成员变量）的内存分配机制是一样的。下面我们以类来说明问题，如果类的问题通了，结构体也也就没问题啦。 类分为成员变量和成员函数，我们先来讨论成员变量。 </p>
 <p>一个类对象的地址就是类所包含的这一片内存空间的首地址，这个首地址也就对应具体某一个成员变量的地址。（在定义类对象的同时这些成员变量也就被定义了），举个例子：</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span></span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Person</span>()</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">this</span>-&gt;age = <span class="number">23</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">printAge</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        cout &lt;&lt; <span class="keyword">this</span>-&gt;age &lt;&lt;endl;</span><br><span class="line">    }</span><br><span class="line">    ~<span class="built_in">Person</span>(){}</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">};</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    Person p;</span><br><span class="line">    cout &lt;&lt; <span class="string">"对象地址："</span>&lt;&lt; &amp;p &lt;&lt;endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">"age地址："</span>&lt;&lt; &amp;(p.age) &lt;&lt;endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">"对象大小："</span>&lt;&lt; <span class="built_in">sizeof</span>(p) &lt;&lt;endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">"age大小："</span>&lt;&lt; <span class="built_in">sizeof</span>(p.age) &lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">//输出结果</span></span><br><span class="line"><span class="comment">//对象地址：0x7fffec0f15a8</span></span><br><span class="line"><span class="comment">//age地址：0x7fffec0f15a8</span></span><br><span class="line"><span class="comment">//对象大小：4</span></span><br><span class="line"><span class="comment">//age大小：4</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span></span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Person</span>()</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">this</span>-&gt;age = <span class="number">23</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">printAge</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        cout &lt;&lt; <span class="keyword">this</span>-&gt;age &lt;&lt;endl;</span><br><span class="line">    }</span><br><span class="line">    ~<span class="built_in">Person</span>(){}</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">};</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    Person p;</span><br><span class="line">    cout &lt;&lt; <span class="string">"对象地址："</span>&lt;&lt; &amp;p &lt;&lt;endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">"age地址："</span>&lt;&lt; &amp;(p.age) &lt;&lt;endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">"对象大小："</span>&lt;&lt; <span class="built_in">sizeof</span>(p) &lt;&lt;endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">"age大小："</span>&lt;&lt; <span class="built_in">sizeof</span>(p.age) &lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"><span class="comment">//输出结果</span></span><br><span class="line"><span class="comment">//对象地址：0x7fffec0f15a8</span></span><br><span class="line"><span class="comment">//age地址：0x7fffec0f15a8</span></span><br><span class="line"><span class="comment">//对象大小：4</span></span><br><span class="line"><span class="comment">//age大小：4</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>从代码运行结果来看，对象的大小和对象中数据成员的大小是一致的，也就是说，成员函数不占用对象的内存。这是因为所有的函数都是存放在代码区的，不管是全局函数，还是成员函数。</p>
 <p>要是成员函数占用类的对象空间，那么将是多么可怕的事情：定义一次类对象就有成员函数占用一段空间。 </p>
@@ -516,12 +539,12 @@ C++内存管理
 <p><strong>类的this指针有以下特点</strong></p>
 <p>(1）<strong>this</strong>只能在成员函数中使用，全局函数、静态函数都不能使用this。实际上，<strong>传入参数为当前对象地址，成员函数第一个参数为</strong>为<strong>T * const this</strong></p>
 <p>如：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>{<span class="keyword">public</span>:	<span class="function"><span class="type">int</span> <span class="title">func</span><span class="params">(<span class="type">int</span> p)</span></span>{}};</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>{<span class="keyword">public</span>:	<span class="function"><span class="type">int</span> <span class="title">func</span><span class="params">(<span class="type">int</span> p)</span></span>{}};</span><br></pre></td></tr></tbody></table></figure>
 
 <p>其中，<strong>func</strong>的原型在编译器看来应该是：</p>
 <p>  <strong>int func(A * const this,int p);</strong></p>
 <p>（2）由此可见，<strong>this</strong>在成员函数的开始前构造，在成员函数的结束后清除。这个生命周期同任何一个函数的参数是一样的，没有任何区别。当调用一个类的成员函数时，编译器将类的指针作为函数的this参数传递进去。如：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A a;a.<span class="built_in">func</span>(<span class="number">10</span>);<span class="comment">//此处，编译器将会编译成：A::func(&amp;a,10);</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line">A a;a.<span class="built_in">func</span>(<span class="number">10</span>);<span class="comment">//此处，编译器将会编译成：A::func(&amp;a,10);</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>看起来和静态函数没差别，对吗？不过，区别还是有的。编译器通常会对this指针做一些优化，因此，this指针的传递效率比较高，例如VC通常是通过ecx（计数寄存器）传递this参数的。</p>
 <p id="几个this指针的易混问题"></p>
@@ -583,19 +606,19 @@ C++内存管理
 <p id="请说一下以下几种情况下下面几个类的大小各是多少"></p>
 
 
-<h2 id="13、请说一下以下几种情况下，下面几个类的大小各是多少？"><a href="#13、请说一下以下几种情况下，下面几个类的大小各是多少？" class="headerlink" title="13、请说一下以下几种情况下，下面几个类的大小各是多少？"></a>13、请说一下以下几种情况下，下面几个类的大小各是多少？</h2><figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> {};</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">  cout&lt;&lt;<span class="built_in">sizeof</span>(A)&lt;&lt;endl;<span class="comment">// 输出 1;</span></span><br><span class="line">  A a; </span><br><span class="line">  cout&lt;&lt;<span class="built_in">sizeof</span>(a)&lt;&lt;endl;<span class="comment">// 输出 1;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="13、请说一下以下几种情况下，下面几个类的大小各是多少？"><a href="#13、请说一下以下几种情况下，下面几个类的大小各是多少？" class="headerlink" title="13、请说一下以下几种情况下，下面几个类的大小各是多少？"></a>13、请说一下以下几种情况下，下面几个类的大小各是多少？</h2><figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> {};</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">  cout&lt;&lt;<span class="built_in">sizeof</span>(A)&lt;&lt;endl;<span class="comment">// 输出 1;</span></span><br><span class="line">  A a; </span><br><span class="line">  cout&lt;&lt;<span class="built_in">sizeof</span>(a)&lt;&lt;endl;<span class="comment">// 输出 1;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>空类的大小是1， 在C++中空类会占一个字节，这是为了让对象的实例能够相互区别。具体来说，空类同样可以被实例化，并且每个实例在内存中都有独一无二的地址，因此，编译器会给空类隐含加上一个字节，这样空类实例化之后就会拥有独一无二的内存地址。当该空白类作为基类时，该类的大小就优化为0了，子类的大小就是子类本身的大小。这就是所谓的空白基类最优化。</p>
 <p>空类的实例大小就是类的大小，所以sizeof(a)=1字节,如果a是指针，则sizeof(a)就是指针的大小，即4字节。</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> { <span class="function"><span class="keyword">virtual</span> <span class="title">Fun</span><span class="params">()</span></span>{} };</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">  cout&lt;&lt;<span class="built_in">sizeof</span>(A)&lt;&lt;endl;<span class="comment">// 输出 4(32位机器)/8(64位机器);</span></span><br><span class="line">  A a; </span><br><span class="line">  cout&lt;&lt;<span class="built_in">sizeof</span>(a)&lt;&lt;endl;<span class="comment">// 输出 4(32位机器)/8(64位机器);</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> { <span class="function"><span class="keyword">virtual</span> <span class="title">Fun</span><span class="params">()</span></span>{} };</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">  cout&lt;&lt;<span class="built_in">sizeof</span>(A)&lt;&lt;endl;<span class="comment">// 输出 4(32位机器)/8(64位机器);</span></span><br><span class="line">  A a; </span><br><span class="line">  cout&lt;&lt;<span class="built_in">sizeof</span>(a)&lt;&lt;endl;<span class="comment">// 输出 4(32位机器)/8(64位机器);</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>因为有虚函数的类对象中都有一个虚函数表指针 __vptr，其大小是4字节<br></p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> { <span class="type">static</span> <span class="type">int</span> a; };</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">  cout&lt;&lt;<span class="built_in">sizeof</span>(A)&lt;&lt;endl;<span class="comment">// 输出 1;</span></span><br><span class="line">  A a; </span><br><span class="line">  cout&lt;&lt;<span class="built_in">sizeof</span>(a)&lt;&lt;endl;<span class="comment">// 输出 1;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> { <span class="type">static</span> <span class="type">int</span> a; };</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">  cout&lt;&lt;<span class="built_in">sizeof</span>(A)&lt;&lt;endl;<span class="comment">// 输出 1;</span></span><br><span class="line">  A a; </span><br><span class="line">  cout&lt;&lt;<span class="built_in">sizeof</span>(a)&lt;&lt;endl;<span class="comment">// 输出 1;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>静态成员存放在静态存储区，不占用类的大小, 普通函数也不占用类大小</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> { <span class="type">int</span> a; };</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">  cout&lt;&lt;<span class="built_in">sizeof</span>(A)&lt;&lt;endl;<span class="comment">// 输出 4;</span></span><br><span class="line">  A a; </span><br><span class="line">  cout&lt;&lt;<span class="built_in">sizeof</span>(a)&lt;&lt;endl;<span class="comment">// 输出 4;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> { <span class="type">int</span> a; };</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">  cout&lt;&lt;<span class="built_in">sizeof</span>(A)&lt;&lt;endl;<span class="comment">// 输出 4;</span></span><br><span class="line">  A a; </span><br><span class="line">  cout&lt;&lt;<span class="built_in">sizeof</span>(a)&lt;&lt;endl;<span class="comment">// 输出 4;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> { <span class="type">static</span> <span class="type">int</span> a; <span class="type">int</span> b; };;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">  cout&lt;&lt;<span class="built_in">sizeof</span>(A)&lt;&lt;endl;<span class="comment">// 输出 4;</span></span><br><span class="line">  A a; </span><br><span class="line">  cout&lt;&lt;<span class="built_in">sizeof</span>(a)&lt;&lt;endl;<span class="comment">// 输出 4;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> { <span class="type">static</span> <span class="type">int</span> a; <span class="type">int</span> b; };;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">  cout&lt;&lt;<span class="built_in">sizeof</span>(A)&lt;&lt;endl;<span class="comment">// 输出 4;</span></span><br><span class="line">  A a; </span><br><span class="line">  cout&lt;&lt;<span class="built_in">sizeof</span>(a)&lt;&lt;endl;<span class="comment">// 输出 4;</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>静态成员a不占用类的大小，所以类的大小就是b变量的大小 即4个字节</p>
 <p id="this指针调用成员变量时堆栈会发生什么变化"></p>
@@ -1166,9 +1189,6 @@ C++内存管理
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -1290,7 +1310,7 @@ C++内存管理
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">276.1k</span>
+                        class="white-color">276.6k</span>
             
             
             
@@ -1573,7 +1593,7 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>

@@ -3,7 +3,7 @@
 
 
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="《大话设计模式》21-单例模式, Huang Shichang&#39;s Blog">
     <meta name="description" content="单例模式定义
 保证一个类仅有一个实例， 并提供一个访问它的全局访问点
@@ -56,12 +56,13 @@
 
 <meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -359,7 +360,32 @@
     
     <div class="row">
     <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+        <!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+<!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -393,7 +419,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    394
+                    392
                 </div>
                 
 
@@ -404,9 +430,6 @@
         </div>
         <hr class="clearfix">
 
-        
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
         
 
         
@@ -420,10 +443,10 @@
 </ul>
 <h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p><img src="https://gcdnb.pbrd.co/images/5MuM2VqXKk41.png?o=1"></p>
 <h3 id="饿汉式单例模式"><a href="#饿汉式单例模式" class="headerlink" title="饿汉式单例模式"></a>饿汉式单例模式</h3><p><strong>静态初始化，在自己被加载时就将自己实例化</strong></p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EagerSingleton</span> {</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">static</span> EagerSingleton* instance;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">EagerSingleton</span>() {}</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">static</span> EagerSingleton* <span class="title">getInstance</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">EagerSingleton* EagerSingleton::instance = <span class="keyword">new</span> <span class="built_in">EagerSingleton</span>();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">    EagerSingleton* singleton1 = EagerSingleton::<span class="built_in">getInstance</span>();</span><br><span class="line">    EagerSingleton* singleton2 = EagerSingleton::<span class="built_in">getInstance</span>();</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">"Address of singleton1: "</span> &lt;&lt; singleton1 &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">"Address of singleton2: "</span> &lt;&lt; singleton2 &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EagerSingleton</span> {</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">static</span> EagerSingleton* instance;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">EagerSingleton</span>() {}</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">static</span> EagerSingleton* <span class="title">getInstance</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">EagerSingleton* EagerSingleton::instance = <span class="keyword">new</span> <span class="built_in">EagerSingleton</span>();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">    EagerSingleton* singleton1 = EagerSingleton::<span class="built_in">getInstance</span>();</span><br><span class="line">    EagerSingleton* singleton2 = EagerSingleton::<span class="built_in">getInstance</span>();</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">"Address of singleton1: "</span> &lt;&lt; singleton1 &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">"Address of singleton2: "</span> &lt;&lt; singleton2 &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="懒汉式单例模式（双重锁定）"><a href="#懒汉式单例模式（双重锁定）" class="headerlink" title="懒汉式单例模式（双重锁定）"></a>懒汉式单例模式（双重锁定）</h3><p><strong>动态初始化，在第一次被引用时，才会将自己实例化</strong></p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;mutex&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LazySingleton</span> {</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">static</span> LazySingleton* instance;</span><br><span class="line">    <span class="type">static</span> std::mutex mutex;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">LazySingleton</span>() {}</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">static</span> LazySingleton* <span class="title">getInstance</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="literal">nullptr</span>) {</span><br><span class="line">            <span class="function">std::unique_lock&lt;std::mutex&gt; <span class="title">lock</span><span class="params">(mutex)</span></span>;</span><br><span class="line">            <span class="keyword">if</span> (instance == <span class="literal">nullptr</span>) {</span><br><span class="line">                instance = <span class="keyword">new</span> <span class="built_in">LazySingleton</span>();</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">LazySingleton* LazySingleton::instance = <span class="literal">nullptr</span>;</span><br><span class="line">std::mutex LazySingleton::mutex;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">    LazySingleton* singleton1 = LazySingleton::<span class="built_in">getInstance</span>();</span><br><span class="line">    LazySingleton* singleton2 = LazySingleton::<span class="built_in">getInstance</span>();</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">"Address of singleton1: "</span> &lt;&lt; singleton1 &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">"Address of singleton2: "</span> &lt;&lt; singleton2 &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;mutex&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LazySingleton</span> {</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">static</span> LazySingleton* instance;</span><br><span class="line">    <span class="type">static</span> std::mutex mutex;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">LazySingleton</span>() {}</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">static</span> LazySingleton* <span class="title">getInstance</span><span class="params">()</span> </span>{</span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="literal">nullptr</span>) {</span><br><span class="line">            <span class="function">std::unique_lock&lt;std::mutex&gt; <span class="title">lock</span><span class="params">(mutex)</span></span>;</span><br><span class="line">            <span class="keyword">if</span> (instance == <span class="literal">nullptr</span>) {</span><br><span class="line">                instance = <span class="keyword">new</span> <span class="built_in">LazySingleton</span>();</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line">LazySingleton* LazySingleton::instance = <span class="literal">nullptr</span>;</span><br><span class="line">std::mutex LazySingleton::mutex;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">    LazySingleton* singleton1 = LazySingleton::<span class="built_in">getInstance</span>();</span><br><span class="line">    LazySingleton* singleton2 = LazySingleton::<span class="built_in">getInstance</span>();</span><br><span class="line"></span><br><span class="line">    std::cout &lt;&lt; <span class="string">"Address of singleton1: "</span> &lt;&lt; singleton1 &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">"Address of singleton2: "</span> &lt;&lt; singleton2 &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 
                 
@@ -972,9 +995,6 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -1096,7 +1116,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">276.1k</span>
+                        class="white-color">276.6k</span>
             
             
             
@@ -1379,7 +1399,7 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>

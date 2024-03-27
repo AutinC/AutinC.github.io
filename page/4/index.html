@@ -3,7 +3,7 @@
 
 
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="Huang Shichang&#39;s Blog">
     <meta name="description" content="Huang Shichang&#39;s Blog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,12 +50,13 @@
 
 <meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -390,6 +391,52 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2023/11/28/cheng-xu-yuan-de-zi-wo-xiu-yang-lian-jie-zhuang-zai-yu-ku-di-si-zhang-du-shu-bi-ji/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="《程序员的自我修养——链接、装载与库》第四章读书笔记">
+                            
+                            <span class="card-title">《程序员的自我修养——链接、装载与库》第四章读书笔记</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                案例引入本章以如何将a.c文件与b.c文件链接成一个可执行文件来探讨如何进行静态链接a.c文件
+extern int shared;int main(){    int a = 100;    swap(&amp;a,&amp;shared
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-28
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                AutinC
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E3%80%8A%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB%E2%80%94%E2%80%94%E9%93%BE%E6%8E%A5%E3%80%81%E8%A3%85%E8%BD%BD%E4%B8%8E%E5%BA%93%E3%80%8B/">
+                            <span class="chip bg-color">《程序员的自我修养——链接、装载与库》</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2023/11/22/cheng-xu-yuan-de-zi-wo-xiu-yang-lian-jie-zhuang-zai-yu-ku-di-san-zhang-du-shu-bi-ji/">
                         <div class="card-image">
                             
@@ -449,9 +496,9 @@
                         <div class="summary block-with-text">
                             
                                 可执行文件四步走
-预编译123$ gcc -E hello.c -o hello.i或者$ cpp hello.c &gt; hello.i
+预编译$ gcc -E hello.c -o hello.i或者$ cpp hello.c &gt; hello.i
 
-主要处理源代码中以“#”开始的预编译指令，如“#include”、“#define”“#ifde
+主要处理源代码中以“#”开始的预编译指令，如“#include”、“#define”“#ifdef”等
                             
                         </div>
                         <div class="publish-info">
@@ -909,54 +956,6 @@ HTML
             </div>
               <!-- 隐藏某个文章 -->
             
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2023/05/27/rpc-fen-bu-shi-tong-xin-kuang-jia-zong-jie/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="项目总结-RPC分布式通信框架">
-                            
-                            <span class="card-title">项目总结-RPC分布式通信框架</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                RPC基于轻量级的Mudoo网络库和高效的Protobuf串行化协议，实现了RPC通信框架，用于实现分布式系统之间基于TCP的远程过程调用，具有高性能和高可靠性的特点。
-
-一、集群和分布式的理论讲解单机聊天服务器存在什么缺点
-单机聊天服务器
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-05-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                AutinC
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/">
-                            <span class="chip bg-color">个人项目</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
         </div>
     </article>
 
@@ -1006,7 +1005,7 @@ HTML
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">276.1k</span>
+                        class="white-color">276.6k</span>
             
             
             
@@ -1289,7 +1288,7 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>

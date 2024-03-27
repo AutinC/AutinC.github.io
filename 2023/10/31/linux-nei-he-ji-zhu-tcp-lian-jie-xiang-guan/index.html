@@ -3,7 +3,7 @@
 
 
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="Linux内核技术-TCP连接相关, Huang Shichang&#39;s Blog">
     <meta name="description" content="如何让Linux内核更好地服务应用程序？当发生TCP重传时，有人可以从tcpdump里面的信息看到是哪个TCP连接进行重传，然而高手们却可以通过这些信息看到为什么会发生重传。
 四大类中的典型问题：Page Cache管理问题、内存泄漏问题、">
@@ -55,12 +55,13 @@
 
 <meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -358,7 +359,32 @@
     
     <div class="row">
     <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+        <!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+<!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -404,9 +430,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
@@ -447,7 +470,7 @@
 <h1 id="TCP收发包过程会受哪些配置项影响？"><a href="#TCP收发包过程会受哪些配置项影响？" class="headerlink" title="TCP收发包过程会受哪些配置项影响？"></a><strong>TCP收发包过程会受哪些配置项影响？</strong></h1><h2 id="TCP数据包的发送过程会受什么影响"><a href="#TCP数据包的发送过程会受什么影响" class="headerlink" title="TCP数据包的发送过程会受什么影响"></a>TCP数据包的发送过程会受什么影响</h2><p><img src="http://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/Linux%e5%86%85%e6%a0%b8%e6%8a%80%e6%9c%af%e5%ae%9e%e6%88%98%e8%af%be/assets/5ce5d202b7a179829f4c9b3863b0b15e.jpg" alt="TCP数据包的发送过程"></p>
 <h3 id="TCP层相关配置项"><a href="#TCP层相关配置项" class="headerlink" title="TCP层相关配置项"></a>TCP层相关配置项</h3><p><strong>tcp_wmem：</strong></p>
 <p>单个TCP发送缓冲区的大小</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.tcp_wmem = <span class="number">8192</span> <span class="number">65536</span> <span class="number">16777216</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line">net.ipv4.tcp_wmem = <span class="number">8192</span> <span class="number">65536</span> <span class="number">16777216</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>三个数字的含义分别为min、default、max。TCP发送缓冲区的大小会在min和max之间动态调整，初始的大小是default，这个动态调整的过程是由内核自动来做的，应用程序无法干预。<strong>自动调整的目的，是为了在尽可能少的浪费内存的情况下来满足发包的需要；</strong></p>
 <p><strong>wmem_max：</strong></p>
@@ -456,14 +479,14 @@
 <p>应用程序如果明确地知道自己发送多大的数据，需要多大的TCP发送缓冲区，可以设置固定的缓冲区大小，tcp_wmem会失效；最大值不能超过net.core.wmem_max，超过了该值，内核会把它强制设置为net.core.wmem_max；</p>
 <p><strong>tcp_mem：</strong></p>
 <p>所有TCP连接消耗的总内存限制</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.tcp_mem = <span class="number">8388608</span> <span class="number">12582912</span> <span class="number">16777216</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line">net.ipv4.tcp_mem = <span class="number">8388608</span> <span class="number">12582912</span> <span class="number">16777216</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>当所有TCP连接消耗的内存总和达到max后，也会因达到限制而无法再往外发包。</p>
 <p><strong>tcp_wmem以及wmem_max的大小设置都是针对单个TCP连接的，这两个值的单位都是Byte（字节）。</strong></p>
 <p><strong>tcp_mem选项中这些值的单位是Page（页数）。</strong></p>
 <h3 id="IP层相关配置项"><a href="#IP层相关配置项" class="headerlink" title="IP层相关配置项"></a>IP层相关配置项</h3><p><strong>ip_local_port_range：</strong></p>
 <p>和其他服务器建立IP连接时本地端口（local port）的范围</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.ip_local_port_range = <span class="number">1024</span> <span class="number">65535</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line">net.ipv4.ip_local_port_range = <span class="number">1024</span> <span class="number">65535</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>默认的端口范围太小以致于无法创建新连接。所以通常情况下都会扩大默认的端口范围。</p>
 <p><strong>txqueuelen：</strong></p>
@@ -471,7 +494,7 @@
 <p>qdisc的队列长度，太小会导致数据包被丢弃；</p>
 <p><strong>default_qdisc：</strong></p>
 <p>Linux系统默认的qdisc为pfifo_fast（先进先出），通常情况下我们无需调整它。如果你想使用<a target="_blank" rel="noopener" href="https://github.com/google/bbr">TCP BBR</a>来改善TCP拥塞控制的话，那就需要将它调整为fq（fair queue, 公平队列）</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.core.default_qdisc = fq</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line">net.core.default_qdisc = fq</span><br></pre></td></tr></tbody></table></figure>
 
 
 
@@ -481,7 +504,7 @@
 <p>一次可以poll多少个可以通过该选项来控制，默认值是300。</p>
 <p><strong>tcp_rmem：</strong></p>
 <p>TCP接收缓冲区的大小；</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.tcp_rmem = <span class="number">8192</span> <span class="number">87380</span> <span class="number">16777216</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line">net.ipv4.tcp_rmem = <span class="number">8192</span> <span class="number">87380</span> <span class="number">16777216</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>TCP接收缓冲区大小也是在min和max之间动态调整 ，不过跟发送缓冲区不同的是，这个动态调整是可以通过控制选项来关闭的，这个选项是tcp_moderate_rcvbuf 。</p>
 <p><strong>setsockopt()中的SO_RCVBUF：</strong></p>
@@ -500,11 +523,11 @@
 <h3 id="3-快速重传和快速恢复"><a href="#3-快速重传和快速恢复" class="headerlink" title="3.快速重传和快速恢复"></a>3.快速重传和快速恢复</h3><p>它们是为了应对丢包这种行为而做的优化，在这种情况下，由于网络并没有出现拥塞，所以拥塞窗口不必恢复到初始值。判断丢包的依据就是<strong>收到3个相同的ack</strong>。</p>
 <p>除了快速重传外，还有一种重传机制是超时重传。不过，这是非常糟糕的一种情况。如果发送出去一个数据包，超过一段时间（RTO）都收不到它的ack，那就认为是网络出现了拥塞。这个时候就需要将cwnd恢复为初始值，再次从慢启动开始调整cwnd的大小。</p>
 <p>总体来说，拥塞控制就是根据TCP的数据传输状况来灵活地调整拥塞窗口，从而控制发送方发送数据包的行为。换句话说，拥塞窗口的大小可以表示网络传输链路的拥塞情况。TCP连接cwnd的大小可以通过ss这个命令来查看：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ss -nipt</span><br><span class="line">State       Recv-Q Send-Q                        Local Address:Port                                       Peer Address:Port         </span><br><span class="line">ESTAB       <span class="number">0</span>      <span class="number">36</span>                             <span class="number">172.23</span><span class="number">.245</span><span class="number">.7</span>:<span class="number">22</span>                                        <span class="number">172.30</span><span class="number">.16</span><span class="number">.162</span>:<span class="number">60490</span>      </span><br><span class="line">users:((<span class="string">"sshd"</span>,pid=<span class="number">19256</span>,fd=<span class="number">3</span>))</span><br><span class="line">	 cubic wscale:<span class="number">5</span>,<span class="number">7</span> rto:<span class="number">272</span> rtt:<span class="number">71.53</span>/<span class="number">1.068</span> ato:<span class="number">40</span> mss:<span class="number">1248</span> rcvmss:<span class="number">1248</span> advmss:<span class="number">1448</span> cwnd:<span class="number">10</span> bytes_acked:<span class="number">19591</span> bytes_received:<span class="number">2817</span> segs_out:<span class="number">64</span> segs_in:<span class="number">80</span> data_segs_out:<span class="number">57</span> data_segs_in:<span class="number">28</span> send <span class="number">1.4</span>Mbps lastsnd:<span class="number">6</span> lastrcv:<span class="number">6</span> lastack:<span class="number">6</span> pacing_rate <span class="number">2.8</span>Mbps delivery_rate <span class="number">1.5</span>Mbps app_limited busy:<span class="number">2016</span>ms unacked:<span class="number">1</span> rcv_space:<span class="number">14600</span> minrtt:<span class="number">69.402</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line">$ ss -nipt</span><br><span class="line">State       Recv-Q Send-Q                        Local Address:Port                                       Peer Address:Port         </span><br><span class="line">ESTAB       <span class="number">0</span>      <span class="number">36</span>                             <span class="number">172.23</span><span class="number">.245</span><span class="number">.7</span>:<span class="number">22</span>                                        <span class="number">172.30</span><span class="number">.16</span><span class="number">.162</span>:<span class="number">60490</span>      </span><br><span class="line">users:((<span class="string">"sshd"</span>,pid=<span class="number">19256</span>,fd=<span class="number">3</span>))</span><br><span class="line">	 cubic wscale:<span class="number">5</span>,<span class="number">7</span> rto:<span class="number">272</span> rtt:<span class="number">71.53</span>/<span class="number">1.068</span> ato:<span class="number">40</span> mss:<span class="number">1248</span> rcvmss:<span class="number">1248</span> advmss:<span class="number">1448</span> cwnd:<span class="number">10</span> bytes_acked:<span class="number">19591</span> bytes_received:<span class="number">2817</span> segs_out:<span class="number">64</span> segs_in:<span class="number">80</span> data_segs_out:<span class="number">57</span> data_segs_in:<span class="number">28</span> send <span class="number">1.4</span>Mbps lastsnd:<span class="number">6</span> lastrcv:<span class="number">6</span> lastack:<span class="number">6</span> pacing_rate <span class="number">2.8</span>Mbps delivery_rate <span class="number">1.5</span>Mbps app_limited busy:<span class="number">2016</span>ms unacked:<span class="number">1</span> rcv_space:<span class="number">14600</span> minrtt:<span class="number">69.402</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>通过该命令，我们可以发现这个TCP连接的cwnd为10。</p>
 <p>如果你想要追踪拥塞窗口的实时变化信息，还有另外一个更好的办法：通过tcp_probe这个tracepoint来追踪：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/sys/kernel/debug/tracing/events/tcp/tcp_probe</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">/sys/kernel/debug/tracing/events/tcp/tcp_probe</span><br></pre></td></tr></tbody></table></figure>
 
 
 
@@ -538,10 +561,10 @@
 <li><strong>拥塞</strong>- TCP数据包在网络传输过程中可能会在某个交换机/路由器上排队，比如臭名昭著的Bufferbloat（缓冲膨胀）；TCP数据包在网络传输过程中因为路由变化而产生的乱序；接收端回的ACK在某个交换机/路由器上排队……。</li>
 </ul>
 <h2 id="分析TCP重传的常规手段"><a href="#分析TCP重传的常规手段" class="headerlink" title="分析TCP重传的常规手段"></a>分析TCP重传的常规手段</h2><p>可以使用<strong>tcpdump</strong>把进出某个网卡的数据包给保存下来：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tcpdump -s 0 -i eth0 -w tcpdumpfile</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ tcpdump -s 0 -i eth0 -w tcpdumpfile</span><br></pre></td></tr></tbody></table></figure>
 
 <p>可以使用<strong>tshark</strong>（wireshark的Linux版本）来过滤出TCP重传包：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tshark -r tcpdumpfile -R tcp.analysis.retransmission</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ tshark -r tcpdumpfile -R tcp.analysis.retransmission</span><br></pre></td></tr></tbody></table></figure>
 
 <p>tcpdump很重，如果直接在生产环境上进行采集的话，难免会对业务造成性能影响。</p>
 <h2 id="如何高效地分析TCP重传"><a href="#如何高效地分析TCP重传" class="headerlink" title="如何高效地分析TCP重传"></a>如何高效地分析TCP重传</h2><p>TCP重传也需要调用特定**内核函数tcp_retransmit_skb()**。</p>
@@ -550,13 +573,13 @@
 <p>可以实现一个内核模块，该内核模块中使用Kprobe在tcp_retransmit_skb这个函数入口插入一个probe，然后注册一个break_handler，这样在执行到tcp_retransmit_skb时就会异常跳转到注册的break_handler中，然后在break_handler中解析TCP报文（skb）就可以了，从而来判断是什么在重传。</p>
 <p>Kprobe这种方式使用起来还是略有些不便，为了让Linux用户更方便地观察TCP重传事件，4.16内核版本中专门添加了<a target="_blank" rel="noopener" href="https://github.com/torvalds/linux/commit/e086101b150ae8e99e54ab26101ef3835fa9f48d"><strong>TCP tracepoint</strong></a>来解析TCP重传事件。</p>
 <p>TCP重传，可以使用如下命令：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> /sys/kernel/debug/tracing/events/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> 1 &gt; tcp/tcp_retransmit_skb/enable</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> /sys/kernel/debug/tracing/events/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> 1 &gt; tcp/tcp_retransmit_skb/enable</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>然后就可以追踪TCP重传事件了：</p>
-<figure class="highlight ruby"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>cat trace_pipe</span><br><span class="line">&lt;idle&gt;-<span class="number">0</span>     [<span class="number">007</span>] ..s. <span class="number">265119.290232</span>: <span class="symbol">tcp_retransmit_skb:</span> sport=<span class="number">22</span> dport=<span class="number">62264</span> saddr=<span class="number">172.23</span>.<span class="number">245.8</span> daddr=<span class="number">172.30</span>.<span class="number">18.225</span> saddrv6=<span class="symbol">:</span><span class="symbol">:ffff</span><span class="symbol">:</span><span class="number">172.23</span>.<span class="number">245.8</span> daddrv6=<span class="symbol">:</span><span class="symbol">:ffff</span><span class="symbol">:</span><span class="number">172.30</span>.<span class="number">18.225</span> state=<span class="variable constant_">TCP_ESTABLISHED</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight ruby"><table><tbody><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>cat trace_pipe</span><br><span class="line">&lt;idle&gt;-<span class="number">0</span>     [<span class="number">007</span>] ..s. <span class="number">265119.290232</span>: <span class="symbol">tcp_retransmit_skb:</span> sport=<span class="number">22</span> dport=<span class="number">62264</span> saddr=<span class="number">172.23</span>.<span class="number">245.8</span> daddr=<span class="number">172.30</span>.<span class="number">18.225</span> saddrv6=<span class="symbol">:</span><span class="symbol">:ffff</span><span class="symbol">:</span><span class="number">172.23</span>.<span class="number">245.8</span> daddrv6=<span class="symbol">:</span><span class="symbol">:ffff</span><span class="symbol">:</span><span class="number">172.30</span>.<span class="number">18.225</span> state=<span class="variable constant_">TCP_ESTABLISHED</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>追踪结束后呢，你需要将这个Tracepoint给关闭：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> 0 &gt; tcp/tcp_retransmit_skb/enable</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">echo</span> 0 &gt; tcp/tcp_retransmit_skb/enable</span></span><br></pre></td></tr></tbody></table></figure>
 
 
 
@@ -568,16 +591,16 @@
 <p><img src="http://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/Linux%e5%86%85%e6%a0%b8%e6%8a%80%e6%9c%af%e5%ae%9e%e6%88%98%e8%af%be/assets/c91a94caf6f74b508bf3648e7e9197a4.jpg"></p>
 <p><strong>ss：</strong></p>
 <p>你可以查看到每个TCP连接都是什么样的：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ ss -natp</span><br><span class="line">State         Recv-Q         Send-Q                                       Local Address:Port                     Peer Address:Port                                                                        </span><br><span class="line">LISTEN0      100                                  0.0.0.0:36457         0.0.0.0:*                                                                                <span class="built_in">users</span>:(("test",pid=<span class="number">11307</span>,fd=<span class="number">17</span>))                                       </span><br><span class="line">LISTEN0      5                                    0.0.0.0:33811         0.0.0.0:*                                                                                <span class="built_in">users</span>:(("test",pid=<span class="number">11307</span>,fd=<span class="number">19</span>))                                       </span><br><span class="line">ESTAB 0      0                                  127.0.0.1:57396       127.0.1.1:34751                                                                            <span class="built_in">users</span>:(("test",pid=<span class="number">11307</span>,fd=<span class="number">106</span>))                                      </span><br><span class="line">ESTAB 0      0                                  127.0.0.1:57384       127.0.1.1:34751                                                                            <span class="built_in">users</span>:(("test",pid=<span class="number">11307</span>,fd=<span class="number">100</span>))                                                                          </span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ ss -natp</span><br><span class="line">State         Recv-Q         Send-Q                                       Local Address:Port                     Peer Address:Port                                                                        </span><br><span class="line">LISTEN0      100                                  0.0.0.0:36457         0.0.0.0:*                                                                                <span class="built_in">users</span>:(("test",pid=<span class="number">11307</span>,fd=<span class="number">17</span>))                                       </span><br><span class="line">LISTEN0      5                                    0.0.0.0:33811         0.0.0.0:*                                                                                <span class="built_in">users</span>:(("test",pid=<span class="number">11307</span>,fd=<span class="number">19</span>))                                       </span><br><span class="line">ESTAB 0      0                                  127.0.0.1:57396       127.0.1.1:34751                                                                            <span class="built_in">users</span>:(("test",pid=<span class="number">11307</span>,fd=<span class="number">106</span>))                                      </span><br><span class="line">ESTAB 0      0                                  127.0.0.1:57384       127.0.1.1:34751                                                                            <span class="built_in">users</span>:(("test",pid=<span class="number">11307</span>,fd=<span class="number">100</span>))                                                                          </span><br></pre></td></tr></tbody></table></figure>
 
 <p>如上所示，我们能查看到每个TCP连接的状态（State）、接收队列大小（Recv-Q）、发送队列大小（Send-Q）、本地IP和端口（Local Address:Port ）、远端IP和端口（Peer Address:Port）以及打开该TCP连接的进程信息。</p>
 <p><strong>netstat：</strong></p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ netstat -natp</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ netstat -natp</span><br></pre></td></tr></tbody></table></figure>
 
 <p>netstat不仅比ss慢，而且开销也大。netstat是通过直接读取/proc/net/下面的文件来解析网络连接信息的；而ss使用的是netlink方式，这种方式的效率会高很多。</p>
 <p><strong>netstat -s / nstat：</strong></p>
 <p>查看系统的网络状态，比如说系统中是否存在丢包，以及是什么原因引起了丢包：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ nstat -z | grep -i drop</span><br><span class="line">TcpExtLockDroppedIcmps          0                  0.0</span><br><span class="line">TcpExtListenDrops               0                  0.0</span><br><span class="line">TcpExtTCPBacklogDrop            0                  0.0</span><br><span class="line">TcpExtPFMemallocDrop            0                  0.0</span><br><span class="line">TcpExtTCPMinTTLDrop             0                  0.0</span><br><span class="line">TcpExtTCPDeferAcceptDrop        0                  0.0</span><br><span class="line">TcpExtTCPReqQFullDrop           0                  0.0</span><br><span class="line">TcpExtTCPOFODrop                0                  0.0</span><br><span class="line">TcpExtTCPZeroWindowDrop         0                  0.0</span><br><span class="line">TcpExtTCPRcvQDrop               0                  0.0</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ nstat -z | grep -i drop</span><br><span class="line">TcpExtLockDroppedIcmps          0                  0.0</span><br><span class="line">TcpExtListenDrops               0                  0.0</span><br><span class="line">TcpExtTCPBacklogDrop            0                  0.0</span><br><span class="line">TcpExtPFMemallocDrop            0                  0.0</span><br><span class="line">TcpExtTCPMinTTLDrop             0                  0.0</span><br><span class="line">TcpExtTCPDeferAcceptDrop        0                  0.0</span><br><span class="line">TcpExtTCPReqQFullDrop           0                  0.0</span><br><span class="line">TcpExtTCPOFODrop                0                  0.0</span><br><span class="line">TcpExtTCPZeroWindowDrop         0                  0.0</span><br><span class="line">TcpExtTCPRcvQDrop               0                  0.0</span><br></pre></td></tr></tbody></table></figure>
 
 <p>假如通过这些常规检查手段没有发现异常，那你就需要考虑使用网络分析的必备工具——tcpdump了。</p>
 <h2 id="分析网络问题必须要掌握的工具：tcpdump"><a href="#分析网络问题必须要掌握的工具：tcpdump" class="headerlink" title="分析网络问题必须要掌握的工具：tcpdump"></a>分析网络问题必须要掌握的工具：tcpdump</h2><p><img src="http://learn.lianglianglee.com/%e4%b8%93%e6%a0%8f/Linux%e5%86%85%e6%a0%b8%e6%8a%80%e6%9c%af%e5%ae%9e%e6%88%98%e8%af%be/assets/a2a0cdc510d8e77677ba957e0408cf27.jpg" alt="tcpdump原理"></p>
@@ -1133,9 +1156,6 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -1257,7 +1277,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">276.1k</span>
+                        class="white-color">276.6k</span>
             
             
             
@@ -1540,7 +1560,7 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>

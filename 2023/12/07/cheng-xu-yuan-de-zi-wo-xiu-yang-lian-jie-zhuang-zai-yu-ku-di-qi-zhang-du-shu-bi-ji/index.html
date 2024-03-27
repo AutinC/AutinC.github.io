@@ -3,7 +3,7 @@
 
 
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="《程序员的自我修养——链接、装载与库》第七章读书笔记, Huang Shichang&#39;s Blog">
     <meta name="description" content="为什么需要动态链接静态链接存在的问题
 内存和磁盘空间的浪费，会在内存和磁盘中存在多份同一程序的拷贝；
@@ -58,12 +58,13 @@
 
 <meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -361,7 +362,32 @@
     
     <div class="row">
     <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+        <!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+<!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -407,9 +433,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
@@ -432,18 +455,18 @@
 </ul>
 </li>
 </ol>
-<h2 id="简单的动态链接的例子"><a href="#简单的动态链接的例子" class="headerlink" title="简单的动态链接的例子"></a>简单的动态链接的例子</h2><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Program1.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"Lib.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">{</span><br><span class="line">        foobar(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// Program2.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"Lib.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">{</span><br><span class="line">        foobar(<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// Lib.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">foobar</span><span class="params">(<span class="type">int</span> i)</span></span><br><span class="line">{</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Printing from Lib.so %d\n"</span>, i);</span><br><span class="line">        sleep(<span class="number">-1</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// Lib.h</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> LIB_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LIB_H</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">foobar</span><span class="params">(<span class="type">int</span> i)</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="简单的动态链接的例子"><a href="#简单的动态链接的例子" class="headerlink" title="简单的动态链接的例子"></a>简单的动态链接的例子</h2><figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// Program1.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"Lib.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">{</span><br><span class="line">        foobar(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// Program2.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"Lib.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">{</span><br><span class="line">        foobar(<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// Lib.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">foobar</span><span class="params">(<span class="type">int</span> i)</span></span><br><span class="line">{</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Printing from Lib.so %d\n"</span>, i);</span><br><span class="line">        sleep(<span class="number">-1</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// Lib.h</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> LIB_H</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LIB_H</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">foobar</span><span class="params">(<span class="type">int</span> i)</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></tbody></table></figure>
 
 <ul>
 <li>使用<strong>GCC</strong>将Lib.c<strong>编译</strong>为一个共享对象文件：</li>
 </ul>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -fPIC -shared -o Lib.so Lib.c</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">gcc -fPIC -shared -o Lib.so Lib.c</span><br></pre></td></tr></tbody></table></figure>
 
 <p><em>-shared：表示产生共享对象</em></p>
 <ul>
 <li>分别<strong>编译链接</strong>Program1.c和Program2.c：</li>
 </ul>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -o Program1 Program1.c ./Lib.so</span><br><span class="line">gcc -o Program2 Program2.c ./Lib.so</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">gcc -o Program1 Program1.c ./Lib.so</span><br><span class="line">gcc -o Program2 Program2.c ./Lib.so</span><br></pre></td></tr></tbody></table></figure>
 
 <p>整个编译链接过程如图：</p>
 <p><img src="https://gcdnb.pbrd.co/images/OjQh75N6dcn6.png?o=1"></p>
@@ -536,7 +559,7 @@
 </ul>
 </li>
 <li><p><strong>数据段地址无关</strong></p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">int</span> a;</span><br><span class="line"><span class="type">static</span> <span class="type">int</span>* p = &amp;a;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">int</span> a;</span><br><span class="line"><span class="type">static</span> <span class="type">int</span>* p = &amp;a;</span><br></pre></td></tr></tbody></table></figure>
 
 <p><em>p的地址是一个绝对地址，指向a，而变量a的地址随着共享对象的装载地址改变而改变。</em></p>
 <p>对于数据段来说，他在每个进程中的都有一个独立的副本，所以并不担心被进程改变。可以选择装载时重定位的方法解决数据段中绝对地址引用问题，对于共享对象来说，如果数据段中有绝对地址引用，那么编译器和链接器会产生一个重定位表，这个重定位表里面包含一个<strong>R_386_RELATIVE</strong>类型的重定位入口，用于解决上述问题。当动态链接器装载共享对象时，如果发现该共享对象有这样的重定位入口，那么动态链接器就会对该共享对象进行重定位。</p>
@@ -575,13 +598,13 @@
 </li>
 <li><p><strong>.dynamic段</strong></p>
 <p><strong>最重要的结构</strong>，存了动态链接器所需要的基本信息，比如依赖于哪些共享对象、动态链接符号表的位置、动态链接重定位表的位置、共享对象初始化代码的地址等。</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> {</span></span><br><span class="line">    Elf32_Sword d_tag;</span><br><span class="line">    <span class="class"><span class="keyword">union</span> {</span></span><br><span class="line">        Elf32_Word d_val;</span><br><span class="line">        Elf32_Addr d_ptr;</span><br><span class="line">    } d_un;</span><br><span class="line">} Elf32_Dyn;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> {</span></span><br><span class="line">    Elf32_Sword d_tag;</span><br><span class="line">    <span class="class"><span class="keyword">union</span> {</span></span><br><span class="line">        Elf32_Word d_val;</span><br><span class="line">        Elf32_Addr d_ptr;</span><br><span class="line">    } d_un;</span><br><span class="line">} Elf32_Dyn;</span><br></pre></td></tr></tbody></table></figure>
 
 <p>使用<strong>readelf -d</strong>工具来查看<code>.dynamic</code>段的内容：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">readelf -d Lib.so</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">readelf -d Lib.so</span><br></pre></td></tr></tbody></table></figure>
 
 <p>使用<strong>ldd</strong>工具来查看一个程序主模块或共享库依赖于哪些共享库。</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ldd Program1</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">ldd Program1</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p><strong>动态符号表</strong></p>
 <p>为了表示动态链接这些模块之间的符号导入导出关系，ELF专门有一个动态符号表的段来保存这些信息，段名是**.dynsym**。</p>
@@ -592,11 +615,11 @@
 <li><p><strong>动态链接定位表</strong></p>
 <p>动态链接的文件中，也有类似于重定位表，叫.rel.dyn和.rel.plt。**.rel.dyn<strong>实际上是对数据引用的修正，它所修正的位置是.got以及数据段，而</strong>.rel.plt**是对函数引用的修正，所修正的位置位于.got.plt。</p>
 <p>使用<strong>readelf -r</strong>指令来查看一个动态链接文件的重定位表：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">readelf -r Lib.so</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">readelf -r Lib.so</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p><strong>动态链接时进程堆栈初始化信息</strong></p>
 <p>进程初始化时，堆栈中不仅有进程执行环境和命令行参数等信息，还保存了动态链接器所需的一些辅助信息数组：</p>
-<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">typedef struct {</span><br><span class="line">    uint32_t a_type;</span><br><span class="line">    union {</span><br><span class="line">        uint32_t a_val;</span><br><span class="line">    } a_un;</span><br><span class="line">} Elf32_auxv_t;</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">typedef struct {</span><br><span class="line">    uint32_t a_type;</span><br><span class="line">    union {</span><br><span class="line">        uint32_t a_val;</span><br><span class="line">    } a_un;</span><br><span class="line">} Elf32_auxv_t;</span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
 <h2 id="动态链接步骤和实现"><a href="#动态链接步骤和实现" class="headerlink" title="动态链接步骤和实现"></a>动态链接步骤和实现</h2><ul>
 <li>动态链接的过程可分为3步：<ul>
@@ -1185,9 +1208,6 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -1309,7 +1329,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">276.1k</span>
+                        class="white-color">276.6k</span>
             
             
             
@@ -1592,7 +1612,7 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>

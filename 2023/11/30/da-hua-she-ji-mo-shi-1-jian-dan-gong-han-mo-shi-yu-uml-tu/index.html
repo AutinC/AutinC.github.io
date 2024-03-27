@@ -3,7 +3,7 @@
 
 
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="《大话设计模式》1-简单工厂模式与UML图, Huang Shichang&#39;s Blog">
     <meta name="description" content="简单工厂模式面向对象的好处
 考虑通过封装、继承、多态把程序的耦合度降低，使用设计模式使得程序更加的灵活，容易修改，并且易于复用。
@@ -58,12 +58,13 @@
 
 <meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -361,7 +362,32 @@
     
     <div class="row">
     <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+        <!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+<!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -407,9 +433,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
@@ -445,13 +468,13 @@
 <li><p><strong>接口图</strong></p>
 <ul>
 <li><p>矩形表示法<br>顶端有 &lt;&lt;interface&gt;&gt;<br>第一行：接口名称<br>第二行：接口方法</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">interface IFly</span><br><span class="line">{</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">Fly</span><span class="params">()</span></span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line">interface IFly</span><br><span class="line">{</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">Fly</span><span class="params">()</span></span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p><img src="https://gcdnb.pbrd.co/images/IQNpwUZhNlCb.png?o=1"></p>
 </li>
 <li><p>棒棒糖表示法</p>
 <p>圆圈旁为接口名字，接口方法在类中实现</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">interface ILanguage</span><br><span class="line">{</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">Speak</span><span class="params">()</span></span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line">interface ILanguage</span><br><span class="line">{</span><br><span class="line">	<span class="function"><span class="type">void</span> <span class="title">Speak</span><span class="params">()</span></span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p><img src="https://gcdnb.pbrd.co/images/VkOE0oiiD96M.png?o=1"></p>
 </li>
@@ -475,11 +498,11 @@
 <li>关联关系、聚合关系也有基数</li>
 </ul>
 <p><img src="https://gcdnb.pbrd.co/images/IVmGEDpwx2X6.png?o=1"></p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Bird</span></span><br><span class="line">{</span><br><span class="line">	<span class="keyword">private</span> Wing wing;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Bird</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		wing = <span class="keyword">new</span> <span class="built_in">Wing</span>();</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Bird</span></span><br><span class="line">{</span><br><span class="line">	<span class="keyword">private</span> Wing wing;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Bird</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>{</span><br><span class="line">		wing = <span class="keyword">new</span> <span class="built_in">Wing</span>();</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p><strong>依赖关系</strong><br>用<strong>虚线箭头</strong>表示</p>
 <p><img src="https://gcdnb.pbrd.co/images/VU2QxtJDZ2Ei.png?o=1"></p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">abstract <span class="keyword">class</span> <span class="title class_">Animal</span></span><br><span class="line">{</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Metabolism</span><span class="params">(Oxygen oxgen, Water water)</span></span></span><br><span class="line"><span class="function">	</span>{}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line">abstract <span class="keyword">class</span> <span class="title class_">Animal</span></span><br><span class="line">{</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Metabolism</span><span class="params">(Oxygen oxgen, Water water)</span></span></span><br><span class="line"><span class="function">	</span>{}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
 
                 
@@ -1028,9 +1051,6 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -1152,7 +1172,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">276.1k</span>
+                        class="white-color">276.6k</span>
             
             
             
@@ -1435,7 +1455,7 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>

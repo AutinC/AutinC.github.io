@@ -3,7 +3,7 @@
 
 
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="构造函数语义学, Huang Shichang&#39;s Blog">
     <meta name="description" content="0、通常很多C++程序员存在两种误解：
 没有定义默认构造函数的类都会被编译器生成一个默认构造函数。
@@ -58,12 +58,13 @@
 
 <meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -361,7 +362,32 @@
     
     <div class="row">
     <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+        <!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+<!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -407,9 +433,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
@@ -438,10 +461,10 @@
 </ul>
 <p>【2011/12/21 补】需要说明的是，从概念来上来讲，每一个没有定义构造函数<br>的类都会由编译器来合成一个默认构造函数，以使得可以定义一个该类的对象，<br>但是默认构造函数是否真的会被合成，将视是否有需要而定。C++ standard 将<br>合成的默认构造函数分为 trivial 和 notrivial 两种，前文所述的四种情况对<br>应于notrivial默认构造函数，其它情况都属于trivial。对于一个trivial默认<br>构造函数，编译器的态度是，既然它全无用处，干脆就不合成它。在这儿要厘清<br>的是概念与实现的差别，概念上追求缜密完善，在实现上则追求效率，可以不要<br>的东西就不要。</p>
 <h3 id="5、命名返回值优化"><a href="#5、命名返回值优化" class="headerlink" title="5、命名返回值优化"></a>5、命名返回值优化</h3><p>对于一个如<code>foo()</code>这样的函数，它的每一个返回分支都返回相同的对象，编译器有可能对其做Named return Value优化（下文都简称NRV优化），方法是以引用的方式传入一个参数<code>result</code>取代返回对象。</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">X <span class="title">foo</span><span class="params">()</span> <span class="comment">//原型</span></span></span><br><span class="line"><span class="function"></span>{ </span><br><span class="line">    X xx; </span><br><span class="line">    <span class="keyword">if</span>(...) </span><br><span class="line">        returnxx; </span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">        returnxx; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function">X <span class="title">foo</span><span class="params">()</span> <span class="comment">//原型</span></span></span><br><span class="line"><span class="function"></span>{ </span><br><span class="line">    X xx; </span><br><span class="line">    <span class="keyword">if</span>(...) </span><br><span class="line">        returnxx; </span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">        returnxx; </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>优化后的<code>foo()</code>以<code>result</code>取代<code>xx</code>：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span>  <span class="title">foo</span><span class="params">(X &amp;result)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    result.X::<span class="built_in">X</span>();</span><br><span class="line">    <span class="keyword">if</span>(...)</span><br><span class="line">    {</span><br><span class="line">        <span class="comment">//直接处理result</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    {</span><br><span class="line">        <span class="comment">//直接处理result</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span>  <span class="title">foo</span><span class="params">(X &amp;result)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    result.X::<span class="built_in">X</span>();</span><br><span class="line">    <span class="keyword">if</span>(...)</span><br><span class="line">    {</span><br><span class="line">        <span class="comment">//直接处理result</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    {</span><br><span class="line">        <span class="comment">//直接处理result</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>对比优化前与优化后的代码可以看出，对于一句类似于<code>X a = foo()</code>这样的代<br>码，NRV优化后的代码相较于原代码节省了一个临时对象的空间（省略了xx）,同<br>时减少了两次函数调用（减少xx对象的默认构造函数和析构函数，以及一次拷贝<br>构造函数的调用，增加了一次对a的默认构造函数的调用）。</p>
 <p>注：Lippman在《深度探索C++》书中指出NRV的开启与关闭取决于是否有显式定义一个拷贝构造函数，我实在想不出有什么理由必须要有显示拷贝构造函数才能开启NRV优化，于是在vs2010中进行了测试，测试结果表明，在release版本中，不论是否定义了一个显式拷贝构造函数，NRV都会开启。由此可见vs2010并不以是否有一个显式拷贝构造函数来决定NRV优化的开启与否。但同时，立足于这一点，可以得出Lippman所说的以是否有一个显式定义的拷贝构造函数来决定是否开启NRV优化，应该指的是他自己领导实现的cfront编译器，而非泛指所有编译器。那么cfront又为什么要以是否定义有显示的拷贝构造函数来决定是否开启NRV优化呢？我猜测，他大概这样以为，当显式定义有拷贝构造函数的时候一般代表着要进行深拷贝，也就是说此时的拷贝构造函数将费时较长，在这样的情况下NRV优化才会有明显的效果。反之，不开启NRV优化也不是什么大的效率损失。</p>
@@ -456,11 +479,11 @@
 <p>前两者因为要求定义时初始化，所以必须明确的在初始化队列中给它们提供初<br>值。后两者因为不提供默认构造函数，所有必须显示的调用它们的带参构造函<br>数来定义即初始化它们。</p>
 <p>显而易见的是当类中含有对象成员或者继承自基类的时候，在初始化队列中初<br>始化成员对象和基类子对象会在效率上得到提升——省去了一些赋值操作嘛。</p>
 <p>最后，一个关于初始化队列众所周知的陷阱，初始化队列的顺序，请参考《C++<br>primer》或者《深度探索C++对象模型》。</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">X</span>{</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">int</span> j;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">X</span>(<span class="type">int</span> val):<span class="built_in">j</span>(val),<span class="built_in">i</span>(j) {}</span><br><span class="line">    </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">X</span>{</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">int</span> j;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">X</span>(<span class="type">int</span> val):<span class="built_in">j</span>(val),<span class="built_in">i</span>(j) {}</span><br><span class="line">    </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>这段程序是要将j的初始值设置为val，再将i设置为j，但是由于声明顺序的原因，initialzation list中的 i(j) 其实要比 j(val) 更早执行的，所以这是会导致一定的错误出现。</p>
 <p>下面是回一个比较喜欢的解决方式：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">X</span>{</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">int</span> j;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">X</span>(<span class="type">int</span> val):<span class="built_in">j</span>(val) {</span><br><span class="line">        i = j;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">X</span>{</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="type">int</span> j;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">X</span>(<span class="type">int</span> val):<span class="built_in">j</span>(val) {</span><br><span class="line">        i = j;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>initialzation list的执行先于 用户自定义的函数体，因此这样写就有效解决了上述问题。</p>
 <p>总的来说：编辑器会对initialzation list一一处理并可能重新排列，以反映出members的声明顺序，它会安插一些代码到 constructor 体内，并置于任何 explicit user code之前。</p>
@@ -1011,9 +1034,6 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -1135,7 +1155,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">276.1k</span>
+                        class="white-color">276.6k</span>
             
             
             
@@ -1418,7 +1438,7 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>

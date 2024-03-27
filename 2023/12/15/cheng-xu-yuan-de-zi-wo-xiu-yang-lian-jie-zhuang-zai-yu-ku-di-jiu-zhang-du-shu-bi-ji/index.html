@@ -3,7 +3,7 @@
 
 
 <head>
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="《程序员的自我修养——链接、装载与库》第九章读书笔记, Huang Shichang&#39;s Blog">
     <meta name="description" content="DLL简介相当于Linux下的共享库，Window系统大量采用dll机制，dll更加强调模块化，经常可以看到Windows平台大量的大型软件都通过升级dll的形式自我完善。
 进程地址空间和内存管理一个DLL在不同进程中拥有不同的私有数据副本">
@@ -55,12 +55,13 @@
 
 <meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -358,7 +359,32 @@
     
     <div class="row">
     <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+        <!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+<!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -404,9 +430,6 @@
         <hr class="clearfix">
 
         
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
 
         
 
@@ -423,23 +446,23 @@
 <p>MSVC编译器和支持Windows平台的编译器支持指定符号导入导出的扩展：<br>__declspec(dllexport)：表示该符号是从本DLL导出的符号；<br>__declspec(dllimport)：表示该符号是从别的DLL导入的符号。</p>
 <p><strong>这实际上是通过目标文件的“.drectve”段指示编译器实现的。</strong></p>
 <p>还可以使用**.def脚本**声明导入导出的符号。</p>
-<h3 id="创建DLL"><a href="#创建DLL" class="headerlink" title="创建DLL"></a>创建DLL</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cl /LDd Math.c		// MSVC编译器编译debug版的dll</span><br><span class="line">cl /LD Math.c		// 生成release版</span><br><span class="line">cl Math.c			// 生成exe可执行文件</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="创建DLL"><a href="#创建DLL" class="headerlink" title="创建DLL"></a>创建DLL</h3><figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">cl /LDd Math.c		// MSVC编译器编译debug版的dll</span><br><span class="line">cl /LD Math.c		// 生成release版</span><br><span class="line">cl Math.c			// 生成exe可执行文件</span><br></pre></td></tr></tbody></table></figure>
 
 <p>上面编译结果生成**.dll .obj .exp .lib**四个文件。</p>
 <p>.exp文件是连接器产生的中间目标文件，保存着收集的所有导出符号的<strong>导出表</strong>(保存在.edata段中)。</p>
 <p>可以通过<strong>dumpbin</strong>工具看到DLL的导出符号：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dumpbin /EXPORTS Math.dll</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">dumpbin /EXPORTS Math.dll</span><br></pre></td></tr></tbody></table></figure>
 
 <h3 id="使用DLL"><a href="#使用DLL" class="headerlink" title="使用DLL"></a>使用DLL</h3><p>程序使用DLL的过程其实是<strong>引用DLL中导出的函数和符号</strong>的过程。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cl /c TestMath.c</span><br><span class="line"><span class="built_in">link</span> TestMath.obj Math.lib</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">cl /c TestMath.c</span><br><span class="line"><span class="built_in">link</span> TestMath.obj Math.lib</span><br></pre></td></tr></tbody></table></figure>
 
 <p>.lib文件(导入库)包含.dll的<strong>导出符号以及“桩代码”</strong>，以便将程序与dll粘在一起。</p>
 <p><img src="https://gcdnb.pbrd.co/images/X5XNh1RjVbPH.png?o=1" alt="MSVC静态库链接"></p>
 <h3 id="使用模块定义文件"><a href="#使用模块定义文件" class="headerlink" title="使用模块定义文件"></a>使用模块定义文件</h3><p>除了__declspec(dllexport)导出函数，还可以使用**.def**文件，类似链接脚本，用于控制链接过程，但功能比后者少。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Math.def</span></span><br><span class="line">LIBRARY Math</span><br><span class="line">EXPORTS</span><br><span class="line">Add</span><br><span class="line">Sub</span><br><span class="line">Mul</span><br><span class="line">Div</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">#Math.def</span></span><br><span class="line">LIBRARY Math</span><br><span class="line">EXPORTS</span><br><span class="line">Add</span><br><span class="line">Sub</span><br><span class="line">Mul</span><br><span class="line">Div</span><br></pre></td></tr></tbody></table></figure>
 
 <p>编译Math.c:</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cl Math.c /LD /DEF Math.def</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">cl Math.c /LD /DEF Math.def</span><br></pre></td></tr></tbody></table></figure>
 
 <ul>
 <li>.def文件的好处：<br>可以给导出函数符号起别名,比如当Add函数采用“__stdcall”函数规范，可以在.def文件用Add=_Add@16，这样Add作为别名会被放到导出函数列表内(与_Add@16的RVA相同)。且.def支持“HEAPSIZE”、“NAME”<strong>控制输出文件</strong>的默认堆大小、输出文件名等。</li>
@@ -1002,9 +1025,6 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
 
 <!-- 代码语言 -->
 
@@ -1126,7 +1146,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">276.1k</span>
+                        class="white-color">276.6k</span>
             
             
             
@@ -1409,7 +1429,7 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </body>

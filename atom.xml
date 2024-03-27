@@ -6,7 +6,7 @@
   <link href="https://autinc.github.io/atom.xml" rel="self"/>
   
   <link href="https://autinc.github.io/"/>
-  <updated>2024-03-26T08:17:14.246Z</updated>
+  <updated>2024-03-27T03:11:48.016Z</updated>
   <id>https://autinc.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《qt5开发及实例 第4版》第三章-布局管理</title>
+    <link href="https://autinc.github.io/2024/02/25/qt5-kai-fa-ji-shi-li-di-4-ban-di-san-zhang-bu-ju-guan-li/"/>
+    <id>https://autinc.github.io/2024/02/25/qt5-kai-fa-ji-shi-li-di-4-ban-di-san-zhang-bu-ju-guan-li/</id>
+    <published>2024-02-24T16:00:00.000Z</published>
+    <updated>2024-03-27T03:11:48.016Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;分割窗口QSpliter类&quot;&gt;&lt;a href=&quot;#分割窗口QSpliter类&quot; class=&quot;headerlink&quot; title=&quot;分割窗口QSpliter类&quot;&gt;&lt;/a&gt;分割窗口QSpliter类&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;实例：&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《qt5开发及实例 第4版》" scheme="https://autinc.github.io/tags/%E3%80%8Aqt5%E5%BC%80%E5%8F%91%E5%8F%8A%E5%AE%9E%E4%BE%8B-%E7%AC%AC4%E7%89%88%E3%80%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>《qt5开发及实例 第4版》第二章-模板库、工具类及控件</title>
@@ -450,29 +475,6 @@
     
     
     <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《程序员的自我修养——链接、装载与库》第八章读书笔记</title>
-    <link href="https://autinc.github.io/2023/12/13/cheng-xu-yuan-de-zi-wo-xiu-yang-lian-jie-zhuang-zai-yu-ku-di-ba-zhang-du-shu-bi-ji/"/>
-    <id>https://autinc.github.io/2023/12/13/cheng-xu-yuan-de-zi-wo-xiu-yang-lian-jie-zhuang-zai-yu-ku-di-ba-zhang-du-shu-bi-ji/</id>
-    <published>2023-12-12T16:00:00.000Z</published>
-    <updated>2023-12-14T08:13:44.403Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;共享库版本&quot;&gt;&lt;a href=&quot;#共享库版本&quot; class=&quot;headerlink&quot; title=&quot;共享库版本&quot;&gt;&lt;/a&gt;共享库版本&lt;/h2&gt;&lt;h3 id=&quot;共享库的兼容性&quot;&gt;&lt;a href=&quot;#共享库的兼容性&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="《程序员的自我修养——链接、装载与库》" scheme="https://autinc.github.io/tags/%E3%80%8A%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB%E2%80%94%E2%80%94%E9%93%BE%E6%8E%A5%E3%80%81%E8%A3%85%E8%BD%BD%E4%B8%8E%E5%BA%93%E3%80%8B/"/>
     
   </entry>
   
