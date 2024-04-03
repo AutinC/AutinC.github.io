@@ -55,9 +55,9 @@ QString QFileDialog::getOpenFileName{	QWidget* parent = 0,	">
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-
+<meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
@@ -420,7 +420,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5k
+                    5.3k
                 </div>
                 
 
@@ -692,6 +692,14 @@ DigiClock<span class="token operator">::</span><span class="token function">Digi
 </ul>
 </li>
 </ul>
+<h2 id="不规则窗体"><a href="#不规则窗体" class="headerlink" title="不规则窗体"></a>不规则窗体</h2><p>利用**setMask()**为窗体设置遮罩，实现不规则窗体，设置遮罩的窗体尺寸仍是原窗体大小，只是部分不可见。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"shapewidget.h"</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QMouseEvent&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QPainter&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QPixmap&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QBitmap&gt;</span></span></span><br><span class="line"></span><br><span class="line">ShapeWidget::<span class="built_in">ShapeWidget</span>(QWidget *parent)</span><br><span class="line">    : <span class="built_in">QWidget</span>(parent)</span><br><span class="line">{</span><br><span class="line">    QPixmap pix;</span><br><span class="line">    pix.<span class="built_in">load</span>(<span class="string">"16.png"</span>,<span class="number">0</span>,Qt::AvoidDither|Qt::ThresholdDither|Qt::ThresholdAlphaDither);  <span class="comment">// load()为QPixmap对象填入图像</span></span><br><span class="line">    <span class="built_in">resize</span>(pix.<span class="built_in">size</span>());             <span class="comment">// 设置主窗体的尺寸为pix对象大小</span></span><br><span class="line">    <span class="built_in">setMask</span>(<span class="built_in">QBitmap</span>(pix.<span class="built_in">mask</span>()));   <span class="comment">// 为调用它的控件加一个遮罩</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">ShapeWidget::~<span class="built_in">ShapeWidget</span>()</span><br><span class="line">{</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">ShapeWidget::paintEvent</span><span class="params">(QPaintEvent *event)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="function">QPainter <span class="title">painter</span><span class="params">(<span class="keyword">this</span>)</span></span>;</span><br><span class="line">    painter.<span class="built_in">drawPixmap</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="built_in">QPixmap</span>(<span class="string">"16.png"</span>));</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="程序启动画面"><a href="#程序启动画面" class="headerlink" title="程序启动画面"></a>程序启动画面</h2><p><strong>QSplashScreen</strong>类实现程序启动过程中显示启动画面的功能。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"mainwindow.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QApplication&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QSplashScreen&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QPixmap&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="function">QApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">QPixmap <span class="title">pixmap</span><span class="params">(<span class="string">"qt.png"</span>)</span></span>;</span><br><span class="line">    <span class="function">QSplashScreen <span class="title">splash</span><span class="params">(pixmap)</span></span>;   <span class="comment">// 利用QPixmap对象创建一个QSplashScreen对象</span></span><br><span class="line"></span><br><span class="line">    splash.<span class="built_in">show</span>();</span><br><span class="line">    a.<span class="built_in">processEvents</span>();              <span class="comment">// 使程序在现实启动画面的同时仍能响应鼠标等其他事件</span></span><br><span class="line"></span><br><span class="line">    MainWindow w;</span><br><span class="line">    w.<span class="built_in">show</span>();</span><br><span class="line"></span><br><span class="line">    splash.<span class="built_in">finish</span>(&amp;w);              <span class="comment">// 表示某一对象初始化完成后，结束启动画面</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> a.<span class="built_in">exec</span>();</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
 
                 
             </div>
@@ -1103,18 +1111,17 @@ DigiClock<span class="token operator">::</span><span class="token function">Digi
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/03/01/qt5-kai-fa-ji-shi-li-di-4-ban-di-si-zhang-ji-ben-dui-hua-kuang/">
+                <a href="/2024/03/08/qt5-kai-fa-ji-shi-li-di-4-ban-di-wu-zhang-zhu-chuang-kou/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="《qt5开发及实例 第4版》第四章-基本对话框">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="《qt5开发及实例 第4版》第五章-主窗口">
                         
-                        <span class="card-title">《qt5开发及实例 第4版》第四章-基本对话框</span>
+                        <span class="card-title">《qt5开发及实例 第4版》第五章-主窗口</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1124,9 +1131,9 @@ DigiClock<span class="token operator">::</span><span class="token function">Digi
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-01
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-03-08
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1135,7 +1142,6 @@ DigiClock<span class="token operator">::</span><span class="token function">Digi
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1362,7 +1368,7 @@ DigiClock<span class="token operator">::</span><span class="token function">Digi
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">283k</span>
+                        class="white-color">283.6k</span>
             
             
             
