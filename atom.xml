@@ -6,7 +6,7 @@
   <link href="https://autinc.github.io/atom.xml" rel="self"/>
   
   <link href="https://autinc.github.io/"/>
-  <updated>2024-04-15T08:07:00.229Z</updated>
+  <updated>2024-04-17T08:40:00.823Z</updated>
   <id>https://autinc.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://autinc.github.io/2024/04/01/ren-yue-shen-hua-du-shu-bi-ji/"/>
     <id>https://autinc.github.io/2024/04/01/ren-yue-shen-hua-du-shu-bi-ji/</id>
     <published>2024-03-31T16:00:00.000Z</published>
-    <updated>2024-04-15T08:07:00.229Z</updated>
+    <updated>2024-04-17T08:40:00.823Z</updated>
     
     
       
@@ -36,6 +36,29 @@
     
     
     <category term="《人月神话》" scheme="https://autinc.github.io/tags/%E3%80%8A%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《qt5开发及实例 第4版》第七章-图形视图框架</title>
+    <link href="https://autinc.github.io/2024/03/23/qt5-kai-fa-ji-shi-li-di-4-ban-di-qi-zhang-tu-xing-shi-tu-kuang-jia/"/>
+    <id>https://autinc.github.io/2024/03/23/qt5-kai-fa-ji-shi-li-di-4-ban-di-qi-zhang-tu-xing-shi-tu-kuang-jia/</id>
+    <published>2024-03-22T16:00:00.000Z</published>
+    <updated>2024-04-17T07:18:13.258Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;图形视图体系结构&quot;&gt;&lt;a href=&quot;#图形视图体系结构&quot; class=&quot;headerlink&quot; title=&quot;图形视图体系结构&quot;&gt;&lt;/a&gt;图形视图体系结构&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;图形视图（Graphics</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《qt5开发及实例 第4版》" scheme="https://autinc.github.io/tags/%E3%80%8Aqt5%E5%BC%80%E5%8F%91%E5%8F%8A%E5%AE%9E%E4%BE%8B-%E7%AC%AC4%E7%89%88%E3%80%8B/"/>
     
   </entry>
   
@@ -445,29 +468,6 @@
         
         
     <summary type="html">&lt;h2 id=&quot;备忘录模式&quot;&gt;&lt;a href=&quot;#备忘录模式&quot; class=&quot;headerlink&quot; title=&quot;备忘录模式&quot;&gt;&lt;/a&gt;备忘录模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《大话设计模式》17-适配器模式</title>
-    <link href="https://autinc.github.io/2023/12/16/da-hua-she-ji-mo-shi-17-gua-pei-qi-mo-shi/"/>
-    <id>https://autinc.github.io/2023/12/16/da-hua-she-ji-mo-shi-17-gua-pei-qi-mo-shi/</id>
-    <published>2023-12-15T16:00:00.000Z</published>
-    <updated>2023-12-18T12:30:29.548Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;适配器模式&quot;&gt;&lt;a href=&quot;#适配器模式&quot; class=&quot;headerlink&quot; title=&quot;适配器模式&quot;&gt;&lt;/a&gt;适配器模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
         
       
     
