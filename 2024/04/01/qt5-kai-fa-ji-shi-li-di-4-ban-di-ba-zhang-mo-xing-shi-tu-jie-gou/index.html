@@ -1,0 +1,1442 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="《qt5开发及实例 第4版》第八章-模型/视图结构, Huang Shichang&#39;s Blog">
+    <meta name="description" content="通过MVC模式可以有效地分离数据和用户界面。MVC设计模式包括三个元素：表示数据的模型（Model）、表示用户界面的视图（View）、定义了用户在界面上操作的控制器（Controller）。
+Qt引入了模型/视图结构（InterView）用">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>《qt5开发及实例 第4版》第八章-模型/视图结构 | Huang Shichang&#39;s Blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 7.0.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Huang Shichang's Blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.jpeg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Huang Shichang&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.jpeg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Huang Shichang&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/AutinC/AutinC.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/AutinC/AutinC.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">《qt5开发及实例 第4版》第八章-模型/视图结构</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+<!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E3%80%8Aqt5%E5%BC%80%E5%8F%91%E5%8F%8A%E5%AE%9E%E4%BE%8B-%E7%AC%AC4%E7%89%88%E3%80%8B/">
+                                <span class="chip bg-color">《qt5开发及实例 第4版》</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-04-01
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.7k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>通过MVC模式可以有效地分离数据和用户界面。MVC设计模式包括三个元素：<strong>表示数据的模型（Model）、表示用户界面的视图（View）、定义了用户在界面上操作的控制器（Controller）</strong>。</p>
+<p>Qt引入了模型/视图结构（InterView）用于完成数据与界面的分离。不同的是， <strong>InterView把视图和控制器部件结合在一起</strong>，使得框架更加简洁。为了可以灵活地处理用户输入，InterView引入了<strong>代理（Delegate）</strong>，实现<strong>自定义数据条目（Item）的显示和编辑方式</strong>。</p>
+<p>InterView分为三部分：<strong>模型（Model）、视图（View）、代理（Delegate）</strong>。模型和数据源通信，并为其他部件提供接口；视图从模型中获得用来引用数据条目的<strong>模型索引（Model Index）</strong>；代理负责绘制数据条目，编辑条目时，代理直接和模型通信。三者之间通过信号和槽进行通信，关系如下：</p>
+<ul>
+<li>数据改变时，模型发出信号通知视图</li>
+<li>用户对界面进行操作，视图发出信号</li>
+<li>代理发出信号告知模型和视图编辑器目前的状态</li>
+</ul>
+<p><img src="https://gcdnb.pbrd.co/images/U8e9ftZa8AKu.png?o=1"></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
+<li><p><strong>模型（Model）</strong></p>
+<p>InterView中的所有模型都基于抽象基类<strong>QAbstractItemModel</strong>，此类由QProxyModel、QAbstractListModel、QAbstractTableModel、QAbstractProxyModel、QDirModel、QFileSystemModel、QHelpContentModel、QStandardItemModel类继承。其中，<strong>QAbstractListModel、QAbstractTableModel分别是列表和表格模型的抽象基类</strong>，如果需要实现列表或表格模型，则应从这两个类继承；<strong>QStringListModel</strong>类继承自QAbstractListModel类，完成<strong>QStringList的存储</strong>；与<strong>数据库</strong>有关的<strong>QSqlQueryModel</strong>类继承自QAbstractTableModel类；QAbstractProxyModel是<strong>代理模型</strong>的抽象类；<strong>QDirModel</strong>类是<strong>文件和目录的存储模型</strong>。</p>
+</li>
+<li><p><strong>视图（View）</strong></p>
+<p>InterView中的所有视图都基于抽象基类<strong>QAbstractItemView</strong>，此类由QColumnView、QHeaderView、QListView、QTableView和QTreeView继承。其中，QListView由<strong>QUndoView</strong>和<strong>QListWidget</strong>类继承；QTableView类由<strong>QTableWidget</strong>类继承；QTreeView由<strong>QTreeWidget</strong>类继承。<strong>QListWidget、QTableWidget、QTreeWidget实际上已经包含了数据，是模型/视图集成在一起的类。</strong></p>
+</li>
+<li><p><strong>代理（Delegate）</strong></p>
+<p>InterView中的所有代理都基于抽象基类<strong>QAbstractItemDelegate</strong>，此类由<strong>QItemDelegate、QStyledItemDelegate</strong>继承。QItemDelegate由表示数据库中关系代理的<strong>QSqlRelationalDelegate</strong>继承。</p>
+</li>
+</ul>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>实现一个简单的文件目录浏览器，通过QTreeView、QListView、QTableView三种方式呈现。</p>
+<p><img src="https://gcdnb.pbrd.co/images/2brNVNKSPyur.png?o=1"></p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"mainwindow.h"</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QApplication&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QAbstractItemModel&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QAbstractItemView&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QItemSelectionModel&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QDirModel&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QTreeView&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QListView&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QTableView&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QSplitter&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="function">QApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;</span><br><span class="line"></span><br><span class="line">    QDirModel model;            <span class="comment">// 新建一个QDirModel对象，为数据访问做准备，还可以设置过滤器使符合条件的文件或目录才可被访问</span></span><br><span class="line">    <span class="comment">// 新建三个不同的View对象，使文件目录可以以三种不同的方式显示</span></span><br><span class="line">    QTreeView tree;</span><br><span class="line">    QListView list;</span><br><span class="line">    QTableView table;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置三种View的Model</span></span><br><span class="line">    tree.<span class="built_in">setModel</span>(&amp;model);</span><br><span class="line">    list.<span class="built_in">setModel</span>(&amp;model);</span><br><span class="line">    table.<span class="built_in">setModel</span>(&amp;model);</span><br><span class="line"></span><br><span class="line">    tree.<span class="built_in">setSelectionMode</span>(QAbstractItemView::MultiSelection);   <span class="comment">// 设置QTreeView对象的选择方式为多选</span></span><br><span class="line">    list.<span class="built_in">setSelectionModel</span>(tree.<span class="built_in">selectionModel</span>());</span><br><span class="line">    table.<span class="built_in">setSelectionModel</span>(tree.<span class="built_in">selectionModel</span>());</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 实现双击QTreeView对象中的某个目录时，QListView和QTableView对象显示此目录下的所有文件和目录</span></span><br><span class="line">    QObject::<span class="built_in">connect</span>(&amp;tree,<span class="built_in">SIGNAL</span>(<span class="built_in">doubleClicked</span>(QModelIndex)),&amp;list,<span class="built_in">SLOT</span>(<span class="built_in">setRootIndex</span>(QModelIndex)));</span><br><span class="line">    QObject::<span class="built_in">connect</span>(&amp;tree,<span class="built_in">SIGNAL</span>(<span class="built_in">doubleClicked</span>(QModelIndex)),&amp;table,<span class="built_in">SLOT</span>(<span class="built_in">setRootIndex</span>(QModelIndex)));</span><br><span class="line"></span><br><span class="line">    QSplitter *splitter = <span class="keyword">new</span> QSplitter;</span><br><span class="line">    splitter-&gt;<span class="built_in">addWidget</span>(&amp;tree);</span><br><span class="line">    splitter-&gt;<span class="built_in">addWidget</span>(&amp;list);</span><br><span class="line">    splitter-&gt;<span class="built_in">addWidget</span>(&amp;table);</span><br><span class="line">    splitter-&gt;<span class="built_in">setWindowTitle</span>(QObject::<span class="built_in">tr</span>(<span class="string">"Model/View"</span>));</span><br><span class="line">    splitter-&gt;<span class="built_in">show</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> a.<span class="built_in">exec</span>();</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>可以通过QAbstractListModel和QAbstractTableModel类继承实现列表模型或表格模型，也可以通过继承QAbstractItemModel类实现自定义模型。</p>
+<ul>
+<li><p>实例</p>
+<p>将数值代码转换为文字的模型介绍如何使用自定义模型。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"modelex.h"</span></span></span><br><span class="line"></span><br><span class="line">ModelEx::<span class="built_in">ModelEx</span>(QObject *parent) : <span class="built_in">QAbstractTableModel</span>(parent)</span><br><span class="line">{</span><br><span class="line">    armyMap[<span class="number">1</span>]=<span class="built_in">tr</span>(<span class="string">"空军"</span>);</span><br><span class="line">    armyMap[<span class="number">2</span>]=<span class="built_in">tr</span>(<span class="string">"海军"</span>);</span><br><span class="line">    armyMap[<span class="number">3</span>]=<span class="built_in">tr</span>(<span class="string">"陆军"</span>);</span><br><span class="line">    armyMap[<span class="number">4</span>]=<span class="built_in">tr</span>(<span class="string">"海军陆战队"</span>);</span><br><span class="line"></span><br><span class="line">    weaponTypeMap[<span class="number">1</span>]=<span class="built_in">tr</span>(<span class="string">"轰炸机"</span>);</span><br><span class="line">    weaponTypeMap[<span class="number">2</span>]=<span class="built_in">tr</span>(<span class="string">"战斗机"</span>);</span><br><span class="line">    weaponTypeMap[<span class="number">3</span>]=<span class="built_in">tr</span>(<span class="string">"航空母舰"</span>);</span><br><span class="line">    weaponTypeMap[<span class="number">4</span>]=<span class="built_in">tr</span>(<span class="string">"驱逐舰"</span>);</span><br><span class="line">    weaponTypeMap[<span class="number">5</span>]=<span class="built_in">tr</span>(<span class="string">"直升机"</span>);</span><br><span class="line">    weaponTypeMap[<span class="number">6</span>]=<span class="built_in">tr</span>(<span class="string">"坦克"</span>);</span><br><span class="line">    weaponTypeMap[<span class="number">7</span>]=<span class="built_in">tr</span>(<span class="string">"两栖攻击舰"</span>);</span><br><span class="line">    weaponTypeMap[<span class="number">8</span>]=<span class="built_in">tr</span>(<span class="string">"两栖战车"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">populateModel</span>();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">ModelEx::populateModel</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    header&lt;&lt;<span class="built_in">tr</span>(<span class="string">"军种"</span>)&lt;&lt;<span class="built_in">tr</span>(<span class="string">"种类"</span>)&lt;&lt;<span class="built_in">tr</span>(<span class="string">"武器"</span>);</span><br><span class="line">    army&lt;&lt;<span class="number">1</span>&lt;&lt;<span class="number">2</span>&lt;&lt;<span class="number">3</span>&lt;&lt;<span class="number">4</span>&lt;&lt;<span class="number">2</span>&lt;&lt;<span class="number">4</span>&lt;&lt;<span class="number">3</span>&lt;&lt;<span class="number">1</span>;</span><br><span class="line">    weaponType&lt;&lt;<span class="number">1</span>&lt;&lt;<span class="number">3</span>&lt;&lt;<span class="number">5</span>&lt;&lt;<span class="number">7</span>&lt;&lt;<span class="number">4</span>&lt;&lt;<span class="number">8</span>&lt;&lt;<span class="number">6</span>&lt;&lt;<span class="number">2</span>;</span><br><span class="line">    weapon&lt;&lt;<span class="built_in">tr</span>(<span class="string">"B-2"</span>)&lt;&lt;<span class="built_in">tr</span>(<span class="string">"尼米兹级"</span>)&lt;&lt;<span class="built_in">tr</span>(<span class="string">"阿帕奇"</span>)&lt;&lt;<span class="built_in">tr</span>(<span class="string">"黄蜂级"</span>)&lt;&lt;<span class="built_in">tr</span>(<span class="string">"阿利伯克级"</span>)&lt;&lt;<span class="built_in">tr</span>(<span class="string">"AAAV"</span>)&lt;&lt;<span class="built_in">tr</span>(<span class="string">"M1A1"</span>)&lt;&lt;<span class="built_in">tr</span>(<span class="string">"F-22"</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">ModelEx::columnCount</span><span class="params">(<span class="type">const</span> QModelIndex &amp;parent)</span> <span class="type">const</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">return</span> <span class="number">3</span>;       <span class="comment">// 因为模型的列固定为3，所以直接返回</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">ModelEx::rowCount</span><span class="params">(<span class="type">const</span> QModelIndex &amp;parent)</span> <span class="type">const</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">return</span> army.<span class="built_in">size</span>();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回指定索引的数据，即将数值映射为文字</span></span><br><span class="line"><span class="function">QVariant <span class="title">ModelEx::data</span><span class="params">(<span class="type">const</span> QModelIndex &amp;index, <span class="type">int</span> role)</span> <span class="type">const</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span>(!index.<span class="built_in">isValid</span>())</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">QVariant</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(role==Qt::DisplayRole)                   <span class="comment">// 模型中的条目由不同的角色，从而可以在不同情况下提供不同数据</span></span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">switch</span>(index.<span class="built_in">column</span>())</span><br><span class="line">        {</span><br><span class="line">        <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> armyMap[army[index.<span class="built_in">row</span>()]];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> weaponTypeMap[weaponType[index.<span class="built_in">row</span>()]];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> weapon[index.<span class="built_in">row</span>()];</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">QVariant</span>();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">QVariant</span>();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 返回固定表头数据，设置水平表头的标题</span></span><br><span class="line"><span class="function">QVariant <span class="title">ModelEx::headerData</span><span class="params">(<span class="type">int</span> section, Qt::Orientation orientation, <span class="type">int</span> role)</span> <span class="type">const</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span>(role==Qt::DisplayRole&amp;&amp;orientation==Qt::Horizontal)</span><br><span class="line">        <span class="keyword">return</span> header[section];</span><br><span class="line">    <span class="keyword">return</span> QAbstractTableModel::<span class="built_in">headerData</span>(section,orientation,role);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><p>可以继承QAbstractItemView来实现自定义的View，对所需的纯虚函数进行重定义与实现。</p>
+<ul>
+<li><p>实例</p>
+<p>通过自定义View实现对一个TableModel的表格数据显示柱状统计图。</p>
+<p><img src="https://gcdnb.pbrd.co/images/hJMhiZkFDxBc.png?o=1"></p>
+<ul>
+<li><p>histogram.cpp</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"histogramview.h"</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QPainter&gt;</span></span></span><br><span class="line"></span><br><span class="line">HistogramView::<span class="built_in">HistogramView</span>(QWidget *parent)</span><br><span class="line">    :<span class="built_in">QAbstractItemView</span>(parent)</span><br><span class="line">{</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 具体完成柱状统计图绘制的工作</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">HistogramView::paintEvent</span><span class="params">(QPaintEvent *)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="function">QPainter <span class="title">painter</span><span class="params">(viewport())</span></span>;       <span class="comment">// 以viewpoint作为绘图设备新建一个QPainter对象</span></span><br><span class="line">    painter.<span class="built_in">setPen</span>(Qt::black);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> x0=<span class="number">40</span>;</span><br><span class="line">    <span class="type">int</span> y0=<span class="number">250</span>;</span><br><span class="line">    <span class="comment">//y坐标轴</span></span><br><span class="line">    painter.<span class="built_in">drawLine</span>(x0,y0,<span class="number">40</span>,<span class="number">30</span>);</span><br><span class="line">    painter.<span class="built_in">drawLine</span>(<span class="number">38</span>,<span class="number">32</span>,<span class="number">40</span>,<span class="number">30</span>);</span><br><span class="line">    painter.<span class="built_in">drawLine</span>(<span class="number">40</span>,<span class="number">30</span>,<span class="number">42</span>,<span class="number">32</span>);</span><br><span class="line">    painter.<span class="built_in">drawText</span>(<span class="number">20</span>,<span class="number">30</span>,<span class="built_in">tr</span>(<span class="string">"人数"</span>));</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;<span class="number">5</span>;i++)</span><br><span class="line">    {</span><br><span class="line">        painter.<span class="built_in">drawLine</span>(<span class="number">-1</span>,-i*<span class="number">50</span>,<span class="number">1</span>,-i*<span class="number">50</span>);</span><br><span class="line">        painter.<span class="built_in">drawText</span>(<span class="number">-20</span>,-i*<span class="number">50</span>,<span class="built_in">tr</span>(<span class="string">"%1"</span>).<span class="built_in">arg</span>(i*<span class="number">5</span>));</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//x 坐标轴</span></span><br><span class="line">    painter.<span class="built_in">drawLine</span>(x0,y0,<span class="number">540</span>,<span class="number">250</span>);</span><br><span class="line">    painter.<span class="built_in">drawLine</span>(<span class="number">538</span>,<span class="number">248</span>,<span class="number">540</span>,<span class="number">250</span>);</span><br><span class="line">    painter.<span class="built_in">drawLine</span>(<span class="number">540</span>,<span class="number">250</span>,<span class="number">538</span>,<span class="number">252</span>);</span><br><span class="line">    painter.<span class="built_in">drawText</span>(<span class="number">545</span>,<span class="number">250</span>,<span class="built_in">tr</span>(<span class="string">"部门"</span>));</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> posD=x0+<span class="number">20</span>;</span><br><span class="line">    <span class="type">int</span> row;</span><br><span class="line">    <span class="keyword">for</span>(row=<span class="number">0</span>;row&lt;<span class="built_in">model</span>()-&gt;<span class="built_in">rowCount</span>(<span class="built_in">rootIndex</span>());row++)</span><br><span class="line">    {</span><br><span class="line">        QModelIndex index=<span class="built_in">model</span>()-&gt;<span class="built_in">index</span>(row,<span class="number">0</span>,<span class="built_in">rootIndex</span>());</span><br><span class="line">        QString dep=<span class="built_in">model</span>()-&gt;<span class="built_in">data</span>(index).<span class="built_in">toString</span>();</span><br><span class="line"></span><br><span class="line">        painter.<span class="built_in">drawText</span>(posD,y0+<span class="number">20</span>,dep);</span><br><span class="line">        posD+=<span class="number">50</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//男</span></span><br><span class="line">    <span class="type">int</span> posM=x0+<span class="number">20</span>;</span><br><span class="line">    <span class="keyword">for</span>(row=<span class="number">0</span>;row&lt;<span class="built_in">model</span>()-&gt;<span class="built_in">rowCount</span>(<span class="built_in">rootIndex</span>());row++)</span><br><span class="line">    {</span><br><span class="line">        QModelIndex index=<span class="built_in">model</span>()-&gt;<span class="built_in">index</span>(row,<span class="number">1</span>,<span class="built_in">rootIndex</span>());</span><br><span class="line">        <span class="type">int</span> male=<span class="built_in">model</span>()-&gt;<span class="built_in">data</span>(index).<span class="built_in">toDouble</span>();</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> width=<span class="number">10</span>;</span><br><span class="line">        <span class="comment">// 使用不同的画刷颜色区别选中与未选中的数据项</span></span><br><span class="line">        <span class="keyword">if</span>(selections-&gt;<span class="built_in">isSelected</span>(index))</span><br><span class="line">            painter.<span class="built_in">setBrush</span>(<span class="built_in">QBrush</span>(Qt::blue,Qt::Dense3Pattern));</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            painter.<span class="built_in">setBrush</span>(Qt::blue);</span><br><span class="line"></span><br><span class="line">        painter.<span class="built_in">drawRect</span>(<span class="built_in">QRect</span>(posM,y0-male*<span class="number">10</span>,width,male*<span class="number">10</span>));     <span class="comment">// 根据当前数据项的值按比例绘制一个方形表示数据</span></span><br><span class="line">        <span class="function">QRegion <span class="title">regionM</span><span class="params">(posM,y0-male*<span class="number">10</span>,width,male*<span class="number">10</span>)</span></span>;</span><br><span class="line">        MRegionList&lt;&lt;regionM;                                       <span class="comment">// 将此数据所占的区域保存到MRegionList中，为后面的数据项选择做准备</span></span><br><span class="line"></span><br><span class="line">        posM+=<span class="number">50</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//女</span></span><br><span class="line">    <span class="type">int</span> posF=x0+<span class="number">30</span>;</span><br><span class="line">    <span class="keyword">for</span>(row=<span class="number">0</span>;row&lt;<span class="built_in">model</span>()-&gt;<span class="built_in">rowCount</span>(<span class="built_in">rootIndex</span>());row++)</span><br><span class="line">    {</span><br><span class="line">        QModelIndex index=<span class="built_in">model</span>()-&gt;<span class="built_in">index</span>(row,<span class="number">2</span>,<span class="built_in">rootIndex</span>());</span><br><span class="line">        <span class="type">int</span> female=<span class="built_in">model</span>()-&gt;<span class="built_in">data</span>(index).<span class="built_in">toDouble</span>();</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> width=<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">if</span>(selections-&gt;<span class="built_in">isSelected</span>(index))</span><br><span class="line">            painter.<span class="built_in">setBrush</span>(<span class="built_in">QBrush</span>(Qt::red,Qt::Dense3Pattern));</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            painter.<span class="built_in">setBrush</span>(Qt::red);</span><br><span class="line">        painter.<span class="built_in">drawRect</span>(<span class="built_in">QRect</span>(posF,y0-female*<span class="number">10</span>,width,female*<span class="number">10</span>));</span><br><span class="line">        <span class="function">QRegion <span class="title">regionF</span><span class="params">(posF,y0-female*<span class="number">10</span>,width,female*<span class="number">10</span>)</span></span>;</span><br><span class="line">        FRegionList&lt;&lt;regionF;</span><br><span class="line"></span><br><span class="line">        posF+=<span class="number">50</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">//退休</span></span><br><span class="line">    <span class="type">int</span> posS=x0+<span class="number">40</span>;</span><br><span class="line">    <span class="keyword">for</span>(row=<span class="number">0</span>;row&lt;<span class="built_in">model</span>()-&gt;<span class="built_in">rowCount</span>(<span class="built_in">rootIndex</span>());row++)</span><br><span class="line">    {</span><br><span class="line">        QModelIndex index=<span class="built_in">model</span>()-&gt;<span class="built_in">index</span>(row,<span class="number">3</span>,<span class="built_in">rootIndex</span>());</span><br><span class="line">        <span class="type">int</span> retire=<span class="built_in">model</span>()-&gt;<span class="built_in">data</span>(index).<span class="built_in">toDouble</span>();</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> width=<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">if</span>(selections-&gt;<span class="built_in">isSelected</span>(index))</span><br><span class="line">            painter.<span class="built_in">setBrush</span>(<span class="built_in">QBrush</span>(Qt::green,Qt::Dense3Pattern));</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            painter.<span class="built_in">setBrush</span>(Qt::green);</span><br><span class="line"></span><br><span class="line">        painter.<span class="built_in">drawRect</span>(<span class="built_in">QRect</span>(posS,y0-retire*<span class="number">10</span>,width,retire*<span class="number">10</span>));</span><br><span class="line">        <span class="function">QRegion <span class="title">regionS</span><span class="params">(posS,y0-retire*<span class="number">10</span>,width,retire*<span class="number">10</span>)</span></span>;</span><br><span class="line">        SRegionList&lt;&lt;regionS;</span><br><span class="line"></span><br><span class="line">        posS+=<span class="number">50</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当Model中的数据更改时，调用绘图设备的update进行更新</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">HistogramView::dataChanged</span><span class="params">(<span class="type">const</span> QModelIndex &amp;topLeft,<span class="type">const</span> QModelIndex &amp;bottomRight)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    QAbstractItemView::<span class="built_in">dataChanged</span>(topLeft,bottomRight);</span><br><span class="line">    <span class="built_in">viewport</span>()-&gt;<span class="built_in">update</span>();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 为selections赋初值</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">HistogramView::setSelectionModel</span><span class="params">(QItemSelectionModel *selectionModel)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    selections=selectionModel;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当数据项发生变化时调用update，重绘绘图设备，将其他View中的操作引起的数据项选择变化映射到自身View的显示中</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">HistogramView::selectionChanged</span><span class="params">(<span class="type">const</span> QItemSelection &amp;selected,<span class="type">const</span> QItemSelection &amp;deselected)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="built_in">viewport</span>()-&gt;<span class="built_in">update</span>();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 鼠标按下时判断是否在某个数据项区域内，并设置选择项</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">HistogramView::mousePressEvent</span><span class="params">(QMouseEvent *event)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    QAbstractItemView::<span class="built_in">mousePressEvent</span>(event);</span><br><span class="line">    <span class="built_in">setSelection</span>(<span class="built_in">QRect</span>(event-&gt;<span class="built_in">pos</span>().<span class="built_in">x</span>(),event-&gt;<span class="built_in">pos</span>().<span class="built_in">y</span>(),<span class="number">1</span>,<span class="number">1</span>),QItemSelectionModel::SelectCurrent);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">HistogramView::setSelection</span><span class="params">(<span class="type">const</span> QRect &amp;rect,QItemSelectionModel::SelectionFlags flags)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> rows = <span class="built_in">model</span>()-&gt;<span class="built_in">rowCount</span>(<span class="built_in">rootIndex</span>());</span><br><span class="line">    <span class="type">int</span> columns = <span class="built_in">model</span>()-&gt;<span class="built_in">columnCount</span>(<span class="built_in">rootIndex</span>());</span><br><span class="line">    QModelIndex selectedIndex;      <span class="comment">//用于保存被选择的数据项的Index</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 判断在rect中是否含有数据项，遍历将每个数据项的区域与rect区域进行intersected，获取两者降级，如果不为空，就把Index赋给selectedIndex</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> row=<span class="number">0</span>; row&lt;rows; ++row)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> column=<span class="number">1</span>; column&lt;columns; ++column)</span><br><span class="line">        {</span><br><span class="line">            QModelIndex index=<span class="built_in">model</span>()-&gt;<span class="built_in">index</span>(row,column,<span class="built_in">rootIndex</span>());</span><br><span class="line">            QRegion region=<span class="built_in">itemRegion</span>(index);       <span class="comment">// 返回指定index数据项所占用的区域</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (!region.<span class="built_in">intersected</span>(rect).<span class="built_in">isEmpty</span>())</span><br><span class="line">                selectedIndex = index;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 完成select函数的调用，完成对选择项的设置</span></span><br><span class="line">    <span class="keyword">if</span>(selectedIndex.<span class="built_in">isValid</span>())</span><br><span class="line">        selections-&gt;<span class="built_in">select</span>(selectedIndex,flags);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    {</span><br><span class="line">        QModelIndex noIndex;</span><br><span class="line">        selections-&gt;<span class="built_in">select</span>(noIndex,flags);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function">QModelIndex <span class="title">HistogramView::indexAt</span><span class="params">(<span class="type">const</span> QPoint &amp;point)</span><span class="type">const</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="function">QPoint <span class="title">newPoint</span><span class="params">(point.x(),point.y())</span></span>;</span><br><span class="line">    QRegion region;</span><br><span class="line">    foreach(region,MRegionList)				<span class="comment">// 男 列</span></span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (region.<span class="built_in">contains</span>(newPoint))</span><br><span class="line">        {</span><br><span class="line">            <span class="type">int</span> row = MRegionList.<span class="built_in">indexOf</span>(region);</span><br><span class="line">            QModelIndex index = <span class="built_in">model</span>()-&gt;<span class="built_in">index</span>(row,<span class="number">1</span>,<span class="built_in">rootIndex</span>());</span><br><span class="line">            <span class="keyword">return</span> index;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    foreach(region,FRegionList)				<span class="comment">// 女 列</span></span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (region.<span class="built_in">contains</span>(newPoint))</span><br><span class="line">        {</span><br><span class="line">            <span class="type">int</span> row = FRegionList.<span class="built_in">indexOf</span>(region);</span><br><span class="line">            QModelIndex index = <span class="built_in">model</span>()-&gt;<span class="built_in">index</span>(row,<span class="number">2</span>,<span class="built_in">rootIndex</span>());</span><br><span class="line">            <span class="keyword">return</span> index;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    foreach(region,SRegionList)				<span class="comment">// 合计 列</span></span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (region.<span class="built_in">contains</span>(newPoint))</span><br><span class="line">        {</span><br><span class="line">            <span class="type">int</span> row = SRegionList.<span class="built_in">indexOf</span>(region);</span><br><span class="line">            QModelIndex index = <span class="built_in">model</span>()-&gt;<span class="built_in">index</span>(row,<span class="number">3</span>,<span class="built_in">rootIndex</span>());</span><br><span class="line">            <span class="keyword">return</span> index;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">QModelIndex</span>();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function">QRect <span class="title">HistogramView::visualRect</span><span class="params">(<span class="type">const</span> QModelIndex &amp;index)</span><span class="type">const</span></span>{<span class="keyword">return</span> <span class="built_in">QRect</span>();}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">HistogramView::scrollTo</span><span class="params">(<span class="type">const</span> QModelIndex &amp;index,ScrollHint)</span></span>{}</span><br><span class="line"></span><br><span class="line"><span class="function">QModelIndex <span class="title">HistogramView::moveCursor</span><span class="params">(QAbstractItemView::CursorAction cursorAction, Qt::KeyboardModifiers modifiers)</span></span>{<span class="keyword">return</span> <span class="built_in">QModelIndex</span>();}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">HistogramView::horizontalOffset</span><span class="params">()</span><span class="type">const</span></span>{<span class="keyword">return</span> <span class="number">0</span>;}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">HistogramView::verticalOffset</span><span class="params">()</span><span class="type">const</span></span>{<span class="keyword">return</span> <span class="number">0</span>;}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">HistogramView::isIndexHidden</span><span class="params">(<span class="type">const</span> QModelIndex &amp;index)</span><span class="type">const</span></span>{<span class="keyword">return</span> <span class="literal">true</span>;}</span><br><span class="line"></span><br><span class="line"><span class="function">QRegion <span class="title">HistogramView::visualRegionForSelection</span><span class="params">(<span class="type">const</span> QItemSelection &amp;selection)</span><span class="type">const</span></span>{<span class="keyword">return</span> <span class="built_in">QRegion</span>();}</span><br><span class="line"></span><br><span class="line"><span class="function">QRegion <span class="title">HistogramView::itemRegion</span><span class="params">(QModelIndex index)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    QRegion region;</span><br><span class="line">    <span class="keyword">if</span> (index.<span class="built_in">column</span>() == <span class="number">1</span>)		<span class="comment">// 男</span></span><br><span class="line">        region = MRegionList[index.<span class="built_in">row</span>()];</span><br><span class="line">    <span class="keyword">if</span> (index.<span class="built_in">column</span>() == <span class="number">2</span>)		<span class="comment">// 女</span></span><br><span class="line">        region = FRegionList[index.<span class="built_in">row</span>()];</span><br><span class="line">    <span class="keyword">if</span> (index.<span class="built_in">column</span>() == <span class="number">3</span>)		<span class="comment">// 退休</span></span><br><span class="line">        region = SRegionList[index.<span class="built_in">row</span>()];</span><br><span class="line">    <span class="keyword">return</span> region;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>mainwindow.cpp</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"mainwindow.h"</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QItemSelectionModel&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QFileDialog&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QFile&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QTextStream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;QStringList&gt;</span></span></span><br><span class="line"></span><br><span class="line">MainWindow::<span class="built_in">MainWindow</span>(QWidget *parent) : <span class="built_in">QMainWindow</span>(parent)</span><br><span class="line">{</span><br><span class="line">    <span class="built_in">createAction</span>();</span><br><span class="line">    <span class="built_in">createMenu</span>();</span><br><span class="line">    <span class="built_in">setupModel</span>();</span><br><span class="line">    <span class="built_in">setupView</span>();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">setWindowTitle</span>(<span class="built_in">tr</span>(<span class="string">"View Example"</span>));</span><br><span class="line">    <span class="built_in">resize</span>(<span class="number">600</span>,<span class="number">600</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">MainWindow::~<span class="built_in">MainWindow</span>()</span><br><span class="line">{</span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::createAction</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    openAct = <span class="keyword">new</span> <span class="built_in">QAction</span>(<span class="built_in">tr</span>(<span class="string">"打开"</span>),<span class="keyword">this</span>);</span><br><span class="line">    <span class="built_in">connect</span>(openAct,<span class="built_in">SIGNAL</span>(<span class="built_in">triggered</span>()),<span class="keyword">this</span>,<span class="built_in">SLOT</span>(<span class="built_in">slotOpen</span>()));</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::createMenu</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    fileMenu = <span class="keyword">new</span> <span class="built_in">QMenu</span>(<span class="built_in">tr</span>(<span class="string">"文件"</span>),<span class="keyword">this</span>);</span><br><span class="line">    fileMenu-&gt;<span class="built_in">addAction</span>(openAct);</span><br><span class="line">    <span class="built_in">menuBar</span>()-&gt;<span class="built_in">addMenu</span>(fileMenu);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 新建一个Model，并设置表头数据</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::setupModel</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    model = <span class="keyword">new</span> <span class="built_in">QStandardItemModel</span>(<span class="number">4</span>,<span class="number">4</span>,<span class="keyword">this</span>);</span><br><span class="line">    model-&gt;<span class="built_in">setHeaderData</span>(<span class="number">0</span>,Qt::Horizontal,<span class="built_in">tr</span>(<span class="string">"部门"</span>));</span><br><span class="line">    model-&gt;<span class="built_in">setHeaderData</span>(<span class="number">1</span>,Qt::Horizontal,<span class="built_in">tr</span>(<span class="string">"男"</span>));</span><br><span class="line">    model-&gt;<span class="built_in">setHeaderData</span>(<span class="number">2</span>,Qt::Horizontal,<span class="built_in">tr</span>(<span class="string">"女"</span>));</span><br><span class="line">    model-&gt;<span class="built_in">setHeaderData</span>(<span class="number">3</span>,Qt::Horizontal,<span class="built_in">tr</span>(<span class="string">"退休"</span>));</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::setupView</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    splitter = <span class="keyword">new</span> QSplitter;</span><br><span class="line">    splitter-&gt;<span class="built_in">setOrientation</span>(Qt::Vertical);</span><br><span class="line"></span><br><span class="line">    histogram = <span class="keyword">new</span> <span class="built_in">HistogramView</span>(splitter);</span><br><span class="line">    histogram-&gt;<span class="built_in">setModel</span>(model);</span><br><span class="line"></span><br><span class="line">    table = <span class="keyword">new</span> QTableView;</span><br><span class="line">    table-&gt;<span class="built_in">setModel</span>(model);</span><br><span class="line"></span><br><span class="line">    QItemSelectionModel *selectionModel=<span class="keyword">new</span> <span class="built_in">QItemSelectionModel</span>(model); <span class="comment">// 新建一个QItemSelectionModel对象作为QTableView对象使用的选择模型</span></span><br><span class="line">    table-&gt;<span class="built_in">setSelectionModel</span>(selectionModel);</span><br><span class="line">    histogram-&gt;<span class="built_in">setSelectionModel</span>(selectionModel);</span><br><span class="line"></span><br><span class="line">    splitter-&gt;<span class="built_in">addWidget</span>(table);</span><br><span class="line">    splitter-&gt;<span class="built_in">addWidget</span>(histogram);</span><br><span class="line">    <span class="built_in">setCentralWidget</span>(splitter);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使自定义的HistogramView对象中的选择变化能够反映到QTableView对象的显示中</span></span><br><span class="line">    <span class="built_in">connect</span>(selectionModel,<span class="built_in">SIGNAL</span>(<span class="built_in">selectionChanged</span>(QItemSelection,QItemSelection)),table,<span class="built_in">SLOT</span>(<span class="built_in">selectionChanged</span>(QItemSelection,QItemSelection)));</span><br><span class="line"></span><br><span class="line">    <span class="built_in">connect</span>(selectionModel,<span class="built_in">SIGNAL</span>(<span class="built_in">selectionChanged</span>(QItemSelection,QItemSelection)),histogram,<span class="built_in">SLOT</span>(<span class="built_in">selectionChanged</span>(QItemSelection,QItemSelection)));</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::slotOpen</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    QString name;</span><br><span class="line">    name = QFileDialog::<span class="built_in">getOpenFileName</span>(<span class="keyword">this</span>,<span class="string">"打开"</span>,<span class="string">"."</span>,<span class="string">"histogram files (*.txt)"</span>);</span><br><span class="line">    <span class="keyword">if</span> (!name.<span class="built_in">isEmpty</span>())</span><br><span class="line">        <span class="built_in">openFile</span>(name);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MainWindow::openFile</span><span class="params">(QString path)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span> (!path.<span class="built_in">isEmpty</span>())</span><br><span class="line">    {</span><br><span class="line">        <span class="function">QFile <span class="title">file</span><span class="params">(path)</span></span>;</span><br><span class="line">        <span class="keyword">if</span> (file.<span class="built_in">open</span>(QFile::ReadOnly|QFile::Text))</span><br><span class="line">        {</span><br><span class="line">            <span class="function">QTextStream <span class="title">stream</span><span class="params">(&amp;file)</span></span>;</span><br><span class="line">            QString line;</span><br><span class="line"></span><br><span class="line">            model-&gt;<span class="built_in">removeRows</span>(<span class="number">0</span>,model-&gt;<span class="built_in">rowCount</span>(<span class="built_in">QModelIndex</span>()),<span class="built_in">QModelIndex</span>());</span><br><span class="line">            <span class="type">int</span> row = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">do</span></span><br><span class="line">            {</span><br><span class="line">                line = stream.<span class="built_in">readLine</span>();</span><br><span class="line">                <span class="keyword">if</span> (!line.<span class="built_in">isEmpty</span>())</span><br><span class="line">                {</span><br><span class="line">                    model-&gt;<span class="built_in">insertRows</span>(row, <span class="number">1</span>, <span class="built_in">QModelIndex</span>());</span><br><span class="line">                    QStringList pieces=line.<span class="built_in">split</span>(<span class="string">","</span>,QString::SkipEmptyParts);</span><br><span class="line">                    model-&gt;<span class="built_in">setData</span>(model-&gt;<span class="built_in">index</span>(row, <span class="number">0</span>, <span class="built_in">QModelIndex</span>()),pieces.<span class="built_in">value</span>(<span class="number">0</span>));</span><br><span class="line">                    model-&gt;<span class="built_in">setData</span>(model-&gt;<span class="built_in">index</span>(row, <span class="number">1</span>, <span class="built_in">QModelIndex</span>()),pieces.<span class="built_in">value</span>(<span class="number">1</span>));</span><br><span class="line">                    model-&gt;<span class="built_in">setData</span>(model-&gt;<span class="built_in">index</span>(row, <span class="number">2</span>, <span class="built_in">QModelIndex</span>()),pieces.<span class="built_in">value</span>(<span class="number">2</span>));</span><br><span class="line">                    model-&gt;<span class="built_in">setData</span>(model-&gt;<span class="built_in">index</span>(row, <span class="number">3</span>, <span class="built_in">QModelIndex</span>()),pieces.<span class="built_in">value</span>(<span class="number">3</span>));</span><br><span class="line">                    row++;</span><br><span class="line">                }</span><br><span class="line">            }<span class="keyword">while</span> (!line.<span class="built_in">isEmpty</span>());</span><br><span class="line">            file.<span class="built_in">close</span>();</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+</ul>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">AutinC</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://autinc.github.io/2024/04/01/qt5-kai-fa-ji-shi-li-di-4-ban-di-ba-zhang-mo-xing-shi-tu-jie-gou/">https://autinc.github.io/2024/04/01/qt5-kai-fa-ji-shi-li-di-4-ban-di-ba-zhang-mo-xing-shi-tu-jie-gou/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">AutinC</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E3%80%8Aqt5%E5%BC%80%E5%8F%91%E5%8F%8A%E5%AE%9E%E4%BE%8B-%E7%AC%AC4%E7%89%88%E3%80%8B/">
+                                    <span class="chip bg-color">《qt5开发及实例 第4版》</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'v0LOxueiWIPRw9lXbmg2YToy-gzGzoHsz',
+        appKey: 'RhYvmeHaBq8MHqMgnwdQbvm8',
+        serverURLs: 'https://v0loxuei.lc-cn-n1-shared.com',
+        notify: 'true' === 'true',
+        verify: 'true' === 'true',
+        visitor: 'false' === 'true',
+        avatar: 'mp',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '留下您的观点看法，共同讨论吧！'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/04/01/qt5-kai-fa-ji-shi-li-di-4-ban-di-ba-zhang-mo-xing-shi-tu-jie-gou/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="《qt5开发及实例 第4版》第八章-模型/视图结构">
+                        
+                        <span class="card-title">《qt5开发及实例 第4版》第八章-模型/视图结构</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            AutinC
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E3%80%8Aqt5%E5%BC%80%E5%8F%91%E5%8F%8A%E5%AE%9E%E4%BE%8B-%E7%AC%AC4%E7%89%88%E3%80%8B/">
+                        <span class="chip bg-color">《qt5开发及实例 第4版》</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/04/01/ren-yue-shen-hua-du-shu-bi-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="《人月神话》读书笔记">
+                        
+                        <span class="card-title">《人月神话》读书笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            AutinC
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E3%80%8A%E4%BA%BA%E6%9C%88%E7%A5%9E%E8%AF%9D%E3%80%8B/">
+                        <span class="chip bg-color">《人月神话》</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Huang Shichang&#39;s Blog<br />'
+            + '文章作者: AutinC<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022-2024</span>
+            
+            <a href="/about" target="_blank">AutinC</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">300.2k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/Autinc" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:h1743551466@126.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我： h1743551466@126.com" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1743551466" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1743551466" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+        <script src="//code.tidio.co/9r5hwp19xkh9jgnm8ualt74ktcqj9hkg.js"></script>
+        <script>
+            $(document).ready(function () {
+                setInterval(change_Tidio, 50);
+                function change_Tidio() {
+                    var tidio=$("#tidio-chat iframe");
+                    if(tidio.css("display")=="block"&& $(window).width()>977 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"85px":"20px";
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";
+                        document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
+                        document.getElementById("tidio-chat-iframe").style.zIndex="998";
+                    }
+                }
+            });
+        </script>
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</body>
+
+</html>

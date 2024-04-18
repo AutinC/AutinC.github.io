@@ -6,7 +6,7 @@
   <link href="https://autinc.github.io/atom.xml" rel="self"/>
   
   <link href="https://autinc.github.io/"/>
-  <updated>2024-04-17T08:40:00.823Z</updated>
+  <updated>2024-04-18T09:46:20.180Z</updated>
   <id>https://autinc.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《qt5开发及实例 第4版》第八章-模型/视图结构</title>
+    <link href="https://autinc.github.io/2024/04/01/qt5-kai-fa-ji-shi-li-di-4-ban-di-ba-zhang-mo-xing-shi-tu-jie-gou/"/>
+    <id>https://autinc.github.io/2024/04/01/qt5-kai-fa-ji-shi-li-di-4-ban-di-ba-zhang-mo-xing-shi-tu-jie-gou/</id>
+    <published>2024-03-31T16:00:00.000Z</published>
+    <updated>2024-04-18T09:46:20.180Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;通过MVC模式可以有效地分离数据和用户界面。MVC设计模式包括三个元素：&lt;strong&gt;表示数据的模型（Model）、表示用户界面的视图（View）、定义了用户在界面上操作的控制器（Controller）&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;Qt引入了模型/视图结构（Inte</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《qt5开发及实例 第4版》" scheme="https://autinc.github.io/tags/%E3%80%8Aqt5%E5%BC%80%E5%8F%91%E5%8F%8A%E5%AE%9E%E4%BE%8B-%E7%AC%AC4%E7%89%88%E3%80%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>《人月神话》读书笔记</title>
@@ -445,29 +469,6 @@
         
         
     <summary type="html">&lt;h2 id=&quot;组合模式&quot;&gt;&lt;a href=&quot;#组合模式&quot; class=&quot;headerlink&quot; title=&quot;组合模式&quot;&gt;&lt;/a&gt;组合模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《大话设计模式》18-备忘录模式</title>
-    <link href="https://autinc.github.io/2023/12/17/da-hua-she-ji-mo-shi-18-bei-wang-lu-mo-shi/"/>
-    <id>https://autinc.github.io/2023/12/17/da-hua-she-ji-mo-shi-18-bei-wang-lu-mo-shi/</id>
-    <published>2023-12-16T16:00:00.000Z</published>
-    <updated>2023-12-19T12:38:55.419Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;备忘录模式&quot;&gt;&lt;a href=&quot;#备忘录模式&quot; class=&quot;headerlink&quot; title=&quot;备忘录模式&quot;&gt;&lt;/a&gt;备忘录模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
         
       
     
