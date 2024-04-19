@@ -423,7 +423,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.2k
+                    4k
                 </div>
                 
 
@@ -568,6 +568,31 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 <li><strong>产品负责人作为总指挥，技术主管充当副手</strong>。很难子啊技术主管不参与任何管理工作的同时，建立技术决策上的权威。产品负责人必须声明技术主管的权威，支持后者的技术决定。在出现主要的技术问题前，私下共同讨论。</li>
 <li><strong>技术主管作为总指挥，产品负责人充当副手</strong>。可以根据需求排除所有对技术决策的琐碎事务的干扰。</li>
 </ol>
+<h2 id="第八章-胸有成竹"><a href="#第八章-胸有成竹" class="headerlink" title="第八章 胸有成竹"></a>第八章 胸有成竹</h2><p>系统编程需要花费多长时间？需要多少工作量？如何估计？</p>
+<ul>
+<li>进度、编码、构件测试、系统测试的比率</li>
+<li>构建独立小型程序的数据不适用于编程系统产品</li>
+</ul>
+<p>$$<br>工作量=（常数）*(指令数量)^{1.5}<br>$$</p>
+<p>​	<img src="https://gcdnb.pbrd.co/images/1pOV0V2auGqT.jpg?o=1"></p>
+<p>​	<img src="https://gcdnb.pbrd.co/images/ro3bQ09CIzv3.jpg?o=1"></p>
+<p>​		<img src="https://gcdnb.pbrd.co/images/lxlIfrFvNVax.jpg?o=1"></p>
+<h2 id="第九章-削足适履"><a href="#第九章-削足适履" class="headerlink" title="第九章 削足适履"></a>第九章 削足适履</h2><h3 id="作为成本的程序空间"><a href="#作为成本的程序空间" class="headerlink" title="作为成本的程序空间"></a>作为成本的程序空间</h3><p>当系统设计者认为对用户而言，常<strong>驻程序内存的形式比加法器、磁盘等更加有效时</strong>，他会将硬件实现中的一部分移到内存上。<strong>规模</strong>是软件系统产品用户成本的重要组成，开发人员必须设置规模的目标，控制减小规模。</p>
+<h3 id="规模控制"><a href="#规模控制" class="headerlink" title="规模控制"></a>规模控制</h3><p>项目经理必须研究用户和应用，设置开发系统的规模，把系统划分为若干部分，<strong>设定每个部分的规模目标</strong>。由于<strong>规模-速度</strong>权衡方案的结果在很大范围内变化，规模目标的设置颇具技巧，需要对每个可用方案有很深的理解。</p>
+<ul>
+<li>仅对核心程序设定规模目标是不够的，必须把所有方面都编入预算，制订总体规模的预算</li>
+<li>在指明模块有多大的同时，确切定义模块的功能</li>
+<li>项目中的开发人员都在局部优化自己的程序，很少考虑对用户的整体影响，系统结构师需要确保连贯的系统完整性</li>
+</ul>
+<h3 id="空间技能"><a href="#空间技能" class="headerlink" title="空间技能"></a>空间技能</h3><ul>
+<li><p><strong>用功能交换尺寸</strong>，可以将若干功能分组，根据选项组裁剪程序，任何一系列特殊的功能被合并在一起进行分组时，所需要的控件较少，设计人员必须决定用户可选项目的粗细程度。</p>
+<p>内存受限时，会使得即使最小的功能模块，它的适用范围也难以推广。在最小规模的系统中，大多数模块被覆盖，<strong>系统的主干占用的空间，会被用作其他部分的交换页面</strong>，它的尺寸决定了所有模块的尺寸，大型系统访问这些模块时，仅仅节省访问次数，仍然会有模块规模引起的空间和速度上的损失，所以很难用小型系统构造出非常高效的系统。</p>
+</li>
+<li><p><strong>考虑空间-时间的折中</strong>。对于给定的功能，空间越多，速度越快。项目经理需要确保开发人员编程技能最新，使得每个项目要有能用于队列、搜索、排序的例程或宏库。</p>
+</li>
+</ul>
+<h3 id="数据的表现形式是编程的根本"><a href="#数据的表现形式是编程的根本" class="headerlink" title="数据的表现形式是编程的根本"></a>数据的表现形式是编程的根本</h3><p>技艺的改进往往是<strong>战略上的突破而不仅仅是技巧上的提高</strong>，如快速傅里叶变换，或是将比较算法的时间复杂度从n^2降到nlogn。</p>
+<p>战略上的突破更普遍的方式是<strong>数据或表的重新表达</strong>。如果有程序流程图而没有表，会让人困惑，但是有表就往往不需要程序流程图了。</p>
 
                 
             </div>
@@ -1236,7 +1261,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">300.2k</span>
+                        class="white-color">301.6k</span>
             
             
             
