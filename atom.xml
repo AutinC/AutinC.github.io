@@ -6,7 +6,7 @@
   <link href="https://autinc.github.io/atom.xml" rel="self"/>
   
   <link href="https://autinc.github.io/"/>
-  <updated>2024-04-19T03:25:51.340Z</updated>
+  <updated>2024-04-24T08:18:39.918Z</updated>
   <id>https://autinc.github.io/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《qt5开发及实例 第4版》第十章-网络与通信</title>
+    <link href="https://autinc.github.io/2024/04/15/qt5-kai-fa-ji-shi-li-di-4-ban-di-shi-zhang-wang-luo-yu-tong-xin/"/>
+    <id>https://autinc.github.io/2024/04/15/qt5-kai-fa-ji-shi-li-di-4-ban-di-shi-zhang-wang-luo-yu-tong-xin/</id>
+    <published>2024-04-14T16:00:00.000Z</published>
+    <updated>2024-04-24T08:18:39.918Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;目前主流的操作系统都提供了统一的套接字（Socket）抽象编程接口（API），用于编写不同层次的网络程序，但这种方式比较繁琐，有时甚至需要引用底层操作系统的相关数据结构，而Qt提供的网络模块&lt;strong&gt;QtNetWork&lt;/strong&gt;圆满地解决了这一问题。&lt;/p&gt;
+</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《qt5开发及实例 第4版》" scheme="https://autinc.github.io/tags/%E3%80%8Aqt5%E5%BC%80%E5%8F%91%E5%8F%8A%E5%AE%9E%E4%BE%8B-%E7%AC%AC4%E7%89%88%E3%80%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《qt5开发及实例 第4版》第九章-文件及磁盘处理</title>
+    <link href="https://autinc.github.io/2024/04/08/qt5-kai-fa-ji-shi-li-di-4-ban-di-jiu-zhang-wen-jian-ji-ci-pan-chu-li/"/>
+    <id>https://autinc.github.io/2024/04/08/qt5-kai-fa-ji-shi-li-di-4-ban-di-jiu-zhang-wen-jian-ji-ci-pan-chu-li/</id>
+    <published>2024-04-07T16:00:00.000Z</published>
+    <updated>2024-04-23T07:17:34.387Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Qt提供了QFile类用户与进行文件操作，QFile提供了读写&lt;strong&gt;文本文件、二进制文件、Qt资源文件&lt;/strong&gt;的接口。&lt;/p&gt;
+&lt;p&gt;使用&lt;strong&gt;QTextStream&lt;/strong&gt;类、&lt;strong&gt;QDataStream&lt;/strong&gt;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="《qt5开发及实例 第4版》" scheme="https://autinc.github.io/tags/%E3%80%8Aqt5%E5%BC%80%E5%8F%91%E5%8F%8A%E5%AE%9E%E4%BE%8B-%E7%AC%AC4%E7%89%88%E3%80%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>《qt5开发及实例 第4版》第八章-模型/视图结构</title>
@@ -45,7 +93,7 @@
     <link href="https://autinc.github.io/2024/04/01/ren-yue-shen-hua-du-shu-bi-ji/"/>
     <id>https://autinc.github.io/2024/04/01/ren-yue-shen-hua-du-shu-bi-ji/</id>
     <published>2024-03-31T16:00:00.000Z</published>
-    <updated>2024-04-19T04:10:09.418Z</updated>
+    <updated>2024-04-24T09:13:36.325Z</updated>
     
     
       
@@ -423,52 +471,6 @@
         
         
     <summary type="html">&lt;h2 id=&quot;单例模式&quot;&gt;&lt;a href=&quot;#单例模式&quot; class=&quot;headerlink&quot; title=&quot;单例模式&quot;&gt;&lt;/a&gt;单例模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《大话设计模式》20-迭代器模式</title>
-    <link href="https://autinc.github.io/2023/12/19/da-hua-she-ji-mo-shi-20-die-dai-qi-mo-shi/"/>
-    <id>https://autinc.github.io/2023/12/19/da-hua-she-ji-mo-shi-20-die-dai-qi-mo-shi/</id>
-    <published>2023-12-18T16:00:00.000Z</published>
-    <updated>2023-12-21T08:44:41.129Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;迭代器模式&quot;&gt;&lt;a href=&quot;#迭代器模式&quot; class=&quot;headerlink&quot; title=&quot;迭代器模式&quot;&gt;&lt;/a&gt;迭代器模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="《大话设计模式》" scheme="https://autinc.github.io/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《大话设计模式》19-组合模式</title>
-    <link href="https://autinc.github.io/2023/12/18/da-hua-she-ji-mo-shi-19-zu-he-mo-shi/"/>
-    <id>https://autinc.github.io/2023/12/18/da-hua-she-ji-mo-shi-19-zu-he-mo-shi/</id>
-    <published>2023-12-17T16:00:00.000Z</published>
-    <updated>2023-12-21T02:46:49.633Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;组合模式&quot;&gt;&lt;a href=&quot;#组合模式&quot; class=&quot;headerlink&quot; title=&quot;组合模式&quot;&gt;&lt;/a&gt;组合模式&lt;/h2&gt;&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;</summary>
         
       
     
