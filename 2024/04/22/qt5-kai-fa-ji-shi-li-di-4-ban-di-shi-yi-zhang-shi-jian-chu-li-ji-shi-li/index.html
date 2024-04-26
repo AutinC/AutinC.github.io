@@ -4,9 +4,10 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="《大话设计模式》12-外观模式, Huang Shichang&#39;s Blog">
-    <meta name="description" content="外观模式定义为子系统中的一组接口提供一个一致的界面，此模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。
-外观模式用于解除系统与其他系统之间的强耦合，子系统通过Facade将功能暴露给外界，外界调用时无需考虑子系统实现对应功能时需">
+    <meta name="keywords" content="《qt5开发及实例 第4版》第十一章-事件处理及实例, Huang Shichang&#39;s Blog">
+    <meta name="description" content="通过鼠标事件、键盘事件、事件过滤三个实例介绍事件处理的实现。
+鼠标事件实例鼠标事件包括鼠标的移动，鼠标键按下、松开、单击、双击等。
+当用户操作鼠标在特定区域内移动时，状态栏显示鼠标位置；当用户按下鼠标键时，状态栏显示用户按下的属性（左键、右">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>《大话设计模式》12-外观模式 | Huang Shichang&#39;s Blog</title>
+    <title>《qt5开发及实例 第4版》第十一章-事件处理及实例 | Huang Shichang&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -339,12 +340,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">《大话设计模式》12-外观模式</h1>
+                    <h1 class="description center-align post-title">《qt5开发及实例 第4版》第十一章-事件处理及实例</h1>
                 </div>
             </div>
         </div>
@@ -393,8 +394,8 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/">
-                                <span class="chip bg-color">《大话设计模式》</span>
+                            <a href="/tags/%E3%80%8Aqt5%E5%BC%80%E5%8F%91%E5%8F%8A%E5%AE%9E%E4%BE%8B-%E7%AC%AC4%E7%89%88%E3%80%8B/">
+                                <span class="chip bg-color">《qt5开发及实例 第4版》</span>
                             </a>
                         
                     </div>
@@ -409,7 +410,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-12-11
+                    2024-04-22
                 </div>
                 
 
@@ -418,7 +419,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    474
+                    322
                 </div>
                 
 
@@ -435,20 +436,12 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>为子系统中的一组接口提供一个一致的界面，此模式定义了一个<strong>高层接口</strong>，这个接口使得这一子系统更加容易使用。</p>
-<p>外观模式用于解除系统与其他系统之间的强耦合，子系统通过Facade将功能暴露给外界，外界调用时<strong>无需考虑子系统实现对应功能时需要如何调整系统顺序、运行哪一个方法</strong>，而是直接调用Faxcade的接口就行。</p>
-<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p><img src="https://gcdnb.pbrd.co/images/EUCfYDri4GpP.png?o=1"></p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// 子系统类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SubSystemOne</span></span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MethodOne</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        cout &lt;&lt; <span class="string">"子系统1方法1"</span> &lt;&lt; endl;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SubSystemTwo</span></span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MethodTwo</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        cout &lt;&lt; <span class="string">"子系统2方法2"</span> &lt;&lt; endl;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SubSystemThree</span></span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MethodThree</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        cout &lt;&lt; <span class="string">"子系统3方法3"</span> &lt;&lt; endl;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SubSystemFour</span></span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MethodFour</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        cout &lt;&lt; <span class="string">"子系统4方法4"</span> &lt;&lt; endl;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 外观类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Facade</span></span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Facade</span>()</span><br><span class="line">    {</span><br><span class="line">        one = <span class="keyword">new</span> <span class="built_in">SubSystemOne</span>();</span><br><span class="line">        two = <span class="keyword">new</span> <span class="built_in">SubSystemTwo</span>();</span><br><span class="line">        two = <span class="keyword">new</span> <span class="built_in">SubSystemThree</span>();</span><br><span class="line">        four = <span class="keyword">new</span> <span class="built_in">SubSystemFour</span>();</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MethodA</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        cout &lt;&lt; <span class="string">"方法组A:"</span> &lt;&lt; endl;</span><br><span class="line">        one.<span class="built_in">MethodOne</span>();</span><br><span class="line">        two.<span class="built_in">MethodTwo</span>();</span><br><span class="line">        four.<span class="built_in">MethodFour</span>();</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">MethodB</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>{</span><br><span class="line">        cout &lt;&lt; <span class="string">"方法组B:"</span> &lt;&lt; endl;</span><br><span class="line">        two.<span class="built_in">MethodTwo</span>();</span><br><span class="line">        three.<span class="built_in">MethodThree</span>();</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    SubSystemOne one;</span><br><span class="line">    SubSystemTwo two;</span><br><span class="line">    SubSystemThree two;</span><br><span class="line">    SubSystemFour four;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 客户端</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    Facade facade = <span class="keyword">new</span> <span class="built_in">Facade</span>();</span><br><span class="line">    </span><br><span class="line">    facade.<span class="built_in">MethodA</span>();</span><br><span class="line">    facade.<span class="built_in">MethodB</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+                <p>通过<strong>鼠标事件、键盘事件、事件过滤</strong>三个实例介绍事件处理的实现。</p>
+<h3 id="鼠标事件实例"><a href="#鼠标事件实例" class="headerlink" title="鼠标事件实例"></a>鼠标事件实例</h3><p>鼠标事件包括鼠标的<strong>移动</strong>，鼠标键<strong>按下、松开、单击、双击</strong>等。</p>
+<p>当用户操作鼠标在特定区域内移动时，状态栏显示鼠标位置；当用户按下鼠标键时，状态栏显示用户按下的属性（左键、右键、中键），并显示按下时鼠标位置；当用户松开鼠标时，状态栏显示松开时的位置信息。</p>
+<p><img src="https://gcdnb.pbrd.co/images/21SofxvQm0sR.png?o=1"></p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">"mouseevent.h"</span></span></span><br><span class="line"></span><br><span class="line">MouseEvent::<span class="built_in">MouseEvent</span>(QWidget *parent)</span><br><span class="line">    : <span class="built_in">QMainWindow</span>(parent)</span><br><span class="line">{</span><br><span class="line">    <span class="built_in">setWindowTitle</span>(<span class="built_in">tr</span>(<span class="string">"鼠标事件"</span>));</span><br><span class="line">    statusLabel = <span class="keyword">new</span> QLabel;</span><br><span class="line">    statusLabel-&gt;<span class="built_in">setText</span>(<span class="built_in">tr</span>(<span class="string">"当前位置"</span>));</span><br><span class="line">    statusLabel-&gt;<span class="built_in">setFixedWidth</span>(<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">    MousePosLabel = <span class="keyword">new</span> QLabel;</span><br><span class="line">    MousePosLabel-&gt;<span class="built_in">setText</span>(<span class="built_in">tr</span>(<span class="string">""</span>));</span><br><span class="line">    MousePosLabel-&gt;<span class="built_in">setFixedWidth</span>(<span class="number">100</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 在QMainWindow的状态栏增加控件</span></span><br><span class="line">    <span class="built_in">statusBar</span>()-&gt;<span class="built_in">addPermanentWidget</span>(statusLabel);</span><br><span class="line">    <span class="built_in">statusBar</span>()-&gt;<span class="built_in">addPermanentWidget</span>(MousePosLabel);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>-&gt;<span class="built_in">setMouseTracking</span>(<span class="literal">true</span>);   <span class="comment">// 设置窗体追踪鼠标</span></span><br><span class="line">    <span class="built_in">resize</span>(<span class="number">400</span>,<span class="number">200</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">MouseEvent::~<span class="built_in">MouseEvent</span>()</span><br><span class="line">{</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MouseEvent::mousePressEvent</span><span class="params">(QMouseEvent *e)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    QString str=<span class="string">"("</span>+QString::<span class="built_in">number</span>(e-&gt;<span class="built_in">x</span>())+<span class="string">","</span>+QString::<span class="built_in">number</span>(e-&gt;<span class="built_in">y</span>())+<span class="string">")"</span>;</span><br><span class="line">    <span class="keyword">if</span>(e-&gt;<span class="built_in">button</span>()==Qt::LeftButton)</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">statusBar</span>()-&gt;<span class="built_in">showMessage</span>(<span class="built_in">tr</span>(<span class="string">"左键："</span>)+str);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(e-&gt;<span class="built_in">button</span>()==Qt::RightButton)</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">statusBar</span>()-&gt;<span class="built_in">showMessage</span>(<span class="built_in">tr</span>(<span class="string">"右键："</span>)+str);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(e-&gt;<span class="built_in">button</span>()==Qt::MidButton)</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">statusBar</span>()-&gt;<span class="built_in">showMessage</span>(<span class="built_in">tr</span>(<span class="string">"中键："</span>)+str);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MouseEvent::mouseMoveEvent</span><span class="params">(QMouseEvent *e)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    MousePosLabel-&gt;<span class="built_in">setText</span>(<span class="string">"("</span>+QString::<span class="built_in">number</span>(e-&gt;<span class="built_in">x</span>())+<span class="string">", "</span>+QString::<span class="built_in">number</span>(e-&gt;<span class="built_in">y</span>())+<span class="string">")"</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MouseEvent::mouseReleaseEvent</span><span class="params">(QMouseEvent *e)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    QString str=<span class="string">"("</span>+QString::<span class="built_in">number</span>(e-&gt;<span class="built_in">x</span>())+<span class="string">","</span>+QString::<span class="built_in">number</span>(e-&gt;<span class="built_in">y</span>())+<span class="string">")"</span>;</span><br><span class="line">    <span class="built_in">statusBar</span>()-&gt;<span class="built_in">showMessage</span>(<span class="built_in">tr</span>(<span class="string">"释放在："</span>)+str,<span class="number">3000</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">MouseEvent::mouseDoubleClickEvent</span><span class="params">(QMouseEvent *e)</span></span>{}</span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><ul>
-<li><p>在设计初期阶段，应该有意识的将不同的两个层分离，层与层之间建立外观Facade</p>
-</li>
-<li><p>其次在开发阶段，子系统因为不断的重构演化而变得越来越复杂，增加外观Facade可以提供一个简单的接口，减少它们之间的依赖</p>
-</li>
-<li><p>在维护一个遗留的大型系统时，可能这个系统已经非常难以维护和扩展了，为新系统开发一个外观Facade类，来提供设计粗糙或高度复杂的遗留代码的比骄傲清晰简单的接口，让新系统与Facade对象交互，Facade与遗留代码交互所有复杂的工作</p>
-<p><img src="https://gcdnb.pbrd.co/images/nR8wPRySH9VW.png?o=1"></p>
-</li>
-</ul>
 
                 
             </div>
@@ -475,7 +468,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://autinc.github.io/2023/12/11/da-hua-she-ji-mo-shi-12-wai-guan-mo-shi/">https://autinc.github.io/2023/12/11/da-hua-she-ji-mo-shi-12-wai-guan-mo-shi/</a>
+                    <a href="https://autinc.github.io/2024/04/22/qt5-kai-fa-ji-shi-li-di-4-ban-di-shi-yi-zhang-shi-jian-chu-li-ji-shi-li/">https://autinc.github.io/2024/04/22/qt5-kai-fa-ji-shi-li-di-4-ban-di-shi-yi-zhang-shi-jian-chu-li-ji-shi-li/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -513,8 +506,8 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/">
-                                    <span class="chip bg-color">《大话设计模式》</span>
+                                <a href="/tags/%E3%80%8Aqt5%E5%BC%80%E5%8F%91%E5%8F%8A%E5%AE%9E%E4%BE%8B-%E7%AC%AC4%E7%89%88%E3%80%8B/">
+                                    <span class="chip bg-color">《qt5开发及实例 第4版》</span>
                                 </a>
                             
                         </div>
@@ -860,17 +853,18 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/12/12/da-hua-she-ji-mo-shi-13-jian-zao-mo-shi/">
+                <a href="/2024/04/22/qt5-kai-fa-ji-shi-li-di-4-ban-di-shi-yi-zhang-shi-jian-chu-li-ji-shi-li/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="《大话设计模式》13-建造者模式">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="《qt5开发及实例 第4版》第十一章-事件处理及实例">
                         
-                        <span class="card-title">《大话设计模式》13-建造者模式</span>
+                        <span class="card-title">《qt5开发及实例 第4版》第十一章-事件处理及实例</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -880,9 +874,9 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-12-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -891,11 +885,12 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/">
-                        <span class="chip bg-color">《大话设计模式》</span>
+                    <a href="/tags/%E3%80%8Aqt5%E5%BC%80%E5%8F%91%E5%8F%8A%E5%AE%9E%E4%BE%8B-%E7%AC%AC4%E7%89%88%E3%80%8B/">
+                        <span class="chip bg-color">《qt5开发及实例 第4版》</span>
                     </a>
                     
                 </div>
@@ -909,13 +904,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/12/10/da-hua-she-ji-mo-shi-11-di-mi-te-fa-ze/">
+                <a href="/2024/04/15/qt5-kai-fa-ji-shi-li-di-4-ban-di-shi-zhang-wang-luo-yu-tong-xin/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="《大话设计模式》11-迪米特法则">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="《qt5开发及实例 第4版》第十章-网络与通信">
                         
-                        <span class="card-title">《大话设计模式》11-迪米特法则</span>
+                        <span class="card-title">《qt5开发及实例 第4版》第十章-网络与通信</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -926,7 +921,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-15
                             </span>
                         <span class="publish-author">
                             
@@ -939,8 +934,8 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/">
-                        <span class="chip bg-color">《大话设计模式》</span>
+                    <a href="/tags/%E3%80%8Aqt5%E5%BC%80%E5%8F%91%E5%8F%8A%E5%AE%9E%E4%BE%8B-%E7%AC%AC4%E7%89%88%E3%80%8B/">
+                        <span class="chip bg-color">《qt5开发及实例 第4版》</span>
                     </a>
                     
                 </div>
