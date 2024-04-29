@@ -4,11 +4,21 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="项目总结-RPC分布式通信框架, Huang Shichang&#39;s Blog">
-    <meta name="description" content="RPC基于轻量级的Mudoo网络库和高效的Protobuf串行化协议，实现了RPC通信框架，用于实现分布式系统之间基于TCP的远程过程调用，具有高性能和高可靠性的特点。
+    <meta name="keywords" content="auto与decltype, Huang Shichang&#39;s Blog">
+    <meta name="description" content="auto编译器会在编译期间自动推导出变量的类型，这样我们就不用手动指明变量的数据类型了。
+高级用法
+当等号右边表达式是
 
-一、集群和分布式的理论讲解单机聊天服务器存在什么缺点
-单机聊天服务器">
+引用类型
+
+const类型
+
+
+auto抛弃这些，推导出原类型
+
+auto与const结合：
+
+类型为引用，则推导结果">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +30,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>项目总结-RPC分布式通信框架 | Huang Shichang&#39;s Blog</title>
+    <title>auto与decltype | Huang Shichang&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -341,12 +351,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">项目总结-RPC分布式通信框架</h1>
+                    <h1 class="description center-align post-title">auto与decltype</h1>
                 </div>
             </div>
         </div>
@@ -395,8 +405,8 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/">
-                                <span class="chip bg-color">个人项目</span>
+                            <a href="/tags/%E6%97%A5%E5%B8%B8%E7%A7%AF%E7%B4%AF/">
+                                <span class="chip bg-color">日常积累</span>
                             </a>
                         
                     </div>
@@ -411,7 +421,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-05-27
+                    2024-01-01
                 </div>
                 
 
@@ -420,7 +430,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    1.8k
                 </div>
                 
 
@@ -437,109 +447,90 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="RPC"><a href="#RPC" class="headerlink" title="RPC"></a>RPC</h1><p>基于轻量级的Mudoo网络库和高效的Protobuf串行化协议，实现了RPC通信框架，用于实现分布式系统之间基于TCP的远程过程调用，具有高性能和高可靠性的特点。</p>
-<p><img src="https://github.com/AutinC/RPC/blob/main/images/%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E4%BA%A4%E4%BA%92%E5%9B%BE-%E7%94%A8%E7%94%BB%E5%9B%BE%E6%9D%BF%E6%89%93%E5%BC%80.png?raw=true" alt="RPC分布式通信框架"></p>
-<h1 id="一、集群和分布式的理论讲解"><a href="#一、集群和分布式的理论讲解" class="headerlink" title="一、集群和分布式的理论讲解"></a>一、集群和分布式的理论讲解</h1><h2 id="单机聊天服务器存在什么缺点"><a href="#单机聊天服务器存在什么缺点" class="headerlink" title="单机聊天服务器存在什么缺点"></a>单机聊天服务器存在什么缺点</h2><ul>
-<li>单机聊天服务器所能承受的用户并发量受限于硬件资源的限制，如Linux端口数只有65536（2^16）个；</li>
-<li>任意模块的修改，都会导致整个项目代码的重新编译、部署；</li>
-<li>系统中有些模块是属于CPU密集型，有些属于IO密集型，所以各个模块对于硬件资源的需求不同，造成内存、CPU、带宽都有可能成为瓶颈</li>
-</ul>
-<h2 id="集群服务器的优缺点"><a href="#集群服务器的优缺点" class="headerlink" title="集群服务器的优缺点"></a>集群服务器的优缺点</h2><ul>
-<li>优点：架构简单；每台机器是独立的系统，硬件资源提升，用户并发量提升</li>
-<li>缺点：代码做修改需要整体重新编译并多次部署；某些模块（如管理员模块）不需要高并发，多处部署的意义不大</li>
-</ul>
-<h2 id="分布式服务器的优缺点"><a href="#分布式服务器的优缺点" class="headerlink" title="分布式服务器的优缺点"></a>分布式服务器的优缺点</h2><ul>
-<li>优点：<ul>
-<li><strong>可靠性</strong>：由于分布式系统是由多个节点组成的，因此任何一个节点发生故障不会影响整个系统的运行。</li>
-<li><strong>可扩展性：</strong>当需要增加处理能力时，可以通过增加节点的方式来扩展系统的性能，而无需对整个系统进行重新设计。</li>
-<li><strong>高性能：</strong>由于分布式系统可以利用多个节点的处理能力，因此可以更快地完成处理任务。</li>
-<li><strong>资源共享：</strong>分布式系统中的节点可以共享资源，如存储空间、处理能力、网络带宽等，从而更加高效地利用系统资源。</li>
-<li><strong>灵活性：</strong>分布式系统中的节点可以动态地加入或退出系统，因此可以根据需要随时调整系统的规模。</li>
-</ul>
+                <h2 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h2><p>编译器会在编译期间<strong>自动推导出变量的类型</strong>，这样我们就不用手动指明变量的数据类型了。</p>
+<h3 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h3><ol>
+<li><p>当等号右边表达式是</p>
+<ul>
+<li><p>引用类型</p>
 </li>
-<li>缺点：<ul>
-<li><strong>复杂性：</strong>分布式系统由多个节点组成，节点之间需要进行通信和协调，这增加了系统的复杂性，需要更多的开发和维护工作。</li>
-<li><strong>一致性：</strong>在分布式系统中，数据存储在不同的节点上，节点之间需要保持数据一致性，这增加了数据管理的难度。</li>
-<li><strong>安全性：</strong>由于分布式系统中的节点数量较多，因此需要更高的安全性保护，以避免恶意攻击或数据泄露。</li>
-<li>性能瓶颈：由于节点之间需要进行通信和协调，因此在某些情况下可能会出现性能瓶颈，影响系统的性能。</li>
-<li>成本：建立和维护分布式系统需要更多的硬件、软件和人力资源，因此成本较高。</li>
-</ul>
+<li><p>const类型</p>
 </li>
 </ul>
-<h1 id="二、RPC通信原理及项目技术选型"><a href="#二、RPC通信原理及项目技术选型" class="headerlink" title="二、RPC通信原理及项目技术选型"></a>二、RPC通信原理及项目技术选型</h1><p><img src="https://github.com/AutinC/RPC/blob/main/images/1682240550705.png?raw=true" alt="RPC通信主要模块"></p>
-<p><strong>黄色部分</strong>：设计rpc方法参数的打包和解析，也就是数据的<strong>序列化和反序列化</strong>，使用Protobuf。 </p>
-<blockquote>
-<p>Protobuf，即 Protocol Buffers，是一种轻量级的数据序列化协议，由Google公司开发，可用于将结构化数据序列化为可在网络上传输的格式。它支持多种编程语言，包括C++、Java、Python等，并且具有跨平台和语言互操作性的特性。</p>
-<p>使用Protobuf，可以将数据结构定义为.proto文件，然后使用特定的编译器将其编译为目标语言的类。这些类可以用于在不同的系统和编程语言之间传输数据，并且具有更小的体积、更高的效率和更好的可读性。</p>
-<p>与json比较：</p>
-<p>1.Protobuf是二进制存储的，xml和json都是文本存储的；</p>
-<p>2.Protobuf不需要存储额外信息，json存储键值对</p>
-<p>因此，Protobuf序列化后的数据更小、更快、更灵活，尤其适合在高并发和网络通信中使用。</p>
-</blockquote>
-<p>绿色部分：网络部分，包括寻找rpc服务主机，发起rpc调用请求和响应rpc调用结果，使用<strong>muduo网络库和zookeeper服务配置中心</strong>（专门做服务发现）。 </p>
-<h1 id="三、环境配置与使用"><a href="#三、环境配置与使用" class="headerlink" title="三、环境配置与使用"></a>三、环境配置与使用</h1><h2 id="项目代码工程目录"><a href="#项目代码工程目录" class="headerlink" title="项目代码工程目录"></a>项目代码工程目录</h2><p>bin：可执行文件<br>build：项目编译文件<br>lib：项目库文件<br>src：源文件<br>test：测试代码<br>example：框架代码使用范例<br>CMakeLists.txt：顶层的cmake文件<br>README.md：项目自述文件<br>autobuild.sh：一键编译脚本 </p>
-<h2 id="Windows-VScode配置远程Linux开发环境"><a href="#Windows-VScode配置远程Linux开发环境" class="headerlink" title="Windows + VScode配置远程Linux开发环境"></a>Windows + VScode配置远程Linux开发环境</h2><p>参考博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq756684177/article/details/94236990">https://blog.csdn.net/qq756684177/article/details/94236990</a> </p>
-<ol>
-<li>linux系统运行sshd服务 </li>
-<li>在vscode上安装Remote Development插件，其依赖插件会自动安装 </li>
-<li>配置远程linux主机的信息 </li>
-<li>在vscode上开发远程连接linux</li>
-</ol>
-<h2 id="muduo源码编译安装与使用样例"><a href="#muduo源码编译安装与使用样例" class="headerlink" title="muduo源码编译安装与使用样例"></a>muduo源码编译安装与使用样例</h2><h3 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h3><p>参考博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/QIANGWEIYUAN/article/details/89023980">https://blog.csdn.net/QIANGWEIYUAN/article/details/89023980</a></p>
-<h3 id="基于muduo的客户端服务器编程"><a href="#基于muduo的客户端服务器编程" class="headerlink" title="基于muduo的客户端服务器编程"></a>基于muduo的客户端服务器编程</h3><p>muduo网络库的编程很容易，要实现基于muduo网络库的服务器和客户端程序，只需要简单的组合TcpServer和TcpClient就可以，主要分为五个步骤：</p>
-<ol>
-<li>组合TcpServer对象</li>
-<li>创建EventLoop事件循环对象指针</li>
-<li>明确TcpServer构造函数的参数，输出ChatServer的构造函数</li>
-<li>在当前服务器类的构造函数中，注册处理连接的回调函数和处理读写事件的回调函数</li>
-<li>设置合适的服务端线程数量，muduo库会自己分配IO线程和worker线程</li>
-</ol>
+<p><strong>auto抛弃这些，推导出原类型</strong></p>
+</li>
+<li><p>auto与const结合：</p>
 <ul>
-<li>优点：灵活；根据节点的并发要求，对一个节点可以再做节点模块集群部署 </li>
-<li>缺点：服务器共同构成一个系统，耦合度高</li>
+<li><p>类型为引用，则推导结果保留const</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="type">int</span>  x = <span class="number">0</span>;</span><br><span class="line"><span class="type">const</span>  <span class="keyword">auto</span> n = x;  <span class="comment">//n 为 const int ，auto 被推导为 int</span></span><br><span class="line"><span class="keyword">auto</span> f = n;      <span class="comment">//f 为 const int，auto 被推导为 int（const 属性被抛弃）</span></span><br><span class="line"><span class="type">const</span> <span class="keyword">auto</span> &amp;r1 = x;  <span class="comment">//r1 为 const int&amp; 类型，auto 被推导为 int</span></span><br><span class="line"><span class="keyword">auto</span> &amp;r2 = r1;  <span class="comment">//r1 为 const int&amp; 类型，auto 被推导为 const int 类型</span></span><br></pre></td></tr></tbody></table></figure></li>
 </ul>
-<h3 id="网络服务器编程常用模型"><a href="#网络服务器编程常用模型" class="headerlink" title="网络服务器编程常用模型"></a>网络服务器编程常用模型</h3><p><strong>【方案1】 ： accept + read/write</strong><br>不是并发服务器</p>
-<p><strong>【方案2】 ： accept + fork - process-pre-connection</strong><br>适合并发连接数不大，计算任务工作量大于fork的开销</p>
-<p><strong>【方案3】 ：accept + thread-pre-connection</strong><br>比方案2的开销小了一点，但是并发造成线程堆积过多</p>
-<p><strong>【方案4】： muduo的网络设计：reactors in threads - one loop per thread</strong><br>方案的特点是one loop per thread，有一个main reactor负载accept连接，然后把连接分发到某个subreactor（采用round-robin的方式来选择sub reactor），该连接的所用操作都在那个sub reactor所处的线程中完成。多个连接可能被分派到多个线程中，以充分利用CPU。<br>Reactor poll的大小是固定的，根据CPU的数目确定 。</p>
-<p>一个Base IO thread负责accept新的连接，接收到新的连接以后，使用轮询的方式在reactor pool中找到合适的sub reactor将这个连接挂载上去，这个连接上的所有任务都在这个sub reactor上完成。<br>如果有过多的耗费CPU I/O的计算任务，可以提交到创建的ThreadPool线程池中专门处理耗时的计算任务。 </p>
-<p><strong>【方案5】 ： reactors in process - one loop pre process</strong><br>Nginx服务器的网络模块设计，基于进程设计，采用多个Reactors充当I/O进程和工作进程，通过一把accept锁，完美解决多个Reactors的“惊群现象” 。</p>
-<h3 id="muduo中的Reactor模型"><a href="#muduo中的Reactor模型" class="headerlink" title="muduo中的Reactor模型"></a>muduo中的Reactor模型</h3><ol>
-<li>事件驱动（event handling）</li>
-<li>可以处理一个或多个输入源（one or more inputs）</li>
-<li>通过Service Handler同步的将输入事件（Event）采用多路复用分发给相应的Request Handler（多个）处理</li>
+</li>
 </ol>
-<p><img src="https://github.com/AutinC/RPC/blob/main/images/1683098044886.png?raw=true" alt="多Reactor模型"></p>
-<h2 id="Protobuf安装配置与使用"><a href="#Protobuf安装配置与使用" class="headerlink" title="Protobuf安装配置与使用"></a>Protobuf安装配置与使用</h2><p>Protobuf（protocol buffer）是google 的一种数据交换的格式，它独立于平台语言。<br>Google 提供了protobuf多种语言的实现：java、c#、c++、go 和 python，每一种实现都包含了相应语言的编译器以及库文件。<br>由于它是一种二进制的格式，比使用 xml（20倍） 、json（10倍）进行数据交换快许多。可以把它用于分布式应用之间的数据通信或者异构环境下的数据交换。作为一种效率和兼容性都很优秀的二进制数据传输格式，可以用于诸如网络传输、配置文件、数据存储等诸多领域 。</p>
-<h3 id="ubuntu-protobuf环境搭建"><a href="#ubuntu-protobuf环境搭建" class="headerlink" title="ubuntu protobuf环境搭建"></a>ubuntu protobuf环境搭建</h3><p><strong>github源代码下载地址：<a target="_blank" rel="noopener" href="https://github.com/google/protobuf">https://github.com/google/protobuf</a></strong><br>安装过程如下：<br>1、解压压缩包：unzip protobuf-master.zip<br>2、进入解压后的文件夹：cd protobuf-master<br>3、安装所需工具：sudo apt-get install autoconf automake libtool curl make g++ unzip<br>4、自动生成configure配置文件：./autogen.sh<br>5、配置环境：./configure<br>6、编译源代码：make </p>
-<p>7、安装：sudo make install<br>8、刷新动态库：sudo ldconfig </p>
-<h3 id="Protobuf示例"><a href="#Protobuf示例" class="headerlink" title="Protobuf示例"></a>Protobuf示例</h3><figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line">syntax = <span class="string">"proto3"</span>; <span class="comment">// 声明了protobuf的版本</span></span><br><span class="line"></span><br><span class="line">package fixbug; <span class="comment">// 声明了代码所在的包（对于C++来说是namespace）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义下面的选项，表示生成service服务类和rpc方法描述，默认不生成</span></span><br><span class="line">option cc_generic_services = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">message ResultCode</span><br><span class="line">{</span><br><span class="line">    int32 errcode = <span class="number">1</span>;</span><br><span class="line">    bytes errmsg = <span class="number">2</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数据   列表   映射表</span></span><br><span class="line"><span class="comment">// 定义登录请求消息类型  name   pwd</span></span><br><span class="line">message LoginRequest</span><br><span class="line">{</span><br><span class="line">    bytes name = <span class="number">1</span>; <span class="comment">//等于1表示这是消息体里的第一个字段</span></span><br><span class="line">    bytes pwd = <span class="number">2</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义登录响应消息类型</span></span><br><span class="line">message LoginResponse</span><br><span class="line">{</span><br><span class="line">    ResultCode result = <span class="number">1</span>;</span><br><span class="line">    <span class="type">bool</span> success = <span class="number">2</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义获取好友列表请求消息类型</span></span><br><span class="line">message GetFriendListsRequest</span><br><span class="line">{</span><br><span class="line">    uint32 userid = <span class="number">1</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义用户信息类型</span></span><br><span class="line">message User</span><br><span class="line">{</span><br><span class="line">    bytes name = <span class="number">1</span>;</span><br><span class="line">    uint32 age = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">enum</span> <span class="title class_">Sex</span></span><br><span class="line">    {</span><br><span class="line">        MAN = <span class="number">0</span>;</span><br><span class="line">        WOMAN = <span class="number">1</span>;</span><br><span class="line">    }</span><br><span class="line">    Sex sex = <span class="number">3</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义获取好友列表响应消息类型</span></span><br><span class="line">message GetFriendListsResponse</span><br><span class="line">{</span><br><span class="line">    ResultCode result = <span class="number">1</span>;</span><br><span class="line">    repeated User friend_list = <span class="number">2</span>;  <span class="comment">// 定义了一个列表类型</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在protobuf里面怎么定义描述rpc方法的类型 - service</span></span><br><span class="line">service UserServiceRpc</span><br><span class="line">{</span><br><span class="line">    <span class="function">rpc <span class="title">Login</span><span class="params">(LoginRequest)</span> <span class="title">returns</span><span class="params">(LoginResponse)</span></span>;</span><br><span class="line">    <span class="function">rpc <span class="title">GetFriendLists</span><span class="params">(GetFriendListsRequest)</span> <span class="title">returns</span><span class="params">(GetFriendListsResponse)</span></span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h3><ol>
+<li><p>使用 auto 类型推导的变量<strong>必须马上初始化</strong>，因为 auto 在 C++11 中只是“占位符”，并非如 int 一样的真正的类型声明。</p>
+</li>
+<li><p>不能在<strong>函数的参数</strong>中使用。</p>
+</li>
+<li><p>不能作用于<strong>类的非静态成员变量</strong>。</p>
+<p>错误示例：</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> x = MyClass.myInt</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>不能<strong>定义数组</strong>。</p>
+<p>错误示例：</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="type">char</span> url[] = “http:<span class="comment">//c.biancheng.net/”;</span></span><br><span class="line"><span class="keyword">auto</span> str[] = url; <span class="comment">//arr 为数组，所以不能使用 auto</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>不能作用于<strong>模板参数</strong>。</p>
+<p>错误示例：</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>{</span><br><span class="line">    <span class="comment">//<span class="doctag">TODO:</span></span></span><br><span class="line">};</span><br><span class="line"><span class="function"><span class="type">int</span>  <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">    A&lt;<span class="type">int</span>&gt; C1;</span><br><span class="line">    A&lt;<span class="keyword">auto</span>&gt; C2 = C1;  <span class="comment">//错误</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+</ol>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><ol>
+<li><p>定义迭代器。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">    vector&lt; vector&lt;<span class="type">int</span>&gt; &gt; v;</span><br><span class="line">    vector&lt; vector&lt;<span class="type">int</span>&gt; &gt;::iterator i = v.<span class="built_in">begin</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">    vector&lt; vector&lt;<span class="type">int</span>&gt; &gt; v;</span><br><span class="line">    <span class="keyword">auto</span> i = v.<span class="built_in">begin</span>();  <span class="comment">//使用 auto 代替具体的类型</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>泛型编程。</p>
+<p>当我们不知道变量是什么类型，或者不希望指明具体类型的时候，比如泛型编程中使用auto。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">// 不用auto的解决方法</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">static</span> <span class="type">int</span> <span class="title">get</span><span class="params">(<span class="type">void</span>)</span></span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="number">100</span>;</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span>{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">static</span> <span class="type">const</span> <span class="type">char</span>* <span class="title">get</span><span class="params">(<span class="type">void</span>)</span></span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"http://c.biancheng.net/cplus/"</span>;</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T1, <span class="keyword">typename</span> T2&gt;  <span class="comment">//额外增加一个模板参数 T2</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">(<span class="type">void</span>)</span></span>{</span><br><span class="line">    T2 val = T1::<span class="built_in">get</span>();</span><br><span class="line">    cout &lt;&lt; val &lt;&lt; endl;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span></span>{</span><br><span class="line">    <span class="comment">//调用时也要手动给模板参数赋值</span></span><br><span class="line">    <span class="built_in">func</span>&lt;A, <span class="type">int</span>&gt;();</span><br><span class="line">    <span class="built_in">func</span>&lt;B, <span class="type">const</span> <span class="type">char</span>*&gt;();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用auto的解决办法</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">static</span> <span class="type">int</span> <span class="title">get</span><span class="params">(<span class="type">void</span>)</span></span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="number">100</span>;</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span>{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">static</span> <span class="type">const</span> <span class="type">char</span>* <span class="title">get</span><span class="params">(<span class="type">void</span>)</span></span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"http://c.biancheng.net/cplus/"</span>;</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">(<span class="type">void</span>)</span></span>{</span><br><span class="line">    <span class="keyword">auto</span> val = T::<span class="built_in">get</span>();</span><br><span class="line">    cout &lt;&lt; val &lt;&lt; endl;</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span></span>{</span><br><span class="line">    <span class="built_in">func</span>&lt;A&gt;();</span><br><span class="line">    <span class="built_in">func</span>&lt;B&gt;();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
-<p><img src="https://github.com/AutinC/RPC/blob/main/images/1683104270953.png?raw=true" alt="message对象LoginRequest、LoginResponse继承于Message类"></p>
-<p><img src="https://github.com/AutinC/RPC/blob/main/images/1683104510918.png?raw=true" alt="Service-->UserServiceRpc-->UserServiceRpc_Stub"></p>
-<p><img src="https://github.com/AutinC/RPC/blob/main/images/1683166312879.png?raw=true" alt="RpcChannel调用CallMethod"></p>
-<p>UserServiceRpc类自动继承于Service类，是rpc服务的提供者；</p>
-<p>UserServiceRpc_Stub类自动继承于UserServiceRpc类，是rpc服务的消费者，其包含一个RpcChannel类型的成员变量channel，所有成员方法的调用本质都是通过channel调用其CallMethod方法。</p>
-<p>RpcChannel类只有一个纯虚函数CallMethod，需要用户自己重写CallMethond方法（MyRpcChannel）并继承于RpcChannel，在构造UserServiceRpc_Stub时传入MyRpcChannel</p>
-<h1 id="四、mprpc框架设计"><a href="#四、mprpc框架设计" class="headerlink" title="四、mprpc框架设计"></a>四、mprpc框架设计</h1><h2 id="框架的使用"><a href="#框架的使用" class="headerlink" title="框架的使用"></a>框架的使用</h2><p>example目录下的 <code>callee/UserService.cpp</code> 里面：</p>
-<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line">RpcApplication::<span class="built_in">init</span>(argc, argv);</span><br><span class="line"></span><br><span class="line"><span class="comment">//框架服务提供provider</span></span><br><span class="line">RpcProvider provide;</span><br><span class="line">provide.<span class="built_in">notify_service</span>(<span class="keyword">new</span> <span class="built_in">UserService</span>());</span><br><span class="line">provide.<span class="built_in">run</span>();</span><br></pre></td></tr></tbody></table></figure>
+<p>模板函数 func() 会调用所有类的静态函数 get()，并对它的返回值做统一处理，但是 get() 的返回值类型并不一样，而且不能自动转换。这种要求在以前的 C++ 版本中实现起来非常的麻烦，<strong>需要额外增加一个模板参数</strong>，并在调用时手动给该模板参数赋值，用以指明变量 val 的类型。</p>
+</li>
+</ol>
+<h2 id="decltype"><a href="#decltype" class="headerlink" title="decltype"></a>decltype</h2><p>和 auto 的功能一样，都用来在<strong>编译时期进行自动类型推导</strong>。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> varname = value;</span><br><span class="line"><span class="keyword">decltype</span>(exp) varname = value;</span><br></pre></td></tr></tbody></table></figure>
 
-<p>主要做了三个事情：</p>
-<ul>
-<li>首先 RPC 框架肯定是部署到一台服务器上的，所以我们需要对这个服务器的 ip 和 port 进行初始化</li>
-<li>然后创建一个 porvider（也就是server）对象，将当前 UserService 这个对象传递给他，也就是其实这个 RPC 框架和我们执行具体业务的节点是在同一个服务器上的。RPC框架负责解析其他服务器传递过来的请求，然后将这些参数传递给本地的方法。并将返回值返回给其他服务器</li>
-<li>最后是去让这个 provider 去 run 起来</li>
-</ul>
-<figure class="highlight c++"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//启动rpc服务节点，开始提供rpc远程网络调用服务</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">RpcProvider::run</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="comment">//获取ip和port</span></span><br><span class="line">    string ip = RpcApplication::<span class="built_in">get_instance</span>().<span class="built_in">get_configure</span>().<span class="built_in">find_load</span>(<span class="string">"rpcserver_ip"</span>);</span><br><span class="line">    <span class="type">uint16_t</span> port = <span class="built_in">atoi</span>(RpcApplication::<span class="built_in">get_instance</span>().<span class="built_in">get_configure</span>().<span class="built_in">find_load</span>(<span class="string">"rpcserver_port"</span>).<span class="built_in">c_str</span>());</span><br><span class="line">    <span class="comment">//cout &lt;&lt; ip &lt;&lt; ":" &lt;&lt; port &lt;&lt; endl;</span></span><br><span class="line">    <span class="function">InetAddress <span class="title">address</span><span class="params">(ip, port)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//创建tcpserver对象</span></span><br><span class="line">    <span class="function">TcpServer <span class="title">server</span><span class="params">(&amp;eventloop_, address, <span class="string">"RpcProvider"</span>)</span></span>;</span><br><span class="line">    <span class="comment">//绑定链接回调和消息读写回调方法</span></span><br><span class="line">    server.<span class="built_in">setConnectionCallback</span>(<span class="built_in">bind</span>(&amp;RpcProvider::on_connection, <span class="keyword">this</span>, _1));</span><br><span class="line">    server.<span class="built_in">setMessageCallback</span>(<span class="built_in">bind</span>(&amp;RpcProvider::on_message, <span class="keyword">this</span>, _1, _2, _3));</span><br><span class="line"></span><br><span class="line">    <span class="comment">//设置muduo库的线程数量</span></span><br><span class="line">    server.<span class="built_in">setThreadNum</span>(<span class="number">4</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//把当前rpc节点上要发布的服务全部注册到zk上面，让rpc client可以从zk上发现服务</span></span><br><span class="line">    ZookeeperClient zk_client;</span><br><span class="line">    zk_client.<span class="built_in">start</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//在配置中心中创建节点</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;sp : service_map_)</span><br><span class="line">    {</span><br><span class="line">        string service_path = <span class="string">"/"</span> + sp.first;</span><br><span class="line">        zk_client.<span class="built_in">create</span>(service_path.<span class="built_in">c_str</span>(), <span class="literal">nullptr</span>, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;mp : sp.second.method_map_)</span><br><span class="line">        {</span><br><span class="line">            string method_path = service_path + <span class="string">"/"</span> + mp.first;</span><br><span class="line">            <span class="type">char</span> method_path_data[<span class="number">128</span>] = {<span class="number">0</span>};</span><br><span class="line">            <span class="built_in">sprintf</span>(method_path_data, <span class="string">"%s:%d"</span>, ip.<span class="built_in">c_str</span>(), port);</span><br><span class="line">            <span class="comment">//ZOO_EPHEMERAL 表示znode时候临时性节点</span></span><br><span class="line">            zk_client.<span class="built_in">create</span>(method_path.<span class="built_in">c_str</span>(), method_path_data, <span class="built_in">strlen</span>(method_path_data), ZOO_EPHEMERAL);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="built_in">RPC_LOG_INFO</span>(<span class="string">"server RpcProvider [ip: %s][port: %d]"</span>, ip.<span class="built_in">c_str</span>(), port);</span><br><span class="line">    <span class="comment">//启动网络服务</span></span><br><span class="line">    server.<span class="built_in">start</span>();</span><br><span class="line">    eventloop_.<span class="built_in">loop</span>();</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>auto <strong>根据=右边的初始值 value 推导出变量的类型</strong>，而 decltype <strong>根据 exp 表达式推导出变量的类型</strong>，跟=右边的 value 没有关系。所以，<strong>auto 要求变量必须初始化，而 decltype 不要求</strong>。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="type">int</span> a = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">decltype</span>(a) b = <span class="number">1</span>;  <span class="comment">//b 被推导成了 int</span></span><br><span class="line"><span class="keyword">decltype</span>(<span class="number">10.8</span>) x = <span class="number">5.5</span>;  <span class="comment">//x 被推导成了 double</span></span><br><span class="line"><span class="keyword">decltype</span>(x + <span class="number">100</span>) y;  <span class="comment">//y 被推导成了 double</span></span><br></pre></td></tr></tbody></table></figure>
 
-<p>run函数的实现：</p>
-<ul>
-<li>因为底层调用的是muduo网络库，所以这里会获取ip地址和端口号，然后初始化网络层</li>
-<li>然后去设置一个连接回调以及发生读写事件时候的回调函数（稍后介绍）</li>
-<li>然后设置整个 muduo 网络库工作的线程数量</li>
-<li>然后创建zookeeper配置中心，将这些方法的信息以及本机的IP地址注册到zookeeper</li>
-<li>然后开启本机服务器的事件循环，等待其他服务器的连接</li>
-</ul>
+<h3 id="推导规则"><a href="#推导规则" class="headerlink" title="推导规则"></a>推导规则</h3><ol>
+<li><p>如果 exp 是一个<strong>不被括号( )包围的表达式</strong>，或者是一个<strong>类成员访问表达式</strong>，或者是<strong>一个单独的变量</strong>，那么 decltype(exp) 的类型就和 exp 一致，这是最普遍最常见的情况。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span>{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">static</span> <span class="type">int</span> total;</span><br><span class="line">    string name;</span><br><span class="line">    <span class="type">int</span> age;</span><br><span class="line">    <span class="type">float</span> scores;</span><br><span class="line">};</span><br><span class="line"><span class="type">int</span> Student::total = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">int</span>  <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">    <span class="type">int</span> n = <span class="number">0</span>;</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> &amp;r = n;</span><br><span class="line">    Student stu;</span><br><span class="line">    <span class="keyword">decltype</span>(n) a = n;  <span class="comment">//n 为 int 类型，a 被推导为 int 类型</span></span><br><span class="line">    <span class="keyword">decltype</span>(r) b = n;     <span class="comment">//r 为 const int&amp; 类型, b 被推导为 const int&amp; 类型</span></span><br><span class="line">    <span class="keyword">decltype</span>(Student::total) c = <span class="number">0</span>;  <span class="comment">//total 为类 Student 的一个 int 类型的成员变量，c 被推导为 int 类型</span></span><br><span class="line">    <span class="keyword">decltype</span>(stu.name) url = <span class="string">"http://c.biancheng.net/cplus/"</span>;  <span class="comment">//name 为类 Student 的一个 string 类型的成员变量， url 被推导为 string 类型</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>如果 exp 是函数调用，那么 decltype(exp) 的类型就和<strong>函数返回值</strong>的类型一致。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//函数声明</span></span><br><span class="line"><span class="function"><span class="type">int</span>&amp; <span class="title">func_int_r</span><span class="params">(<span class="type">int</span>, <span class="type">char</span>)</span></span>;  <span class="comment">//返回值为 int&amp;</span></span><br><span class="line"><span class="function"><span class="type">int</span>&amp;&amp; <span class="title">func_int_rr</span><span class="params">(<span class="type">void</span>)</span></span>;  <span class="comment">//返回值为 int&amp;&amp;</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">func_int</span><span class="params">(<span class="type">double</span>)</span></span>;  <span class="comment">//返回值为 int</span></span><br><span class="line"><span class="function"><span class="type">const</span> <span class="type">int</span>&amp; <span class="title">fun_cint_r</span><span class="params">(<span class="type">int</span>, <span class="type">int</span>, <span class="type">int</span>)</span></span>;  <span class="comment">//返回值为 const int&amp;</span></span><br><span class="line"><span class="function"><span class="type">const</span> <span class="type">int</span>&amp;&amp; <span class="title">func_cint_rr</span><span class="params">(<span class="type">void</span>)</span></span>;  <span class="comment">//返回值为 const int&amp;&amp;</span></span><br><span class="line"><span class="comment">//decltype类型推导</span></span><br><span class="line"><span class="type">int</span> n = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">decltype</span>(<span class="built_in">func_int_r</span>(<span class="number">100</span>, <span class="string">'A'</span>)) a = n;  <span class="comment">//a 的类型为 int&amp;</span></span><br><span class="line"><span class="keyword">decltype</span>(<span class="built_in">func_int_rr</span>()) b = <span class="number">0</span>;  <span class="comment">//b 的类型为 int&amp;&amp;</span></span><br><span class="line"><span class="keyword">decltype</span>(<span class="built_in">func_int</span>(<span class="number">10.5</span>)) c = <span class="number">0</span>;   <span class="comment">//c 的类型为 int</span></span><br><span class="line"><span class="keyword">decltype</span>(<span class="built_in">fun_cint_r</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>))  x = n;    <span class="comment">//x 的类型为 const int &amp;</span></span><br><span class="line"><span class="keyword">decltype</span>(<span class="built_in">func_cint_rr</span>()) y = <span class="number">0</span>;  <span class="comment">// y 的类型为 const int&amp;&amp;</span></span><br></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>如果 exp 是一个<strong>左值</strong>，或者<strong>被括号( )包围</strong>，那么 decltype(exp) 的类型就是 <strong>exp 的引用</strong>；假设 exp 的类型为 <strong>T</strong>，那么 decltype(exp) 的类型就是 **T&amp;**。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span>{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> x;</span><br><span class="line">};</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">    <span class="type">const</span> Base obj;</span><br><span class="line">    <span class="comment">//带有括号的表达式</span></span><br><span class="line">    <span class="keyword">decltype</span>(obj.x) a = <span class="number">0</span>;  <span class="comment">//obj.x 为类的成员访问表达式，符合推导规则一，a 的类型为 int</span></span><br><span class="line">    <span class="keyword">decltype</span>((obj.x)) b = a;  <span class="comment">//obj.x 带有括号，符合推导规则三，b 的类型为 int&amp;。</span></span><br><span class="line">    <span class="comment">//加法表达式</span></span><br><span class="line">    <span class="type">int</span> n = <span class="number">0</span>, m = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">decltype</span>(n + m) c = <span class="number">0</span>;  <span class="comment">//n+m 得到一个右值，符合推导规则一，所以推导结果为 int</span></span><br><span class="line">    <span class="keyword">decltype</span>(n = n + m) d = c;  <span class="comment">//n=n+m 得到一个左值，符号推导规则三，所以推导结果为 int&amp;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+</ol>
+<h3 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h3><p>auto 只能用于类的静态成员，不能用于类的非静态成员（普通成员），如果我们想推导非静态成员的类型，这个时候就必须使用 decltype 了。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">(T&amp; container)</span> </span>{</span><br><span class="line">        m_it = container.<span class="built_in">begin</span>();</span><br><span class="line">    }</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">typename</span> T::iterator m_it;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">const</span> vector&lt;<span class="type">int</span>&gt; v;</span><br><span class="line">    Base&lt;<span class="type">const</span> vector&lt;<span class="type">int</span>&gt;&gt; obj;</span><br><span class="line">    obj.<span class="built_in">func</span>(v);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>单独看 Base 类中 m_it 成员的定义，很难看出会有什么错误，但在使用 Base 类的时候，如果传入一个 const 类型的容器，编译器马上就会弹出一大堆错误信息。原因就在于，<strong>T::iterator并不能包括所有的迭代器类型</strong>，当 T 是一个 const 容器时，应当使用 const_iterator。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">(T&amp; container)</span> </span>{</span><br><span class="line">        m_it = container.<span class="built_in">begin</span>();</span><br><span class="line">    }</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">decltype</span>(<span class="built_in">T</span>().<span class="built_in">begin</span>()) m_it;  <span class="comment">//注意这里</span></span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<h2 id="auto和decltype的区别"><a href="#auto和decltype的区别" class="headerlink" title="auto和decltype的区别"></a>auto和decltype的区别</h2><ol>
+<li><p><strong>语法格式</strong>的区别：</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> varname = value; <span class="comment">//auto的语法格式</span></span><br><span class="line"><span class="keyword">decltype</span>(exp) varname [= value]; <span class="comment">//decltype的语法格式</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>auto 要求变量必须初始化，也就是在定义变量的同时必须给它赋值；而 decltype 不要求，初始化与否都不影响变量的类型。</p>
+</li>
+<li><p>对<strong>cv限定符</strong>的处理：</p>
+<p>cv 限定符是 const 和 volatile 关键字的统称。</p>
+<p>decltype 会保留 cv 限定符，而 auto 有可能会去掉 cv 限定符。</p>
+</li>
+<li><p>对<strong>引用</strong>的处理：</p>
+<p>decltype 会保留引用类型，而 auto 会抛弃引用类型，直接推导出它的原始类型。</p>
+</li>
+</ol>
 
                 
             </div>
@@ -566,7 +557,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://autinc.github.io/2023/05/27/rpc-fen-bu-shi-tong-xin-kuang-jia-zong-jie/">https://autinc.github.io/2023/05/27/rpc-fen-bu-shi-tong-xin-kuang-jia-zong-jie/</a>
+                    <a href="https://autinc.github.io/2024/01/01/auto-yu-decltype/">https://autinc.github.io/2024/01/01/auto-yu-decltype/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -604,8 +595,8 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/">
-                                    <span class="chip bg-color">个人项目</span>
+                                <a href="/tags/%E6%97%A5%E5%B8%B8%E7%A7%AF%E7%B4%AF/">
+                                    <span class="chip bg-color">日常积累</span>
                                 </a>
                             
                         </div>
@@ -955,13 +946,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2023/08/08/cmake-xue-xi-yu-shi-zhan/">
+                <a href="/2024/01/03/da-hua-she-ji-mo-shi-28-fang-wen-zhe-mo-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="CMake学习与实战">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="《大话设计模式》28-访问者模式">
                         
-                        <span class="card-title">CMake学习与实战</span>
+                        <span class="card-title">《大话设计模式》28-访问者模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -972,7 +963,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-08-08
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-03
                         </span>
                         <span class="publish-author">
                             
@@ -985,8 +976,8 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C-%E5%85%B6%E4%BB%96/">
-                        <span class="chip bg-color">C++其他</span>
+                    <a href="/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/">
+                        <span class="chip bg-color">《大话设计模式》</span>
                     </a>
                     
                 </div>
@@ -1000,13 +991,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/03/22/bai-wan-gao-bing-fa-wang-luo-tong-xin-yin-qing-zong-jie/">
+                <a href="/2023/12/28/da-hua-she-ji-mo-shi-27-jie-shi-qi-mo-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="项目总结-百万高并发网络通信引擎">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="《大话设计模式》27-解释器模式">
                         
-                        <span class="card-title">项目总结-百万高并发网络通信引擎</span>
+                        <span class="card-title">《大话设计模式》27-解释器模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1017,7 +1008,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-12-28
                             </span>
                         <span class="publish-author">
                             
@@ -1030,8 +1021,8 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE/">
-                        <span class="chip bg-color">个人项目</span>
+                    <a href="/tags/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B/">
+                        <span class="chip bg-color">《大话设计模式》</span>
                     </a>
                     
                 </div>
